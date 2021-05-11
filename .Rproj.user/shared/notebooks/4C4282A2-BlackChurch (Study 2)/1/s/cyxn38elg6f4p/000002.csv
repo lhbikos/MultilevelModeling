@@ -1,0 +1,6 @@
+"0","# Import data
+rel <- read.csv(""/Users/Professional/Documents/Research Resources/Reserach Projects/*Completed Studies/Religiousness-Attitudes on Homosexuality/Data/Final Final Dataset.csv"", header=TRUE)
+"
+"2","cannot open file '/Users/Professional/Documents/Research Resources/Reserach Projects/*Completed Studies/Religiousness-Attitudes on Homosexuality/Data/Final Final Dataset.csv': No such file or directory"
+"2","Error in file(file, ""rt"") : cannot open the connection
+"

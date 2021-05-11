@@ -1,0 +1,9 @@
+"0","extract_eq(Mod3, intercept = ""beta"")
+"
+"1","$$
+\begin{aligned}
+  \operatorname{ATSS}_{i}  &\sim N \left(\alpha_{j[i]} + \beta_{1}(\operatorname{AttendL1}), \sigma^2 \right) \\
+    \alpha_{j}  &\sim N \left(\gamma_{0}^{\alpha} + \gamma_{1}^{\alpha}(\operatorname{AttendL2}) + \gamma_{2}^{\alpha}(\operatorname{Homogeneity}), \sigma^2_{\alpha_{j}} \right)
+    \text{, for church j = 1,} \dots \text{,J}
+\end{aligned}
+$$"

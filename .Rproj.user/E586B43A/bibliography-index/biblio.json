@@ -1256,6 +1256,44 @@
             "type": "chapter"
         },
         {
+            "ISBN": "978-0-19-515296-8",
+            "URL": "http://public.ebookcentral.proquest.com/choice/publicfullrecord.aspx?p=3054153",
+            "abstract": "Includes bibliographical references and index.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        4,
+                        27
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Singer",
+                    "given": "Judith D."
+                },
+                {
+                    "family": "Willett",
+                    "given": "John B."
+                }
+            ],
+            "id": "singer_applied_2003",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "keyword": "Research, Longitudinal method; Social sciences",
+            "publisher": "Oxford University Press, Incorporated",
+            "publisher-place": "New York",
+            "title": "Applied Longitudinal Data Analysis: Modeling Change and Event Occurence.",
+            "title-short": "Applied Longitudinal Data Analysis",
+            "type": "book"
+        },
+        {
             "URL": "https://docs.google.com/document/d/1_vNjPCI7H52T8tav1reYgWx6puMT03JZVY1wvEPHrWU/edit?usp=embed_facebook",
             "abstract": "Effect Size, Confidence Intervals, and Power Analyses Collaborative Guide Note: This Guide is currently under revamp. We are sorry if the content looks a bit disorganized. We aim to complete this revamp at the end of August 2020. Please definitely feel free to comment and make suggestions if you...",
             "accessed": {
@@ -1272,6 +1310,65 @@
             "note": "Library Catalog: docs.google.com",
             "title": "Effect size, confidence intervals, and power analyses collaborative guide",
             "type": ""
+        },
+        {
+            "ISBN": "978-1-136-26633-1",
+            "URL": "http://ebookcentral.proquest.com/lib/spu/detail.action?docID=1143716",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        5,
+                        14
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "O’Connell",
+                    "given": "Ann A."
+                },
+                {
+                    "family": "Logan",
+                    "given": "Jessica A. R."
+                },
+                {
+                    "family": "Pentimonti",
+                    "given": "Jill M."
+                },
+                {
+                    "family": "McCoach",
+                    "given": "D. Betsy"
+                }
+            ],
+            "container-title": "Applied quantitative analysis in education and the social sciences",
+            "editor": [
+                {
+                    "family": "Petscher",
+                    "given": "Yaacov"
+                },
+                {
+                    "family": "Schatschneider",
+                    "given": "Christopher"
+                },
+                {
+                    "family": "Compton",
+                    "given": "Donald L."
+                }
+            ],
+            "id": "petscher_linear_2013",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "keyword": "Regression analysis",
+            "publisher": "Taylor & Francis Group",
+            "publisher-place": "London, UNITED KINGDOM",
+            "title": "Linear and quadratic growth models for continuous and dichotomous outcomes",
+            "type": "chapter"
         },
         {
             "DOI": "10.1111/spc3.12512",
@@ -4505,6 +4602,88 @@
             "type": "chapter"
         },
         {
+            "DOI": "10.1037/1082-989X.12.2.121",
+            "ISSN": "1082-989X",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2007-07830-001&site=ehost-live",
+            "abstract": "Appropriately centering Level 1 predictors is vital to the interpretation of intercept and slope parameters in multilevel models (MLMs). The issue of centering has been discussed in the literature, but it is still widely misunderstood. The purpose of this article is to provide a detailed overview of grand mean centering and group mean centering in the context of 2-level MLMs. The authors begin with a basic overview of centering and explore the differences between grand and group mean centering in the context of some prototypical research questions. Empirical analyses of artificial data sets are used to illustrate key points throughout. The article provides a number of practical recommendations designed to facilitate centering decisions in MLM applications. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        23
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Enders",
+                    "given": "Craig K."
+                },
+                {
+                    "family": "Tofighi",
+                    "given": "Davood"
+                }
+            ],
+            "container-title": "Psychological Methods",
+            "id": "enders_centering_2007",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        6
+                    ]
+                ]
+            },
+            "keyword": "Mathematical Modeling, Statistical Analysis, 2007, centering, grand mean centering, group mean centering, hierarchical linear models, Mean, multilevel models",
+            "note": "Place: US Publisher: American Psychological Association",
+            "page": "121-138",
+            "title": "Centering predictor variables in cross-sectional multilevel models: A new look at an old issue",
+            "title-short": "Centering predictor variables in cross-sectional multilevel models",
+            "type": "article-journal",
+            "volume": "12"
+        },
+        {
+            "ISBN": "978-1-135-17299-2",
+            "abstract": "Description based upon print version of record., Includes bibliographical references and index.",
+            "author": [
+                {
+                    "family": "McCoach",
+                    "given": "D. Betsy"
+                }
+            ],
+            "container-title": "The reviewer’s guide to quantitative methods in the social sciences",
+            "editor": [
+                {
+                    "family": "Hancock",
+                    "given": "Gregory R."
+                },
+                {
+                    "family": "O’Mueller",
+                    "given": "R."
+                },
+                {
+                    "family": "Stapleton",
+                    "given": "L. M."
+                }
+            ],
+            "id": "hancock_hierarchical_2010",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "keyword": "Social sciences, Methodology; Social sciences, Research, Statistical methods",
+            "page": "123-140",
+            "publisher": "Routledge",
+            "publisher-place": "Milton Park, Abingdon, Oxon ; New York",
+            "title": "Hierarchical linear modeling",
+            "type": "chapter"
+        },
+        {
             "DOI": "10.1177/0011000020959007",
             "ISSN": "0011-0000, 1552-3861",
             "URL": "http://journals.sagepub.com/doi/10.1177/0011000020959007",
@@ -5535,6 +5714,67 @@
             "volume": "20"
         },
         {
+            "DOI": "10.1177/0011000020918558",
+            "ISSN": "0011-0000, 1552-3861",
+            "URL": "http://journals.sagepub.com/doi/10.1177/0011000020918558",
+            "abstract": "The Black church in the United States has historically functioned as a bastion for civil rights; however, it may also be a source of pain and suffering for sexual minorities. To examine the influence of individual and congregational variables on attitudes toward same-sex sexuality in the Black church, we collected a sample of 219 participants from 15 randomly selected congregations. Results of three hierarchical linear models indicated that congregation- and individual-level variables emerged as equally important predictors of individuals’ attitudes toward same-sex sexuality. Individual-level religiousness and congregation-level education emerged as significant predictors of homonegativity. Our results suggest that congregations may play a role in enacting homonegative attitudes. We encourage counseling psychologists working with religious Black sexual minority clients to help clients consider characteristics of congregations (e.g., education) and individual religious practices (e.g., overzealous service attendance) that may signal homonegativity. We encourage further work examining the influence of congregational factors on congregants’ attitudes.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        4,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Lefevor",
+                    "given": "G. Tyler"
+                },
+                {
+                    "family": "Paiz",
+                    "given": "Jacqueline Y."
+                },
+                {
+                    "family": "Stone",
+                    "given": "William-Michael"
+                },
+                {
+                    "family": "Huynh",
+                    "given": "Kiet D."
+                },
+                {
+                    "family": "Virk",
+                    "given": "Hibah E."
+                },
+                {
+                    "family": "Sorrell",
+                    "given": "Sydney A."
+                },
+                {
+                    "family": "Gage",
+                    "given": "Sierra E."
+                }
+            ],
+            "container-title": "The Counseling Psychologist",
+            "id": "lefevor_homonegativity_2020",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        8
+                    ]
+                ]
+            },
+            "page": "826-851",
+            "title": "Homonegativity and the Black Church: Is Congregational Variation the Missing Link?",
+            "title-short": "Homonegativity and the Black Church",
+            "type": "article-journal",
+            "volume": "48"
+        },
+        {
             "DOI": "10.1037/ort0000203",
             "ISSN": "0002-9432",
             "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2016-39469-001&site=ehost-live",
@@ -6234,6 +6474,365 @@
             "title": "Causality: Models, reasoning, and inference",
             "title-short": "Causality",
             "type": "book"
+        },
+        {
+            "URL": "http://web.pdx.edu/~newsomj/mlrclass/ho_centering.pdf",
+            "author": [
+                {
+                    "family": "Newsom",
+                    "given": "Jason"
+                }
+            ],
+            "id": "newsom_centering_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "publisher": "Psy 526/6126Multilevel Regression",
+            "title": "Centering in Multilevel Regression",
+            "type": ""
+        },
+        {
+            "DOI": "10.1177/0016986210373475",
+            "ISSN": "0016-9862, 1934-9041",
+            "URL": "http://journals.sagepub.com/doi/10.1177/0016986210373475",
+            "abstract": "In education, most naturally occurring data are clustered within contexts. Students are clustered within classrooms, classrooms are clustered within schools, and schools are clustered within districts.When people are clustered within naturally occurring organizational units such as schools, classrooms, or districts, the responses of people from the same cluster are likely to exhibit some degree of relatedness with each other.The use of hierarchical linear modeling allows researchers to adjust for and model this non-independence. Furthermore, it may be of great substantive interest to try to understand the degree to which people from the same cluster are similar to each other and then to try to identify variables that help us to understand differences both within and across clusters. In HLM, we endeavor to understand and explain between- and within-cluster variability of an outcome variable of interest. We can also use predictors at both the individual level (level 1), and the contextual level (level 2) to explain the variance in the dependent variable.This article presents a simple example using a real data set and walk through the interpretation of a simple hierarchical linear model to illustrate the utility of the technique.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "McCoach",
+                    "given": "D.Betsy"
+                }
+            ],
+            "container-title": "Gifted Child Quarterly",
+            "id": "mccoach_dealing_2010",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010,
+                        7
+                    ]
+                ]
+            },
+            "page": "252-256",
+            "title": "Dealing With Dependence (Part II): A Gentle Introduction to Hierarchical Linear Modeling",
+            "title-short": "Dealing With Dependence (Part II)",
+            "type": "article-journal",
+            "volume": "54"
+        },
+        {
+            "DOI": "10.1177/0016986210363076",
+            "ISSN": "0016-9862, 1934-9041",
+            "URL": "http://journals.sagepub.com/doi/10.1177/0016986210363076",
+            "abstract": "This article provides a conceptual introduction to the issues surrounding the analysis of clustered (nested) data. We define the intraclass correlation coefficient (ICC) and the design effect, and we explain their effect on the standard error. When the ICC is greater than 0, then the design effect is greater than 1. In such a scenario, the standard error produced under the assumption of independence is underestimated. This increases the Type I error rate. We provide a short illustration of the effect of non-independence on the standard error.We show that after accounting for the design effect, our decision about the statistical significance of the test statistic changes.When we fail to account for the clustered nature of the data, we conclude that the difference between the two groups is statistically significant. However, once we adjust the standard error for the design effect, the difference is no longer statistically significant.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "McCoach",
+                    "given": "D. Betsy"
+                },
+                {
+                    "family": "Adelson",
+                    "given": "Jill L."
+                }
+            ],
+            "container-title": "Gifted Child Quarterly",
+            "id": "mccoach_dealing_2010-1",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010,
+                        4
+                    ]
+                ]
+            },
+            "page": "152-155",
+            "title": "Dealing With Dependence (Part I): Understanding the Effects of Clustered Data",
+            "title-short": "Dealing With Dependence (Part I)",
+            "type": "article-journal",
+            "volume": "54"
+        },
+        {
+            "DOI": "10.4135/9781483326757.n11",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=1996-97197-011&site=ehost-live",
+            "abstract": "[briefly reviews the author’s] own empirical studies with the ATLG [Attitudes Toward Lesbians and Gay Men scale] / describes how the scale was developed / substantive findings that have been obtained with it are summarized / the construct assessed by the scale is briefly considered and its use is discussed substantive findings with the ATLG scale [correlates of heterosexuals’ attitudes, religious influences on heterosexuals’ attitudes, interpersonal contact and heterosexuals’ attitudes, psychological functions of heterosexuals’ attitudes, gender gap in heterosexuals’ attitudes] (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Herek",
+                    "given": "Gregory M."
+                }
+            ],
+            "collection-title": "Psychological perspectives on lesbian and gay issues, Vol. 1; ISSN: 1072-7841 (Print)",
+            "container-title": "Lesbian and gay psychology: Theory, research, and clinical applications.",
+            "editor": [
+                {
+                    "family": "Greene",
+                    "given": "Beverly"
+                },
+                {
+                    "family": "Herek",
+                    "given": "Gregory M."
+                }
+            ],
+            "id": "herek_assessing_1994",
+            "issued": {
+                "date-parts": [
+                    [
+                        1994
+                    ]
+                ]
+            },
+            "keyword": "Attitude Measures, Test Construction, Heterosexuality, Homosexuality (Attitudes Toward), development & substantive findings of & construct assessed by Attitudes Toward Lesbians & Gay Men scale, heterosexuals, Scaling (Testing)",
+            "page": "206-228",
+            "publisher": "Sage Publications, Inc",
+            "publisher-place": "Thousand Oaks, CA",
+            "title": "Assessing heterosexuals’ attitudes toward lesbians and gay men: A review of empirical research with the ATLG scale",
+            "title-short": "Assessing heterosexuals’ attitudes toward lesbians and gay men",
+            "type": "chapter"
+        },
+        {
+            "DOI": "10.3390/rel1010078",
+            "URL": "https://www.mdpi.com/2077-1444/1/1/78",
+            "abstract": "There is need for a brief measure of religiosity that can be included in epidemiological surveys to examine relationships between religion and health outcomes. The Duke University Religion Index (DUREL) is a five-item measure of religious involvement, and was developed for use in large cross-sectional and longitudinal observational studies. The instrument assesses the three major dimensions of religiosity that were identified during a consensus meeting sponsored by the National Institute on Aging. Those three dimensions are organizational religious activity, non-organizational religious activity, and intrinsic religiosity (or subjective religiosity). The DUREL measures each of these dimensions by a separate “subscale”, and correlations with health outcomes should be analyzed by subscale in separate models. The overall scale has high test-retest reliability (intra-class correlation = 0.91), high internal consistence (Cronbach’s alpha’s = 0.78–0.91), high convergent validity with other measures of religiosity (r’s = 0.71–0.86), and the factor structure of the DUREL has now been demonstrated and confirmed in separate samples by other independent investigative teams. The DUREL has been used in over 100 published studies conducted throughout the world and is available in 10 languages.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Koenig",
+                    "given": "Harold G."
+                },
+                {
+                    "family": "Büssing",
+                    "given": "Arndt"
+                }
+            ],
+            "container-title": "Religions",
+            "id": "koenig_duke_2010",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010,
+                        12
+                    ]
+                ]
+            },
+            "keyword": "religiosity, validity, DUREL, index",
+            "note": "Number: 1 Publisher: Molecular Diversity Preservation International",
+            "page": "78-85",
+            "title": "The Duke University Religion Index (DUREL): A Five-Item Measure for Use in Epidemological Studies",
+            "title-short": "The Duke University Religion Index (DUREL)",
+            "type": "article-journal",
+            "volume": "1"
+        },
+        {
+            "ISBN": "978-0-8039-4627-9",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=1992-97494-000&site=ehost-live",
+            "abstract": "Much social and behavioral research involves hierarchical data structures. . . . Recent developments in the statistical theory of hierarchical linear models now afford an integrated set of methods for such applications. This introductory text explicates the theory and use of hierarchical linear models (HLM) through rich, illustrative examples and lucid explanations. The presentation remains reasonably nontechnical by focusing on three general research purposes—improved estimation of effects within an individual unit, estimating and testing hypotheses about cross-level effects, and partitioning of variance and covariance components among levels. This innovative volume describes use of both two and three level models in organizational research, studies of individual development and meta-analysis applications, and concludes with a formal derivation of the statistical methods used in the book. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Bryk",
+                    "given": "Anthony S."
+                },
+                {
+                    "family": "Raudenbush",
+                    "given": "Stephen W."
+                }
+            ],
+            "collection-title": "Advanced qualitative techniques in the social sciences, 1",
+            "id": "bryk_hierarchical_1992",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992
+                    ]
+                ]
+            },
+            "keyword": "Mathematical Modeling, Statistical Analysis, discusses the application & statistical analysis of hierarchical linear models in social science research",
+            "publisher": "Sage Publications, Inc",
+            "publisher-place": "Thousand Oaks, CA",
+            "title": "Hierarchical linear models: Applications and data analysis methods",
+            "title-short": "Hierarchical linear models",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1027/1614-2241/a000062",
+            "ISSN": "1614-1881",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2014-03027-001&site=ehost-live",
+            "abstract": "Whereas general sample size guidelines have been suggested when estimating multilevel models, they are only generalizable to a relatively limited number of data conditions and model structures, both of which are not very feasible for the applied researcher. In an effort to expand our understanding of two-level multilevel models under less than ideal conditions, Monte Carlo methods, through SAS/IML, were used to examine model convergence rates, parameter point estimates (statistical bias), parameter interval estimates (confidence interval accuracy and precision), and both Type I error control and statistical power of tests associated with the fixed effects from linear two-level models estimated with PROC MIXED. These outcomes were analyzed as a function of: (a) level-1 sample size, (b) level-2 sample size, (c) intercept variance, (d) slope variance, (e) collinearity, and (f) model complexity. Bias was minimal across nearly all conditions simulated. The 95% confidence interval coverage and Type I error rate tended to be slightly conservative. The degree of statistical power was related to sample sizes and level of fixed effects; higher power was observed with larger sample sizes and level-1 fixed effects. (PsycINFO Database Record (c) 2020 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Bell",
+                    "given": "Bethany A."
+                },
+                {
+                    "family": "Morgan",
+                    "given": "Grant B."
+                },
+                {
+                    "family": "Schoeneberger",
+                    "given": "Jason A."
+                },
+                {
+                    "family": "Kromrey",
+                    "given": "Jeffrey D."
+                },
+                {
+                    "family": "Ferron",
+                    "given": "John M."
+                }
+            ],
+            "container-title": "Methodology: European Journal of Research Methods for the Behavioral and Social Sciences",
+            "id": "bell_how_2014",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "keyword": "Mathematical Modeling, Statistical Estimation, Sample Size, Type I Errors, Statistical Power, multilevel models, statistical power, model convergence rates, Monte Carlo, parameter interval estimates, parameter point estimates, sample size, Type I error control",
+            "note": "Publisher: Hogrefe Publishing",
+            "page": "1-11",
+            "title": "How low can you go? An investigation of the influence of sample size and model complexity on point and interval estimates in two-level linear models",
+            "title-short": "How low can you go?",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
+            "URL": "https://aosmith.rbind.io/2018/04/23/simulate-simulate-part-2/",
+            "abstract": "In my second simulation example I show how to simulate data from a basic two-level hierarchical design. I go on to explore how well the random effects variance component is estimated for different sample sizes.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Muldoon",
+                    "given": "Ariel"
+                }
+            ],
+            "container-title": "Very statisticious",
+            "id": "muldoon_simulate_2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        4
+                    ]
+                ]
+            },
+            "note": "Section: r",
+            "title": "Simulate! Simulate! - Part 2: A linear mixed model",
+            "title-short": "Simulate! Simulate! - Part 2",
+            "type": ""
+        },
+        {
+            "DOI": "10.18637/jss.v067.i01",
+            "ISSN": "1548-7660",
+            "URL": "http://www.jstatsoft.org/v67/i01/",
+            "abstract": "Maximum likelihood or restricted maximum likelihood (REML) estimates of the parameters in linear mixed-eﬀects models can be determined using the lmer function in the lme4 package for R. As for most model-ﬁtting functions in R, the model is described in an lmer call by a formula, in this case including both ﬁxed- and random-eﬀects terms. The formula and data together determine a numerical representation of the model from which the proﬁled deviance or the proﬁled REML criterion can be evaluated as a function of some of the model parameters. The appropriate criterion is optimized, using one of the constrained optimization functions in R, to provide the parameter estimates. We describe the structure of the model, the steps in evaluating the proﬁled deviance or REML criterion, and the structure of classes or types that represents such a model. Suﬃcient detail is included to allow specialization of these structures by users who wish to write functions to ﬁt specialized linear mixed models, such as models incorporating pedigrees or smoothing splines, that are not easily expressible in the formula language used by lmer.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        10
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Bates",
+                    "given": "Douglas"
+                },
+                {
+                    "family": "Mächler",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Bolker",
+                    "given": "Ben"
+                },
+                {
+                    "family": "Walker",
+                    "given": "Steve"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "bates_fitting_2015",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "title": "Fitting Linear Mixed-Effects Models Using <b>lme4</b>",
+            "type": "article-journal",
+            "volume": "67"
         }
     ],
     "project_biblios": [

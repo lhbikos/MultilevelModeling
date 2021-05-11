@@ -1,0 +1,1013 @@
+---
+title: "SW_Ch4 Doing Multilevel Modeling"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "May 24, 2019"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Clear your Global Environment
+rm(list=ls())
+```
+
+![image](behind.png){#id .class width=640 height=300px}
+
+SCREENCAST LINK:  MLMdive_intro  https://spu.techsmithrelay.com/E7wg 
+
+## navigating this lectuRe
+
+###sReencast table
+```{r Screencast Links Table, echo=FALSE, warning=FALSE, paged.print=TRUE}
+#install.packages("kableExtra")
+#install.packages("pander")
+#library(knitr)
+#library(kableExtra)
+library(tidyverse)
+library(pander)
+MLMdive_screencasts <- read.csv("SW_MLMdive_links.csv")
+pandoc.table(MLMdive_screencasts, style = "multiline", split.table = Inf, justify = "left", format = docx)
+```
+
+About 1'45" minutes of lecture.  Add another1'30" minutes for taking your time, running, and understanding the scripts.
+
+###quiz pRep
+
+* In the taxonomy of model building, what is an unconditional means model and what is an unconditional growth model?
+* Know the fundamental differencs between FML and RML.  Specifically, what effects do they cover/not-cover and how does that impact our interpretation of deviance statistics?
+* What is an ICC?  How do you interpret it?
+* Given a taxonomy of model comparisons (such as we grew in the Viewer pane), be able to interpret both fixed and random effects.  Be able to calculate pseudo R2 for the three primary variance components (sigma^2, tau00, tau11)
+* In terms of overall model evaluation, how do you (generally) interpret deviance and AIC statistics?
+
+###planning for youR homewoRk
+A continuation from the prior lectures...please select a dataset (your own, from your RVT, or from the S&W datasets) that includes at a time-varying DV and at least 1 L2 variable.  Restructure the dataset, run the preliminary exploration, and then run/specify a model with time as a L1 predictor and the L2 variable as an L2 predictor. The RMD homework template will be in one of the lecture folders.
+
+###Readings & ResouRces
+```{r Readings Table, echo=FALSE, warning=FALSE, paged.print=TRUE}
+MLMdive_rdgs <- read.csv("SW_MLMdive_rdgs.csv")
+pandoc.table(MLMdive_rdgs, style = "multiline", split.table = Inf, justify = "left", format = docx)
+```
+
+##Now introducing...
+SCREENCAST LINK:  MLMdive0 https://spu.techsmithrelay.com/0dtc 
+
+S&W tell us that the focus of this chapter is on "real-world issues of analysis" (p. 75). To that end, they introduce some complexities:
+
+*Composite model*:  Combines the L1 (how each person changes over time) and L2 (relates interindividual differences in change to predictors) submodels into a single equation.  
+
+This composite model "leads naturally" to consideration of alternate methods of estimations (we're using maximum likelihood) and two approaches to estimation
+
+* *generalized least squares (GLS)*
+* *iterative generalized least squares (IGLS)*
+
+* *full*
+* *restricted*
+
+In addition to the exploration demonstrated in S&W Chapters 2 and 3, longitudinal model building should always start by fitting two models that provide essential baselines for subsequent comparison:
+
+* *unconditional means model*
+* *unconditional growth model*
+
+There are multiple ways to add time-invariant (L2) predictors, to test complex hypotheses, and examine model assumptions and residuals.  Additionally, we can get "model-based" estimates of individual growth trajectories that improve upon the exploratory OLS estimates we did in chapters 2 and 3.
+
+S&W assure us that they streamlined the approach by sticking to (a) a *linear* (not curvilinear) growth model and (b) a time-structured (everyone has the same schedule) dataset; we also don't have to deal with missing data.
+
+
+##Motivating Example
+https://stats.idre.ucla.edu/r/examples/alda/r-applied-longitudinal-data-analysis-ch-4/
+
+```{r}
+library(psych)
+alc_long <- read.csv ("alcohol1_pp.csv", header = TRUE)
+str(alc_long)
+round(describe(alc_long),3)
+```
+
+Curran, Stice, and Chassin (1997) examined the relation between changes in adolescent alcohol use and changes in peer alcohol use over a 3-year period in a community-based sample of 363 Hispanic and Caucasian adolescents.  Curran et al. actually use latent growth models (an SEM-based approach) to modeling the data, so the Method/Result prodes more of a comparison.
+
+Our dataset includes complete (nonmissing) data from 82 adolescents.  
+
+* AGE:  Begining with 14, we have 3 structured waves of age (14, 15, 16)
+  + AGE_14:  is our age variable, centered around 0 so that we can interpret 1 unit changes.  This means that 14->0, 15->1, 16->2)
+* ALCUSE:  Each year, beginning at age 14, the teens completed a 4-item instrument assessing their alcohol consumption during the previous year.  Using an 8-point scale (ranging from 0 = "not at all" to 7 "every day"), participants described the frequency with which they (a) drank beer or wine, (b) drank hard liquor, (c) had 5 or more drinks in a row, and (d) got drunk.
+  + Our ALCUSE variable has been transformed by computing the square root of the sum of participants' ALCUSE sum.  S&W suggest that this transformation allows us to "assume linearity with AGE at L1."
+
+The data set included two potential predictors of alcohol use:  
+
+* COA:  a dichotomy indicating whether the adolescent is a child of an alcoholic parent (0 = ??, 1 = ??)
+  + CCOA is a mean-centered version of this dichotomous variable (curious).
+* PEER:  a measure of alcohol use among the adolescent's peers at Wave 1, assessed on a 6-point scale (0 = "none" to 5 ("all).
+  + Our PEER variable has been transformed by computing the square root of the raw score.  S&W suggest that this transformation allows us to "assume linearity with PPER at L2."
+  + S&W further elaborate that had we not done this, we could not presume that the models were nonlinear.  This type of transformation allows us to avoid violating necessary linear assumptions and that analysis is often clearer if we fit a linear model to transformed variables instead of a nonlinear model to raw variables.
+  + CPEER is a mean centered version of (I presume) the transformed variable.
+
+Further
+* MALE: is our gender variable. Coding:  male = 1, female = 0
+
+In this lecturette we explore whether individual trajectories of alcohol use during adolescence differ according to the history of parental alcoholism and early peer use.
+
+##Abbreviated OLS exploration
+SCREENCAST LINK: MLMdive1 https://spu.techsmithrelay.com/Tplq 
+
+The dataset comes to us in the long form.  Had it been in wide form we would have had to restructure it, first.
+
+Were this your dataset, you would do more.  We start with a couple of line plots of alcohol use over time, identified first by the dichotomous variable, gender, then coa status.
+
+```{r}
+ggplot(alc_long, aes(x = age, y = alcuse, group=id, color = male)) +
+  geom_line(alpha=.3) + labs(title="Adolescent Alcohol Use by Gender") +
+  theme(legend.position = "none")
+
+ggplot(alc_long, aes(x = age, y = alcuse, group=id, color = coa)) +
+  geom_line(alpha=.3) + labs(title="Adolescent Alcohol Use by COA status") +
+  theme(legend.position = "none")
+
+```
+
+
+And the individual plots of a random sampling of students.
+
+```{r}
+rando <- round(runif(12,1,82),0)
+indplot <- subset(alc_long, id %in% rando)
+ggplot(indplot, aes(x=age, y=alcuse)) + geom_line(color="tomato") + 
+  facet_wrap(~id) + 
+  labs(x="Adolescent Age", y="Alcohol Use", title="Alcohol Use Trajectories for a Random Sample of Adolescents") + 
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+```
+
+And now a quick peek at the empirical change plots with superimposed OLS-estimated linear trajectories for 8 adolescents (that the researchers randomly or strategically) selected from the larger sample.
+
+```{r}
+library(lattice)
+
+xyplot(alcuse~age | id,
+  data=alc_long[alc_long$id %in% c(4, 14, 23, 32, 41, 56, 65, 82), ],
+  panel=function(x,y){
+    panel.xyplot(x, y)
+    panel.lmline(x,y)
+}, ylim=c(-1, 4), as.table=T)
+```
+
+S&W suggest that the relationship between the transformed alcuse and age variables appears to be *linear* between ages 14 and 16.  This supports positing an L1 individual growth model that is *linear* with adolescent age:
+$$Y_{ij}=\pi _{0i}+\pi _{1i}(AGE_{ij}-14)+\varepsilon _{ij}$$
+What are we saying?  We are predicting each adolescent's alcohol use at a a given time $Y_{ij}$.  This prediction includes use at age 14 ($\pi _{0i}$, the intercept) and the rate of change ($\pi _{1i}$). The rate of change is determined by their age, centered around zero:  $AGE_{ij}-14$.  Of course, each equation isn't perfect, and so a little residual remains:  $\varepsilon _{ij}$.
+
+Rather than the $AGE_{ij}-14$, we can add a modicum of simplicity to our equation by simply using our TIME variable (already centered).
+
+$$Y_{ij}=\pi _{0i}+\pi _{1i}(TIME_{ij})+\varepsilon _{ij}$$
+Just a little more recap:
+
+$\pi _{0i}$ is the individual $i$'s *true* initial status, the value of the outcome when $TIME_{ij}$ is zero.
+
+$\pi _{1i}$ is the individual $i$'s *true* rate of change during the period under study.
+
+$\varepsilon _{ij}$ represents that portion of the individual $i$'s outcome that is unpredicted on occation $j$.
+
+We *assume* that the $\varepsilon _{ij}$'s are independently drawn from a normal distribution with a mean of 0 and a variance of $\sigma _{\varepsilon }^{2}$.
+
+
+Thinking ahead to our L2 specification, we will fit OLS trajectories displayed separately by COA status and PEER levels.
+
+```{r}
+alcohol.coa0 <- alc_long[alc_long$coa==0, ]
+
+#fitting the linear model by id
+f.coa0 <- by(alcohol.coa0, alcohol.coa0$id,
+             function(data) fitted(lm(alcuse~age, data=data)))
+
+#transforming f.coa from a list to a vector and
+#stripping of the names of the elements in the vector
+f.coa0 <- unlist(f.coa0)
+names(f.coa0) <- NULL
+#plotting the linear fit by id
+interaction.plot(alcohol.coa0$age, alcohol.coa0$id, f.coa0,
+                  xlab="AGE", ylab="ALCUSE", ylim=c(-1, 4), lwd=1)
+title("COA=0")
+```
+
+```{r}
+alcohol.coa1 <- alc_long[alc_long$coa==1, ]
+
+#fitting the linear model by id
+f.coa1 <- by(alcohol.coa1, alcohol.coa1$id,
+              function(data) fitted(lm(alcuse~age, data=data)))
+#transforming f.coa1 from a list to a vector and
+#stripping of the names of the elements in the vector
+f.coa1 <- unlist(f.coa1)
+names(f.coa1) <- NULL
+#plotting the linear fit by id
+interaction.plot(alcohol.coa1$age, alcohol.coa1$id, f.coa1,
+                    xlab="AGE", ylab="ALCUSE", ylim=c(-1, 4), lwd=1)
+title("COA=1")
+```
+
+Some observable trends.  The intercept/age 14 use is more broadly spread when COA=1, with a mixed trajectory that follows.  In contrast, when COA=0, we see a narrow/lower band of alcohol use at age 14, with a general increasing use during the next 2 years.
+
+
+
+In graphing peer, we want to do a mean split, so we first need to grab the mean:
+```{r}
+mean(alc_long$peer)
+```
+
+
+```{r}
+alcohol.lowpeer <- alc_long[alc_long$peer<=1.01756, ]
+#fitting the linear model by id
+f.lowpeer <- by(alcohol.lowpeer, alcohol.lowpeer$id,
+function(data) fitted(lm(alcuse~age, data=data)))
+#transforming f.lowpeer from a list to a vector and
+#stripping of the names of the elements in the vector
+f.lowpeer <- unlist(f.lowpeer)
+names(f.lowpeer) <- NULL
+#plotting the linear fit by id
+interaction.plot(alcohol.lowpeer$age, alcohol.lowpeer$id, f.lowpeer,
+xlab="AGE", ylab="ALCUSE", ylim=c(-1, 4), lwd=1)
+title("Low Peer")
+```
+
+```{r}
+alcohol.hipeer <- alc_long[alc_long$peer>1.01756, ]
+#fitting the linear model by id
+f.hipeer <- by(alcohol.hipeer, alcohol.hipeer$id,
+function(data) fitted(lm(alcuse~age, data=data)))
+#transforming f.hipeer from a list to a vector and
+#stripping of the names of the elements in the vector
+f.hipeer <- unlist(f.hipeer)
+names(f.hipeer) <- NULL
+#plotting the linear fit by id
+interaction.plot(alcohol.hipeer$age, alcohol.hipeer$id, f.hipeer,
+xlab="AGE", ylab="ALCUSE", ylim=c(-1, 4), lwd=1)
+title("High Peer")
+```
+
+Wow!  Some clear pix.  The intercept looks really different for adolescents as a function of hi/lo peer usage.  More ados with high peer use are drinking at 14 than their low peer counterparts.
+
+In terms of trajectories, we see mostly an increase in alcohol use for those classifid as lo-peer.  A more mixed profile in those classified as hi-peer.
+
+S&W suggest that both COA and PEER are viable predictors of change.  Each deserve further consideration.
+
+##Focus on the Formulae
+
+Focusing just on COA, we can posit an L2 submodel for interindividual differences.  Recall, the L1 specification has two parts of the submodel: intercept and slope
+
+$$\pi_{0i}=\gamma _{00}+\gamma _{01}COA_{i}+\zeta _{0i}$$ 
+$$\pi_{1i} = \gamma _{10}+\gamma _{11}COA_{i} + \zeta_{1i} $$
+
+Even before doiing any analyses, we can begin to imagine what our model is telling us.  In the L2 submodel:
+
+$\gamma _{00}$ and $\gamma _{10}$, the L2 intercepts, represent the population average initial status and rate of change for a child of a non-alcoholic.  If both parameters are 0, the average child whose parents are non-alcoholic uses no alcohol at age 14 and does not change his/her alcohol consumption between ages 14 and 16. 
+
+$\gamma _{01}$ and $\gamma _{11}$, the L2 slopes, represent the effect of COA on the change trajectories, providing increments (or decrements) to initial status and rates of change, respectively, for children of alcoholics. If both parmeters are 0, the average child of an alcoholic initially uses no more alcohol than the average child of a non-alcoholic and the rates of change in alcohol use do not differ as well.
+
+$\zeta _{0i}$ and $\zeta_{1i}$, the L2 residuals, represent those portions of the intial status or rate of change that are unexplained at L2.  They represent deviations of the individual change trajectories around their respective group average trends.
+
+Assumptions around the residuals are that they are independently drawn from a bivariate normal distribution with a mean of 0, variances $\sigma _{0}^{2}$ and $\sigma _{1}^{2}$, and covariance $\sigma _{01$.
+
+With a little algebraic magic we can combine these formulas into one.  Let's do it in phases:
+
+$$Y_{ij}=\pi _{0i}+\pi _{1i}(TIME_{ij})+\varepsilon _{ij}$$
+       $$ =(\gamma _{00}+\gamma _{01}COA_{i}+\zeta _{0i})+(\gamma _{10}+\gamma _{11}COA_{i} + \zeta_{1i})TIME{ij}+\varepsilon _{ij}$$
+       
+From the first to the second version, you can see the "swap in" for the L2 submodels.
+
+Now we can do further reassembly for the *composite multilevel model for change*.
+$$Y_{ij}=[\gamma _{00}+\gamma _{10}TIME_{ij}+\gamma _{01}COA_{i}+\gamma _{11}(COA_{i}XTIME_{ij})] +[\zeta _{0i}+\zeta _{1i}TIME_{ij}+\varepsilon _{ij}]$$
+Comparing the L1/L2 presentation with the composite representation:
+
+* They are mathematically equivalent.
+* The advantage of the "substantively appealing" L1/L2 specification is that it reflects the conceptual framework directly/clearly and can facilitate interpretation
+* The advantage of the "algebraically parsimonious" composite model is that it clarifies which statistical model is being fit to the data when the computer begins its iterations. Also
+
+The *structural* portion of the model is in the first set of brackets and contains our COA and TIME predictors, as well as the four *fixed effects* (the 4 gammas with 00, 10, 01, and 11 designations). The structural portion looks like a "regular regression" model with predictors TIME and COA appearing both as main effects and interaction effects; note that in this circumstance there is a *cross-level* interaction associated with $\gamma _{11}$.
+
+
+The *stochastic* portion of the model is in the second set of brackets. The *random effects* are contained in this portion. We interpret them to understand the behavior of residuals over time in longitudinal data. A distinctive feature of the composite multilevel model is its *composite* residual.  There are 3 residual terms that combine together the L1 residual and two L2 residuals. The composite residual $\zeta _{0i}+\zeta _{1i}TIME_{ij}+\varepsilon _{ij}$ is not a simple sum but its interpreation is straightforward.  That is, it describes the diference between the observed and expected value of *Y* for individual *i* on *j* occasion.
+
+In L1/L2 specifications, residuals can be *autocorrelated* and *heterscedastistic* within person (totally the kinds of properties you would expect among residuals for repeated measures of a changing outcome).
+
+* *Heteroscedasticity* occurs when the unexplained portions of each person's outcome have unequal variances across occasions of measurement.
+* *Autocorrelation* occurs when the unexplained portions of each person's outcome are correlated with each other across repeated occasions.  
+* For both heteroscasticity and autocorrelations, omitted predictors, whose effects "have nowhere to go" are bundled into the residuals. Lucky for us, the variance components will tell us if there is "variance remaining to explain" and provide us clues of when/how to add predictors.
+
+The text offers more in-depth examination and explanation of these models.
+
+##A Moment on Estimators
+
+Although we tend to use maximum likelihood estimators (ML), two OLS approaches (generalized least squares [GLS] and iterative generalized least squares [IGLS]) are also used. They are described in more depth in the text. S&W demo an IGLS method late in the chapter.
+
+More commonly, researchers use ML estimators -- but these are divided into *full* (FML) and *restricted*(RML) types. The essential difference is in how the likelihood function is formed.  It, in turn, affects parameter estimation and the strategies used to test hypotheses.  It is proper to select the ML method prior to fitting models.  All stats packages have defaults.  It is important to know what they are and how to change them.
+
+A brief (more in text) overview of each:
+
+###Full maximum likelihood**
+
+* FML assesses the joint probability of simultaneously observing all the sample data actually obtained
+* The sampling likelihood is a function of all the data and hypothesized model and its assumptions.   It includes all the unknown parameters, both the fixed effects (the gammas) and the variance components (the 4 sigmas).
+* The computer computes those estimates of these population parameters that jointly maximize this likelihood
+* The criticism of FML is that it ignores uncertainty about the fixed effects when estimating the variance components, treating their values as known.  FML overstates the degrees of freedom left for estimating variance components and underestimates the variance components themselves, leading to biased estimates when samples are small.
+
+###Restricted maximum likelihood**
+
+* RML estimates of the variance components are those values that maximize the likelihood of observing the sample *residuals* (not the sample data).
+* Like FML, it's an iterative process begining with the fixed effects (the gammas) using OLS or GLS. Next, the predicted gammas are used to estimate a residual for each person on each occasion. A likelihood of observing this particular collection (residuals and the unkonwn variance components that govern their distribution) is noted.  The logarithm of the restricted likelihood is maximized to yield RML estimates of variance components -- the only known parameters remaining.
+
+**Which to use when?**
+Much controversy for decades. Neither is clearly better than the other.
+
+* Goodness of fit statistics from FML can be used to test hypotheses about any type of parameter (either a fixed effect or variance component)
+* Goodness of fit statistics from RML can only be used to test hypotheses about variance components (*not* fixed effects)
+* Thus, when we compare models that differ in both fixed and variance componetns we need to use FML; when they differ only in variance components, we can use either.
+
+##Two Unconditional Multilevel Models for Change
+
+Subsequent to identifying the research questions, restructuring the dataset from wide to long, conducting the exploratory analyses, and choosing the estimation approach...we start small by fitting first an *unconditional means model* and then an *unconditional growth model.*
+
+These *unconditional* (no moderators) partition and quantify the outcome variation in two ways:
+
+* across people without regard to time (unconditional means model)
+* across both time and people (unconditional growth model)
+
+This allows us to establish
+
+* whether there is systematic variation in the outcome that is worth modeling
+* *where* variation resides (within or between people)
+* baselines for evaluating the successive models (long live Joreskog's *model generating* approach)
+
+
+###Model A:  The unconditional means model (aka the "empty model")
+SCREENCAST LINK:  MLMdive2 https://spu.techsmithrelay.com/PpYD 
+
+ALWAYS fit this first.
+
+With ZERO predictors at every level, is the way to DESCRIBE and PARTITION the outcome *variation*.  
+
+$$Y_{ij}=\pi _{0i}+\varepsilon _{ij}$$
+$$\pi _{0i}=\gamma _{00}+\zeta _{0i}$$
+The unconditional means model (with no slope parameter) stipulates that at L1, the true individual change trajectory for person *i* is flat, sitting at elevation $\pi _{0i}$. Plus, the single part of the L2 model means that while these flat trajectories may differ in elevation, their average elevation across everyone in the population is $\gamma _{00}$. There is no link to interindividual variation and predictors. 
+
+In sum:  this model is not about change.  It really just gives you a *mean*.  However, it is a necessary first step because it partitions the total variation in the outcome. Harkening back to ANOVA:
+
+$Y_{ij}$  is the person-specific mean
+$\pi _{0i}$ is the grand mean
+
+The unconditional means model postulates that the observed value of *Y* for individual *i* on occasion *j* is composed of deviations about these means. On occasion *j*, $Y_{ij}$ deviates from individual *i*'s true mean ($\pi _{0i}$) by $\varepsilon _{ij}$.  Thus, the L1 residual is a "within-person" deviation that assesses the distance between $Y_{ij}$ and$\pi _{0i}$.
+
+THEN, for person *i*, his or her true mean ($\pi _{0i}$) deviates from the population average true mean $\gamma _{00}$ by $\zeta _{0i}$.  This L2 residual is a "between person" deviation that assesses distance between $\pi _{0i}$ and $\gamma _{00}$.
+
+Model A output (the unconditional means model) will provide us with two variance componetns:
+
+$\sigma _{\varepsilon }^{2}$ is the within-person variance -- the pooled scatter of each person's data around his/her own mean
+$\sigma _{0}^{2}$ is the between-person variance -- the pooled scatter of the person-specific means around the grand mean.
+
+The purpose of fitting the unconditioned means model is to get these two variance components so we can estimate the amount of variation that exists at each level.  We can use employ associated hypothesis tests to help determine whether there is sufficient variation at that level to continue modeling. If a variation component is...
+
+* ZERO, there is no point in trying to predict outcome variation *at that level*
+* NON-ZERO, there is some variation *at that level* that could potentially be explained 
+
+With *lme4*.
+
+RML is the default for *lme4*, we switch to FML with the statement, "REML = FALSE".
+
+###A moment on *lmer()* syntax
+Helpful resource:  https://datascienceplus.com/analysing-longitudinal-data-multilevel-growth-models-i/ 
+
+We can think of the script for *lmer()* as the basic script for the *lm()* function with the additional random effect portion added in.
+
+We can think of random effects as those things that are outside our control. For example, assignment to a treatment or control condition is in our control; it's a fixed effect.  However, alcohol use at age 14 (intercept) is going to vary from individual to individual -- a random effect.  We can model this random effect.  We can also have models with random slopes.
+
+To model a random intercept, we use this basic formula:  DV ~ IV + (1 | rand.int)
+
+* DV is the dependent variable
+* IV represents independent variables
+* 1 represents the coefficients (or slope) of the independent variables
+* rand.int is the variable acting as a random intercept (usually this is the column of participant IDs)
+
+To model a random slope we use:  DV ~ IV + (rand.slope | rand.int).
+
+SO!  In the model below (the goal of which is really to just get a mean and understand our within/between variance), we put a "1" in front of the "|" because we are fixing slope to a single value -- it will not vary.  But we are interested in knowing how our intercepts are different as a function of person (ID).
+
+```{r}
+library(lme4)
+ModA_lme4 <- lmer(alcuse ~1 +(1 | id), alc_long, REML = FALSE)
+summary(ModA_lme4)
+```
+
+
+```{r}
+library(sjPlot)
+tab_model(ModA_lme4, file = NULL)
+```
+
+**Some interpretation**
+
+$\hat{\gamma }_{0}^{0}$, the intercept, estimates the grand mean across all occasions and individuals.  The value, 0.92 (*p* 0.001) confirms that the average alcohol consumption of the average adolescent between ages 14 and 16 is non-zero.  Recall the authors performed a square root transformation on this variable?  Squaring 0.92 = 0.85.  The kids are drinking, but (considering its 1 to 7 likert scaling) not much.
+
+$\hat{\sigma }_{\varepsilon }^{2}$, within-person variance, is 0.564 (*SD* = 0.751).  Find this in the lme4* output labeled RANDOM EFECTS: RESIDUAL
+
+$\hat{\sigma }_{0}^{2}$, between-person variance, is 0.562 (*SD*= 0.750). Find this in the *lme4* output labeled RANDOM EFFECTS:  ID
+
+The *intraclass correlation coeffient (ICC)*, $\rho $, describes the proportion of variance that lies *between* people.  It is the essential piece of data we need from this model.  Because the total variation in *Y* is just the sum of the within and between-person variance components, the population intraclass correlation is:  
+
+$$\rho =\frac{\sigma _{0}^{2}}{\sigma _{0}^{2}+\sigma _{\varepsilon}^{2}}$$
+ In our case this translates:  
+  $$\rho =\frac{0.564}{0.564 + 0.562} = 0.50$$
+This means that 50% of the total variation in alcohol use is attributable to differences among adolescents. Within the context of the unconditional means model, the ICC also summarizes the size of the *residual (or error) autocorrelation*.  Practically speaking, this means that we estimate that for each person, the average correlation between any pair of composite residuals (e.g., between occasions 1 and 2, 2 and 3, or 1 and 3) is 0.50.  This is considered to be large and far away from the zero residual autocorrelation that an OLS analysis would assume (require).
+ 
+In addition to hand-calculating the ICC we spot it in the tab_model/Viewer pane when we ask for a table from the *lme4* model.
+
+###Model B:  The unconditional growth model
+SCREENCAST LINK: MLMdive3 https://spu.techsmithrelay.com/2MUo 
+
+The second model is introduces TIME into the L1 submodel.  Because (a) there are only 3 points and (b) a linear model made sense in our exploratory analyses, we specify a trajectory of linear change. We do not include any other substantive predictors.
+
+Here's our new model:  
+
+$$Y_{ij}=\pi _{0i}+\pi _{1i}TIME_{ij}+\varepsilon _{ij}$$
+$$\pi _{0i}=\gamma _{00} + \zeta _{0i}$$
+$$\pi _{1i}=\gamma _{10} + \zeta _{1j}$$
+
+S&W Table 4.2 lists all the formulae for the models we are testing. Here it becomes clear that *TIME* is the only predictor in the model.   Because there are no other predictors, it is an *unconditional* growth model. 
+
+Let's run it, then focus on the output and what it all means.
+
+###A moment on *lmer()* syntax
+Helpful resource:  https://datascienceplus.com/analysing-longitudinal-data-multilevel-growth-models-i/ 
+
+We can think of the script for *lmer()* as the basic script for the *lm()* function with the additional random effect portion added in.
+
+We can think of random effects as those things that are outside our control. For example, assignment to a treatment or control condition is in our control; it's a fixed effect.  However, alcohol use at age 14 (intercept) is going to vary from individual to individual -- a random.  We can model this random effect.  We can also have models with random slopes.
+
+To model a random intercept, we use this basic formula:  DV ~ IV + (1 | rand.int)
+
+* DV is the dependent variable
+* IV represents independent variables
+* 1 represents the coefficients (or slope) of the independent variables
+* rand.int is the variable acting as a random intercept (usually this is the column of participant IDs)
+
+To model a random slope we use:  DV ~ IV + (rand.slope | rand.int).
+
+
+```{r}
+#with lme4 package
+ModB_lme4 <- lmer(alcuse ~ age_14 +(age_14 | id), alc_long, REML = FALSE)
+summary(ModB_lme4)
+
+```
+
+In MLM models, it is customary build models sequentially and plot their output, side by side.
+
+```{r}
+library(sjPlot)
+#the two statements "use.viewer = TRUE" and "file = TabMod_Table" compete.  The "file = " command seems to win out.  If you want the output in the Viewer, than move the "file = " statement out of the command and hashtag it out.
+tab_model(ModA_lme4, ModB_lme4, p.style = "asterisk", show.ci = FALSE, show.re.var = TRUE, use.viewer = TRUE)
+#file = "TabMod_Table"
+```
+
+```{r}
+fixef.b <- fixef(ModB_lme4)
+fit.b <- fixef.b[[1]] + alc_long$age_14[1:3]*fixef.b[[2]]
+plot(alc_long$age[1:3], fit.b, ylim=c(0, 2), type="b",
+ylab="Predicted Alcohol Use", xlab="Age")
+title("Model B \n Unconditional growth model")
+```
+
+**Interpreting Fixed Effects**
+Looking at the *tab_model()* in the viewer, we can see that 
+
+The average 14 y.o. has a non-zero alcohol use rate of 0.65 (*p* < 0.001; $\hat{\gamma }_{00}$).
+
+Adolescents also have an average non-zero slope of 0.27 (*p* < 0.001, $\hat{\gamma }_{10}$).
+
+Using these values together, at age 16, the average adolescent could be expected to have an alcohol use value of 1.19 (0.65 + 0.27 + 0.27).
+
+
+**Interpreting Variance Components**
+
+Focusing on what this change means to the L1 residuals:   
+
+In Model A, we posulated that individual $i$'s observed score on occasion $j$ (i.e,. $Y_{ij}$) deviates by $\varepsilon _{ij}$ from his or her *person-specific mean*
+
+In Model B, we postulate that $Y_{ij}$ deviates by $\varepsilon _{ij}$ from his or her *true change trajectory*.
+
+Comparing the Model B's addition means that we also have a second part to the L2 submodel that depicts interindividual variation in the rates of change ($\pi _{1i}$).
+
+The L1 residual variance, $\sigma_{\varepsilon }^{2}$, (shown as $\sigma ^{2}$ in the Viewer) now summarizes the scatter of each person's data *around his or her own linear change trajectory* (not around his/her own specific mean).  Our value of 0.34.  This is a decrease of 0.22.  While we don't get *p* values to let us know whether/not within-person variation remains, the value is non-zero. Explaining more within-person variance would require another, *substantive* time-covarying predictor. This example only has *time-invariant* predictors; hold tight until S&WCh5.
+
+The L2 residual variances ($\sigma_{0 }^{2}$, $\sigma_{1 }^{2}$) now summarize between-person variability in initial status and rates of change.  
+
+The value of $\sigma_{0 }^{2}$ (shown as $\tau _{00}$ in the Viewer) is 0.62; this is variance  remaining around the intercept (age 14 alcohol use). Stated another way, it is the scatter of $\pi _{_{0i}}$ around $\hat{\gamma }_{00}$.
+
+The value of $\sigma_{1 }^{2}$ (shown as $\tau _{11}$ in the Viewer) is 0.15; this is variance remaining around the slope (rate of growth). Stated another way, it is the scatter of $\pi _{_{1i}}$ around $\hat{\gamma }_{10}$. 
+
+Because the introduction of TIME changes the meaning of the L2 variance components, we do not compare the $\sigma_{0 }^{2}$ (shown as $\tau _{00}$) values bewteen Models A and B.  As we move forward (keeping TIME in the model) we will use the Model B estimates as benchmarks for comparison.
+
+Together, these 3 allow us to distinguish L1 variation from two different kinds of L2 variation and determine whether interindividual differences in change are due to interindividual differences in true initial status or true rate of change.
+
+$\hat{\rho }$ is the population correlation of the L2 residuals that quantifies the relationship between true initial status and true change.  The value of -0.22 is negative (the more the adolescent consumed at age 14, the slower they increased drinking over time), but relatively weak.  Again, no associated *p* values (that I can find).
+
+**Proportion of Variance Explained**
+
+In OLS regression, a simple way of computing a summary $R^2$ statistic is to square the sample correlation between observed and predicted values of the outcome.
+
+A similar approach can be used in the multilevel model for change.  We need to
+
+1.  Compute a predicted outcome value for each person on each occasion of measurement; and 
+2.  Square the sample correlation between observed and predicted values.
+
+The result is the $pseudo-R^2$ statistic -- an assessment of the proportion of total outcome variation *explained* by the multilevel model's specific combination of predictors.
+
+In *lme4* output, $pseudo-R^2$ is labeled as "Marginal$R^2$" and is shown to be 0.044.  That is, 4.4% of the total variability in ALCUSE is associated with linear time.  As we add substantive predictors to this model, we examine whether, and by how much, this $pseudo-R^2$ statistic increases.
+
+We can also compute $pseudo-R^2$ statistics for the variance components.  
+
+**Residual variation** is the portion of the outcome variation *unexplained* by the model's predictors.  We can use these to further explain the model.  When we it a series of models we hope that adding predictors further explains unexplained outcome variation.  Thus, residual variation should decline. The magnitude of the decline quantifies improvement in fit.  If the decline is relatively large -- we've made a large difference.  To assess these declines on a common scale we compute the *proportional reduction in residual variance* as we add the predictors.
+
+*Unconditional models* provide a baseline for comparison:  the unconditional means model provides a baseline estimate of $\sigma_{\varepsilon }^{2}$ (shown as $\sigma ^{2}$ in the Viewer); the unconditional growth model provides baseline estimates of both $\sigma_{0 }^{2}$ (shown as $\tau _{00}$ in the Viewer) and $\sigma_{1 }^{2}$ (shown as $\tau _{11}$ in the Viewer).
+
+We'll start by examining the decrease in within-person residual variance between the unconditional means model and unconditional growth model.  We are comparing $\sigma_{\varepsilon }^{2}$ (shown as $\sigma ^{2}$ in the Viewer).  We have to do this by hand, here's the formula:
+
+First, the S&W notated formula:  
+
+$$Pseudo R_{\varepsilon }^{2} = \frac{\sigma _{\varepsilon }^{2}(unconditional. means. model) - \sigma _{\varepsilon }^{2}(unconditional. growth. model)}{\sigma _{\varepsilon }^{2}(unconditional. means. model)}$$
+
+In *lme4* notation:
+
+$$Pseudo R_{\varepsilon }^{2} = \frac{\sigma^{2}(unconditional. means. model) - \sigma^{2}(unconditional. growth. model)}{\sigma^{2}(unconditional. means. model)}$$
+We calculate it by hand (.56 - .34)/.56)
+
+```{r}
+(.56 - .34)/.56
+```
+
+We conclude that 40% of the within-person variation in ALCUSE is explained by linear time.  The only way to reduce this variance component is to add time-covarying predictors to the L1 submodel. *And I would add it to the growing table.*
+
+
+Similarly, we can quantify the proportional reduction in L2 residual variance.  Each L2 residual variance component has its own $pseudo-R^2$ statistic.  An L1 linear change model with two L2 variance components has two $pseudo-R^2$s.  The base statistic is this:
+
+$$Pseudo R_{\zeta }^{2} = \frac{\hat{\sigma}_{\zeta }^{2} (unconditional. growth. model) - \sigma^{2}(subsequent. model)}{\sigma^{2}(unconditional. growth. model)}$$
+ Note that this requires a GROWTH model and a SUBSEQUENT model.  We don't start comparing these (and there can be many) until we have a growth model...and then a model that follows it.  
+ 
+ S&W warn us about the flaws of $pseudo-R^2$.  Specifically, these stats can go wonky!  In the multilevel model for change, additional predictors *generally* reduce variance components and increase $pseudo-R^2$ statistics.
+ 
+But, because of explicit links among the model's several parts, there are times when the addition of predictors *increases* the variance components' magnitude.  This is most likely to happen when all, or most, of the outcome variation is exclusively within- or between-.  Then, a predictor added at one level reduces the residual variance at that level, but potentially increases the residual at the other level.  This results in a *negative* $pseudo-R^2$.  So.  Be cautious in interpreting these.
+ 
+
+##S&W's Taxonomy of Statistical Models
+The S&W version of Jorsekog's (1993) "model generating" and Hayes' "piecemeal" approach might be their taxonomical approach to model building.  Specifically, "Each model in the taxonomy extends a prior model in some sensible way; inspection and comparison of its elements tell the story of predictors' individual and joint effects.  Most data analysis iterate toward a meaningful path; good analysis does not proceed in a rigidly predetermined order" (p. 105).
+
+How do you approach model specification:  logic, theory, prior research...supplemented by hypothesis testing and comparison of model fit.
+
+A possible order:
+
+1.  Examine the effect of each predictor, individually.
+2.  Focus on predictors of primary interest (while including others whose effects you want to control).
+    * You can add predictors individually, or in groups
+    * You can address issues of functional form with interactions and transformations
+3.  Progression toward a "final model" whose interpretation will address your research questions
+    *the quotations mean that no statistical model is ever final; it's merely a placeholder until a better model is found
+4.  Longitudinal modeling brings complexities
+    * Multiple L2 outcomes can each be related to predictors
+    * Multiple kinds of effects (fixed effects and variance components)
+5.  The simplest strategy is to initially include each L2 predictor (simultaneously) in all L2 submodels, but as demonstrated in later examples, they may be trimmed.
+    * Each individual growth parameter can have its own predictors and one goal of model building is to identify which predictors are important for which L1 paarmeters.
+    * Although each L2 submodel can contain fixed and random effects, both are not necessarily required; sometimes a model with fewer random effects will provide a more parsimonious representation and clearer substantive insights
+    
+S&W distinguish between two types of predictors:
+
+* **Question** predictors are those whose effects are of primary, substantive, interest (e.g., COA in our current example).
+* **Control** predictors are those whose effects you would like to remove (e.g., PEER in our current example).
+
+Using the possible order identified above, we would evaluate the effect of COA on its own and after, control for PEER. If our research question focused on PEER, we would do the reverse.  Not surprisingly, different approaches may lead to the same "final model."
+
+As we procede:
+
+* Model C includes COA as predictor of both initial status and change.
+* Model D adds PEER to both L2 models.
+* Model E is a simplification of Model D in which the effect of COA on one of the individual growth parameters
+* Models F and G are worked in the chapter (but not in the lecture) and demonstrate the effects of different centering strategies
+
+**How much of this goes in the ms?**
+
+S&W indicate that we "identify a manageable subset of models that, taken together, tells a persuasive story parsimoniously" (p. 106).
+
+Minimally, include the (a) unconditional means model, (b) unconditional growth model, (c) "final model."  Intermediary models may be included if they provide important steps and/or tell interesting stories in their own right.
+
+S&W indicate that tables like 4.1 always be included (again, not all models tested are required) because they allow comparison of fitted models in a systematic way.  
+
+
+###Model C:  The uncontrolled effects of COA
+SCREENCAST LINK:  MLMdive4 https://spu.techsmithrelay.com/KMLE 
+
+In Model C, COA is a predictor of both intial status and change.
+```{r}
+#with lme4 package
+ModC_lme4 <- lmer(alcuse ~ coa*age_14 +(age_14 | id), alc_long, REML = FALSE)
+summary(ModC_lme4)
+```
+
+```{r}
+library(sjPlot)
+tab_model(ModA_lme4, ModB_lme4, ModC_lme4, p.style = "asterisk", show.ci = FALSE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE)
+#can swap this statement with the "use.viewer=TRUE" to get Viewer output or the outfile that you can open in Word
+#file = "TabMod_Table"
+```
+
+```{r}
+#seems to work with lme4 or nlme models
+fixef.c <- fixef(ModC_lme4)
+fit.c0 <- fixef.c[[1]] + alc_long$age_14[1:3]*fixef.c[[3]]
+fit.c1 <- fixef.c[[1]] + fixef.c[[2]] +
+alc_long$age_14[1:3]*fixef.c[[3]] +
+alc_long$age_14[1:3]*fixef.c[[4]]
+plot(alc_long$age[1:3], fit.c0, ylim=c(0, 2), type="b",
+ylab="Predicted Alcohol Use", xlab="Age")
+lines(alc_long$age[1:3], fit.c1, type="b", pch=17)
+title("Model C \n Uncontrolled effects of COA")
+legend(14, 2, c("COA=0", "COA=1"))
+```
+
+**Interpreting Fixed Effects**
+The estimated alcohol use for average 14-year-olds of non-alcoholic parents is 0.32 (*p* < .05). If the 14-year-old is the child of a parent with alcoholism, the average estimated alcohol use is 1.06 (*p* < .001; 0.32 + 0.74).
+
+The estimated rate of change or an average child of a parent without alcoholism is 0.29 (*p* < .001) units per year. The estimated differential in the rate of change in alcohol use between children of alcoholic and nonalcoholic parents is not distinguishable from zero (-0.05, *p* > .0.05).
+
+S&W indicate these are "uncontrolled" estimates to our research questions, suggesting that while children of alcoholic parents initially drink more than children of non-alcoholic parents, their rate in change of alcohol consumption between 14 and 16 does not differ.
+
+**Interpreting Variance Components**
+*From this point forward, I will use the lme symbols, rather than the S&W ones.*
+
+Not surprisingly, the $\sigma ^{2}$  value (0.34) stayed the same from Model B to C.  This is because we didn't add a within-subjects (time covarying) predictor (and we don't have any in this example).
+
+
+$\tau _{00}$ decreases from 0.62 (Model B) to 0.49 (Model C). We can apply the formula to determine the proportion of L2 intercept variance accounted for by the COA addition.
+
+$$Pseudo R_{\zeta }^{2} = \frac{\hat{\sigma}_{\zeta }^{2} (unconditional. growth. model) - \sigma^{2}(subsequent. model)}{\sigma^{2}(unconditional. growth. model)}$$
+```{r}
+(.62-.49)/.62
+```
+
+The $\tau _{00}$ variance component decreases by 21% from Model B.
+
+
+$\tau _{11}$  is unchanged.  Both Model B and C are 0.15.  So, adding COA did not change between-subjects' slopes.
+
+These variance components are now considered *partial* or *conditional* variances because they quantify the interindividual diferences in change that remain unexplained by the model's predictors.  
+
+S&W note two things. 
+
+1.  It appears there residual remaining to be explained, so exploring the contribution of PEER seems a good idea.
+2.  They caution against immediateley trimming COA because it failed to predict rate-of-change variance.  Because it is a focal predictor, it is worth investigating the full spectrum of its effects.
+
+###Model D:  The controlled effects of COA
+SCREENCAST LINK:  MLMdive5 https://spu.techsmithrelay.com/FvEO 
+
+Model D evaluates the effects of COA on initial status and rates of change in ALCUSE, controlling for the effects of PEER on initial status and rate of change.
+
+**A note on model specification, we expect cross-level interactions of COA and PEER with TIME, so they are listed separately. The parentheses specify the random effects on slope (age_14) and intercept (id), respectively, before and after the | symbol.
+
+```{r}
+#with lme4 package
+ModD_lme4 <- lmer(alcuse ~ coa*age_14 + peer*age_14+(age_14 | id), alc_long, REML = FALSE)
+summary(ModD_lme4)
+```
+
+```{r}
+library(sjPlot)
+tab_model(ModA_lme4, ModB_lme4, ModC_lme4, ModD_lme4, p.style = "asterisk", show.ci = FALSE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE)
+#can swap this statement with the "use.viewer=TRUE" to get Viewer output or the outfile that you can open in Word
+#file = "TabMod_Table"
+```
+
+
+**Interpreting Fixed Effects**
+WOW! There are some substantial changes.  The L2 intercepts change substantially from Model C.  
+
+The $\hat{\gamma }_{00}$ (intercept, or age 14 alcohol use) moves from positive (0.32, *p* < .05) to negative (-0.32, *p* < .001). This negative value is, in fact, implausible -- can there be negative alcohol use?  While not uncommon, we do have to deal with interpreting this.
+
+The $\hat{\gamma }_{10}$ (slope -- alcohol use/age) increases from 0.29 (*p* < .001) to 0.43 (*p* < .001; by 50%) .
+
+Rather dramatic changes like this are not uncommon when we add L2 predictors.  This is because each L2 intercept represents the value of the associated individual growth parameter ($\pi _{_{0i}}$ or $\pi _{_{1i}}$) when all predictors in each model are 0.
+
+In Model C, with only one predictor (COA), the intercepts describe initial status and rate of change for children of non-alcoholic parents.  In Model D, which inclues two predictors, the intercepts describe inital status and rate of change for a subset of children of non-alcohlic parents, those for whom PEER also equals 0.  
+
+Whiel S&W's focal predictor was COA; it is equally plausible to focus on the effect of PEER, controlling for COA.  At L1, controlling for the effects of COA (e.g., when COA = 0), a 1 unit increase on PEER alcohol use results in an increase of 0.69 (*p* = < .001) alcohol consumption.  Further, the cross-level interaction suggests that over time, 
+
+With regard to the cross-level interactions, 
+
+$\hat{\gamma }_{01}$ and $\hat{\gamma }_{11}$ describe the differential in ALCUSE between children of alcoholic and non-alcoholic parents controlling for the effects of PEER.  Specifically, at the intercept ($\hat{\gamma }_{01}$) we would add 0.58 (*p* < .001) to the -0.32, to estimate the amount of alcohol consumed by children of alcoholic parents.  With regard to slope, the  $\hat{\gamma }_{11}$ value (-0.01) suggests that COA status has little bearing on increased consumption over time (again, controlling for PEER).
+
+$\hat{\gamma }_{02}$ and $\hat{\gamma }_{12}$ describe the differential in ALCUSE for a one-unit difference in PEER, controlling for the effects of COA.  Specifically, at the intercept ($\hat{\gamma }_{02}$), we would add 0.69 (*p* < .001) to the -0.32, to estimate the amount of alcohol consmed by children who are 1 point higher in estimated age 14 PEER use.  With regard to slope, the $\hat{\gamma }_{12}$ value (-0.15) suggest a non-significant effect of PEER on increased consumption over time (again, both controlling for COA status).
+
+**Interpreting Variance Componetns**
+Looking at the variance components is helpful to look at the trends starting with Model B (where we added AGE_14 as a predictor).  With the exception of $\sigma ^{2}$ (which held constant, because we did not add any L1/time-covarying predictors), the $\tau _{00}$ (intercept) and $\tau _{11}$ (slope) variance continue to decline.
+
+Using the formulas we described before, we can estimate the the proportion of variance these explain. We can "do math" with these variance componetns becaue they describe the residual variance variance of the L1 growth parameters ($\pi _{_{0i}}$ and $\pi _{_{1i}}$), which retain their meaning across successive models (even though the corresponding fixed effects at L2 do not...so we can't do this kind of comparison with the fixed efects).
+
+Here's the general formula.
+$$Pseudo R_{\zeta }^{2} = \frac{\hat{\sigma}_{\zeta }^{2} (unconditional. growth. model) - \sigma^{2}(subsequent. model)}{\sigma^{2}(unconditional. growth. model)}$$
+We could compare back to the immediate model (how much *more* variance is explained than last time) or back to the unconditional growth model.  Here, I've chosen to compare back to Model B -- the unconditional growth model.
+```{r}
+#for intercept
+(.62-.24)/.62
+```
+We have explained 61% of the variance in age 14 alcohol consumption.
+
+```{r}
+#for slope
+(.15-.14)/.15
+```
+We have explained 7% of the variance in in rates of change.
+
+We see there is variance remaining in all the random effects.  S&W think it would be good to try a time-covarying predictor to try to explain more within-subject variance.
+
+###Model E:  A Tentative "Final Model" for the Controlled Effects of COA
+SCREENCAST LINK:  MLMdive6 https://spu.techsmithrelay.com/fqmu 
+
+S&W propose trimming the effect of COA from time.  Thus, Model E includes PEER as a predictor of initial status and change, but COA is a predictor of initial status, only.
+
+```{r}
+#with lme4 package
+ModE_lme4 <- lmer(alcuse ~ coa + age_14*peer+(age_14 | id), alc_long, REML = FALSE)
+summary(ModE_lme4)
+```
+
+```{r}
+library(sjPlot)
+tab_model(ModA_lme4, ModB_lme4, ModC_lme4, ModD_lme4,ModE_lme4, p.style = "asterisk", show.ci = FALSE, show.df = TRUE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE)
+#can swap this statement with the "file = "TabMod_Table"" to get Viewer output or the outfile that you can open in Word
+#file = "TabMod_Table"
+```
+
+```{r}
+fixef.e <- fixef(ModE_lme4)
+fit.ec0p0 <- fixef.e[[1]] + .655*fixef.e[[3]] + alc_long$age_14[1:3]*fixef.e[[4]] +       .655*alc_long$age_14[1:3]*fixef.e[[5]]
+fit.ec0p1 <- fixef.e[[1]] + 1.381*fixef.e[[3]] +
+alc_long$age_14[1:3]*fixef.e[[4]] +
+1.381*alc_long$age_14[1:3]*fixef.e[[5]]
+fit.ec1p0 <- fixef.e[[1]] + fixef.e[[2]] + .655*fixef.e[[3]] +
+alc_long$age_14[1:3]*fixef.e[[4]] +
+.655*alc_long$age_14[1:3]*fixef.e[[5]]
+fit.ec1p1 <- fixef.e[[1]] + fixef.e[[2]] + 1.381*fixef.e[[3]] +
+alc_long$age_14[1:3]*fixef.e[[4]] +
+1.381*alc_long$age_14[1:3]*fixef.e[[5]]
+plot(alc_long$age[1:3], fit.ec0p0, ylim=c(0, 2), type="b",
+ylab="predicted alcuse", xlab="age", pch=2)
+lines(alc_long$age[1:3], fit.ec0p1, type="b", pch=0)
+lines(alc_long$age[1:3], fit.ec1p0, type="b", pch=17)
+lines(alc_long$age[1:3], fit.ec1p1, type="b", pch=15)
+title("Model E \n *Final* model for the controlled effects of COA")
+legend(14, 2, c("COA=0, low peer", "COA=0, high peer",
+"COA=1, low peer", "COA=1, high peer"))
+```
+
+
+If we look at the fixed and random effects, nothing changes much...except there is no longer the effect of COA
+
+S&W note that they created any other analyses (not shown) to investigate functional form (including nonlinearity and interactions).  This is their placeholder model.
+
+Summary interpretations:
+
+**Fixed Efects**:  Controlling for the effects of PEER, the estimated diferential in initial ALCUSE between children of alcoholic and non-alcoholic parents is 0.57 (*p* < 0.001). and controlling for the effect of parent alcoholism, for each 1-point difference in PEEER, the average initial ALCUSE is 0.70 (*p* < .001) higher and the average rate of change in ALCUSE is 0.15 (*p* > .05) lower. 
+
+An interpretive conclusion:   Children of alcoholic parents drink more alcohol initially than children of non-alcoholic parents, but their rate of change in consumption between ages 14 and 16 is no different.  Further, PEER is positively associated with early consumption, but negatively associated with the rate of change in consumption.  Fourteen-year-olds whose friends drink more tend to drink more at that age, but htey have a slower rate of increase in consumption over time.
+
+**Variance Components**:  Not surprisingly, all the variance components held steady.  This confirms that we lose little by trimming the effect of COA on change.  
+
+Recall that $\hat{\rho }$ is the population correlation of the L2 residuals that quantifies the relationship between true initial status and true change.  The value of -0.03 suggests that after controlling for the effects of COA and PEER (i.e., the *partial correlation*) there is no remaining association between initial status and change over time.
+
+One last grab of the reduction in variance accounted for
+
+Here's the general formula.
+$$Pseudo R_{\zeta }^{2} = \frac{\hat{\sigma}_{\zeta }^{2} (unconditional. growth. model) - \sigma^{2}(subsequent. model)}{\sigma^{2}(unconditional. growth. model)}$$
+
+$\sigma ^{2}$ L1/Within-subjects variance, Model E (but really Model C, D, or D) compared to Model A (unconditioned means model)
+```{r}
+#for within-subjects variance
+(.56-.34)/.56
+```
+39% of the within-subjects variance in ALCUSE is explained by linear time
+
+
+$\tau _{00}$ L2/intercept variance, Model E compared to Model B (unconditional growth model)
+```{r}
+#for intercept
+(.62-.24)/.62
+```
+61% of the variance in alcohol use at age 14 is explained by the PEER and COA.
+
+$\tau _{11}$ L2/slope
+```{r}
+#for slope
+(.15-.14)/.15
+```
+Only 7% of the variance in rates of change is explained by PEER and COA.
+
+
+##Evaluating the "tenability" of the Model (aka, it's quality)
+SCREENCAST LINK:  MLMdive7 https://spu.techsmithrelay.com/6uiL
+
+* **Graphs of fitted trajectories** are essential to communicating results. S&W describe how the figures we plotted are based on "prototypical adolescents" derived from the model.   Of course COA 0 and 1 are sensible.  The PEER values selected were .5 SD above/below mean.  
+* **Centering predictors** often improves interpretation.  
+    + We centered age, so that 0 would represent the initial value/intercept.
+    + Centering time-invariant predictors can also be useful.  Much has been written around "grand mean centering" (centering around the entire sample mean) and "group mean centering" (centering around an individual's mean).  The chapter provides an example of recentered results.
+    
+###The Deviance Statistics
+The goodies at the bottom are a cluster of relative fit indices.
+
+The **deviance statistic** compares log-likelihood statistics for two models at a time:  (a) the current model and (b) a saturated model (e.g., a more general model that fits the sample data perfectly).  Deviance quantifies *how much worse* the current model is  in comparison to the best possible model.  The deviance is identical to the residual sums of squares used in regression.  While you cannot directly interpret any particular deviance statistic, you can compare *nested* models; the smaller value "wins."
+
+Two requirements to use the deviance statistic:
+
+1.  The dataset must be identical.  If you have a difference in 1 record in the person-period dataset that is mising or any variable in either model, then the comparison is invalidated.
+2.  A reduced model must be *nested* within the other.  Every parameter must be in both models.  The difference is the *constraints*
+3.  But it's even more complicated.  Remember the FML v. REML distinction/decision?
+    + If you used FML, the underlying estimation made use of the *full* sample data. Consequently, the FML deviance statistic describes the fit of the entire model (both fixed and random effects).  Thus, you can use the deviance statistics to test hypotheses about any combination of parameters, fixed effects, or variance components.
+    + If you used RML, the underlying estimation *restricted* itself fo the sample *residuals*. Consequently, the the deviance statistic describes only the stochastic portion of the model. Thus, you can use deviance statistics to test hypotheses only about variance components.
+    
+We fit our models with FML.  Here are the relevant things to keep in mind.
+1.  Comparing deviance statistics means you need the df difference between models.
+    + df are tricky and different at different parts of the model; however in this case it's really about how many parameters are different.  Between Models A and B there are 3 parameters that are different (count how many empty boxes are in the fixed and random effects)
+2.  Look up the test critical value in a Chi-Square table:  https://www.medcalc.org/manual/chi-square-table.php   With 3df, the test critical value is 7.815
+3.  Subtract the former model from the subsequent (Mod A - ModB)
+
+```{r}
+670.01 - 636.61
+```
+
+4.  If the difference exceeds the test critical value (and the subsequent value has a smaller df), the newer model is superior.  In our case, 33.4 far exceeds the test critical value (16.27) even at *p* < .001.
+
+See my printed table for the remainder of comparisons.
+
+```{r}
+588.703-588.691
+```
+
+Interpreting deviance stats means you are paying attention to what is different in the model.  The effects that are changed are what are different...and remember if you used RML, you can only use the deviance tests for comparing models where the *only* diffs are those that occur in the random effects.
+
+###Comparing Nonnested Models with Information Criteria
+
+The AIC (Akaike Information Criteria) and BIC (Bayesian Information Criteria) allow the comparison of the relative *goodness of fit* of models that are not nested.  That is, they can involve different sets of parameters. *lme4()* provides us with the AIC.
+
+Like the deviance statistic, the AIC is based on the log-likelihood statistic.  Instead of using the LL itself, the AIC penalizes (e.g., decreases) the LL based on the number of parameters.  Why?  Adding parmeters (even if they have no effect) *will* increase the LL statistic and decrease the deviance statistic.  
+
+*As long as two models are fit to the identical same set of data*, the AICs and BICs can be compared.  The model with the smaller information critera "wins."  There are no established criteria for determining how large the difference is for it to matter.
+
+##Evaluating the Model's Assumptions
+
+Especially with the proliferation of so many models and comparisons, this can quickly get unweildy. S&W recommed that you examine the assumptions of several initial models (making sure things are looking ok), and then again in any model you explicitly write up.  We briefly look at 3 sets of assumptions:  functional form, normality, homoschedasticit.
+
+###Checking functional form
+
+**Level 1** We checked these early in the process by examining the empirical growth plots with superimposed OLS-estimated individual change trajectories.  We saw that the linear model seemed quite reasonable for many; less so for others.
+
+**Level 2**  We can plot OLS-estimated individual growth parameters against the two substantive predictors.
+
+The text has an example of how there appears to be a linear relationship between L2 predictors and data.
+
+###Checking normalilty
+
+MLMers really like visual inspection of residual distributions.  For each raw residual (the one at L1 and two at L2) you can plot values against the associated normal scores. If the distribution is normal, the points form a line.  Departures from linearity indicates a departure from normality.
+
+Below is the plot for Model E for the L1 residual...looks pretty good.
+
+I couldn't get the others to run.
+
+```{r}
+#creating the residuals (epsilon.hat)
+resid <- residuals(ModE_lme4)
+qqnorm(resid)
+
+resid.std <- resid/sd(resid)
+plot(alc_long$id, resid.std, ylim=c(-3, 3), ylab="std epsilon hat")
+abline(h=0)
+```
+
+###Checking homoscedasticity
+
+This is evaluated by plotting raw residuals against predictors:  the L1 residuals against the L1 predictor; the L2 residuals against the L2 predictors.  If the assumption holds, residual variability will be approximately equal at every predictor.
+
+For AGE, the L1 residuals have approximately equal range and variability at all ages.
+
+Again, I could only get one to run.
+```{r}
+
+plot(alc_long$age, resid, ylim=c(-2, 2), ylab="epsilon.hat",
+xlab="AGE")
+abline(h=0)
+```
+
+
+##Writing it Up
+SCREENCAST LINK:  MLMdive8 https://spu.techsmithrelay.com/ceCz
+
+**Results**
+
+Longitudinal studies produce data with a hierarchical structure in which the repeated measures (level 1 [L1]) are clustered within individuals (level 2 [L2]).  Multilevel modeling (MLM) with the R package *lme4* (v. 1.1-21) was appropriate to use in this analysis because it allows for the dependent nature of the repeated measures data.  Thus, we simuultaneously estimated within- and between-person effects. Intercepts (i.e., the initial level of a variable) were alcohol use scores at age 14.0 and slopes represented changes in the dependent variable at yearly intervals from age 14 to 16. Data was modeled with a linear mixed effects approach with full information maximum likelihood (FML).
+
+
+**Preliminary Analyses**
+
+*Data Preparation ad Missing Data* (a mangy draft)  Our data set 246 observations across three waves (ages 14, 15, 16) for 82 adolescents.  We used a structured form of time (evenly spaced at the exact ages) and our dataset was balanced (three waves were available for all study participants).  *Of course they likely had to do something to get to this amazing circumstance, so they should say what.*
+
+*Bivariate correlations, means, SDs*
+
+*Distributional characteristics, assumptions, etc.* (another mangy draft) Our preliminary analysis included extensive exploratory analyses recommented by Singer and Willett (2003).  Not reported here (but available in *whatever OSF frame or as a supplement to the journal*) this included (a) plotting empirical growth plots for a random sample (20%) of the the sample, (b) creating within-person regression models for each person in the dataset and superimposing each person's fitted regression line on the plot of his/her empircal growth record, and (c) examing the fit of these regressions by examinng the $R^2$ statistic and an indivdiual estimated residual variance. Further analysis explored differences in the trajectories as a function of PROGRAM participation.  Specifically, we plotted raw and fitted trajectories separately for program and nonprogram participants. Our observations indicated that it would be appropriate to proceed by specifying a linear growth trajectory.
+
+**Primary Analyses**
+We followed Singer and Willett's (2003) recommendations by creating and reporting on taxonmy of statistical models, where each model in the taxonomy extends a prior model in some sensible way.  As shown in Table 1, Model A was an unconditional means model where we learned that the average alcohol use (all participants across all waves) was 0.92 (*p* < .001).  Further, the intraclass correlation was 0.50, suggesting that exactly half of the variance was between subjects, and therefore supporting our decision to use a multilevel approach.
+
+Model B was an unconditional growth model; simply adding age_14 (AGE, re-centered so that 14 equalled 0).  In Model C we added our focal predictor, COA to predict both intercept and slope at the submodels of the L2 equation.  In Model D, we kept our focal predictor, but, in a similar fashion, added PEER.  In this model we determined that COA did not have a significant effect on the age_14 slope.  Therefore, we trimmed it from our final Model E.
+
+Results, depicted in Figure 1, suggested that, controlling for COA and PEER, age 14 alcohol use was a -0.31 (*p* < .05).  Controlling for the effects of PEER, the estimated differential in initial ALCUSE between children of alcoholic and non-alcoholic parents was 0.57 (*p* < 0.001). Controlling for the effect of parent alcoholism, for each 1-point difference in PEER, the average initial ALCUSE was 0.70 (*p* < .001) higher and the average rate of change in ALCUSE was 0.15 (*p* > .05) lower. 
+
+With regard to the model as a whole, 39% of the within-subjects variance in ALCUSE was explained by linear time. Relative to the unconditional growth model (B) 61% of the variance in alcohol use at age 14, but only 7% of the rate of change, was explained by the PEER and COA.  Further, the Deviance and AIC statistics supported our decision for both modelel building (Models B through D) and trimming (Model E).  The $\hat{\rho }$  value of -0.03 suggests that after controlling for the effects of COA and PEER there is no remaining association between initial status and change over time.
+
+Thus, children of alcoholic parents drink more alcohol initially than children of non-alcoholic parents, but their rate of change in consumption between ages 14 and 16 is no different.  Further, PEER is positively associated with early consumption, but negatively associated with the rate of change in consumption.  Fourteen-year-olds whose friends drink more tend to drink more at that age, but htey have a slower rate of increase in consumption over time.
+
+##Bonus Reel
+SCREENCAST LINK:  MLMdive9 https://spu.techsmithrelay.com/R86R 
+
+###Symbol Seach:  A handy grabbag to save time
+$\hat{\gamma }_{00}$
+$\hat{\gamma }_{10}$
+$\sigma_{\varepsilon }^{2}$ (shown as $\sigma ^{2}$ in the Viewer)
+$\sigma_{0 }^{2}$ (shown as $\tau _{00}$ in the Viewer)
+$\sigma_{1 }^{2}$ (shown as $\tau _{11}$ in the Viewer)
+$\pi _{_{0i}}$
+$\pi _{_{1i}}$
+$\hat{\rho }$
+$pseudo-R^2$
+
+
+###Script for Running in the *nlme* package
+
+```{r}
+library(nlme)
+```
+
+**Model A:   The unconditional means model (aka the "empty model")**
+Model A with *nlme*  Note that the default in *nlme* is RML, so we need to specify "method = "ML"".
+```{r}
+library(nlme)
+ModA_nlme <- lme(alcuse~ 1, alc_long, random= ~1 |id, method = "ML")
+summary(ModA_nlme)
+```
+
+Let's start a table.  This kind of makes a mess in the .rmd file but has the potential for awesome.
+```{r}
+library(stargazer)
+stargazer(ModA_nlme, title = "Model Comparison of Alcohol Consumption Growth Trajectories", type = "html", single.row = TRUE, no.space = TRUE, out = "alc_table.doc")
+```
+
+**Model B: The unconditional growth moddel**
+```{r}
+#with the nlme package
+ModB_nlme <- lme(alcuse ~ age_14 , data=alc_long, random= ~ age_14 | id, method="ML")
+summary(ModB_nlme)
+```
+
+In MLM models, it is customary build models sequentially and plot their output, side by side.
+
+```{r}
+#with stargazer package
+Tables_nlme<-stargazer(ModA_nlme, ModB_nlme, title = "Model Comparison of Alcohol Consumption Growth Trajectories", align = TRUE, dep.var.labels = c("Alcohol Use"), covariate.labels = c("Intercept/Age 14"), type = "html",  single.row = FALSE, no.space = TRUE, out = "Tables_nlme.doc")
+```
+
+**Model C: The uncontrolled effects of COA**
+```{r}
+ModC_nlme <- lme(alcuse ~ coa*age_14 , data=alc_long, random= ~ age_14 | id, method="ML")
+summary(ModC_nlme)
+```
+
+```{r}
+#with stargazer package
+Tables_nlme<-stargazer(ModA_nlme, ModB_nlme, ModC_nlme, title = "Model Comparison of Alcohol Consumption Growth Trajectories", align = TRUE, dep.var.labels = c("Alcohol Use"), covariate.labels = c("Intercept/Age 14"), type = "html",  single.row = FALSE, no.space = TRUE, out = "Tables_nlme.doc")
+```
+
+**Model D: The controlled effects of COA **
+
+```{r}
+ModD_nlme <- lme(alcuse ~ coa*age_14 + peer*age_14, data=alc_long, random= ~ age_14 | id, method="ML")
+summary(ModD_nlme)
+```
+
+```{r}
+#with stargazer package
+Tables_nlme<-stargazer(ModA_nlme, ModB_nlme, ModC_nlme, ModD_nlme, title = "Model Comparison of Alcohol Consumption Growth Trajectories", align = TRUE, dep.var.labels = c("Alcohol Use"), covariate.labels = c("Intercept/Age 14"), type = "html",  single.row = FALSE, no.space = TRUE, out = "Tables_nlme.doc")
+```
+
+```{r}
+ModE_nlme <- lme(alcuse ~ coa + peer*age_14, data=alc_long, random= ~ age_14 | id, method="ML")
+summary(ModE_nlme)
+```
+
+```{r}
+#with stargazer package
+Tables_nlme<-stargazer(ModA_nlme, ModB_nlme, ModC_nlme, ModD_nlme, ModE_nlme, title = "Model Comparison of Alcohol Consumption Growth Trajectories", align = TRUE, dep.var.labels = c("Alcohol Use"), covariate.labels = c("Intercept/Age 14"), type = "html",  single.row = FALSE, no.space = TRUE, out = "Tables_nlme.doc")
+```
+
