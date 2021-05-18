@@ -1256,7 +1256,7 @@ sessionInfo()
 
 # Preliminary (OLS style) Exploration of Longitudinal Growth {#MLMexplore}
 
- [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=36075f1d-b805-40b9-92da-ad2b0053f46cs) 
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=36075f1d-b805-40b9-92da-ad2b0053f46c) 
  
 ```{r setup for long explore, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
