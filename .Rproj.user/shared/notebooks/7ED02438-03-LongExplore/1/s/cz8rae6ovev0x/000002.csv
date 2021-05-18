@@ -1,0 +1,5 @@
+"0","#rearanging variables so that IDs are together"
+"0","LfvrLong <- LfvrLong%>%"
+"0","  select(ClientID, Index, SesNum, Anxiety, DRel0, Het0)"
+"0","#resorting data so that each person is together"
+"0","LfvrLong <- arrange(LfvrLong, ClientID, Index)"

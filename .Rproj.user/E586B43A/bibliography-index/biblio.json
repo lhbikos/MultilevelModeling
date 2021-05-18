@@ -1312,6 +1312,77 @@
             "type": ""
         },
         {
+            "DOI": "10.18637/jss.v067.i01",
+            "ISSN": "1548-7660",
+            "URL": "https://www.jstatsoft.org/index.php/jss/article/view/v067i01",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        4,
+                        28
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Bates",
+                    "given": "Douglas"
+                },
+                {
+                    "family": "Mächler",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Bolker",
+                    "given": "Ben"
+                },
+                {
+                    "family": "Walker",
+                    "given": "Steve"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "bates_fitting_2015",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "Cholesky decomposition, linear mixed models, penalized least squares, sparse matrix methods",
+            "note": "Number: 1",
+            "page": "1-48",
+            "title": "Fitting Linear Mixed-Effects Models Using lme4",
+            "type": "article-journal",
+            "volume": "67"
+        },
+        {
+            "URL": "http://www.clayford.net/statistics/treating-time-more-flexibly-ch-5-of-alda/",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        4,
+                        29
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Ford",
+                    "given": "Clay"
+                }
+            ],
+            "id": "ford_treating_nodate",
+            "note": "Library Catalog: www.clayford.net",
+            "title": "Treating Time More Flexibly (Ch 5 of ALDA)  statistics you can probably trust",
+            "type": ""
+        },
+        {
             "ISBN": "978-1-136-26633-1",
             "URL": "http://ebookcentral.proquest.com/lib/spu/detail.action?docID=1143716",
             "accessed": {
@@ -5714,6 +5785,51 @@
             "volume": "20"
         },
         {
+            "DOI": "10.1177/0011000017702721",
+            "ISSN": "0011-0000, 1552-3861",
+            "URL": "http://journals.sagepub.com/doi/10.1177/0011000017702721",
+            "abstract": "The current study employs an intersectional framework to understand how well counselors are meeting the needs of lesbian, gay, bisexual, queer, questioning (LGBQQ) and religious clients by examining clients’ initial anxiety and depression levels and changes in these symptoms through psychotherapy. Data from 12,825 participants from the Center for Collegiate Mental Health 2012–2014 data set were analyzed. Results from hierarchical linear modeling indicate lower baseline anxiety and depression among religious clients and faster rates of change of anxiety symptoms among nonreligious clients. LGBQQ clients presented with higher initial anxiety and depression, but there were no differences in rates of change of anxiety and depression between heterosexual and LGBQQ clients. Significant but minimal interaction effects between religious and sexual identities were found, indicating a need for further research. Counselors are encouraged to be mindful of these disparities in therapy.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        4,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Lefevor",
+                    "given": "G. Tyler"
+                },
+                {
+                    "family": "Janis",
+                    "given": "Rebecca A."
+                },
+                {
+                    "family": "Park",
+                    "given": "So Yeon"
+                }
+            ],
+            "container-title": "The Counseling Psychologist",
+            "id": "lefevor_religious_2017",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        4
+                    ]
+                ]
+            },
+            "page": "387-413",
+            "title": "Religious and Sexual Identities: An Intersectional, Longitudinal Examination of Change in Therapy",
+            "title-short": "Religious and Sexual Identities",
+            "type": "article-journal",
+            "volume": "45"
+        },
+        {
             "DOI": "10.1177/0011000020918558",
             "ISSN": "0011-0000, 1552-3861",
             "URL": "http://journals.sagepub.com/doi/10.1177/0011000020918558",
@@ -6821,7 +6937,7 @@
                 }
             ],
             "container-title": "Journal of Statistical Software",
-            "id": "bates_fitting_2015",
+            "id": "bates_fitting_2015-1",
             "issue": "1",
             "issued": {
                 "date-parts": [
@@ -6833,6 +6949,76 @@
             "title": "Fitting Linear Mixed-Effects Models Using <b>lme4</b>",
             "type": "article-journal",
             "volume": "67"
+        },
+        {
+            "DOI": "10.1177/0748175611432642",
+            "ISSN": "0748-1756",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2012-13444-001&site=ehost-live",
+            "abstract": "A short version of the Counseling Center Assessment of Psychological Symptoms–62 (CCAPS-62) was created via three studies. The final short version (CCAPS-34), which contains 34 items and 7 subscales, demonstrated good discrimination power, support for the proposed factor structure, strong initial convergent validity, and adequate test–retest stability over 1-week and 2-week intervals. (PsycINFO Database Record (c) 2017 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        5,
+                        15
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Locke",
+                    "given": "Benjamin D."
+                },
+                {
+                    "family": "McAleavey",
+                    "given": "Andrew A."
+                },
+                {
+                    "family": "Zhao",
+                    "given": "Yu"
+                },
+                {
+                    "family": "Lei",
+                    "given": "Pui-Wa"
+                },
+                {
+                    "family": "Hayes",
+                    "given": "Jeffrey A."
+                },
+                {
+                    "family": "Castonguay",
+                    "given": "Louis G."
+                },
+                {
+                    "family": "Li",
+                    "given": "Hongli"
+                },
+                {
+                    "family": "Tate",
+                    "given": "Robin"
+                },
+                {
+                    "family": "Lin",
+                    "given": "Yu-Chu"
+                }
+            ],
+            "container-title": "Measurement and Evaluation in Counseling and Development",
+            "id": "locke_development_2012",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        7
+                    ]
+                ]
+            },
+            "keyword": "Counseling Center Assessment of Psychological Symptoms–34, Psychiatric Symptoms, psychometrics, Psychometrics, school counseling, School Counseling, Test Construction, test development, test reliability, Test Reliability, test validity, Test Validity",
+            "note": "Publisher: Sage Publications",
+            "page": "151-169",
+            "title": "Development and Initial Validation of the Counseling Center Assessment of Psychological Symptoms–34",
+            "type": "article-journal",
+            "volume": "45"
         }
     ],
     "project_biblios": [

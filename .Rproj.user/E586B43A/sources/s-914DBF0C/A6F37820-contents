@@ -1,0 +1,288 @@
+---
+title: "scratchwork"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "5/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Simulate data from Kim et al}
+#Entering the intercorrelations, means, and standard deviations from the journal article
+mu <- c(.34, 3.00, 2.98, 2.36, 3.50, 1.64)
+sd <- c(.16, .83, .99, .90, .90, .53)
+r_mat <- matrix (c(1,   .59, .26,   .34,  -.25, -.02,
+                  .59, 1.00, .12,   .19,  -.28, .00, 
+                  .26,  .12, 1.00, .66,  -.55, .07,
+                  .34,  .19, .66,  1.00, -.66, .05,
+                 -.25, -.28, -.55,-.66,  1.00, .08, 
+                 -.02,  .00,  .07, .05, .08,  1), ncol = 6)
+#Creating a covariance matrix
+cov_mat <- sd %*% t(sd) * r_mat
+
+#Set random seed so that the following matrix always gets the same results.
+set.seed(210409)
+library(MASS)
+Kim_df <- mvrnorm(n = 156, mu=mu, Sigma = cov_mat, empirical = TRUE)
+colMeans(Kim_df)
+#Checking our work against the original correlation matrix
+round(cor(Kim_df),3)
+
+
+```
+```{r renaming variables, echo = FALSE, results ='hide'}
+#renaming the variables
+as.data.frame(Kim_df, row.names = NULL, optional = FALSE, make.names = TRUE)
+library(tidyverse)
+Kim_df <- Kim_df%>%
+  as.data.frame %>%
+  rename(REMS = V1, CMI = V2, ANX = V3, DEP = V4, PWB = V5, HlpSk = V6)
+
+```
+
+```{r look at first six rows of new df}
+#look at the first 6 rows of the new df
+head(Kim_df)
+```
+```{r}
+library(jtools)
+KimHlpSkMod <- lm(HlpSk~REMS*ANX, data=Kim_df)
+summ(KimHlpSkMod)
+```
+
+```{r}
+library(interactions)
+library(ggplot2)
+interact_plot(KimHlpSkMod, pred=REMS, modx=ANX)
+```
+
+```{r}
+sim_slopes(KimHlpSkMod, pred = REMS, modx = ANX)
+```
+
+```{r}
+library(equatiomatic)
+#extract_eq(Mod3, intercept = "beta")
+```
+
+
+```{r}
+#extract_eq(Mod3, intercept = "beta", use_coefs=TRUE, coef_digits = 2)
+```
+
+
+
+```{r Mod1 model building}
+library(lme4)
+Mod1 <- lmer(ATSS ~1 + (1 | church), REML = FALSE, data = Lefevor2020)
+summary(Mod1)
+AIC(Mod1) # request AIC
+
+Mod2 <- lmer(ATSS ~ EducL1 + (1 | church), REML=FALSE, data = Lefevor2020)
+summary(Mod2)
+AIC(Mod2) # request AIC
+
+Mod3 <- lmer(ATSS ~ EducL1 + EducL2 + Homogeneity + (1 | church), REML=FALSE, data = Lefevor2020)
+summary(Mod3)
+AIC(Mod3) # request AIC
+
+Mod4 <- lmer(ATSS ~ EducL2 + EducL1*Homogeneity +(1 | church), REML=FALSE, data = Lefevor2020)
+summary(Mod4)
+AIC(Mod4) # request AIC
+
+devMods <- devM4 <- anova(Mod1, Mod2, Mod3, Mod4) 
+
+library(sjPlot)
+tab_model(Mod1, Mod2, Mod3, Mod4, p.style = "numeric", show.ci = FALSE, show.df = FALSE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE, dv.labels = c("Mod1", "Mod2", "Mod3", "Mod4"), file = "TabMod_Table.doc")
+#can swap this statement with the "file = "TabMod_Table"" to get Viewer output or the outfile that you can open in Word
+#file = "TabMod_Table.doc"
+
+```
+
+```{r}
+sjPlot::plot_model (Mod4, type="pred",terms=c("EducL1", "Homogeneity", "EducL2"))
+```
+
+```{r diagnostic plots for Mod3}
+sjPlot::plot_model (Mod4, type="diag")
+```
+
+
+
+Multilevel simulation practice
+```{r}
+per_participant_intercept = rnorm(750, mean = 0, sd = 0.6324555)
+
+head(per_participant_intercept)
+```
+
+```{r simulate raw data, results='hide'}
+set.seed(200511)
+n_church = 20
+n_mbrs = 20
+b0 = 3.43 #intercept for ATSS
+b1 = .14 #b weight for L1 var gender
+b2 = .00 #b weight or L1 var age
+b3 = .02 #b weight for L1 var education
+b4 = .10 #b weight for the L1 variable religious attendance
+b5 = -.89 #b weight for the L2 variable, racial homogeneity
+( Gender = runif(n_church*n_mbrs, -1.09, 1.67)) #calc L1 gender
+( Age = runif(n_church*n_mbrs, 6.44, 93.93)) #calc L1 age
+( Education = runif(n_church*n_mbrs, 0, 8.46)) #calc L1 education
+( Attendance = runif(n_church*n_mbrs,5.11, 10.39)) #calc L1 attendance by grabbing  its M +/- 3SD
+( Homogeneity = rep (runif(n_church, .37, 1.45), each = n_mbrs)) #calc L2 homogeneity by grabbing  its M +/- 3SD
+mu = 3.39 
+sds = .64 #this is the SD of the DV
+sd = 1 #this is the observation-level random effect variance that we set at 1
+
+( church = rep(LETTERS[1:n_church], each = n_mbrs) )
+#( mbrs = numbers[1:(n_church*n_mbrs)] )
+( churcheff = rnorm(n_church, 0, sds) )
+( churcheff = rep(churcheff, each = n_mbrs) )
+( mbrseff = rnorm(n_church*n_mbrs, 0, sd) )
+( ATSS = b0 + b1*Gender + b2*Age + b3*Education + b4*Attendance + b5*Homogeneity + churcheff + mbrseff)
+( dat = data.frame(church, churcheff, mbrseff, Gender, Age, Education, Attendance, Homogeneity, ATSS) )
+
+library(dplyr)
+dat <- dat %>% mutate(ID = row_number())
+#moving the ID number to the first column; requires 
+dat <- dat%>%select(ID, everything())
+
+Lefevor2020 <- dat%>%
+  select(ID, church, Gender, Age, Education, Attendance, Homogeneity, ATSS)
+#rounded gender into dichotomous variable
+Lefevor2020$Female0 <- round(Lefevor2020$Gender, 0)
+Lefevor2020$Female0 <- as.integer(Lefevor2020$Gender)
+Lefevor2020$Female0 <- plyr::mapvalues(Lefevor2020$Female0, from = c(-1, 0, 1), to = c(0, 0, 1))
+
+#( dat$ATSS = with(dat, mu + churcheff + mbrseff ) )
+
+library(robumeta)
+Lefevor2020$GenderL1 <- as.numeric(group.center(Lefevor2020$Female0, Lefevor2020$church))#centered within context (group mean centering)
+Lefevor2020$GenderL2 <- as.numeric(group.mean(Lefevor2020$Female0, Lefevor2020$church))#aggregated at group mean
+
+Lefevor2020$EducL1 <- as.numeric(group.center(Lefevor2020$Education, Lefevor2020$church))#centered within context (group mean centering)
+Lefevor2020$EducL2 <- as.numeric(group.mean(Lefevor2020$Education, Lefevor2020$church))#aggregated at group mean
+
+```
+
+
+```{r}
+#--- Generate a Residual for each "Participant" in Simulated Dataset ----
+per_participant_intercept = rnorm(750, mean = 0, sd = 0.6324555)
+
+head(per_participant_intercept)
+
+```
+
+```{r}
+#--- Organize Data into Level 2 (Participant-Level) Datset ----
+participant_level_dataset = data.frame(id,
+                                       per_participant_intercept,
+                                       condition,
+                                       centered_neuroticism)
+```
+
+https://cran.r-project.org/web/packages/simglm/vignettes/tidy_simulation.html
+```{r}
+install.packages("simglm")
+```
+```{r}
+library(simglm)
+library(tidyverse)
+set.seed(321) 
+
+sim_arguments <- list(
+  formula = y ~ 1 + weight + age + sex + (1 | neighborhood),
+  reg_weights = c(4, -0.03, 0.2, 0.33),
+  fixed = list(weight = list(var_type = 'continuous', mean = 180, sd = 30),
+               age = list(var_type = 'ordinal', levels = 30:60),
+               sex = list(var_type = 'factor', levels = c('male', 'female'))),
+  randomeffect = list(int_neighborhood = list(variance = 8, var_level = 2)),
+  sample_size = list(level1 = 10, level2 = 20)
+)
+
+nested_data <- sim_arguments %>%
+  simulate_fixed(data = NULL, .) %>%
+  simulate_randomeffect(sim_arguments) %>%
+  simulate_error(sim_arguments) %>%
+  generate_response(sim_arguments)
+
+head(nested_data, n = 10)
+```
+```{r}
+library(psych)
+psych::describe(nested_data)
+```
+
+```{r}
+library(lme4)
+library(sjPlot)
+# MODEL 3
+simmod <- lmer(y ~ weight + age + sex + (1 | neighborhood), REML=FALSE, data = nested_data)
+summary(simmod)
+AIC(simmod) # request AIC
+BIC(simmod) # request BIC
+
+
+tab_model(simmod,  p.style = "numeric", show.ci = FALSE, show.df = FALSE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE, dv.labels = c("Mod1"))
+#can swap this statement with the "file = "TabMod_Table"" to get Viewer output or the outfile that you can open in Word
+#file = "TabMod_Table.doc"
+?tab_model
+```
+
+
+```{r}
+library(simglm)
+library(tidyverse)
+set.seed(210517) 
+
+sim_arguments <- list(
+  formula = y ~ 1 + session + sexualidentity + religion1 + (1 | client),
+  reg_weights = c(1.84, -0.28, 0.15, -0.06),
+  fixed = list(session = list(var_type = 'continuous', mean = 10.58, sd = 7.56),
+               sexid = list(var_type = 'factor', levels = c('het', 'lgbqq')),
+               religion1 = list(var_type = 'factor', levels = c('ndru', 'dr'))),
+               
+               
+  randomeffect = list(int_client = list(variance = 0.917, var_level = 2)),
+  sample_size = list(level1 = 5, level2 = 12825)
+)
+
+nested_data <- sim_arguments %>%
+  simulate_fixed(data = NULL, .) %>%
+  simulate_randomeffect(sim_arguments) %>%
+  simulate_error(sim_arguments) %>%
+  generate_response(sim_arguments)
+
+head(nested_data, n = 10)
+```
+
+
+```{r}
+library(simglm)
+library(tidyverse)
+set.seed(210517) 
+
+sim_arguments <- list(
+  formula = y ~ 1 + session + sexualidentity + religion1 +(1 | client),
+  reg_weights = c(1.84, -0.28, 0.15, -0.06, -.04),
+  fixed = list(session = list(var_type = 'continuous', mean = 10.58, sd = 7.56),
+               sexid = list(var_type = 'factor', levels = c('het', 'lgbqq')),
+               religion1 = list(var_type = 'factor', levels = c('ndru', 'dr')),
+               religion2 = list(var_type = 'factor', levels = c('ndu', 'dr', 'ndr'))),
+               
+  randomeffect = list(int_client = list(variance = 2.264, var_level = 2)),
+  sample_size = list(level1 = 5, level2 = 12825)
+)
+
+nested_data <- sim_arguments %>%
+  simulate_fixed(data = NULL, .) %>%
+  simulate_randomeffect(sim_arguments) %>%
+  simulate_error(sim_arguments) %>%
+  generate_response(sim_arguments)
+
+head(nested_data, n = 10)
+```

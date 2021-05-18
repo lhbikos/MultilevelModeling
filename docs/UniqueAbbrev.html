@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Chapter Title | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling</title>
+  <meta name="description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Chapter Title | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Chapter Title | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling" />
+  
+  <meta name="twitter:description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
+  
+
+<meta name="author" content="Lynette H Bikos, PhD, ABPP" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="wGroups.html"/>
+<link rel="next" href="refs.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><strong>ReCentering Psych Stats: Multivariate Modeling</strong><br>by Lynette H Bikos, PhD, ABPP</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#copyright-with-open-access"><i class="fa fa-check"></i>Copyright with Open Access</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ReCintro.html"><a href="ReCintro.html#what-to-expect-in-each-chapter"><i class="fa fa-check"></i><b>1.1</b> What to expect in each chapter</a></li>
+<li class="chapter" data-level="1.2" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-accessing-and-using-this-oer"><i class="fa fa-check"></i><b>1.2</b> Strategies for Accessing and Using this OER</a></li>
+<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a>
+<ul>
+<li class="chapter" data-level="1.3.3.1" data-path="ReCintro.html"><a href="ReCintro.html#everything-is-documented-in-the-.rmd-file"><i class="fa fa-check"></i><b>1.3.3.1</b> Everything is documented in the .rmd file</a></li>
+<li class="chapter" data-level="1.3.3.2" data-path="ReCintro.html"><a href="ReCintro.html#file-organization"><i class="fa fa-check"></i><b>1.3.3.2</b> File organization</a></li>
+<li class="chapter" data-level="1.3.3.3" data-path="ReCintro.html"><a href="ReCintro.html#chunks"><i class="fa fa-check"></i><b>1.3.3.3</b> Chunks</a></li>
+<li class="chapter" data-level="1.3.3.4" data-path="ReCintro.html"><a href="ReCintro.html#packages"><i class="fa fa-check"></i><b>1.3.3.4</b> Packages</a></li>
+<li class="chapter" data-level="1.3.3.5" data-path="ReCintro.html"><a href="ReCintro.html#knitting"><i class="fa fa-check"></i><b>1.3.3.5</b> Knitting</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3.4" data-path="ReCintro.html"><a href="ReCintro.html#troubleshooting-in-r-markdown"><i class="fa fa-check"></i><b>1.3.4</b> tRoubleshooting in R maRkdown</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-success"><i class="fa fa-check"></i><b>1.3.5</b> stRategies for success</a></li>
+<li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="wGroups.html"><a href="wGroups.html"><i class="fa fa-check"></i><b>2</b> Nested Within Groups</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="wGroups.html"><a href="wGroups.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="wGroups.html"><a href="wGroups.html#learning-objectives"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="wGroups.html"><a href="wGroups.html#planning-for-practice"><i class="fa fa-check"></i><b>2.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="2.1.3" data-path="wGroups.html"><a href="wGroups.html#readings-resources"><i class="fa fa-check"></i><b>2.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="2.1.4" data-path="wGroups.html"><a href="wGroups.html#packages-1"><i class="fa fa-check"></i><b>2.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="wGroups.html"><a href="wGroups.html#multilevel-modeling-nested-within-groups"><i class="fa fa-check"></i><b>2.2</b> Multilevel Modeling: Nested within Groups</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="wGroups.html"><a href="wGroups.html#the-dilemma-of-aggregation-and-disaggregation"><i class="fa fa-check"></i><b>2.2.1</b> The dilemma of aggregation and disaggregation</a></li>
+<li class="chapter" data-level="2.2.2" data-path="wGroups.html"><a href="wGroups.html#multilevel-modeling-the-definitional-and-conceptual"><i class="fa fa-check"></i><b>2.2.2</b> Multilevel modeling: The definitional and conceptual</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="wGroups.html"><a href="wGroups.html#workflow"><i class="fa fa-check"></i><b>2.3</b> Workflow</a></li>
+<li class="chapter" data-level="2.4" data-path="wGroups.html"><a href="wGroups.html#research-vignette"><i class="fa fa-check"></i><b>2.4</b> Research Vignette</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="wGroups.html"><a href="wGroups.html#simulating-the-data-from-the-journal-article"><i class="fa fa-check"></i><b>2.4.1</b> Simulating the data from the journal article</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="wGroups.html"><a href="wGroups.html#working-the-problem-and-learning-mlm"><i class="fa fa-check"></i><b>2.5</b> Working the Problem (and learning MLM)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="wGroups.html"><a href="wGroups.html#data-diagnostics"><i class="fa fa-check"></i><b>2.5.1</b> Data diagnostics</a></li>
+<li class="chapter" data-level="2.5.2" data-path="wGroups.html"><a href="wGroups.html#levels"><i class="fa fa-check"></i><b>2.5.2</b> Levels</a></li>
+<li class="chapter" data-level="2.5.3" data-path="wGroups.html"><a href="wGroups.html#centering"><i class="fa fa-check"></i><b>2.5.3</b> Centering</a></li>
+<li class="chapter" data-level="2.5.4" data-path="wGroups.html"><a href="wGroups.html#model-building"><i class="fa fa-check"></i><b>2.5.4</b> Model Building</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="wGroups.html"><a href="wGroups.html#model-1-the-empty-model"><i class="fa fa-check"></i><b>2.5.4.1</b> Model 1: The <em>empty</em> model</a></li>
+<li class="chapter" data-level="2.5.4.2" data-path="wGroups.html"><a href="wGroups.html#model-2-adding-the-l1-predictor"><i class="fa fa-check"></i><b>2.5.4.2</b> Model 2: Adding the L1 predictor</a></li>
+<li class="chapter" data-level="2.5.4.3" data-path="wGroups.html"><a href="wGroups.html#model-3-adding-the-l2-predictors"><i class="fa fa-check"></i><b>2.5.4.3</b> Model 3: Adding the L2 predictors</a></li>
+<li class="chapter" data-level="2.5.4.4" data-path="wGroups.html"><a href="wGroups.html#model-4-adding-a-cross-level-interaction-term"><i class="fa fa-check"></i><b>2.5.4.4</b> Model 4: Adding a cross-level interaction term</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="wGroups.html"><a href="wGroups.html#final-model"><i class="fa fa-check"></i><b>2.5.5</b> Final Model</a></li>
+<li class="chapter" data-level="2.5.6" data-path="wGroups.html"><a href="wGroups.html#oh-right-the-formulae"><i class="fa fa-check"></i><b>2.5.6</b> Oh right, the Formulae</a></li>
+<li class="chapter" data-level="2.5.7" data-path="wGroups.html"><a href="wGroups.html#apa-style-writeup"><i class="fa fa-check"></i><b>2.5.7</b> APA Style Writeup</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="wGroups.html"><a href="wGroups.html#residual-and-related-questions"><i class="fa fa-check"></i><b>2.6</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="2.7" data-path="wGroups.html"><a href="wGroups.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="wGroups.html"><a href="wGroups.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed"><i class="fa fa-check"></i><b>2.7.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
+<li class="chapter" data-level="2.7.2" data-path="wGroups.html"><a href="wGroups.html#problem-2-rework-the-research-vignette-but-swap-one-or-more-variables"><i class="fa fa-check"></i><b>2.7.2</b> Problem #2: Rework the research vignette, but swap one or more variables</a></li>
+<li class="chapter" data-level="2.7.3" data-path="wGroups.html"><a href="wGroups.html#problem-3-use-other-data-that-is-available-to-you"><i class="fa fa-check"></i><b>2.7.3</b> Problem #3: Use other data that is available to you</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="wGroups.html"><a href="wGroups.html#bonus-track"><i class="fa fa-check"></i><b>2.8</b> Bonus Track:</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="wGroups.html"><a href="wGroups.html#working-the-entire-vignette"><i class="fa fa-check"></i><b>2.8.1</b> Working the Entire Vignette</a></li>
+<li class="chapter" data-level="2.8.2" data-path="wGroups.html"><a href="wGroups.html#just-the-code-please"><i class="fa fa-check"></i><b>2.8.2</b> Just the Code Please</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html"><i class="fa fa-check"></i><b>3</b> Chapter Title</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#planning-for-practice-1"><i class="fa fa-check"></i><b>3.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="3.1.3" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#readings-resources-1"><i class="fa fa-check"></i><b>3.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="3.1.4" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#packages-2"><i class="fa fa-check"></i><b>3.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#change-over-time-analytics"><i class="fa fa-check"></i><b>3.2</b> Change-Over-Time Analytics</a></li>
+<li class="chapter" data-level="3.3" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#workflow-for-name-of-statistic"><i class="fa fa-check"></i><b>3.3</b> Workflow for NAME OF STATISTIC</a></li>
+<li class="chapter" data-level="3.4" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#research-vignette-1"><i class="fa fa-check"></i><b>3.4</b> Research Vignette</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#simulating-the-data-from-the-journal-article-1"><i class="fa fa-check"></i><b>3.4.1</b> Simulating the data from the journal article</a></li>
+<li class="chapter" data-level="3.4.2" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#quick-peek-at-the-data"><i class="fa fa-check"></i><b>3.4.2</b> Quick peek at the data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#working-the-name-of-statistic"><i class="fa fa-check"></i><b>3.5</b> Working the NAME OF STATISTIC</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling"><i class="fa fa-check"></i><b>3.5.1</b> The Structure of the Data File as the First Step in Understanding Longitudinal Modeling</a></li>
+<li class="chapter" data-level="3.5.2" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#job1-is-to-get-our-data-from-person-level-into-person-period"><i class="fa fa-check"></i><b>3.5.2</b> Job#1 is to get our data from person-level into person-period</a></li>
+<li class="chapter" data-level="3.5.3" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#empirical-growth-plots"><i class="fa fa-check"></i><b>3.5.3</b> Empirical Growth Plots</a></li>
+<li class="chapter" data-level="3.5.4" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record"><i class="fa fa-check"></i><b>3.5.4</b> Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record</a></li>
+<li class="chapter" data-level="3.5.5" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#exploring-the-relationship-between-change-and-time-invariant-predictors"><i class="fa fa-check"></i><b>3.5.5</b> Exploring the relationship between Change and Time-Invariant Predictors</a></li>
+<li class="chapter" data-level="3.5.6" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#the-relationship-between-ols-estimated-trajectories-and-substantive-predictors"><i class="fa fa-check"></i><b>3.5.6</b> The Relationship between OLS-Estimated Trajectories and Substantive Predictors</a></li>
+<li class="chapter" data-level="3.5.7" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#apa-style-writeup-1"><i class="fa fa-check"></i><b>3.5.7</b> APA Style Writeup</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#observations-about-the-social-and-cultural-responsivity-of-the-project"><i class="fa fa-check"></i><b>3.6</b> Observations about the Social and Cultural Responsivity of the Project</a></li>
+<li class="chapter" data-level="3.7" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#residual-and-related-questions-1"><i class="fa fa-check"></i><b>3.7</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="3.8" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#practice-problems-1"><i class="fa fa-check"></i><b>3.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1"><i class="fa fa-check"></i><b>3.8.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
+<li class="chapter" data-level="3.8.2" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#problem-2-rework-the-research-vignette-but-swap-one-or-more-variables-1"><i class="fa fa-check"></i><b>3.8.2</b> Problem #2: Rework the research vignette, but swap one or more variables</a></li>
+<li class="chapter" data-level="3.8.3" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#problem-3-use-other-data-that-is-available-to-you-1"><i class="fa fa-check"></i><b>3.8.3</b> Problem #3: Use other data that is available to you</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="UniqueAbbrev.html"><a href="UniqueAbbrev.html#bonus-track-1"><i class="fa fa-check"></i><b>3.9</b> Bonus Track:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="refs.html"><a href="refs.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+#<li><a href="https:link" target="_blank">Open access book-in-progress</br>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></li>
+  <li><a href="https://bookdown.org" target="_blank">Built with Bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="UniqueAbbrev" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Chapter Title</h1>
+<p><a href="link%20here">Screencasted Lecture Link</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="UniqueAbbrev.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)<span class="co">#eliminates scientific notation</span></span></code></pre></div>
+<p>The focus of this lecture is …. 2-3 sentence overview.</p>
+<p>Any other info – like reliance on a particular text (e.g., Hayes) and how it is similar/different.</p>
+<div id="navigating-this-lesson-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Navigating this Lesson</h2>
+<p>There is about # hour and ## minutes of lecture. If you work through the materials with me it would be plan for an additional TIME.</p>
+<p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_CPA">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
+<div id="learning-objectives-1" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Learning Objectives</h3>
+<p>Learning objectives from this lecture include the following:</p>
+<ul>
+<li>Identify the 3 criteria for longitudinal analysis (in an HLM/MLM framework)</li>
+<li>Know the key variable (type) requirements of a longitudinal dataset.</li>
+<li>Know the distinction (and lingo) between level-1 and level-2.</li>
+<li>Recognize the difference between wide and long files by instantaneous sight.</li>
+<li>Speculate about the dataset by looking at the figures, means(<em>SD</em>), and correlations we produced.</li>
+<li>In particular, interpret a correlation coefficient of intercepts and slopes.</li>
+</ul>
+</div>
+<div id="planning-for-practice-1" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Planning for Practice</h3>
+<p>The suggestions for homework are graded in complexity … The more complete descriptions at the end of the chapter follow these suggestions.</p>
+<p>The assignment is multi-week. Using a dataset that is provided (or one of your own), walk through exploring, conducting, and writing up a complete multilevel model for change with each step below. Minimally, predictors must include time and an L2 variable.</p>
+<ol style="list-style-type: decimal">
+<li>Restructure the datset from wide to long.</li>
+<li>Provide three examples of data exploration
+<ul>
+<li>An unfitted model</li>
+<li>A model fitted with a linear growth trajectory</li>
+<li>The fitted (or unfitted) data identified by the L2 predictor</li>
+</ul></li>
+<li>Following the example in Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> Chapter 4, specify and report on at least 4 models, these must include
+<ul>
+<li>An unconditional means model</li>
+<li>An unconditional growth model</li>
+<li>An intermediary model (please test both a time variable and an L2 variable)</li>
+<li>A final model</li>
+</ul></li>
+<li>Write up the Results as demonstrated in the lecture</li>
+<li>Table (use the tab_model outfile) and Figure are required</li>
+</ol>
+<ul>
+<li>Rework the problem in the chapter by changing the random seed in the code that simulates the data. This should provide minor changes to the data, but the results will likely be very similar. SINCE I’M NOT CONVINCED THAT CHANGING THE RANDOM SEED DOES MUCH, I MAY CHANGE THIS ONE TO AN EXAMPLE I WORK WITH ANSWERS AT THE END.</li>
+<li>There are a number of variables in the dataset. Swap out one or more variables in the NAME THE STATISTIC and compare your solution to the one in the chapter (and/or oNe you mimicked in the journal article).</li>
+<li>Conduct a NAME THE STATISTIC with data to which you have access. This could include data you simulate on your own or from a published article.</li>
+</ul>
+</div>
+<div id="readings-resources-1" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Readings &amp; Resources</h3>
+<p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
+<ul>
+<li>Singer, J. D., &amp; Willett, J. B. (2003). A framework for investigating change over time/Chapter 1 and Exporing longitudinal data on change/Chapter 2 in <em>Applied longitudinal data analysis: Modeling change and event occurrence.</em> Oxford University Press. <a href="https://doi-org.ezproxy.spu.edu/10.1093/acprof:oso/9780195152968.001.0001" class="uri">https://doi-org.ezproxy.spu.edu/10.1093/acprof:oso/9780195152968.001.0001</a></li>
+<li>Lefevor, G. T., Janis, R. A., &amp; Park, S. Y. (2017). Religious and sexual identities: An intersectional, longitudinal examination of change in therapy. <em>The Counseling Psychologist, 45</em>(3), 387–413. <a href="https://doi-org.ezproxy.spu.edu/10.1177/0011000017702721" class="uri">https://doi-org.ezproxy.spu.edu/10.1177/0011000017702721</a></li>
+</ul>
+<p>I love the Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> text for so many reasons. Let me digress to share one story about authorship.</p>
+<p>Supplemental to the required readings is the amazing book site “ALDA” (short for Applied Longitudinal Data Analysis) at the UCLA IDRE site: <a href="https://stats.idre.ucla.edu/other/examples/alda/" class="uri">https://stats.idre.ucla.edu/other/examples/alda/</a></p>
+<p>There you can find code for the chapters using R, SPSS, SAS, Mplus, and HLM (for some of the measures).</p>
+</div>
+<div id="packages-2" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Packages</h3>
+<p>The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="UniqueAbbrev.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
+<span id="cb2-2"><a href="UniqueAbbrev.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(robumeta)){<span class="fu">install.packages</span>(<span class="st">&quot;robumeta&quot;</span>)}</span>
+<span id="cb2-3"><a href="UniqueAbbrev.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tidyverse)){<span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)}</span>
+<span id="cb2-4"><a href="UniqueAbbrev.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(psych)){<span class="fu">install.packages</span>(<span class="st">&quot;psych&quot;</span>)}</span>
+<span id="cb2-5"><a href="UniqueAbbrev.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(lme4)){<span class="fu">install.packages</span>(<span class="st">&quot;lme4&quot;</span>)}</span>
+<span id="cb2-6"><a href="UniqueAbbrev.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(nlme)){<span class="fu">install.packages</span>(<span class="st">&quot;nlme&quot;</span>)}</span>
+<span id="cb2-7"><a href="UniqueAbbrev.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sjstats)){<span class="fu">install.packages</span>(<span class="st">&quot;sjstats&quot;</span>)}</span>
+<span id="cb2-8"><a href="UniqueAbbrev.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(scales)){<span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)}</span></code></pre></div>
+</div>
+</div>
+<div id="change-over-time-analytics" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Change-Over-Time Analytics</h2>
+<p>There are a host of ways to investigate change over time: longitudinal SEM, latent growth curve modeling, latent mixture models, and so forth. We are focused on the subset of this approach that has so many names: individual growth curve models, random coefficient models, multilevel models, linear mixed effects models, hierachical linear models.</p>
+<p>Before we start down the longitudinal/repeated measures path, a note to say that this class of statistics was born out of a need to deal with <em>dependency</em> in the data and it applies to both <em>cross-sectional</em> and <em>longitudinal/repeated measures</em> models.</p>
+<ul>
+<li>Remember ANOVA? <em>(Excepting repeated measure or mixed design ANOVA)</em> One of the statistical assumptions was that the data had to be <em>independent.</em> That is, you could not have family members, co-workers, etc., in the dataset because their data would likely be correlated.</li>
+<li>In the context of these related circumstances (students in a classroom, supervisees of a manager) researchers were confused about how to handle the data. Should they <em>aggregate</em> the dependent data (effectively reduce the sample size by taking the mean of all those in a dependent cluster and using it with the non-dependent data)? Should they keep it <em>disaggregated</em> (effectively repeating/copying the non-dependent data for each member of the cluster)? Each approach was fraught with difficulty.</li>
+</ul>
+<p>Random coefficient regression models (RCR or RCM) are an effective alternative to ordinary least squares (OLS) to account for dependencies within the data. The math and approach toward longitudinal modeling is largely the same as when we manage dependencies cross-sectional studies (e.g., members of a team, supervisors reporting to a leader/manager). A more thorough review of aggregation and disaggregation can be found in the <em>ReCentering Psych Stats</em> <a href="wGroups.html#wGroups">chapter</a> devoted to cross-sectional data.</p>
+<p><img src="images/LongExpl/LongNesting.jpg" alt="Image of longitudinal examples of clustered data" />
+This class of analysis allows us to address questions about:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Within-individual change</strong>: How does each person change over time?
+<ul>
+<li>These are descriptive questions: Is change linear? nonlinear? consistent? fluctuating?</li>
+<li><em>level-1</em> concerns <strong>within-individual change</strong> over time</li>
+<li><em>individual growth trajectory</em> – the way outcome values rise and fall over time</li>
+<li>Goal is to describe the <em>shape</em> of each person’s growth trajectory</li>
+</ul></li>
+<li><strong>Interindividual differences in change</strong>: What predicts differences among people in their changes?
+<ul>
+<li>A relational question: What is the association between predictors and patterns of change? Are these relations moderated?</li>
+<li><em>level-2</em> concerns <strong>interindividual differences in change</strong></li>
+<li>Do different people manifest different patterns of within-individual change? What predicts these differences?</li>
+<li>Goal is to detect heterogeneity in change across individuals and to determine the relationship between predictors and the shape of each person’s individual growth trajectory.</li>
+</ul></li>
+</ol>
+<p>Together, we map the research questions onto a <em>linked pair</em> of statistical models known as the <em>multilevel model for change</em>:</p>
+<ol style="list-style-type: decimal">
+<li>a <em>level-1</em> (L1) model, describing within-individual change over time; and</li>
+<li>a <em>level-2</em> (L2) model, relating predictors to any interindividual differences in change</li>
+</ol>
+<p>Asking these questions requires three criteria of the research design/data:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Multiple waves of data</strong>
+<ul>
+<li>Contrast with a developmental psychologist analyzing cross-sectional data composed of children of differing ages. In spite of compelling (and totally fine) research designs, the cross-sectional nature of the design can not rule out <em>plausible rival hypotheses</em>.</li>
+<li>Contrast with two waves of data. Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> state that these data, “are only marginally better” (p. 10). Two-wave researchers argued in favor of their <em>increment</em> (i.e, the simple difference between scores assessed on the two measurement occasions). Even if the <em>increment</em> is large, Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> argue that the increment cannot describe the <em>process of change</em> because it cannot describe the <em>shape</em> (the focus of the <em>level-1</em> question). Singer and Willett further argue that two-wave studies cannot describe individual change trajectories because they confound true change with measurement error.</li>
+<li><em>How many waves?</em> Within cost and logistical constraints, “more waves are always better.” More allows more complex modeling. The statistical rule is that you need one-more-wave than the shape you wish to model. For example, you need 2 waves for a straight line (linear model), 3 waves for a quadratic (1 hump) model, 4 waves for a cubic (2 curves) model, and so forth.</li>
+</ul></li>
+<li><strong>A substantively meaningful metric for time</strong>
+<ul>
+<li>“Time is the fundamental predictor in every study of change; it must be measured reliably and validly in a sensible metric” (p. 10).<br />
+</li>
+<li>What is sensible? ages, grades, months-since-intake, miles, etc. The choice of metric affects related decisions including number and spacing of waves.</li>
+<li>Consider the <em>cadence</em> you expect in the outcome. Weeks or number of sessions is sensible for psychotherapy studies. Grade or age is sensible for education. Parental or child age might make sense for parenting.</li>
+<li>“The temporal variable can change only monotonically” (p. 12), that is, it cannot <em>reverse</em> diretions. This means you can have height as a temporal variable, but not weight.</li>
+<li>There is NOTHING SACRED about evenly spaced variables. In fact, if you expect rapid nonlinear change during some periods, you should collect mored data at those times. If you expect little movement, you can maybe space them urther apart.</li>
+<li><em>Time-structured</em> schedules assess all participants on an identical schedule (cb equally or unequally spaced). <em>Time-unstructured</em> schedules allow data collection schedules to vary across individuals. Multi-level modeling can accomodate both.</li>
+<li>No requirement for <em>balance</em>. That is, each person can have a different number of waves. While non-random attrition can be problematic for drawing inferences, individual growth modeling does not require balanced data.</li>
+</ul></li>
+<li><strong>An outcome that changes systematically</strong>
+<ul>
+<li>The <em>content</em> of measurement is a substantive, not statistical decision. However…</li>
+<li><em>How</em> the construct is measured <em>is</em> a statistical decision and “not all variables are equally suited” (p. 13). Individual growth models are designed for continuous outcomes whose values change systematically over time.</li>
+<li><em>Continuous outcomes</em> are those that support “all the usual manipulations of arithmetic” (p. 13). That is, you can take differences between pairs of scores, add, subtract, multiply, divide. Most psychometrically credible instruments will work. BUT!</li>
+<li>the “metric, validity, and precision” of the outcome must be preserved across time. That is, the outcome scores must be “equatable over time.” That is, a given value of the outcome on any occasion must represent the same “amount” of the outcome on every occasion. <em>Outcome equatability</em> is supported (in part) by using the identical instrument each time.</li>
+<li><em>Standardization</em> in the longitudinal context is hotly debated and not a simple solution for equating shifty metrics. Why? the SD units likely have different size/meaning at different intervals. Transforming the <em>M</em> to 0.0 and the <em>SD</em> to 1.0 masks the variance differences that may exist. The raw metric preserves the variance and avoids all the issues.</li>
+<li>Outcomes should be <em>equally valid</em> across all measurement occasions. For example, a multiplication test may be a valid measure of mathematical skill among young children, but a measure of memory among teenagers.</li>
+<li>Although <em>precision</em> need not be identical at every occasion, the goal is to minimize errors introduced by instrument administration. Look for reliabilities of .8 and above.</li>
+</ul></li>
+</ol>
+<p>“Structuring up” a longitudinal data set and engaging in preliminary data anlaysis is a great way to further understand this approach to statistical modeling. So, let’s transition to our research vignette.</p>
+</div>
+<div id="workflow-for-name-of-statistic" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Workflow for NAME OF STATISTIC</h2>
+</div>
+<div id="research-vignette-1" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Research Vignette</h2>
+<p>Our research vignette <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">Lefevor et al., 2017</a>)</span> examines the intersection of religious and sexual identities of clients in therapy. With 12,825 participants from the Center for Collegiate Mental Health 2012-2014 data set, the project is an example of working with <em>big data.</em> Because the data is available to members only (and behind a paywall), I simulated the data. In the simulation, categorical variables (e.g., sexual identity, session number, religious identity) were rendered as continuous variables and in the simulation, I needed to transform them back into categorical ones. Inevitably, this will have introduced a great deal of error. Thus, we can expect that the results from the simulated data will be different from those obtained by the authors.</p>
+<p>The Method section of the article provides detailed information about the inclusion criteria ofr the study and the coding of the variables. This included data about the religious and sexual identities as well as a minimum of three separate scores on the Counseling Center Assessment of Psychologial Sympsoms <span class="citation">(CCAPS, <a href="#ref-locke_development_2012" role="doc-biblioref">Locke et al., 2012</a>)</span> measure. For the final dataset, clients attended an average of 10.58 sessions (<em>SD</em> = 7.65) and had an average of 5.36 CCAPS administrations (<em>SD</em> = 4.04). This means that in the original dataset, each client was represented by a varying number of observations (likely ranging from 3 [the minimum required for inclusion] and, perhaps as many as 17 [adding +3<em>SD</em>s to the mean CCAPS administrations]). In simulating the data, I specified five observations for each of the 12,825 clients.</p>
+<p>Let’s take a look at the variables in the study</p>
+<ul>
+<li><p><strong>Anxiety and Depression</strong>: The anxiety and depression ratings were taken from the CCAPS measure <span class="citation">(<a href="#ref-locke_development_2012" role="doc-biblioref">Locke et al., 2012</a>)</span> that assesses psychological distress across seven domains. Clients rate themselves over the past two weeks on a 5-point Likert-type scale ranging from 0 (<em>not at all like me</em>) to 4 (<em>extremely like me</em>). Higher scores indicate more distress. The dataset comes from multiple institutions with different procedures around assessment CCAPS there is not a 1:1 correspondence with session number and CCAPS assessment.</p></li>
+<li><p><strong>Sexual Identity</strong>: Sexual identity was dichotomized into heterosexual (-1, 85.5%) and LGBQQ (1, 14.5%).</p></li>
+<li><p><strong>Relious Identity</strong>: Religious identity was coded into three categories including dominant religious (DR; Christian, Catholic), nondominant religious (NDR; Muslim, Hindu, Buddhist, Jewish), and nondominant unaffiliated (NDU; agnostic, atheist, no preference). The three categories were contrast coded with an orthogonal contrast-coding scheme with two variables. The first variable compared DR(coded as 2) to NDU and NDR (coded as -1); the second variable compared the two nondominant groups (NDU = -1, DR = 0, NDR = 1).</p></li>
+</ul>
+<div id="simulating-the-data-from-the-journal-article-1" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Simulating the data from the journal article</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="UniqueAbbrev.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
+<span id="cb3-2"><a href="UniqueAbbrev.html#cb3-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
+<span id="cb3-3"><a href="UniqueAbbrev.html#cb3-3" aria-hidden="true" tabindex="-1"></a>n_session <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb3-4"><a href="UniqueAbbrev.html#cb3-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="fl">2.03</span> <span class="co">#intercept for anxiety</span></span>
+<span id="cb3-5"><a href="UniqueAbbrev.html#cb3-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="sc">-</span>.<span class="dv">22</span> <span class="co">#b weight for L1 session</span></span>
+<span id="cb3-6"><a href="UniqueAbbrev.html#cb3-6" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">=</span> .<span class="dv">13</span> <span class="co">#b weight for L2 sexual identity</span></span>
+<span id="cb3-7"><a href="UniqueAbbrev.html#cb3-7" aria-hidden="true" tabindex="-1"></a>b3 <span class="ot">=</span>  <span class="sc">-</span>.<span class="dv">03</span> <span class="co">#b weight for L2 Rel1 (D-R vs ND-R &amp; ND-U)</span></span>
+<span id="cb3-8"><a href="UniqueAbbrev.html#cb3-8" aria-hidden="true" tabindex="-1"></a>b4 <span class="ot">=</span> .<span class="dv">01</span> <span class="co">#b weight for the L2 Rel2 (ND-R vs ND-U)</span></span>
+<span id="cb3-9"><a href="UniqueAbbrev.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#the values used below are the +/- 3SD they produce continuous variables which later need to be transformed to categorical ones; admittedly this introduces a great deal of error/noise into the simulation</span></span>
+<span id="cb3-10"><a href="UniqueAbbrev.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#the article didn&#39;t include a correlation matrix or M/SDs so this was a clunky process </span></span>
+<span id="cb3-11"><a href="UniqueAbbrev.html#cb3-11" aria-hidden="true" tabindex="-1"></a>( <span class="at">Session =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>n_session, <span class="sc">-</span><span class="fl">3.61</span>, <span class="fl">3.18</span>)) <span class="co">#calc L1 Session, values are the +/3 3SD</span></span>
+<span id="cb3-12"><a href="UniqueAbbrev.html#cb3-12" aria-hidden="true" tabindex="-1"></a>( <span class="at">SexualIdentity =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">6.66</span>, <span class="fl">6.92</span>)) <span class="co">#calc L2 Sexual Identity, values are the +/3 3SD</span></span>
+<span id="cb3-13"><a href="UniqueAbbrev.html#cb3-13" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion1 =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">3.43</span>, <span class="fl">3.37</span>)) <span class="co">#calc L2 Religion1, values are the +/3 3SD</span></span>
+<span id="cb3-14"><a href="UniqueAbbrev.html#cb3-14" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion2 =</span> <span class="fu">rep</span> (<span class="fu">runif</span>(n_session, <span class="sc">-</span><span class="fl">3.38</span>, <span class="fl">3.41</span>), <span class="at">each =</span> n_session)) <span class="co">#calc L2 Religion2, values are the +/3 3SD</span></span>
+<span id="cb3-15"><a href="UniqueAbbrev.html#cb3-15" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="fl">1.76</span> <span class="co">#intercept of empty model </span></span>
+<span id="cb3-16"><a href="UniqueAbbrev.html#cb3-16" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">=</span> <span class="fl">2.264</span> <span class="co">#this is the SD of the DV</span></span>
+<span id="cb3-17"><a href="UniqueAbbrev.html#cb3-17" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this is the observation-level random effect variance that we set at 1</span></span>
+<span id="cb3-18"><a href="UniqueAbbrev.html#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="UniqueAbbrev.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#( church = rep(LETTERS[1:n_church], each = n_mbrs) ) #this worked in the prior</span></span>
+<span id="cb3-20"><a href="UniqueAbbrev.html#cb3-20" aria-hidden="true" tabindex="-1"></a>( <span class="at">client =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span>n_client], <span class="at">each =</span> n_session) )</span>
+<span id="cb3-21"><a href="UniqueAbbrev.html#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#( session = numbers[1:(n_client*n_session)] )</span></span>
+<span id="cb3-22"><a href="UniqueAbbrev.html#cb3-22" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rnorm</span>(n_client, <span class="dv">0</span>, sds) )</span>
+<span id="cb3-23"><a href="UniqueAbbrev.html#cb3-23" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rep</span>(clienteff, <span class="at">each =</span> n_session) )</span>
+<span id="cb3-24"><a href="UniqueAbbrev.html#cb3-24" aria-hidden="true" tabindex="-1"></a>( <span class="at">sessioneff =</span> <span class="fu">rnorm</span>(n_client<span class="sc">*</span>n_session, <span class="dv">0</span>, sd) )</span>
+<span id="cb3-25"><a href="UniqueAbbrev.html#cb3-25" aria-hidden="true" tabindex="-1"></a>( <span class="at">Anxiety =</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>Session <span class="sc">+</span> b2<span class="sc">*</span>SexualIdentity <span class="sc">+</span> b3<span class="sc">*</span>Religion1 <span class="sc">+</span> b4<span class="sc">*</span>Religion2 <span class="sc">+</span> clienteff <span class="sc">+</span> sessioneff)</span>
+<span id="cb3-26"><a href="UniqueAbbrev.html#cb3-26" aria-hidden="true" tabindex="-1"></a>( <span class="at">dat =</span> <span class="fu">data.frame</span>(client, clienteff, sessioneff, Session, SexualIdentity, Religion1, Religion2, Anxiety) )</span>
+<span id="cb3-27"><a href="UniqueAbbrev.html#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="UniqueAbbrev.html#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-29"><a href="UniqueAbbrev.html#cb3-29" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span>
+<span id="cb3-30"><a href="UniqueAbbrev.html#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#moving the ID number to the first column; requires </span></span>
+<span id="cb3-31"><a href="UniqueAbbrev.html#cb3-31" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
+<span id="cb3-32"><a href="UniqueAbbrev.html#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="UniqueAbbrev.html#cb3-33" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span></span>
+<span id="cb3-34"><a href="UniqueAbbrev.html#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, client, Session, SexualIdentity, Religion1, Religion2, Anxiety)</span>
+<span id="cb3-35"><a href="UniqueAbbrev.html#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="UniqueAbbrev.html#cb3-36" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>ClientID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12825</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
+<span id="cb3-37"><a href="UniqueAbbrev.html#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">#rounded Sexual Identity into dichotomous variable</span></span>
+<span id="cb3-38"><a href="UniqueAbbrev.html#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co">#85% were heterosexual, </span></span>
+<span id="cb3-39"><a href="UniqueAbbrev.html#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="UniqueAbbrev.html#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robumeta)</span>
+<span id="cb3-41"><a href="UniqueAbbrev.html#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co">#The following variables should be L2, but were simulated as if they were L1</span></span>
+<span id="cb3-42"><a href="UniqueAbbrev.html#cb3-42" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion1,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb3-43"><a href="UniqueAbbrev.html#cb3-43" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion2,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb3-44"><a href="UniqueAbbrev.html#cb3-44" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SxID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>SexualIdentity,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb3-45"><a href="UniqueAbbrev.html#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="UniqueAbbrev.html#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2 has contrast codes for dominant religion (DR, 0), nondominant religious (NDR, 1) and nondominant unspecified (NDU, -1)</span></span>
+<span id="cb3-47"><a href="UniqueAbbrev.html#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Strategy is to figure out the raw score associated with the percentile rank of  -1 and 0, to set the breakpoints for the coding</span></span>
+<span id="cb3-48"><a href="UniqueAbbrev.html#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU coded as -1</span></span>
+<span id="cb3-49"><a href="UniqueAbbrev.html#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co">#19.2+13.5+9.6</span></span>
+<span id="cb3-50"><a href="UniqueAbbrev.html#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU has bottom 42.3 percent</span></span>
+<span id="cb3-51"><a href="UniqueAbbrev.html#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="UniqueAbbrev.html#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co">#DR coded as 0, so quantile cut will be 42.3 + 52.7 = 95th</span></span>
+<span id="cb3-53"><a href="UniqueAbbrev.html#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">#33.4 + 19.3</span></span>
+<span id="cb3-54"><a href="UniqueAbbrev.html#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co">#52.7% of sample (according to article) was DR</span></span>
+<span id="cb3-55"><a href="UniqueAbbrev.html#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co">#must look up percentile ranks for 5% and 57.5%</span></span>
+<span id="cb3-56"><a href="UniqueAbbrev.html#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="UniqueAbbrev.html#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR</span></span>
+<span id="cb3-58"><a href="UniqueAbbrev.html#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co">#2.3+1+1+.7</span></span>
+<span id="cb3-59"><a href="UniqueAbbrev.html#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR has 5% of sample</span></span>
+<span id="cb3-60"><a href="UniqueAbbrev.html#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co">#42.3+52.7</span></span>
+<span id="cb3-61"><a href="UniqueAbbrev.html#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$Religion2, probs = c(.423, .95))</span></span>
+<span id="cb3-62"><a href="UniqueAbbrev.html#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co">#effects coding the second Religion variable so that NDU = -1, DR = 0, NDR = 1</span></span>
+<span id="cb3-63"><a href="UniqueAbbrev.html#cb3-63" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2L2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span>, <span class="sc">-</span><span class="dv">1</span>, </span>
+<span id="cb3-64"><a href="UniqueAbbrev.html#cb3-64" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span> <span class="sc">&amp;</span> Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="fl">0.9299491</span>, <span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb3-65"><a href="UniqueAbbrev.html#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="UniqueAbbrev.html#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co">#checking work</span></span>
+<span id="cb3-67"><a href="UniqueAbbrev.html#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2L2_table &lt;- table(Lefevor2017$Rel2L2)</span></span>
+<span id="cb3-68"><a href="UniqueAbbrev.html#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel2L2_table)</span></span>
+<span id="cb3-69"><a href="UniqueAbbrev.html#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017 %&gt;%</span></span>
+<span id="cb3-70"><a href="UniqueAbbrev.html#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Rel2L2)</span></span>
+<span id="cb3-71"><a href="UniqueAbbrev.html#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="UniqueAbbrev.html#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co">#creating the first religion variable where DR is 2 and NDR and NDU are both -1</span></span>
+<span id="cb3-73"><a href="UniqueAbbrev.html#cb3-73" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1L2 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb3-74"><a href="UniqueAbbrev.html#cb3-74" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>DRel0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb3-75"><a href="UniqueAbbrev.html#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="UniqueAbbrev.html#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co">#checking to make sure that 52.7% are coded 2 (DR)</span></span>
+<span id="cb3-77"><a href="UniqueAbbrev.html#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel1L2_table &lt;- table(Lefevor2017$Rel1L2)</span></span>
+<span id="cb3-78"><a href="UniqueAbbrev.html#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel1L2_table)</span></span>
+<span id="cb3-79"><a href="UniqueAbbrev.html#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="UniqueAbbrev.html#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="co">#heterosexual is -1</span></span>
+<span id="cb3-81"><a href="UniqueAbbrev.html#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="co">#LGBTQIA+ is 1</span></span>
+<span id="cb3-82"><a href="UniqueAbbrev.html#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(Lefevor2017<span class="sc">$</span>SxID, <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">85</span>))</span>
+<span id="cb3-83"><a href="UniqueAbbrev.html#cb3-83" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SexID <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>SxID <span class="sc">&lt;=</span> <span class="fl">1.203468</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb3-84"><a href="UniqueAbbrev.html#cb3-84" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Het0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>SexID, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb3-85"><a href="UniqueAbbrev.html#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="co">#SexID_table &lt;- table(Lefevor2017$SexID)</span></span>
+<span id="cb3-86"><a href="UniqueAbbrev.html#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(SexID_table)</span></span>
+<span id="cb3-87"><a href="UniqueAbbrev.html#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-88"><a href="UniqueAbbrev.html#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="co">#creating a variable representing the session number for each client, in the article up to 20 sessions were allowed. </span></span>
+<span id="cb3-89"><a href="UniqueAbbrev.html#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;scales&quot;)</span></span>
+<span id="cb3-90"><a href="UniqueAbbrev.html#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb3-91"><a href="UniqueAbbrev.html#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="co">#Right from the beginning I centered this so that 0 would represent intake</span></span>
+<span id="cb3-92"><a href="UniqueAbbrev.html#cb3-92" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Session0 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(scales<span class="sc">::</span><span class="fu">rescale</span>(Lefevor2017<span class="sc">$</span>Session, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19</span>)))</span>
+<span id="cb3-93"><a href="UniqueAbbrev.html#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="UniqueAbbrev.html#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="co">#creating session waves (1 thru 5) by rank ordering within each person&#39;s variable the continuous variable Session that was created in the original simulation</span></span>
+<span id="cb3-95"><a href="UniqueAbbrev.html#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-96"><a href="UniqueAbbrev.html#cb3-96" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
+<span id="cb3-97"><a href="UniqueAbbrev.html#cb3-97" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ClientID) <span class="sc">%&gt;%</span></span>
+<span id="cb3-98"><a href="UniqueAbbrev.html#cb3-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">rank</span>(Session))</span>
+<span id="cb3-99"><a href="UniqueAbbrev.html#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="UniqueAbbrev.html#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting the simulated variables</span></span>
+<span id="cb3-101"><a href="UniqueAbbrev.html#cb3-101" aria-hidden="true" tabindex="-1"></a>Lefevor2017_sim <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
+<span id="cb3-102"><a href="UniqueAbbrev.html#cb3-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, Session0, Anxiety, DRel0, Het0)</span>
+<span id="cb3-103"><a href="UniqueAbbrev.html#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="UniqueAbbrev.html#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="co">#In the transition from long-to-wide, it seems like you can only do one L1 variable at a time</span></span>
+<span id="cb3-105"><a href="UniqueAbbrev.html#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="co">#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde</span></span>
+<span id="cb3-106"><a href="UniqueAbbrev.html#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="co">#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum</span></span>
+<span id="cb3-107"><a href="UniqueAbbrev.html#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the name of the SINGLE L1 variable in the concatonated list</span></span>
+<span id="cb3-108"><a href="UniqueAbbrev.html#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<pre><code>Warning: package &#39;data.table&#39; was built under R version 4.0.5</code></pre>
+<pre><code>
+Attaching package: &#39;data.table&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:dplyr&#39;:
+
+    between, first, last</code></pre>
+<pre><code>The following object is masked from &#39;package:purrr&#39;:
+
+    transpose</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="UniqueAbbrev.html#cb8-1" aria-hidden="true" tabindex="-1"></a>LfvrWp1<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">+</span> DRel0 <span class="sc">+</span> Het0 <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>))</span>
+<span id="cb8-2"><a href="UniqueAbbrev.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
+<span id="cb8-3"><a href="UniqueAbbrev.html#cb8-3" aria-hidden="true" tabindex="-1"></a>LfvrWp1<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp1, <span class="at">Index1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Index2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Index3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Index4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Index5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb8-4"><a href="UniqueAbbrev.html#cb8-4" aria-hidden="true" tabindex="-1"></a>LfvrWp2<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Anxiety&quot;</span>))</span>
+<span id="cb8-5"><a href="UniqueAbbrev.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
+<span id="cb8-6"><a href="UniqueAbbrev.html#cb8-6" aria-hidden="true" tabindex="-1"></a>LfvrWp2<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp2, <span class="at">Anx1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Anx2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Anx3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Anx4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Anx5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb8-7"><a href="UniqueAbbrev.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#For remaining L1 variable, do them one at a time -- key them from the person-level ID and the wave/index.</span></span>
+<span id="cb8-8"><a href="UniqueAbbrev.html#cb8-8" aria-hidden="true" tabindex="-1"></a>LfvrWp3<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Session0&quot;</span>))</span>
+<span id="cb8-9"><a href="UniqueAbbrev.html#cb8-9" aria-hidden="true" tabindex="-1"></a>LfvrWp3<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp3, <span class="at">Sess1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Sess2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Sess3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Sess4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Sess5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb8-10"><a href="UniqueAbbrev.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Next, join the dataframes by the person-level ID</span></span>
+<span id="cb8-11"><a href="UniqueAbbrev.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Only two can be joined at a time</span></span>
+<span id="cb8-12"><a href="UniqueAbbrev.html#cb8-12" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrWp1, LfvrWp2, LfvrWp3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span>
+<span id="cb8-13"><a href="UniqueAbbrev.html#cb8-13" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrWide, LfvrWp3,  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span></code></pre></div>
+<p>To increase the portability of the OER, this chapter uses simulated data. Here is script for exporting/downloading the data as a .csv file to your local computer and then importing/uploading it again. I find that saving the .csv file (data) in the same place as the .rmd file(s) is essential for R to connect the two.</p>
+<p>Because this simulation can take a few minutes, you may wish to do this, even as you work through this chapter, so that resimulations take less time and comuting resources.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="UniqueAbbrev.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrWide, <span class="at">file=</span><span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb9-2"><a href="UniqueAbbrev.html#cb9-2" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+</div>
+<div id="quick-peek-at-the-data" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Quick peek at the data</h3>
+<p>Descriptives
+R matrix
+Consider pairpanels
+Consider the M, SD, r matrix from apaTables</p>
+</div>
+</div>
+<div id="working-the-name-of-statistic" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Working the NAME OF STATISTIC</h2>
+<div id="the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> The Structure of the Data File as the First Step in Understanding Longitudinal Modeling</h3>
+<p>We are accustomed to viewing data in its <em>wide</em> format. The wide format is also technically termed the <strong>person-level</strong> data set or the <em>multivariate</em> format of data. It is characterized by the following:</p>
+<ul>
+<li>Each person has one record and multiple variables contain the data from each measurement occasion; a 16-person set has 16 records while a 20,000 person set has 20,000 records.</li>
+<li>As you collect additional waves, a person-level file gains new variables (not new cases).</li>
+<li>In the context of longitudinal modeling, data in this form allows us to visually examing an <em>empirical growth record</em> (the temporally sequenced outcomes).</li>
+<li>This wide file arrays each person’s empirical growth record horizontally</li>
+</ul>
+<p>There are <strong>disadvantages</strong> to the wide format:</p>
+<ul>
+<li>The summmaries are noninformative.</li>
+<li>It omits an explicit time variable.</li>
+<li>It is inefficient/useless when the number and spacing of waves varies</li>
+<li>It cannot handle the presence of time-varying predictors.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="UniqueAbbrev.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb10-2"><a href="UniqueAbbrev.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(psych<span class="sc">::</span><span class="fu">describe</span>(LfvrWide),<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>         vars     n    mean      sd  median trimmed     mad   min      max
+ClientID    1 12825 6413.00 3702.40 6413.00 6413.00 4753.22  1.00 12825.00
+DRel0       2 12825    0.60    0.49    1.00    0.62    0.00  0.00     1.00
+Het0        3 12825    0.28    0.45    0.00    0.22    0.00  0.00     1.00
+Index1      4 12825    1.00    0.00    1.00    1.00    0.00  1.00     1.00
+Index2      5 12825    2.00    0.00    2.00    2.00    0.00  2.00     2.00
+Index3      6 12825    3.00    0.00    3.00    3.00    0.00  3.00     3.00
+Index4      7 12825    4.00    0.00    4.00    4.00    0.00  4.00     4.00
+Index5      8 12825    5.00    0.00    5.00    5.00    0.00  5.00     5.00
+Anx1        9 12825    2.58    2.54    2.56    2.58    2.52 -7.88    11.88
+Anx2       10 12825    2.32    2.55    2.31    2.33    2.56 -8.13    12.31
+Anx3       11 12825    2.08    2.56    2.06    2.08    2.57 -7.36    12.87
+Anx4       12 12825    1.82    2.52    1.82    1.83    2.52 -7.29    10.72
+Anx5       13 12825    1.58    2.52    1.56    1.58    2.55 -7.58    11.23
+Sess1      14 12825    2.66    2.64    2.00    2.27    2.96  0.00    16.00
+Sess2      15 12825    5.83    3.37    5.00    5.64    2.96  0.00    17.00
+Sess3      16 12825    8.99    3.58    9.00    8.98    4.45  0.00    18.00
+Sess4      17 12825   12.15    3.38   12.00   12.33    4.45  0.00    18.00
+Sess5      18 12825   15.31    2.68   16.00   15.72    2.96  2.00    19.00
+            range  skew kurtosis    se
+ClientID 12824.00  0.00    -1.20 32.69
+DRel0        1.00 -0.41    -1.83  0.00
+Het0         1.00  0.99    -1.02  0.00
+Index1       0.00   NaN      NaN  0.00
+Index2       0.00   NaN      NaN  0.00
+Index3       0.00   NaN      NaN  0.00
+Index4       0.00   NaN      NaN  0.00
+Index5       0.00   NaN      NaN  0.00
+Anx1        19.76  0.03     0.06  0.02
+Anx2        20.44 -0.02    -0.01  0.02
+Anx3        20.23 -0.01    -0.03  0.02
+Anx4        18.01 -0.03    -0.04  0.02
+Anx5        18.81  0.00    -0.07  0.02
+Sess1       16.00  1.20     1.20  0.02
+Sess2       17.00  0.46    -0.34  0.03
+Sess3       18.00  0.02    -0.65  0.03
+Sess4       18.00 -0.46    -0.36  0.03
+Sess5       17.00 -1.21     1.20  0.02</code></pre>
+<p>We <em>could</em> (but it is not advised in this specific instance) use the wide format to create the multilevel correlation matrix, allowing us to see the correlations between the person-level (L2) variables of religious identity and sexual identity with the repeated measures variable (L1), anxiety.</p>
+<p>The bivariate correlations tell us little about change-over-time for individuals or groups. However, in this dataset we can see a strong correlation (they are all <em>r</em> = .80) between anxiety at one session and the next..</p>
+<p>Thinking of what it takes to get a positive and strong correlation (e.g., relative rankings must stay stable), we learn that the <em>rank order</em> of clients (relative to anxiety) remains relatively stable across occasions, but it does not tell us how each person changes over time nor about the direction of change.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="UniqueAbbrev.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Multilevel level correlation matrix</span></span>
+<span id="cb12-2"><a href="UniqueAbbrev.html#cb12-2" aria-hidden="true" tabindex="-1"></a>apaTables<span class="sc">::</span><span class="fu">apa.cor.table</span>(LfvrWide[<span class="fu">c</span>(</span>
+<span id="cb12-3"><a href="UniqueAbbrev.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>, <span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>)], <span class="at">show.conf.interval =</span> <span class="cn">FALSE</span>, <span class="at">landscape =</span> <span class="cn">TRUE</span>, <span class="at">table.number =</span> <span class="dv">1</span>, <span class="at">filename=</span><span class="st">&quot;Lfvr2017_CorMatrix.doc&quot;</span>)</span></code></pre></div>
+<pre><code>The ability to suppress reporting of reporting confidence intervals has been deprecated in this version.
+The function argument show.conf.interval will be removed in a later version.</code></pre>
+<pre><code>
+
+Table 1 
+
+Means, standard deviations, and correlations with confidence intervals
+ 
+
+  Variable M    SD   1           2          3          4          5         
+  1. DRel0 0.60 0.49                                                        
+                                                                            
+  2. Het0  0.28 0.45 -.01                                                   
+                     [-.02, .01]                                            
+                                                                            
+  3. Anx1  2.58 2.54 .00         .05**                                      
+                     [-.01, .02] [.03, .07]                                 
+                                                                            
+  4. Anx2  2.32 2.55 -.00        .05**      .80**                           
+                     [-.02, .02] [.03, .07] [.79, .81]                      
+                                                                            
+  5. Anx3  2.07 2.56 .00         .06**      .80**      .80**                
+                     [-.01, .02] [.04, .07] [.80, .81] [.80, .81]           
+                                                                            
+  6. Anx4  1.82 2.52 .00         .05**      .80**      .80**      .80**     
+                     [-.01, .02] [.03, .07] [.79, .80] [.79, .80] [.80, .81]
+                                                                            
+  7. Anx5  1.58 2.52 -.01        .05**      .80**      .80**      .80**     
+                     [-.02, .01] [.03, .07] [.79, .81] [.79, .80] [.79, .81]
+                                                                            
+  6         
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+  .80**     
+  [.79, .80]
+            
+
+Note. M and SD are used to represent mean and standard deviation, respectively.
+Values in square brackets indicate the 95% confidence interval.
+The confidence interval is a plausible range of population correlations 
+that could have caused the sample correlation (Cumming, 2014).
+ * indicates p &lt; .05. ** indicates p &lt; .01.
+ </code></pre>
+<p>I should note that a bivariate matrix created from the wide format is rather useless when the assessments are unevenly spaced (time-unstructured; ours are) and the dataset is unbalanced (ours is).</p>
+</div>
+<div id="job1-is-to-get-our-data-from-person-level-into-person-period" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Job#1 is to get our data from person-level into person-period</h3>
+<p><strong>Person-period data set</strong> aka a <em>long</em> or <em>univariate</em> file:</p>
+<ul>
+<li>Each person has multiple records – one for each measurement occasion.</li>
+<li>As you collect additional waves,the file gains new records, but no new variables</li>
+<li>This long file arrays each person’s empirical growth record vertically</li>
+<li>4 types of variables
+<ul>
+<li>Subject identifier – typically in the first column and identical across waves; required for sorting and grouping</li>
+<li>Time indicator – often labeled AGE, WAVE, or TIME (or something sensible); it is fine to have “unstructured time” (e.g., 0.5, 1.2, 3.4 months)</li>
+<li>Outcome variable(s) – time-varying, but represented by a single variable/column</li>
+<li>Predictor variable(s) – each individual predictor (whether time-covarying or time-invariant) is represented by a single variable/column</li>
+</ul></li>
+</ul>
+<p>Let’s restructure (shapeshift) our dataset with the technique known as <em>melting</em>.</p>
+<p>Each set of variables being melted in each set being restructured need to be on the same scale. In this problem, the Anx# and Sess# variables should be on the same scale.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="UniqueAbbrev.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(LfvrWide)</span></code></pre></div>
+<pre><code>&#39;data.frame&#39;:   12825 obs. of  18 variables:
+ $ ClientID: int  1 2 3 4 5 6 7 8 9 10 ...
+ $ DRel0   : int  0 1 1 1 0 0 1 1 1 0 ...
+ $ Het0    : int  0 0 0 0 0 0 0 1 0 0 ...
+ $ Index1  : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Index2  : int  2 2 2 2 2 2 2 2 2 2 ...
+ $ Index3  : int  3 3 3 3 3 3 3 3 3 3 ...
+ $ Index4  : int  4 4 4 4 4 4 4 4 4 4 ...
+ $ Index5  : int  5 5 5 5 5 5 5 5 5 5 ...
+ $ Anx1    : num  3.71 3.49 1.19 2.94 2.72 ...
+ $ Anx2    : num  3.58 3.09 2.21 2.35 4.75 ...
+ $ Anx3    : num  3.87 2.02 -1.25 5.11 3.47 ...
+ $ Anx4    : num  3.799 2.747 0.338 2.625 5.002 ...
+ $ Anx5    : num  1.56 4 -1.48 2.17 4.83 ...
+ $ Sess1   : int  0 5 1 2 5 6 3 0 3 6 ...
+ $ Sess2   : int  7 6 2 6 6 8 4 2 8 8 ...
+ $ Sess3   : int  8 7 12 9 14 8 6 4 13 10 ...
+ $ Sess4   : int  13 8 12 13 15 13 8 16 13 10 ...
+ $ Sess5   : int  16 10 18 13 17 14 16 18 17 11 ...</code></pre>
+<p>They are. Each is <em>num</em>eric.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="UniqueAbbrev.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table) <span class="co">#the package for melting (better than reshape2 because it can accommodate multiple repeated measures variables)</span></span>
+<span id="cb17-2"><a href="UniqueAbbrev.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="UniqueAbbrev.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#add the name of the wide df after &quot;setDT&quot;</span></span>
+<span id="cb17-4"><a href="UniqueAbbrev.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#id.vars are L2 variables that do not change over time</span></span>
+<span id="cb17-5"><a href="UniqueAbbrev.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#measure.vars are those that change over time; if there is more than one that is time-covarying, add a comma followed by another another concatonated list.</span></span>
+<span id="cb17-6"><a href="UniqueAbbrev.html#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="UniqueAbbrev.html#cb17-7" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(LfvrWide), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;Sess1&quot;</span>, <span class="st">&quot;Sess2&quot;</span>, <span class="st">&quot;Sess3&quot;</span>, <span class="st">&quot;Sess4&quot;</span>, <span class="st">&quot;Sess5&quot;</span>))))</span></code></pre></div>
+<p>Take a peek at LfvrLong:</p>
+<ul>
+<li>Anx1 through Anx5 and Sess1 through Sess5 are gone</li>
+<li>Two new variables have appeared
+<ul>
+<li><em>variable</em> is the former variable name; it represents the <em>unit</em> of time (or condition) associated with the repeated measure</li>
+<li><em>value</em> is the value of that measurement for that person</li>
+</ul></li>
+<li>We must rename these</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="UniqueAbbrev.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This process  does not preserve the variable names, so we need to rename them</span></span>
+<span id="cb18-2"><a href="UniqueAbbrev.html#cb18-2" aria-hidden="true" tabindex="-1"></a>LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong, <span class="at">Index =</span> variable, <span class="at">Anxiety =</span> <span class="st">&quot;value1&quot;</span>, <span class="at">SesNum =</span> <span class="st">&quot;value2&quot;</span>)))</span></code></pre></div>
+<p>It can be helpful to have this written to your local file so you can bring it back in without having to re-prep it.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="UniqueAbbrev.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrLong, <span class="at">file=</span><span class="st">&quot;LfvrLong.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb19-2"><a href="UniqueAbbrev.html#cb19-2" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LfvrLong.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>Although we can manually resort our viewer, it can be helpful (historically, some programs required it) to create a permanent sort by person and wave/index.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="UniqueAbbrev.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#rearanging variables so that IDs are together</span></span>
+<span id="cb20-2"><a href="UniqueAbbrev.html#cb20-2" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> LfvrLong<span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="UniqueAbbrev.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SesNum, Anxiety, DRel0, Het0)</span>
+<span id="cb20-4"><a href="UniqueAbbrev.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
+<span id="cb20-5"><a href="UniqueAbbrev.html#cb20-5" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(LfvrLong, ClientID, Index)</span></code></pre></div>
+<p>Let’s peek at the characteristics and descriptives as a result of this restructuring from wide to long.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="UniqueAbbrev.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(LfvrLong)</span></code></pre></div>
+<pre><code>&#39;data.frame&#39;:   64125 obs. of  6 variables:
+ $ ClientID: int  1 1 1 1 1 2 2 2 2 2 ...
+ $ Index   : int  1 2 3 4 5 1 2 3 4 5 ...
+ $ SesNum  : int  0 7 8 13 16 5 6 7 8 10 ...
+ $ Anxiety : num  3.71 3.58 3.87 3.8 1.56 ...
+ $ DRel0   : int  0 0 0 0 0 1 1 1 1 1 ...
+ $ Het0    : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="UniqueAbbrev.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(psych<span class="sc">::</span><span class="fu">describe</span>(LfvrLong),<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>         vars     n    mean      sd  median trimmed     mad   min      max
+ClientID    1 64125 6413.00 3702.29 6413.00 6413.00 4753.22  1.00 12825.00
+Index       2 64125    3.00    1.41    3.00    3.00    1.48  1.00     5.00
+SesNum      3 64125    8.99    5.47    9.00    8.98    7.41  0.00    19.00
+Anxiety     4 64125    2.08    2.56    2.08    2.08    2.56 -8.13    12.87
+DRel0       5 64125    0.60    0.49    1.00    0.62    0.00  0.00     1.00
+Het0        6 64125    0.28    0.45    0.00    0.22    0.00  0.00     1.00
+         range  skew kurtosis    se
+ClientID 12824  0.00    -1.20 14.62
+Index        4  0.00    -1.30  0.01
+SesNum      19  0.01    -1.20  0.02
+Anxiety     21  0.00    -0.01  0.01
+DRel0        1 -0.41    -1.83  0.00
+Het0         1  0.99    -1.02  0.00</code></pre>
+<p>Evaluating longitudinal growth trajectories in MLM means that we invest in substantial preliminary exporation.</p>
+</div>
+<div id="empirical-growth-plots" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Empirical Growth Plots</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="UniqueAbbrev.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
+<span id="cb25-2"><a href="UniqueAbbrev.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>Researchers commonly look at individual dataplots to see if there are clear trends/patterns across the individuals. Do they rise? Is there a curve? Do some rise and some fall?</p>
+<p>To facilitate comparison/interpretation, the axes should be identical across the panels.</p>
+<p>With the <em>lattice</em> package we are asking for the anxiety scores to be plotted by session, for each person (noted with “ClientID”).</p>
+<p>Especially in large datasets it is common to create a smaller subset of data for this inspection.</p>
+<p>The easiest way I found to do this was to grab a set of 30 from the wide file and then quickly turn it to a long file.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="UniqueAbbrev.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210515</span>)</span>
+<span id="cb26-2"><a href="UniqueAbbrev.html#cb26-2" aria-hidden="true" tabindex="-1"></a>RndmSmpl30 <span class="ot">&lt;-</span> LfvrWide[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(LfvrWide), <span class="dv">30</span>,</span>
+<span id="cb26-3"><a href="UniqueAbbrev.html#cb26-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">replace=</span><span class="cn">FALSE</span>),] </span>
+<span id="cb26-4"><a href="UniqueAbbrev.html#cb26-4" aria-hidden="true" tabindex="-1"></a>RndmLong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(RndmSmpl30), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;Sess1&quot;</span>, <span class="st">&quot;Sess2&quot;</span>, <span class="st">&quot;Sess3&quot;</span>, <span class="st">&quot;Sess4&quot;</span>, <span class="st">&quot;Sess5&quot;</span>))))</span>
+<span id="cb26-5"><a href="UniqueAbbrev.html#cb26-5" aria-hidden="true" tabindex="-1"></a>RndmLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(RndmLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(RndmLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(RndmLong, <span class="at">Index =</span> variable, <span class="at">Anxiety =</span> <span class="st">&quot;value1&quot;</span>, <span class="at">Session0 =</span> <span class="st">&quot;value2&quot;</span>)))</span>
+<span id="cb26-6"><a href="UniqueAbbrev.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
+<span id="cb26-7"><a href="UniqueAbbrev.html#cb26-7" aria-hidden="true" tabindex="-1"></a>RndmLong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(RndmLong, ClientID, Index)</span></code></pre></div>
+</div>
+<div id="plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record" class="section level3" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record</h3>
+<p>Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> suggest that we do this two ways:</p>
+<ul>
+<li><em>nonparametric</em> models let the “data speak for themselves” by smoothing across temporal idiosyncracies without imposing a specific functional form</li>
+<li><em>parametric</em> models impose a researcher-selected common functional form (e.g., linear, quadratic, cubic) and then fit a separate regression model to each person’s data, yielding a “fitted trajectory”</li>
+</ul>
+<p>While our multilevel modeling will use maximum likelihood, these individual plots are fitted with OLS regression models.</p>
+<p>A better “group-by” tool:<br />
+<a href="http://r4stats.com/2017/04/18/group-by-modeling-in-r-made-easy/" class="uri">http://r4stats.com/2017/04/18/group-by-modeling-in-r-made-easy/</a></p>
+<p><strong>Nonparametrical Smoothing of the Empirical Growth Trajectory</strong></p>
+<p>The “smoothed” nonparametric trajectory is superimposed on the data.</p>
+<p>To evaluate, focus on elevation, shape, and title. Where do scores hover at the low, medium, or high end? Does everyone change over time or do some remain the same? Is there an overall pattern of change: linear, curvilinear, smooth, steplike? Is the rate of change similar or different across people.</p>
+<p>Below I have shown how to plot these with variable, Index variable and then again with the variable, Session. Recall that Index is a structured form of counting across the 5 client sessions. In contrast, Session is “time-unstructured” because the intervals are unevenly spaced.Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> recommend also staring at the entire set together as a group. Notice anything?</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="UniqueAbbrev.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(Anxiety<span class="sc">~</span>Session <span class="sc">|</span> ClientID, <span class="at">data=</span>RndmLong,</span>
+<span id="cb27-2"><a href="UniqueAbbrev.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">prepanel =</span> <span class="cf">function</span>(x, y) <span class="fu">prepanel.loess</span>(x, y, <span class="at">family=</span><span class="st">&quot;gaussian&quot;</span>),</span>
+<span id="cb27-3"><a href="UniqueAbbrev.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Session&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Anxiety&quot;</span>,</span>
+<span id="cb27-4"><a href="UniqueAbbrev.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">panel =</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb27-5"><a href="UniqueAbbrev.html#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">panel.xyplot</span>(x, y)</span>
+<span id="cb27-6"><a href="UniqueAbbrev.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">panel.loess</span>(x,y, <span class="at">family=</span><span class="st">&quot;gaussian&quot;</span>) },</span>
+<span id="cb27-7"><a href="UniqueAbbrev.html#cb27-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">as.table=</span>T)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/indiv%20growth%20plots_smoothed-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="UniqueAbbrev.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(Anxiety<span class="sc">~</span>Index <span class="sc">|</span> ClientID, <span class="at">data=</span>RndmLong,</span>
+<span id="cb28-2"><a href="UniqueAbbrev.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">prepanel =</span> <span class="cf">function</span>(x, y) <span class="fu">prepanel.loess</span>(x, y, <span class="at">family=</span><span class="st">&quot;gaussian&quot;</span>),</span>
+<span id="cb28-3"><a href="UniqueAbbrev.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Index&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Anxiety&quot;</span>,</span>
+<span id="cb28-4"><a href="UniqueAbbrev.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">panel =</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb28-5"><a href="UniqueAbbrev.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">panel.xyplot</span>(x, y)</span>
+<span id="cb28-6"><a href="UniqueAbbrev.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">panel.loess</span>(x,y, <span class="at">family=</span><span class="st">&quot;gaussian&quot;</span>) },</span>
+<span id="cb28-7"><a href="UniqueAbbrev.html#cb28-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">as.table=</span>T)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/indiv%20growth%20plots_smoothed-2.svg" width="672" /></p>
+<p>When we examine these, we simply look for patterns:</p>
+<ul>
+<li>Are there <em>general</em> trends?
+<ul>
+<li>Seems like anxiety tends to go downward</li>
+</ul></li>
+<li>Are the levels at the start of the study (Wave 1, intercept) at the same place? Or differenct?
+<ul>
+<li>In this dataset, they are definitely different.</li>
+</ul></li>
+<li>Is the change-over-time (slope) linear or curvilinear?
+<ul>
+<li>The general trend seems to be linear – a decline or staying flat</li>
+<li>Some show “bump ups” in anxiety before it declines again</li>
+<li>One case shows a “bump down” in anxiety and then it rises again</li>
+</ul></li>
+</ul>
+<p>Because clients (a) start at different points and (b) change differently, MLM is a reasonable approach to analyzing the data. Our choice of L1 (time-covarying) and L2 (person-level) variables may help disentangle these differences.</p>
+<p>Before continuing, we should center our Session variable around 0. Why? While it is sensible to examine these plots that represent the first session as “1,” our subsequent analyses (in OLS today and MLM in future chapters) will predict beyond the range of the dataset (i.e,. we do not have a representation of Anxiety prior to Session 1). Thus, we will create centered variables for both Index and Session so that if we use them, data from the first session will be represented in the intercept.</p>
+<p>As we get into modeling, it is important to make sure our time variable is centered so that 0 is a meaningful value. In this case, we will create both an Index0 and Session0 variable so that, when time is included as a predictor, 0 means the first session.</p>
+<p>Note that I am doing this here because the centered Index does not transfer well between wide and long files. We will likely have to repeat this process several times.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="UniqueAbbrev.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Index is only reading as a factor and is resistant to conversion to numeric</span></span>
+<span id="cb29-2"><a href="UniqueAbbrev.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding the zero to the variable name is a reminder that it is centered around 0</span></span>
+<span id="cb29-3"><a href="UniqueAbbrev.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#RndmLong$Index0 &lt;- plyr::mapvalues(RndmLong$Index, from = c(1, 2, 3, 4, 5), to = c(0, 1, 2, 3, 4))</span></span>
+<span id="cb29-4"><a href="UniqueAbbrev.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#RndmLong$Index0 &lt;- RndmLong$Index - 1  #this didn&#39;t work because Index was afactor and I couldn&#39;t get it to change</span></span>
+<span id="cb29-5"><a href="UniqueAbbrev.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#RndmLong$Session0 &lt;- RndmLong$Session -1</span></span></code></pre></div>
+<p>As we continue the preliminary exploration, I will use the Session0 variable as our representation of time because it is “truer” to the data.</p>
+<p><strong>Parametric Smoothing of the Empirical Growth Trajectory w OLS Regression</strong></p>
+<p>Here we fit a separate parametric model to each person’s data; OLS is approach for this preliminary exploration. Next we can summarize each person’s growth trajectory by fitting a separate parametric model to each person’s data. Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> indicate that this is “hardly the most efficient use of longitudinal data…[but] it connects empirical researchers with their data in a direct and intimate way” (p. 28).</p>
+<p>We must identify a “common functional form” (e.g., linear, quadratic, cubic) to fit to all the individuals. Clearly, this is an oversimplification. However, it allows us to easily spot folks for whom the model works and does not. Often the best choice is a straight line and that’s what we will do here.</p>
+<p>There are three steps:</p>
+<ol style="list-style-type: decimal">
+<li>Estimate a within-person regression model for each person. This means we regress the outcome [Anxiety] on some representation of time(we’ll use Session0 around 0). In order to conduct separate analyses for each person, we conduct the regression analysis “by Client”</li>
+<li>Use summary statistics from all the within-person regression models into a separate data set. For a linear change model, the intercept and slope summarize their growth trajectory; the <span class="math inline">\(R^2\)</span> and residual variance statistics summarize the goodness of fit.</li>
+<li>Superimpose each person’s fitted regression line on a plot of their empirical growth record.</li>
+</ol>
+<p>Let’s start with step #1:</p>
+<p>This little script produces individual regression models for each person.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="UniqueAbbrev.html#cb30-1" aria-hidden="true" tabindex="-1"></a>ANX_OLS <span class="ot">&lt;-</span> <span class="cf">function</span> (RndmLong){</span>
+<span id="cb30-2"><a href="UniqueAbbrev.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data =</span> RndmLong))</span>
+<span id="cb30-3"><a href="UniqueAbbrev.html#cb30-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-4"><a href="UniqueAbbrev.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(RndmLong, RndmLong<span class="sc">$</span>ClientID, ANX_OLS)</span></code></pre></div>
+<pre><code>RndmLong$ClientID: 175
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+       1        2        3        4        5 
+ 0.05038 -0.29755  0.08804  0.47882 -0.31968 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  6.75056    0.54322  12.427  0.00112 **
+Session0    -0.07347    0.04779  -1.537  0.22181   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.3787 on 3 degrees of freedom
+Multiple R-squared:  0.4407,    Adjusted R-squared:  0.2542 
+F-statistic: 2.363 on 1 and 3 DF,  p-value: 0.2218
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 343
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      6       7       8       9      10 
+-0.1008  0.2721  0.6444 -1.1712  0.3555 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) -0.49676    0.75416  -0.659    0.557
+Session0    -0.07398    0.06735  -1.098    0.352
+
+Residual standard error: 0.816 on 3 degrees of freedom
+Multiple R-squared:  0.2868,    Adjusted R-squared:  0.04912 
+F-statistic: 1.207 on 1 and 3 DF,  p-value: 0.3523
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 755
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     11      12      13      14      15 
+ 0.2702 -0.5245  0.2561  0.9874 -0.9893 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.68707    0.92956   2.891    0.063 .
+Session0    -0.04112    0.07372  -0.558    0.616  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.8883 on 3 degrees of freedom
+Multiple R-squared:  0.09397,   Adjusted R-squared:  -0.208 
+F-statistic: 0.3112 on 1 and 3 DF,  p-value: 0.6159
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 818
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     16      17      18      19      20 
+-1.1235 -0.4274  1.1499  1.6847 -1.2837 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   0.2063     1.0700   0.193    0.859
+Session0     -0.2684     0.2140  -1.254    0.299
+
+Residual standard error: 1.555 on 3 degrees of freedom
+Multiple R-squared:  0.3439,    Adjusted R-squared:  0.1253 
+F-statistic: 1.573 on 1 and 3 DF,  p-value: 0.2986
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 1435
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     21      22      23      24      25 
+ 0.5863 -0.9380 -0.3808  1.2743 -0.5418 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  4.29380    0.80645   5.324   0.0129 *
+Session0    -0.05622    0.07818  -0.719   0.5240  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.047 on 3 degrees of freedom
+Multiple R-squared:  0.147, Adjusted R-squared:  -0.1373 
+F-statistic: 0.5171 on 1 and 3 DF,  p-value: 0.524
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 1540
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     26      27      28      29      30 
+ 1.8238 -1.7020  0.0878 -1.4607  1.2512 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)   4.6373     1.6804   2.760   0.0702 .
+Session0     -0.2185     0.1838  -1.189   0.3199  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.819 on 3 degrees of freedom
+Multiple R-squared:  0.3203,    Adjusted R-squared:  0.09379 
+F-statistic: 1.414 on 1 and 3 DF,  p-value: 0.3199
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 2039
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     31      32      33      34      35 
+ 0.5442 -1.1692 -0.6984 -0.1480  1.4715 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)  2.09163    1.44704   1.445    0.244
+Session0    -0.02286    0.10834  -0.211    0.846
+
+Residual standard error: 1.203 on 3 degrees of freedom
+Multiple R-squared:  0.01463,   Adjusted R-squared:  -0.3138 
+F-statistic: 0.04454 on 1 and 3 DF,  p-value: 0.8464
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 2578
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     36      37      38      39      40 
+ 0.1239  0.3173 -0.7597  0.6067 -0.2881 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  5.11349    0.46553  10.984  0.00162 **
+Session0    -0.08044    0.04164  -1.932  0.14889   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.6176 on 3 degrees of freedom
+Multiple R-squared:  0.5544,    Adjusted R-squared:  0.4058 
+F-statistic: 3.732 on 1 and 3 DF,  p-value: 0.1489
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 2983
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      41       42       43       44       45 
+-0.16092  0.14607  0.03212  0.53772 -0.55499 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept) 5.127752   0.399302  12.842  0.00102 **
+Session0    0.009937   0.046107   0.216  0.84319   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.4638 on 3 degrees of freedom
+Multiple R-squared:  0.01525,   Adjusted R-squared:  -0.313 
+F-statistic: 0.04644 on 1 and 3 DF,  p-value: 0.8432
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 3600
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      46       47       48       49       50 
+-0.29675  0.03494 -0.97922  1.89035 -0.64932 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)  3.39206    1.52325   2.227    0.112
+Session0     0.04242    0.13288   0.319    0.771
+
+Residual standard error: 1.297 on 3 degrees of freedom
+Multiple R-squared:  0.03285,   Adjusted R-squared:  -0.2895 
+F-statistic: 0.1019 on 1 and 3 DF,  p-value: 0.7705
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 3748
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      51       52       53       54       55 
+-0.45080  0.93546  0.09437 -0.52268 -0.05635 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)  1.03581    0.57534   1.800    0.170
+Session0    -0.21264    0.09074  -2.343    0.101
+
+Residual standard error: 0.6742 on 3 degrees of freedom
+Multiple R-squared:  0.6467,    Adjusted R-squared:  0.5289 
+F-statistic: 5.491 on 1 and 3 DF,  p-value: 0.1009
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 4017
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      56       57       58       59       60 
+ 0.26714 -0.15368  0.00644 -0.61559  0.49568 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.23595    0.45737   4.889   0.0164 *
+Session0    -0.16471    0.03788  -4.349   0.0225 *
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.4898 on 3 degrees of freedom
+Multiple R-squared:  0.8631,    Adjusted R-squared:  0.8174 
+F-statistic: 18.91 on 1 and 3 DF,  p-value: 0.02246
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 4488
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+       61        62        63        64        65 
+ 0.001669  0.521712 -0.510843 -0.045551  0.033013 
+
+Coefficients:
+            Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)  8.67916    0.29167  29.757 0.0000834 ***
+Session0    -0.05812    0.02776  -2.094     0.127    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.4228 on 3 degrees of freedom
+Multiple R-squared:  0.5937,    Adjusted R-squared:  0.4582 
+F-statistic: 4.383 on 1 and 3 DF,  p-value: 0.1273
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 4854
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     66      67      68      69      70 
+ 0.4984 -0.7896 -0.2480  0.8098 -0.2706 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  6.40250    0.80019   8.001  0.00407 **
+Session0    -0.11262    0.06997  -1.610  0.20586   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.7444 on 3 degrees of freedom
+Multiple R-squared:  0.4634,    Adjusted R-squared:  0.2845 
+F-statistic: 2.591 on 1 and 3 DF,  p-value: 0.2059
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 5320
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     71      72      73      74      75 
+-0.4121  0.2233 -0.1676  0.5102 -0.1538 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept) -0.62417    0.33518  -1.862   0.1595  
+Session0    -0.14753    0.05135  -2.873   0.0639 .
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.421 on 3 degrees of freedom
+Multiple R-squared:  0.7334,    Adjusted R-squared:  0.6445 
+F-statistic: 8.253 on 1 and 3 DF,  p-value: 0.0639
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 6114
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      76       77       78       79       80 
+-0.04382 -0.32102  2.24396 -0.52170 -1.35743 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)   6.3648     2.5328   2.513   0.0867 .
+Session0     -0.2398     0.1903  -1.260   0.2966  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.555 on 3 degrees of freedom
+Multiple R-squared:  0.3462,    Adjusted R-squared:  0.1283 
+F-statistic: 1.589 on 1 and 3 DF,  p-value: 0.2966
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 6407
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     81      82      83      84      85 
+ 0.6233 -0.9159 -0.1976  1.0334 -0.5433 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)  1.78203    1.02976   1.731    0.182
+Session0    -0.07499    0.12379  -0.606    0.587
+
+Residual standard error: 0.9362 on 3 degrees of freedom
+Multiple R-squared:  0.109, Adjusted R-squared:  -0.188 
+F-statistic: 0.367 on 1 and 3 DF,  p-value: 0.5874
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 6559
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      86       87       88       89       90 
+ 0.09503 -0.03545 -0.62788  0.27986  0.28844 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  4.49464    0.44869  10.017  0.00212 **
+Session0     0.01978    0.03487   0.567  0.61016   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.4344 on 3 degrees of freedom
+Multiple R-squared:  0.0969,    Adjusted R-squared:  -0.2041 
+F-statistic: 0.3219 on 1 and 3 DF,  p-value: 0.6102
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 7142
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     91      92      93      94      95 
+-0.2880  0.5761  0.2737  0.1724 -0.7343 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) -0.06634    0.56654  -0.117    0.914
+Session0    -0.05314    0.04468  -1.189    0.320
+
+Residual standard error: 0.5941 on 3 degrees of freedom
+Multiple R-squared:  0.3205,    Adjusted R-squared:  0.09396 
+F-statistic: 1.415 on 1 and 3 DF,  p-value: 0.3198
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 7767
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     96      97      98      99     100 
+ 1.0376  0.6314 -2.2630  0.4364  0.1577 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  3.61480    1.16058   3.115   0.0527 .
+Session0    -0.03206    0.10499  -0.305   0.7801  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.507 on 3 degrees of freedom
+Multiple R-squared:  0.03014,   Adjusted R-squared:  -0.2931 
+F-statistic: 0.09323 on 1 and 3 DF,  p-value: 0.7801
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 9066
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    101     102     103     104     105 
+-0.8117  0.1204  1.3825  0.2906 -0.9818 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  6.46252    0.82127   7.869  0.00428 **
+Session0     0.01625    0.07645   0.213  0.84533   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.1 on 3 degrees of freedom
+Multiple R-squared:  0.01483,   Adjusted R-squared:  -0.3136 
+F-statistic: 0.04516 on 1 and 3 DF,  p-value: 0.8453
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 9097
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    106     107     108     109     110 
+ 0.1710  0.1344 -1.4475  0.3723  0.7698 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)   6.7369     1.2504   5.388   0.0125 *
+Session0     -0.1322     0.0901  -1.468   0.2385  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.9787 on 3 degrees of freedom
+Multiple R-squared:  0.4179,    Adjusted R-squared:  0.2239 
+F-statistic: 2.154 on 1 and 3 DF,  p-value: 0.2385
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 9814
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    111     112     113     114     115 
+ 1.5780 -0.1342 -2.2272  0.2243  0.5592 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   3.8789     1.9063   2.035    0.135
+Session0     -0.1239     0.1495  -0.829    0.468
+
+Residual standard error: 1.616 on 3 degrees of freedom
+Multiple R-squared:  0.1864,    Adjusted R-squared:  -0.08483 
+F-statistic: 0.6872 on 1 and 3 DF,  p-value: 0.4679
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 9998
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    116     117     118     119     120 
+ 0.3646 -0.8017  1.1655 -0.5472 -0.1813 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  3.40739    1.32511   2.571   0.0824 .
+Session0     0.01101    0.11264   0.098   0.9283  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.9067 on 3 degrees of freedom
+Multiple R-squared:  0.003173,  Adjusted R-squared:  -0.3291 
+F-statistic: 0.00955 on 1 and 3 DF,  p-value: 0.9283
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 10398
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    121     122     123     124     125 
+-1.1381  0.9662  1.3901 -1.5399  0.3217 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  3.53102    1.21714   2.901   0.0624 .
+Session0     0.07828    0.15927   0.491   0.6568  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.487 on 3 degrees of freedom
+Multiple R-squared:  0.07452,   Adjusted R-squared:  -0.234 
+F-statistic: 0.2416 on 1 and 3 DF,  p-value: 0.6568
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 11153
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    126     127     128     129     130 
+ 0.3641  0.1975  0.4548 -2.2425  1.2261 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   1.9946     1.1061   1.803    0.169
+Session0     -0.1025     0.1248  -0.821    0.472
+
+Residual standard error: 1.518 on 3 degrees of freedom
+Multiple R-squared:  0.1836,    Adjusted R-squared:  -0.08852 
+F-statistic: 0.6747 on 1 and 3 DF,  p-value: 0.4716
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 11639
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    131     132     133     134     135 
+-0.5633  0.3197  1.2701  0.3633 -1.3898 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept) -3.35216    0.94537  -3.546   0.0382 *
+Session0     0.01803    0.07878   0.229   0.8337  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.169 on 3 degrees of freedom
+Multiple R-squared:  0.01716,   Adjusted R-squared:  -0.3104 
+F-statistic: 0.05239 on 1 and 3 DF,  p-value: 0.8337
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 11713
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+     136      137      138      139      140 
+ 0.27002  1.08393 -1.06589 -0.38107  0.09301 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.46789    0.63760   3.871   0.0305 *
+Session0    -0.02542    0.07165  -0.355   0.7462  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.9197 on 3 degrees of freedom
+Multiple R-squared:  0.04028,   Adjusted R-squared:  -0.2796 
+F-statistic: 0.1259 on 1 and 3 DF,  p-value: 0.7462
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 12081
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+    141     142     143     144     145 
+-1.4042  0.8308  0.6680  1.3966 -1.4913 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)  0.385038   1.021952   0.377    0.731
+Session0    -0.001875   0.093447  -0.020    0.985
+
+Residual standard error: 1.558 on 3 degrees of freedom
+Multiple R-squared:  0.0001342, Adjusted R-squared:  -0.3332 
+F-statistic: 0.0004026 on 1 and 3 DF,  p-value: 0.9853
+
+------------------------------------------------------------ 
+RndmLong$ClientID: 12409
+
+Call:
+lm(formula = Anxiety ~ Session0, data = RndmLong)
+
+Residuals:
+      146       147       148       149       150 
+-0.715243  2.248873 -0.389445  0.001022 -1.145207 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  3.95251    1.53686   2.572   0.0824 .
+Session0     0.02669    0.14956   0.178   0.8697  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.531 on 3 degrees of freedom
+Multiple R-squared:  0.01051,   Adjusted R-squared:  -0.3193 
+F-statistic: 0.03185 on 1 and 3 DF,  p-value: 0.8697</code></pre>
+<p>Looking at our data, we might observe:</p>
+<ul>
+<li><span class="math inline">\(R^2\)</span> values range from 0 to 74%</li>
+<li>Level of anxiety starts at different places</li>
+<li>Formany, anxiety decreases as a function of session
+<ul>
+<li>but not for all,</li>
+<li>and for a few it goes negative</li>
+</ul></li>
+</ul>
+<p>Next we superimpose each client’s fitted OLS trajectory on their empirical growth plot.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="UniqueAbbrev.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(Anxiety <span class="sc">~</span> Session0 <span class="sc">|</span> ClientID, <span class="at">data=</span>RndmLong,</span>
+<span id="cb32-2"><a href="UniqueAbbrev.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">panel =</span> <span class="cf">function</span>(x, y){</span>
+<span id="cb32-3"><a href="UniqueAbbrev.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">panel.xyplot</span>(x, y)</span>
+<span id="cb32-4"><a href="UniqueAbbrev.html#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">panel.lmline</span>(x, y)</span>
+<span id="cb32-5"><a href="UniqueAbbrev.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  },  <span class="at">as.table=</span>T)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/superimposed%20plot-1.svg" width="672" /></p>
+<p>What do we observe? A linear change trajectory</p>
+<ul>
+<li>is ideal for a few members</li>
+<li>reasonable for many others</li>
+<li>The <span class="math inline">\(R^2\)</span> coincides well with those for whom the line is the best fit</li>
+</ul>
+<p>Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> can read your minds, “Don’t OLS regression methods assume independence and homoscedastic residuals?” Why, yes! They do. Singer and Willett indicate OLS estimates are very useful for exploratory purposes in that they provide an unbiased estimate of the intercept and slope of the individual change.</p>
+<p><strong>Snapshot of the Entire Set of Smooth Trajectories</strong></p>
+<p>We can plop all our trajectories in a set of smoothed individual trajectories. This first plot is simply the raw data. This first plot is just a smoothed (there is a line for each client) plot of the raw/natural metric of the data.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="UniqueAbbrev.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot of raw data for every case</span></span>
+<span id="cb33-2"><a href="UniqueAbbrev.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Session0 provided splotchy data; Index0 gives some indication of change</span></span>
+<span id="cb33-3"><a href="UniqueAbbrev.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(RndmLong<span class="sc">$</span>Index, RndmLong<span class="sc">$</span>ClientID, RndmLong<span class="sc">$</span>Anxiety)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/within%20person%20growth%20as%20one%20figure-1.svg" width="672" /></p>
+<p>The next two sets of code plot our fitted trajectories into a single plot.</p>
+<p>First, we fit the model.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="UniqueAbbrev.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fitting the linear model by ID</span></span>
+<span id="cb34-2"><a href="UniqueAbbrev.html#cb34-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">by</span>(RndmLong, RndmLong<span class="sc">$</span>ClientID, </span>
+<span id="cb34-3"><a href="UniqueAbbrev.html#cb34-3" aria-hidden="true" tabindex="-1"></a>          <span class="cf">function</span>(bydata) <span class="fu">fitted.values</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>bydata)))</span>
+<span id="cb34-4"><a href="UniqueAbbrev.html#cb34-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">unlist</span>(fit)</span></code></pre></div>
+<p>Then make the plot.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="UniqueAbbrev.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the linear fit by ID</span></span>
+<span id="cb35-2"><a href="UniqueAbbrev.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(RndmLong<span class="sc">$</span>Index, RndmLong<span class="sc">$</span>ClientID, fit, <span class="at">xlab=</span><span class="st">&quot;Sessions&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Anxiety&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/single%20plot%20of%20indiv%20regressions-1.svg" width="672" /></p>
+<p>What do we observe? On average, change in anxiety delined (at least a little) from the first wave to the fifth.</p>
+<p><strong>Framing Questions of Change</strong></p>
+<p><em>Sample means of the estimated intercepts and slopes</em> (level-1 OLS estimated intercepts and slopes) are unbiased estimates of initial status and rate of change <em>for each person</em>. Their sample means are, therefore, unbiased estimates of the key features of the average observed change trajectory.</p>
+<p><em>Sample variances (SDs) of the estimated intercepts and slopes</em> quantify the amount of observed interindividual heterogeneity in change.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="UniqueAbbrev.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtaining the intercept from the linear model by ID</span></span>
+<span id="cb36-2"><a href="UniqueAbbrev.html#cb36-2" aria-hidden="true" tabindex="-1"></a>ints <span class="ot">&lt;-</span> <span class="fu">by</span>(RndmLong, RndmLong<span class="sc">$</span>ClientID,</span>
+<span id="cb36-3"><a href="UniqueAbbrev.html#cb36-3" aria-hidden="true" tabindex="-1"></a>          <span class="cf">function</span>(data) <span class="fu">coefficients</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>data))[[<span class="dv">1</span>]])</span>
+<span id="cb36-4"><a href="UniqueAbbrev.html#cb36-4" aria-hidden="true" tabindex="-1"></a>ints1 <span class="ot">&lt;-</span> <span class="fu">unlist</span>(ints)</span>
+<span id="cb36-5"><a href="UniqueAbbrev.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ints1) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb36-6"><a href="UniqueAbbrev.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ints1)</span></code></pre></div>
+<pre><code>[1] 3.239564</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="UniqueAbbrev.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(ints1))</span></code></pre></div>
+<pre><code>[1] 2.688367</code></pre>
+<p>Our calculations tell us that at Session 1, anxiety is 3.23 (<em>SD</em> = 2.69).</p>
+<p>The next two values calculate the slope and its variation.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="UniqueAbbrev.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtaining the slopes from linear model by id</span></span>
+<span id="cb40-2"><a href="UniqueAbbrev.html#cb40-2" aria-hidden="true" tabindex="-1"></a>slopes <span class="ot">&lt;-</span> <span class="fu">by</span>(RndmLong, RndmLong<span class="sc">$</span>ClientID,</span>
+<span id="cb40-3"><a href="UniqueAbbrev.html#cb40-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">function</span>(data) <span class="fu">coefficients</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>data))[[<span class="dv">2</span>]])</span>
+<span id="cb40-4"><a href="UniqueAbbrev.html#cb40-4" aria-hidden="true" tabindex="-1"></a>slopes1 <span class="ot">&lt;-</span> <span class="fu">unlist</span>(slopes)</span>
+<span id="cb40-5"><a href="UniqueAbbrev.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(slopes1) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb40-6"><a href="UniqueAbbrev.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(slopes1)</span></code></pre></div>
+<pre><code>[1] -0.06980594</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="UniqueAbbrev.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(slopes1))</span></code></pre></div>
+<pre><code>[1] 0.08853341</code></pre>
+<p>Here we learn that the average slope is -0.07 (<em>SD</em> = 0.08). On average, anxiety decreases by .07 points per session. Relative to their means, the magnitudes of the <em>SD</em>s around the slope and intercept are pretty big, so there is a great deal of variation.</p>
+<p><strong>Sample correlation between the estimated intercepts and slopes</strong> summarizes the association between the fitted initial status and fitted rate of change. It answers the question, “Are observed initial status and rate of change related?”</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="UniqueAbbrev.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( ints1, slopes1)</span></code></pre></div>
+<pre><code>[1] 0.008575535</code></pre>
+<p>Not really. <em>r</em> = 0.01.</p>
+</div>
+<div id="exploring-the-relationship-between-change-and-time-invariant-predictors" class="section level3" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> Exploring the relationship between Change and Time-Invariant Predictors</h3>
+<p>Looking at our level-2 predictors can help uncover <em>systematic interindividual differences in change</em>. In this toy set we have religious affiliation and sexual identity.</p>
+<p>Let’s start with religious affiliation Is there a difference in intercept (initial tolerance) or slope (rate of change) as a function of religious affiliation?</p>
+<p>We start by selecting DR, fitting a regression model, and plotting it.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="UniqueAbbrev.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fitting the linear model by ID, DR only</span></span>
+<span id="cb46-2"><a href="UniqueAbbrev.html#cb46-2" aria-hidden="true" tabindex="-1"></a>DR <span class="ot">&lt;-</span> <span class="fu">filter</span>(RndmLong, DRel0<span class="sc">==</span><span class="st">&quot;0&quot;</span>)</span>
+<span id="cb46-3"><a href="UniqueAbbrev.html#cb46-3" aria-hidden="true" tabindex="-1"></a>fitmlist <span class="ot">&lt;-</span> <span class="fu">by</span>(DR, DR<span class="sc">$</span>ClientID, <span class="cf">function</span>(bydata) <span class="fu">fitted.values</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>bydata)))</span>
+<span id="cb46-4"><a href="UniqueAbbrev.html#cb46-4" aria-hidden="true" tabindex="-1"></a>fitDR <span class="ot">&lt;-</span> <span class="fu">unlist</span>(fitmlist)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="UniqueAbbrev.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#appending the average for the whole group of males</span></span>
+<span id="cb47-2"><a href="UniqueAbbrev.html#cb47-2" aria-hidden="true" tabindex="-1"></a>lm.DR <span class="ot">&lt;-</span> <span class="fu">fitted</span>( <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>DR) )</span>
+<span id="cb47-3"><a href="UniqueAbbrev.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lm.DR) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb47-4"><a href="UniqueAbbrev.html#cb47-4" aria-hidden="true" tabindex="-1"></a>fit.DR2 <span class="ot">&lt;-</span> <span class="fu">c</span>(fitDR, lm.DR[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb47-5"><a href="UniqueAbbrev.html#cb47-5" aria-hidden="true" tabindex="-1"></a>Sess1.DR <span class="ot">&lt;-</span> <span class="fu">c</span>(DR<span class="sc">$</span>Index, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">5</span>))<span class="co">#Note that I used Session0 to create the lm, but plotted by Index0</span></span>
+<span id="cb47-6"><a href="UniqueAbbrev.html#cb47-6" aria-hidden="true" tabindex="-1"></a>id.DR <span class="ot">&lt;-</span> <span class="fu">c</span>(DR<span class="sc">$</span>ClientID, <span class="fu">rep</span>(<span class="dv">30</span>, <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="UniqueAbbrev.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the linear fit by id, males</span></span>
+<span id="cb48-2"><a href="UniqueAbbrev.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#id.m=111 denotes the average value for males</span></span>
+<span id="cb48-3"><a href="UniqueAbbrev.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(Sess1.DR, id.DR, fit.DR2, <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">8</span>), <span class="at">xlab=</span><span class="st">&quot;Sessions&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Anxiety&quot;</span>, <span class="at">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb48-4"><a href="UniqueAbbrev.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;Dominant Religious&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plotting%20fit%20for%20DR-1.svg" width="672" />
+Trajectories for those from dominantreligions stay flat; a few decline.</p>
+<p>Now for non-dominant religious (including those that are affiliated and unaffiliated).</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="UniqueAbbrev.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fitting the linear model by ID, DR only</span></span>
+<span id="cb49-2"><a href="UniqueAbbrev.html#cb49-2" aria-hidden="true" tabindex="-1"></a>NDR <span class="ot">&lt;-</span> <span class="fu">filter</span>(RndmLong, DRel0<span class="sc">==</span><span class="st">&quot;1&quot;</span>)</span>
+<span id="cb49-3"><a href="UniqueAbbrev.html#cb49-3" aria-hidden="true" tabindex="-1"></a>fitmlist <span class="ot">&lt;-</span> <span class="fu">by</span>(NDR, NDR<span class="sc">$</span>ClientID, <span class="cf">function</span>(bydata) <span class="fu">fitted.values</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>bydata)))</span>
+<span id="cb49-4"><a href="UniqueAbbrev.html#cb49-4" aria-hidden="true" tabindex="-1"></a>fitNDR <span class="ot">&lt;-</span> <span class="fu">unlist</span>(fitmlist)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="UniqueAbbrev.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#appending the average for the whole group of males</span></span>
+<span id="cb50-2"><a href="UniqueAbbrev.html#cb50-2" aria-hidden="true" tabindex="-1"></a>lm.NDR <span class="ot">&lt;-</span> <span class="fu">fitted</span>( <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>NDR) )</span>
+<span id="cb50-3"><a href="UniqueAbbrev.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lm.NDR) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb50-4"><a href="UniqueAbbrev.html#cb50-4" aria-hidden="true" tabindex="-1"></a>fit.NDR2 <span class="ot">&lt;-</span> <span class="fu">c</span>(fitNDR, lm.NDR[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb50-5"><a href="UniqueAbbrev.html#cb50-5" aria-hidden="true" tabindex="-1"></a>Sess1.NDR <span class="ot">&lt;-</span> <span class="fu">c</span>(NDR<span class="sc">$</span>Index, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">5</span>))<span class="co">#Note that I used Session0 to create the lm, but plotted by Index0</span></span>
+<span id="cb50-6"><a href="UniqueAbbrev.html#cb50-6" aria-hidden="true" tabindex="-1"></a>id.NDR <span class="ot">&lt;-</span> <span class="fu">c</span>(NDR<span class="sc">$</span>ClientID, <span class="fu">rep</span>(<span class="dv">30</span>, <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="UniqueAbbrev.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the linear fit by id, males</span></span>
+<span id="cb51-2"><a href="UniqueAbbrev.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co">#id.m=111 denotes the average value for males</span></span>
+<span id="cb51-3"><a href="UniqueAbbrev.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(Sess1.NDR, id.NDR, fit.NDR2, <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">8</span>), <span class="at">xlab=</span><span class="st">&quot;Sessions&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Anxiety&quot;</span>, <span class="at">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb51-4"><a href="UniqueAbbrev.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;Non-Dominant Religious&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plotting%20fit%20for%20NDR-1.svg" width="672" /></p>
+<p>It appears that there is more decline in anxiety for those who claim non-dominant religions.</p>
+<p>What about the effects of sexual identity?</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="UniqueAbbrev.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fitting the linear model by ID, DR only</span></span>
+<span id="cb52-2"><a href="UniqueAbbrev.html#cb52-2" aria-hidden="true" tabindex="-1"></a>HET <span class="ot">&lt;-</span> <span class="fu">filter</span>(RndmLong, Het0<span class="sc">==</span><span class="st">&quot;0&quot;</span>)</span>
+<span id="cb52-3"><a href="UniqueAbbrev.html#cb52-3" aria-hidden="true" tabindex="-1"></a>fitmlist <span class="ot">&lt;-</span> <span class="fu">by</span>(HET, HET<span class="sc">$</span>ClientID, <span class="cf">function</span>(bydata) <span class="fu">fitted.values</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>bydata)))</span>
+<span id="cb52-4"><a href="UniqueAbbrev.html#cb52-4" aria-hidden="true" tabindex="-1"></a>fitHET <span class="ot">&lt;-</span> <span class="fu">unlist</span>(fitmlist)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="UniqueAbbrev.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#appending the average for the whole group of males</span></span>
+<span id="cb53-2"><a href="UniqueAbbrev.html#cb53-2" aria-hidden="true" tabindex="-1"></a>lm.HET <span class="ot">&lt;-</span> <span class="fu">fitted</span>( <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>HET) )</span>
+<span id="cb53-3"><a href="UniqueAbbrev.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lm.HET) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb53-4"><a href="UniqueAbbrev.html#cb53-4" aria-hidden="true" tabindex="-1"></a>fit.HET <span class="ot">&lt;-</span> <span class="fu">c</span>(fitHET, lm.HET[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb53-5"><a href="UniqueAbbrev.html#cb53-5" aria-hidden="true" tabindex="-1"></a>Sess1.HET <span class="ot">&lt;-</span> <span class="fu">c</span>(HET<span class="sc">$</span>Index, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">5</span>))<span class="co">#Note that I used Session0 to create the lm, but plotted by Index0</span></span>
+<span id="cb53-6"><a href="UniqueAbbrev.html#cb53-6" aria-hidden="true" tabindex="-1"></a>id.HET <span class="ot">&lt;-</span> <span class="fu">c</span>(HET<span class="sc">$</span>ClientID, <span class="fu">rep</span>(<span class="dv">30</span>, <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="UniqueAbbrev.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the linear fit by id, males</span></span>
+<span id="cb54-2"><a href="UniqueAbbrev.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#id.m=111 denotes the average value for males</span></span>
+<span id="cb54-3"><a href="UniqueAbbrev.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(Sess1.HET, id.HET, fit.HET, <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">8</span>), <span class="at">xlab=</span><span class="st">&quot;Sessions&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Anxiety&quot;</span>, <span class="at">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb54-4"><a href="UniqueAbbrev.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;Heterosexual&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plotting%20fit%20for%20heterosexual-1.svg" width="672" /></p>
+<p>Among clients who identify as heterosexual, there is a mixed profile. Clients start with varying degrees of anxiety and we see it stay the same, increase, and decrease.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="UniqueAbbrev.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fitting the linear model by ID, DR only</span></span>
+<span id="cb55-2"><a href="UniqueAbbrev.html#cb55-2" aria-hidden="true" tabindex="-1"></a>LGBQQ <span class="ot">&lt;-</span> <span class="fu">filter</span>(RndmLong, Het0<span class="sc">==</span><span class="st">&quot;1&quot;</span>)</span>
+<span id="cb55-3"><a href="UniqueAbbrev.html#cb55-3" aria-hidden="true" tabindex="-1"></a>fitmlist <span class="ot">&lt;-</span> <span class="fu">by</span>(LGBQQ, LGBQQ<span class="sc">$</span>ClientID, <span class="cf">function</span>(bydata) <span class="fu">fitted.values</span>(<span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>bydata)))</span>
+<span id="cb55-4"><a href="UniqueAbbrev.html#cb55-4" aria-hidden="true" tabindex="-1"></a>fitLGBQQ <span class="ot">&lt;-</span> <span class="fu">unlist</span>(fitmlist)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="UniqueAbbrev.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#appending the average for the whole group of males</span></span>
+<span id="cb56-2"><a href="UniqueAbbrev.html#cb56-2" aria-hidden="true" tabindex="-1"></a>lm.LGBQQ <span class="ot">&lt;-</span> <span class="fu">fitted</span>( <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Session0, <span class="at">data=</span>LGBQQ) )</span>
+<span id="cb56-3"><a href="UniqueAbbrev.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lm.LGBQQ) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb56-4"><a href="UniqueAbbrev.html#cb56-4" aria-hidden="true" tabindex="-1"></a>fit.LGBQQ <span class="ot">&lt;-</span> <span class="fu">c</span>(fitLGBQQ, lm.LGBQQ[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb56-5"><a href="UniqueAbbrev.html#cb56-5" aria-hidden="true" tabindex="-1"></a>Sess1.LGBQQ <span class="ot">&lt;-</span> <span class="fu">c</span>(LGBQQ<span class="sc">$</span>Index, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">5</span>)) <span class="co">#Note that I used Session0 to create the lm, but plotted by Index0</span></span>
+<span id="cb56-6"><a href="UniqueAbbrev.html#cb56-6" aria-hidden="true" tabindex="-1"></a>id.LGBQQ <span class="ot">&lt;-</span> <span class="fu">c</span>(LGBQQ<span class="sc">$</span>ClientID, <span class="fu">rep</span>(<span class="dv">30</span>, <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="UniqueAbbrev.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the linear fit by id, males</span></span>
+<span id="cb57-2"><a href="UniqueAbbrev.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co">#id.m=111 denotes the average value for males</span></span>
+<span id="cb57-3"><a href="UniqueAbbrev.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(Sess1.LGBQQ, id.LGBQQ, fit.LGBQQ, <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">8</span>), <span class="at">xlab=</span><span class="st">&quot;Sessions&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Anxiety&quot;</span>, <span class="at">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb57-4"><a href="UniqueAbbrev.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;LGBQQ&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plotting%20fit%20for%20LGBQQ-1.svg" width="672" /></p>
+<p>What do we observe? Clients who identify as LGBQQ start at different levels of anxiety; most decline somewhere in teh middle and then maintain in a consistent/level manner.</p>
+</div>
+<div id="the-relationship-between-ols-estimated-trajectories-and-substantive-predictors" class="section level3" number="3.5.6">
+<h3><span class="header-section-number">3.5.6</span> The Relationship between OLS-Estimated Trajectories and Substantive Predictors</h3>
+<p>Below are two plots (and corresponding correlation coefficients) for religious affiliation and sexual identity regarding intercept (or initial status). They help us answer the question, is initial status different as a function of gender (then, exposure level).</p>
+<p><em>NOTE</em> that these are calculated from the the wide-format.</p>
+<p><strong>First, is anxiety at Session0 (our initial, or intercept) different for those from dominant and nondominant religions?</strong></p>
+<p>For these analyses of intercepts, the fitted model that we are using for the plot and correlation keeps the assessment at the Session0 intercept.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="UniqueAbbrev.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using the slopes and intercepts from the linear model fitted by id</span></span>
+<span id="cb58-2"><a href="UniqueAbbrev.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#generated for use in table 2.3</span></span>
+<span id="cb58-3"><a href="UniqueAbbrev.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RndmSmpl30<span class="sc">$</span>DRel0, ints1, <span class="at">xlab=</span><span class="st">&quot;Religion&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Fitted initial status&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plot%20of%20intercepts%20for%20boys%20and%20girls-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="UniqueAbbrev.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(RndmSmpl30<span class="sc">$</span>DRel0, ints1)</span></code></pre></div>
+<pre><code>[1] 0.1587707</code></pre>
+<p>For religion, looking at the dots on 0 and 1 and the correlation, it looks like the anxiety interept is lower for those from the dominant religion.</p>
+<p><strong>Next, is Anxiety at Session 1 different as a function of level of sexual identity?</strong></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="UniqueAbbrev.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RndmSmpl30<span class="sc">$</span>Het0, ints1, <span class="at">xlab=</span><span class="st">&quot;Sexual Identity&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Fitted initial status&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plot%20age%2011%20tolerance%20and%20exposure-1.svg" width="672" />
+The plot of this random sample of data emphasizes that those who identify as LGBQQ are, proportionately, much smaller. Their range of anxiety is more restricted, but higher.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="UniqueAbbrev.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(RndmSmpl30<span class="sc">$</span>Het0, ints1)</span></code></pre></div>
+<pre><code>[1] 0.1309987</code></pre>
+<p>Looking at the correlation of intercepts and plot together, wee see that anxiety is higher for those who identify as LGBQQ.</p>
+<p><strong>Next, we look at 2 more plots and correlations for religion and sexual identity regarding slope/rate of change.</strong></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="UniqueAbbrev.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RndmSmpl30<span class="sc">$</span>DRel0, slopes1, <span class="at">xlab=</span><span class="st">&quot;Religion&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Fitted rate of change&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plot%20gender%20and%20slope-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="UniqueAbbrev.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(RndmSmpl30<span class="sc">$</span>DRel0, slopes1)</span></code></pre></div>
+<pre><code>[1] 0.09496023</code></pre>
+<p>The plot is the rate of change or slope. It’s maybe a little more difficult to plot. We see that dominant religions have a slower rate of change than those who claim a nondominant religion (or no religion).</p>
+<p><strong>What about change in anxiety as a function of sexual identity?</strong></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="UniqueAbbrev.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RndmSmpl30<span class="sc">$</span>Het0, slopes1, <span class="at">xlab =</span> <span class="st">&quot;Sexual Identity&quot;</span>, <span class="at">ylab =</span></span>
+<span id="cb67-2"><a href="UniqueAbbrev.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Fitted rate of change&quot;</span>)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/plot%20tol%20change%20and%20exposure-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="UniqueAbbrev.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(RndmSmpl30<span class="sc">$</span>Het0, slopes1)</span></code></pre></div>
+<pre><code>[1] 0.1113146</code></pre>
+<p>Those with who identify as LGBQQ have sharper rates of change.</p>
+<p><strong>That’s a wRap! In the next lecture we jump into the multi-level model!</strong></p>
+<p>Method/Analytic Strategy APA style description of the hypotheses and how they will be analyzed.</p>
+<div class="figure">
+<img src="images/subfolder/filename.jpg" alt="" />
+<p class="caption">relevant conceptual or statistical figure of the planned analysis</p>
+</div>
+</div>
+<div id="apa-style-writeup-1" class="section level3" number="3.5.7">
+<h3><span class="header-section-number">3.5.7</span> APA Style Writeup</h3>
+<p><strong>Method/Analytic Strategy</strong></p>
+<p><strong>Results</strong></p>
+<p><strong>Preliminary Analyses</strong></p>
+<ul>
+<li>Missing data anlaysis and managing missing data</li>
+<li>Bivariate correlations, means, SDs</li>
+<li>Distributional characteristics, assumptions, etc.</li>
+<li>Address limitations and concerns</li>
+</ul>
+<p><strong>Primary Analyses</strong></p>
+</div>
+</div>
+<div id="observations-about-the-social-and-cultural-responsivity-of-the-project" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Observations about the Social and Cultural Responsivity of the Project</h2>
+<ul>
+<li>Accessing and analyzing <em>big data</em> is a strength; it is through these collaborative endeavors that we get greater access to sample sizes representing populations that are marginalized in numbers for which it is possible to analyze.</li>
+<li>Heterosexual and dominant religions are still the basis for comparison. Is this a strength or limitation? It depends on the goal of the project. This dataset, though, may have suficient representation among marginalized groups for within-group analysis without comparison.</li>
+</ul>
+</div>
+<div id="residual-and-related-questions-1" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Residual and Related Questions…</h2>
+<p>..that you might have; or at least I had, but if had answered them earlier it would have disrupt the flow.</p>
+</div>
+<div id="practice-problems-1" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Practice Problems</h2>
+<p>The suggested practice problem for this chapter is to conduct a simple mediation.</p>
+<div id="problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Problem #1: Rework the research vignette as demonstrated, but change the random seed</h3>
+<p>If this topic feels a bit overwhelming, simply change the random seed in the data simulation, then rework the problem. This should provide minor changes to the data (maybe in the second or third decimal point), but the results will likely be very similar.</p>
+<table>
+<colgroup>
+<col width="76%" />
+<col width="12%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Assignment Component</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1. Assign each variable to the X, Y, M, or W roles (ok but not required to include a cov)</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">2. Specify and run the lavaan model</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">3. Use semPlot to create a figure</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">4. Create a table that includes regression output for the M and Y variables and the moderated effects</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">5. Represent your work in an APA-style write-up</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">6. Explanation to grader</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">7. Be able to hand-calculate the indirect, direct, and total effects from the a, b, &amp; c’ paths</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Totals</strong></td>
+<td align="center">35</td>
+<td align="center">_____</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="problem-2-rework-the-research-vignette-but-swap-one-or-more-variables-1" class="section level3" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Problem #2: Rework the research vignette, but swap one or more variables</h3>
+<p>Use the simulated data, but select one of the other models that was evaluated in the Lewis et al. <span class="citation">(<a href="#ref-lewis_applying_2017" role="doc-biblioref">Lewis et al., 2017</a>)</span> study. Compare your results to those reported in the mansucript.</p>
+<table>
+<colgroup>
+<col width="76%" />
+<col width="12%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Assignment Component</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1. Assign each variable to the X, Y, M, or W roles (ok but not required to include a cov)</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">2. Specify and run the lavaan model</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">3. Use semPlot to create a figure</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">4. Create a table that includes regression output for the M and Y variables and the moderated effects</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">5. Represent your work in an APA-style write-up</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">6. Explanation to grader</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">7. Be able to hand-calculate the indirect, direct, and total effects from the a, b, &amp; c’ paths</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Totals</strong></td>
+<td align="center">35</td>
+<td align="center">_____</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="problem-3-use-other-data-that-is-available-to-you-1" class="section level3" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> Problem #3: Use other data that is available to you</h3>
+<p>Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete a simple mediation.</p>
+<table>
+<colgroup>
+<col width="76%" />
+<col width="12%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Assignment Component</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1. Assign each variable to the X, Y, M, or W roles (ok but not required to include a cov)</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">2. Specify and run the lavaan model</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">3. Use semPlot to create a figure</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">4. Create a table that includes regression output for the M and Y variables and the moderated effects</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">5. Represent your work in an APA-style write-up</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left">6. Explanation to grader</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="odd">
+<td align="left">7. Be able to hand-calculate the indirect, direct, and total effects from the a, b, &amp; c’ paths</td>
+<td align="center">5</td>
+<td align="center">_____</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Totals</strong></td>
+<td align="center">35</td>
+<td align="center">_____</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="bonus-track-1" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Bonus Track:</h2>
+<div class="figure">
+<img src="images/film-strip-1.jpg" id="id" class="class" width="620" height="211" alt="" />
+<p class="caption">Image of a filmstrip</p>
+</div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="UniqueAbbrev.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>R version 4.0.4 (2021-02-15)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 18362)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lattice_0.20-41   data.table_1.14.0 scales_1.1.1      sjstats_0.18.1   
+ [5] nlme_3.1-151      lme4_1.1-26       Matrix_1.2-18     psych_2.1.3      
+ [9] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.5       purrr_0.3.4      
+[13] readr_1.4.0       tidyr_1.1.3       tibble_3.1.1      ggplot2_3.3.3    
+[17] tidyverse_1.3.1   robumeta_2.0     
+
+loaded via a namespace (and not attached):
+ [1] fs_1.5.0           lubridate_1.7.10   insight_0.13.2     httr_1.4.2        
+ [5] tools_4.0.4        backports_1.2.1    bslib_0.2.4        sjlabelled_1.1.7  
+ [9] utf8_1.2.1         R6_2.5.0           DBI_1.1.1          colorspace_2.0-0  
+[13] withr_2.4.2        tidyselect_1.1.1   mnormt_2.0.2       emmeans_1.6.0     
+[17] compiler_4.0.4     performance_0.7.1  cli_2.5.0          rvest_1.0.0       
+[21] xml2_1.3.2         sandwich_3.0-0     bookdown_0.22      bayestestR_0.9.0  
+[25] sass_0.3.1         mvtnorm_1.1-1      systemfonts_1.0.1  digest_0.6.27     
+[29] minqa_1.2.4        svglite_2.0.0      rmarkdown_2.7      pkgconfig_2.0.3   
+[33] htmltools_0.5.1.1  highr_0.9          dbplyr_2.1.1       rlang_0.4.11      
+[37] readxl_1.3.1       rstudioapi_0.13    jquerylib_0.1.4    generics_0.1.0    
+[41] apaTables_2.0.8    zoo_1.8-9          jsonlite_1.7.2     magrittr_2.0.1    
+[45] parameters_0.13.0  Rcpp_1.0.6         munsell_0.5.0      fansi_0.4.2       
+[49] lifecycle_1.0.0    multcomp_1.4-17    stringi_1.5.3      yaml_2.2.1        
+[53] MASS_7.3-53.1      plyr_1.8.6         grid_4.0.4         parallel_4.0.4    
+[57] sjmisc_2.8.6       crayon_1.4.1       haven_2.4.1        splines_4.0.4     
+[61] hms_1.0.0          tmvnsim_1.0-2      knitr_1.33         pillar_1.6.0      
+[65] boot_1.3-27        estimability_1.3   effectsize_0.4.4-1 reshape2_1.4.4    
+[69] codetools_0.2-18   reprex_2.0.0       glue_1.4.2         evaluate_0.14     
+[73] modelr_0.1.8       vctrs_0.3.7        nloptr_1.2.2.2     cellranger_1.1.0  
+[77] gtable_0.3.0       assertthat_0.2.1   xfun_0.22          xtable_1.8-4      
+[81] broom_0.7.6        coda_0.19-4        survival_3.2-11    statmod_1.4.35    
+[85] TH.data_1.0-10     ellipsis_0.3.1    </code></pre>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-lefevor_religious_2017" class="csl-entry">
+Lefevor, G. T., Janis, R. A., &amp; Park, S. Y. (2017). Religious and <span>Sexual</span> <span>Identities</span>: <span>An</span> <span>Intersectional</span>, <span>Longitudinal</span> <span>Examination</span> of <span>Change</span> in <span>Therapy</span>. <em>The Counseling Psychologist</em>, <em>45</em>(3), 387–413. <a href="https://doi.org/10.1177/0011000017702721">https://doi.org/10.1177/0011000017702721</a>
+</div>
+<div id="ref-lewis_applying_2017" class="csl-entry">
+Lewis, J. A., Williams, M. G., Peppers, E. J., &amp; Gadson, C. A. (2017). Applying intersectionality to explore the relations between gendered racism and health among <span>Black</span> women. <em>Journal of Counseling Psychology</em>, <em>64</em>(5), 475–486. <a href="https://doi.org/10.1037/cou0000231">https://doi.org/10.1037/cou0000231</a>
+</div>
+<div id="ref-locke_development_2012" class="csl-entry">
+Locke, B. D., McAleavey, A. A., Zhao, Y., Lei, P.-W., Hayes, J. A., Castonguay, L. G., Li, H., Tate, R., &amp; Lin, Y.-C. (2012). Development and <span>Initial</span> <span>Validation</span> of the <span>Counseling</span> <span>Center</span> <span>Assessment</span> of <span>Psychological</span> <span>Symptoms</span>–34. <em>Measurement and Evaluation in Counseling and Development</em>, <em>45</em>(3), 151–169. <a href="https://doi.org/10.1177/0748175611432642">https://doi.org/10.1177/0748175611432642</a>
+</div>
+<div id="ref-singer_applied_2003" class="csl-entry">
+Singer, J. D., &amp; Willett, J. B. (2003). <em>Applied <span>Longitudinal</span> <span>Data</span> <span>Analysis</span>: <span>Modeling</span> <span>Change</span> and <span>Event</span> <span>Occurence</span>.</em> Oxford University Press, Incorporated. <a href="http://public.ebookcentral.proquest.com/choice/publicfullrecord.aspx?p=3054153">http://public.ebookcentral.proquest.com/choice/publicfullrecord.aspx?p=3054153</a>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="wGroups.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="refs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ontheline/otl-bookdown/blob/master/03-LongExplore.Rmd",
+"text": null
+},
+"download": ["ReC_Multilevel.pdf"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

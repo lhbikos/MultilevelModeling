@@ -1,0 +1,18 @@
+"0","#In the transition from long-to-wide, it seems like you can only do one L1 variable at a time
+#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde
+#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum
+#Put the name of the SINGLE L1 variable in the concatonated list
+library(data.table)
+"
+"2","package ‘data.table’ was built under R version 4.0.5"
+"2","data.table 1.14.0 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
+"
+"2","
+Attaching package: ‘data.table’
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+"

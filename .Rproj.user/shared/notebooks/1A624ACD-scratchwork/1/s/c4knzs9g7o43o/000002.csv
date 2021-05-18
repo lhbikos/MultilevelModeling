@@ -1,8 +1,0 @@
-"0","extract_eq(Mod3, intercept = ""beta"", use_coefs=TRUE, coef_digits = 2)"
-"1","$$
-\begin{aligned}
-  \operatorname{\widehat{ATSS}}_{i}  &\sim N \left(4.86_{\alpha_{j[i]}} + 0.1_{\beta_{1}}(\operatorname{AttendL1}), \sigma^2 \right) \\
-    \alpha_{j}  &\sim N \left(0.02_{\gamma_{1}^{\alpha}}(\operatorname{AttendL2}) - 1.59_{\gamma_{2}^{\alpha}}(\operatorname{Homogeneity}), 0.34 \right)
-    \text{, for church j = 1,} \dots \text{,J}
-\end{aligned}
-$$"

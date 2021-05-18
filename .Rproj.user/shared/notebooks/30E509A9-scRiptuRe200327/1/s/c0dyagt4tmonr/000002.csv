@@ -1,0 +1,39 @@
+"0","library(reshape2)"
+"2","
+Attaching package: ‘reshape2’
+
+"
+"2","The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+"
+"0","library(data.table)"
+"2","package ‘data.table’ was built under R version 4.0.5"
+"2","data.table 1.14.0 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
+"
+"2","
+Attaching package: ‘data.table’
+
+"
+"2","The following objects are masked from ‘package:reshape2’:
+
+    dcast, melt
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    transpose
+
+"
+"0","# Create a new df (Amodio_wide)"
+"0","# Identify the original df"
+"0","# We are telling it to connect the values of the Resilience variable its respective Wave designation"
+"0","df_wide <- reshape2::dcast(data = df_long, formula =ID~Wave, value.var = ""Resilience"")"
+"2","Error in value.var %in% names(data) : object 'df_long' not found
+"

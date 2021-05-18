@@ -1,0 +1,8 @@
+"0","#--- Organize Data into Level 2 (Participant-Level) Datset ----"
+"0","participant_level_dataset <- data.frame(id,"
+"0","                                       per_participant_intercept,"
+"0","                                       condition,"
+"0","                                       centered_neuroticism)"
+"2","Error in data.frame(id, per_participant_intercept, condition, centered_neuroticism) : 
+  object 'id' not found
+"

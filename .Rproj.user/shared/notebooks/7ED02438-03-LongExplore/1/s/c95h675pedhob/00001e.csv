@@ -1,0 +1,25 @@
+"0","library(data.table)
+"
+"2","package ‘data.table’ was built under R version 4.0.5"
+"2","data.table 1.14.0 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
+"
+"2","
+Attaching package: ‘data.table’
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    transpose
+
+"
+"0","DLfvrWp1<-reshape2::dcast(Lefevor2017D_sim, ClientID + DRel0 + Het0 ~ Index, value.var = c(""Index""))"
+"0","#rename the anxiety variable"
+"0","DLfvrWp1<-  rename(DLfvrWp1, Index1 = ""1"", Index2 = ""2"", Index3 = ""3"", Index4 = ""4"", Index5 = ""5"")"
+"0","DLfvrWp2<-reshape2::dcast(DLefevor2017_sim, ClientID ~ Index, value.var = c(""Depression""))"
+"2","Error in value.var %in% names(data) : object 'DLefevor2017_sim' not found
+"

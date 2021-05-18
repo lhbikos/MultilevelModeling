@@ -1,0 +1,2 @@
+"0","#This process  does not preserve the variable names, so we need to rename them"
+"0","LfvrLong<-  rename(LfvrLong<-  rename(LfvrLong<-  rename(LfvrLong, Index = variable, Anxiety = ""value1"", SesNum = ""value2"")))"

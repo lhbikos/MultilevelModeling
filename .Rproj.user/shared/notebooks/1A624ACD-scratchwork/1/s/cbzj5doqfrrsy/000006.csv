@@ -1,0 +1,76 @@
+"0","install.packages(""simglm"")
+"
+"2","Installing package into ‘C:/Users/lhbikos/R_Libs’
+(as ‘lib’ is unspecified)
+"
+"2","also installing the dependencies ‘listenv’, ‘parallelly’, ‘future’, ‘globals’, ‘future.apply’
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/listenv_0.8.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 106550 bytes (104 KB)
+"
+"2","downloaded 104 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/parallelly_1.25.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 241012 bytes (235 KB)
+"
+"2","downloaded 235 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/future_1.21.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 641510 bytes (626 KB)
+"
+"2","downloaded 626 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/globals_0.14.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 95743 bytes (93 KB)
+"
+"2","downloaded 93 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/future.apply_1.7.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 136945 bytes (133 KB)
+"
+"2","downloaded 133 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/simglm_0.8.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 509138 bytes (497 KB)
+"
+"2","downloaded 497 KB
+
+"
+"1","package â€˜listenvâ€™ successfully unpacked and MD5 sums checked
+"
+"1","package â€˜parallellyâ€™ successfully unpacked and MD5 sums checked
+"
+"1","package â€˜futureâ€™ successfully unpacked and MD5 sums checked
+"
+"1","package â€˜globalsâ€™ successfully unpacked and MD5 sums checked
+"
+"1","package â€˜future.applyâ€™ successfully unpacked and MD5 sums checked
+"
+"1","package â€˜simglmâ€™ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\lhbikos\AppData\Local\Temp\Rtmp4Ee57R\downloaded_packages"
+"1",""
+"1","
+"

@@ -106,7 +106,7 @@
 \clvertalc\cellx15300 
 \clvertalc\cellx16524 
 \pard\sa0\sb0\intbl\ql{1. ATSSL1}\cell
-\pard\sa0\sb0\intbl\tqdec\tldot\tx428{-0.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx428{0.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{1.03}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{ }\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{ }\cell
@@ -346,7 +346,7 @@
 \clvertalc\cellx15300 
 \clvertalc\cellx16524 
 \pard\sa0\sb0\intbl\ql{4. EducL1}\cell
-\pard\sa0\sb0\intbl\tqdec\tldot\tx428{0.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx428{-0.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{2.25}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.01}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.09}\cell
@@ -710,8 +710,8 @@
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{5.19}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
-\pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.15*}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.22**}\cell
@@ -802,7 +802,7 @@
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
-\pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.51**}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.39**}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.15*}\cell
@@ -890,8 +890,8 @@
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{0.32}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
-\pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.20**}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.16*}\cell
@@ -980,9 +980,9 @@
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{0.25}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
-\pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx428{.00}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.67**}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{.31**}\cell
 \pard\sa0\sb0\intbl\tqdec\tldot\tx428{-.31**}\cell
