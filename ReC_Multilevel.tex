@@ -144,7 +144,7 @@
 
 \begin{figure}
 \centering
-\includegraphics{images/ReC_multivariate_bkcvr.png}
+\includegraphics{images/ReC_mlevel_bkcvr.png}
 \caption{An image of the book cover. It includes four quadrants of non-normal distributions representing gender, race/ethnicty, sustainability/global concerns, and journal articles}
 \end{figure}
 
@@ -152,7 +152,7 @@
 \chapter*{PREFACE}\label{preface}}
 \addcontentsline{toc}{chapter}{PREFACE}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 18 May 2021}
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 23 May 2021}
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -5532,6 +5532,12 @@ Take a peek at LfvrLong:
 \begin{Highlighting}[]
 \CommentTok{\#This process  does not preserve the variable names, so we need to rename them}
 \NormalTok{LfvrLong}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrLong}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrLong}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrLong, }\AttributeTok{Index =}\NormalTok{ variable, }\AttributeTok{Anxiety =} \StringTok{"value1"}\NormalTok{, }\AttributeTok{SesNum =} \StringTok{"value2"}\NormalTok{)))}
+
+\CommentTok{\#rearanging variables so that IDs are together}
+\NormalTok{LfvrLong }\OtherTok{\textless{}{-}}\NormalTok{ LfvrLong}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ClientID, Index, SesNum, Anxiety, DRel0, Het0)}
+\CommentTok{\#resorting data so that each person is together}
+\NormalTok{LfvrLong }\OtherTok{\textless{}{-}} \FunctionTok{arrange}\NormalTok{(LfvrLong, ClientID, Index)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5541,18 +5547,6 @@ It can be helpful to have this written to your local file so you can bring it ba
 \begin{Highlighting}[]
 \FunctionTok{write.table}\NormalTok{(LfvrLong, }\AttributeTok{file=}\StringTok{"LfvrLong.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{","}\NormalTok{, }\AttributeTok{col.names=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{row.names=}\ConstantTok{FALSE}\NormalTok{)}
 \NormalTok{LfvrLong }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{ (}\StringTok{"LfvrLong.csv"}\NormalTok{, }\AttributeTok{head =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{","}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Although we can manually resort our viewer, it can be helpful (historically, some programs required it) to create a permanent sort by person and wave/index.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#rearanging variables so that IDs are together}
-\NormalTok{LfvrLong }\OtherTok{\textless{}{-}}\NormalTok{ LfvrLong}\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(ClientID, Index, SesNum, Anxiety, DRel0, Het0)}
-\CommentTok{\#resorting data so that each person is together}
-\NormalTok{LfvrLong }\OtherTok{\textless{}{-}} \FunctionTok{arrange}\NormalTok{(LfvrLong, ClientID, Index)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7138,6 +7132,2703 @@ loaded via a namespace (and not attached):
 [82] rmarkdown_2.7       grid_4.0.4          readxl_1.3.1       
 [85] reprex_2.0.0        digest_0.6.27       xtable_1.8-4       
 [88] numDeriv_2016.8-1.1 munsell_0.5.0       quadprog_1.5-8     
+\end{verbatim}
+
+\hypertarget{LongMod}{%
+\chapter{A Basic Longitudinal Model}\label{LongMod}}
+
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=dedb85c8-e442-49bf-8f92-ad31018b1dd8}{Screencasted Lecture Link}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{options}\NormalTok{(}\AttributeTok{scipen=}\DecValTok{999}\NormalTok{)}\CommentTok{\#eliminates scientific notation}
+\end{Highlighting}
+\end{Shaded}
+
+The focus of this lecture is to introduce longitudinal modeling with the multilevel modeling approach. Longitudinal MLM is a complicated statistic with decisions-to-be-made at every point. We will continue with the Lefevor et al. \citeyearpar{lefevor_religious_2017} example that served as the research vignette for the preliminary investigation that preceded model building. In this lesson's example, we will engage in model building that sequentially specifies and analyzes a within-persons (Level 1 {[}L1{]}) predictor of time, two between-persons (Level 2 {[}L2{]}) predictors of sexual identity and religious affiliation, and cross-level actions. We will also trim non-significant effects. In-so-doing, we examine the conceptual and technical aspects of multilevel modeling and assemble the model (and explore the data) in a systematic and sequential manner.
+
+\hypertarget{navigating-this-lesson-2}{%
+\section{Navigating this Lesson}\label{navigating-this-lesson-2}}
+
+There is about 1 hour and 45 minutes of lecture. If you work through the materials with me it would be plan for an additional two hours.
+
+While the majority of R objects and data you will need are created within the R script that sources the lesson, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_CPA}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
+
+\hypertarget{learning-objectives-2}{%
+\subsection{Learning Objectives}\label{learning-objectives-2}}
+
+Learning objectives from this lecture include the following:
+
+\begin{itemize}
+\tightlist
+\item
+  In the taxonomy of model building, define and distinguish between unconditional means models and unconditional growth models.
+\item
+  List differences between FML and RML. Specifically, what effects do they cover/not-cover and how does that impact our interpretation of deviance statistics?
+\item
+  Define and interpret the intraclass correlation (ICC).
+\item
+  Articulate a strategy for model specification and evaluation (building and trimming).
+\item
+  Given a taxonomy of model comparisons (such as we grow in the Viewer pane), be able to interpret both fixed and random effects. Be able to calculate pseudo R2 for the three primary variance components (\(\sigma^2\), \(\tau _{00}\), \(\tau _{11}\))
+\item
+  In terms of overall model evaluation, interpret deviance and AIC statistics (and know when such interpretation is appropriate).
+\end{itemize}
+
+\hypertarget{planning-for-practice-2}{%
+\subsection{Planning for Practice}\label{planning-for-practice-2}}
+
+This assignment grows from the \protect\hyperlink{MLMexplore}{lesson} on preliminary exploration of longitudinal data and extends it with model specification and evaluation. The suggested practice problem for this lesson is to conduct a longitudinal MLM that includes at least one L1 predictor (ideally one that clocks time), at least one L2 predictor, and a cross-level interaction. Specific details are provided at the end of the lesson.
+
+As is typical for this OER, the suggestions are practice are graded in complexity. I encourage you to select one or more options that provides some stretch.
+
+\begin{itemize}
+\tightlist
+\item
+  Rework the problem in the lesson by changing the random seed in the code that simulates the data. This should provide minor changes to the data, but the results will likely be very similar.
+\item
+  In this (and the prior) lesson(s) we work the problem with anxiety as the dependent variable. In the previous lesson's \protect\hyperlink{MLMexplore}{Bonus Track} there is a parallel dataset that is simulated with depression as the DV. Use that dataset for the homework. one in the lesson (and/or oNe you mimicked in the journal article).
+\item
+  Work through the steps in the assignment with data to which you have access. This could include data you simulate on your own or from a published article.
+\end{itemize}
+
+\hypertarget{readings-resources-2}{%
+\subsection{Readings \& Resources}\label{readings-resources-2}}
+
+In preparing this lesson, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.
+
+\begin{itemize}
+\tightlist
+\item
+  Singer, J. D., \& Willett, J. B. (2003). Doing data analysis with the multilevel model for change/Chapter 4 in \emph{Applied longitudinal data analysis: Modeling change and event occurrence.} Oxford University Press. \url{https://doi-org.ezproxy.spu.edu/10.1093/acprof:oso/9780195152968.001.0001}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The \href{https://stats.idre.ucla.edu/other/examples/alda/}{UCLA IDRE website} hosts R solutions (as well as SPSS, SAS, MPlus, and HLM) to many of the examples in this text.
+  \end{itemize}
+\item
+  Lefevor, G. T., Janis, R. A., \& Park, S. Y. (2017). Religious and sexual identities: An intersectional, longitudinal examination of change in therapy. \emph{The Counseling Psychologist, 45}(3), 387--413. \url{https://doi-org.ezproxy.spu.edu/10.1177/0011000017702721}
+\end{itemize}
+
+\hypertarget{packages-3}{%
+\subsection{Packages}\label{packages-3}}
+
+The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#will install the package if not already installed}
+\CommentTok{\#if(!require(lme4))\{install.packages("lme4")\}}
+\CommentTok{\#if(!require(sjStats))\{install.packages("sjStats")\}}
+\CommentTok{\#if(!require(sjPlot))\{install.packages("sjPlot")\}}
+\CommentTok{\#if(!require(formattable))\{install.packages("formattable")\}}
+\CommentTok{\#if(!require(tidyverse))\{install.packages("tidyverse")\}}
+\CommentTok{\#if(!require(robumeta))\{install.packages("robumeta")\}}
+\CommentTok{\#if(!require(scales))\{install.packages("scales")\}}
+\CommentTok{\#if(!require(psych))\{install.packages("psych")\}}
+\CommentTok{\#if(!require(data.table))\{install.packages("data.table")\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{the-basic-longitudinal-multilevel-model}{%
+\section{The Basic, Longitudinal, Multilevel Model}\label{the-basic-longitudinal-multilevel-model}}
+
+\hypertarget{the-definitional-and-conceptual}{%
+\subsection{The definitional and conceptual}\label{the-definitional-and-conceptual}}
+
+Singer and Willett \citeyearpar{singer_applied_2003} tell us that the focus of this er is on ``real-world issues of analysis'' (p.~75). To that end, they introduce some complexities:
+
+\emph{Composite model}: Combines the
+
+\begin{itemize}
+\tightlist
+\item
+  L1 how each person changes over time, and
+\item
+  L2 relates interindividual differences in change to predictors submodels into a single equation.
+\end{itemize}
+
+This composite model ``leads naturally'' to consideration of alternate methods of analysis
+
+\begin{itemize}
+\tightlist
+\item
+  generalized least squares (GLS)
+\item
+  iterative generalized least squares (IGLS)
+\end{itemize}
+
+And within maximum likelihood
+* full
+* restricted
+
+In addition to the exploration demonstrated the prior \protect\hyperlink{MLMexplore}{lesson}, longitudinal model building should always start by fitting two models that provide essential baselines for subsequent comparison:
+
+\begin{itemize}
+\tightlist
+\item
+  unconditional means model
+\item
+  unconditional growth model
+\end{itemize}
+
+There are multiple ways to add time-invariant (L2) predictors, to test complex hypotheses, and examine model assumptions and residuals. Additionally, we can get ``model-based'' estimates of individual growth trajectories that improve upon the exploratory OLS estimates we did completed in the prior \protect\hyperlink{MLMexplore}{lesson}. In this example, the approach is somewhat streamlined because we are (a) specifying \emph{linear} (not curvilinear) growth model, (b) using data that is balanced (everyone has the same number of waves), (c) using data with no missingness. We are using time-unstructured data. That is, while everyone has five waves, the amount of time (sessions) represented, ranges from 0 to 19.
+
+\hypertarget{workflow-for-a-basic-longitudinal-multilevel-model}{%
+\section{Workflow for a Basic, Longitudinal, Multilevel Model}\label{workflow-for-a-basic-longitudinal-multilevel-model}}
+
+Multilevel modeling is a complex statistic with a number of considerations. At the risk of being an oversimplification, this workflow provides a rough map the steps involved in preliminary exploration and model building.
+
+\begin{figure}
+\centering
+\includegraphics{images/LongExpl/WrkFlowLong.jpg}
+\caption{Image of a workflow through a longitudinal multilevel model}
+\end{figure}
+
+\hypertarget{research-vignette-2}{%
+\section{Research Vignette}\label{research-vignette-2}}
+
+We continue with the same research vignette used in the chapter that reviewed preliminary \protect\hyperlink{MLMexplore}{exploration of longitudinal data}.
+
+Our research vignette \citep{lefevor_religious_2017} examines the intersection of religious and sexual identities of clients in therapy. With 12,825 participants from the Center for Collegiate Mental Health 2012-2014 data set, the project is an example of working with \emph{big data.} Because the data is available to members only (and behind a paywall), I simulated the data. In the simulation, categorical variables (e.g., sexual identity, session number, religious affiliation) were rendered as continuous variables and in the simulation, I needed to transform them back into categorical ones. Inevitably, this will have introduced a great deal of error. Thus, we can expect that the results from the simulated data will be different from those obtained by the authors.
+
+The Method section of the article provides detailed information about the inclusion criteria ofr the study and the coding of the variables. This included data about the religious and sexual identities as well as a minimum of three separate scores on the Counseling Center Assessment of Psychologial Sympsoms \citep[CCAPS,][]{locke_development_2012} measure. For the final dataset, clients attended an average of 10.58 sessions (\emph{SD} = 7.65) and had an average of 5.36 CCAPS administrations (\emph{SD} = 4.04). This means that in the original dataset, each client was represented by a varying number of observations (likely ranging from 3 {[}the minimum required for inclusion{]} and, perhaps as many as 17 {[}adding +3\emph{SD}s to the mean CCAPS administrations{]}). In simulating the data, I specified five observations for each of the 12,825 clients.
+
+Let's take a look at the variables in the study
+
+\begin{itemize}
+\item
+  \textbf{Anxiety and Depression}: The anxiety and depression ratings were taken from the CCAPS measure \citep{locke_development_2012} that assesses psychological distress across seven domains. Clients rate themselves over the past two weeks on a 5-point Likert-type scale ranging from 0 (\emph{not at all like me}) to 4 (\emph{extremely like me}). Higher scores indicate more distress. The dataset comes from multiple institutions with different procedures around assessment CCAPS there is not a 1:1 correspondence with session number and CCAPS assessment.
+\item
+  \textbf{Sexual Identity}: The researchers used effects coding for their analysis. We used dummy coding into heterosexual (0, 85.5\%) and LGBQQ (1, 14.5\%).
+\item
+  \textbf{Religious Affiliation}: Religious affiliation was coded into three categories including dominant religious (DR; Christian, Catholic), nondominant religious (NDR; Muslim, Hindu, Buddhist, Jewish), and nondominant unaffiliated (NDU; agnostic, atheist, no preference). The researchers used contrast coded with an orthogonal contrast-coding scheme with two variables (to represent the three variables). We used dummy coding with dominant religion as 0 and the combined nondominant and nondominant affiliated as 1.
+\end{itemize}
+
+\hypertarget{simulating-the-data-from-the-journal-article-2}{%
+\subsection{Simulating the data from the journal article}\label{simulating-the-data-from-the-journal-article-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{200513}\NormalTok{)}
+\NormalTok{n\_client }\OtherTok{=} \DecValTok{12825}
+\NormalTok{n\_session }\OtherTok{=} \DecValTok{5}
+\NormalTok{b0 }\OtherTok{=} \FloatTok{2.03} \CommentTok{\#intercept for anxiety}
+\NormalTok{b1 }\OtherTok{=} \SpecialCharTok{{-}}\NormalTok{.}\DecValTok{22} \CommentTok{\#b weight for L1 session}
+\NormalTok{b2 }\OtherTok{=}\NormalTok{ .}\DecValTok{13} \CommentTok{\#b weight for L2 sexual identity}
+\NormalTok{b3 }\OtherTok{=}  \SpecialCharTok{{-}}\NormalTok{.}\DecValTok{03} \CommentTok{\#b weight for L2 Rel1 (D{-}R vs ND{-}R \& ND{-}U)}
+\NormalTok{b4 }\OtherTok{=}\NormalTok{ .}\DecValTok{01} \CommentTok{\#b weight for the L2 Rel2 (ND{-}R vs ND{-}U)}
+\CommentTok{\#the values used below are the +/{-} 3SD they produce continuous variables which later need to be transformed to categorical ones; admittedly this introduces a great deal of error/noise into the simulation}
+\CommentTok{\#the article didn\textquotesingle{}t include a correlation matrix or M/SDs so this was a clunky process }
+\NormalTok{( }\AttributeTok{Session =} \FunctionTok{runif}\NormalTok{(n\_client}\SpecialCharTok{*}\NormalTok{n\_session, }\SpecialCharTok{{-}}\FloatTok{3.61}\NormalTok{, }\FloatTok{3.18}\NormalTok{)) }\CommentTok{\#calc L1 Session, values are the +/3 3SD}
+\NormalTok{( }\AttributeTok{SexualIdentity =} \FunctionTok{runif}\NormalTok{(n\_client}\SpecialCharTok{*}\NormalTok{Session, }\SpecialCharTok{{-}}\FloatTok{6.66}\NormalTok{, }\FloatTok{6.92}\NormalTok{)) }\CommentTok{\#calc L2 Sexual Identity, values are the +/3 3SD}
+\NormalTok{( }\AttributeTok{Religion1 =} \FunctionTok{runif}\NormalTok{(n\_client}\SpecialCharTok{*}\NormalTok{Session, }\SpecialCharTok{{-}}\FloatTok{3.43}\NormalTok{, }\FloatTok{3.37}\NormalTok{)) }\CommentTok{\#calc L2 Religion1, values are the +/3 3SD}
+\NormalTok{( }\AttributeTok{Religion2 =} \FunctionTok{rep}\NormalTok{ (}\FunctionTok{runif}\NormalTok{(n\_session, }\SpecialCharTok{{-}}\FloatTok{3.38}\NormalTok{, }\FloatTok{3.41}\NormalTok{), }\AttributeTok{each =}\NormalTok{ n\_session)) }\CommentTok{\#calc L2 Religion2, values are the +/3 3SD}
+\NormalTok{mu }\OtherTok{=} \FloatTok{1.76} \CommentTok{\#intercept of empty model }
+\NormalTok{sds }\OtherTok{=} \FloatTok{2.264} \CommentTok{\#this is the SD of the DV}
+\NormalTok{sd }\OtherTok{=} \DecValTok{1} \CommentTok{\#this is the observation{-}level random effect variance that we set at 1}
+
+\CommentTok{\#( church = rep(LETTERS[1:n\_church], each = n\_mbrs) ) \#this worked in the prior}
+\NormalTok{( }\AttributeTok{client =} \FunctionTok{rep}\NormalTok{(LETTERS[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{n\_client], }\AttributeTok{each =}\NormalTok{ n\_session) )}
+\CommentTok{\#( session = numbers[1:(n\_client*n\_session)] )}
+\NormalTok{( }\AttributeTok{clienteff =} \FunctionTok{rnorm}\NormalTok{(n\_client, }\DecValTok{0}\NormalTok{, sds) )}
+\NormalTok{( }\AttributeTok{clienteff =} \FunctionTok{rep}\NormalTok{(clienteff, }\AttributeTok{each =}\NormalTok{ n\_session) )}
+\NormalTok{( }\AttributeTok{sessioneff =} \FunctionTok{rnorm}\NormalTok{(n\_client}\SpecialCharTok{*}\NormalTok{n\_session, }\DecValTok{0}\NormalTok{, sd) )}
+\NormalTok{( }\AttributeTok{Anxiety =}\NormalTok{ b0 }\SpecialCharTok{+}\NormalTok{ b1}\SpecialCharTok{*}\NormalTok{Session }\SpecialCharTok{+}\NormalTok{ b2}\SpecialCharTok{*}\NormalTok{SexualIdentity }\SpecialCharTok{+}\NormalTok{ b3}\SpecialCharTok{*}\NormalTok{Religion1 }\SpecialCharTok{+}\NormalTok{ b4}\SpecialCharTok{*}\NormalTok{Religion2 }\SpecialCharTok{+}\NormalTok{ clienteff }\SpecialCharTok{+}\NormalTok{ sessioneff)}
+\NormalTok{( }\AttributeTok{dat =} \FunctionTok{data.frame}\NormalTok{(client, clienteff, sessioneff, Session, SexualIdentity, Religion1, Religion2, Anxiety) )}
+
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{dat }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{())}
+\CommentTok{\#moving the ID number to the first column; requires }
+\NormalTok{dat }\OtherTok{\textless{}{-}}\NormalTok{ dat}\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}
+
+\NormalTok{Lefevor2017 }\OtherTok{\textless{}{-}}\NormalTok{ dat}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ID, client, Session, SexualIdentity, Religion1, Religion2, Anxiety)}
+
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{ClientID }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{12825}\NormalTok{), }\AttributeTok{each =} \DecValTok{5}\NormalTok{)}
+\CommentTok{\#rounded Sexual Identity into dichotomous variable}
+\CommentTok{\#85\% were heterosexual, }
+
+\FunctionTok{library}\NormalTok{(robumeta)}
+\CommentTok{\#The following variables should be L2, but were simulated as if they were L1}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{Rel1 }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{group.mean}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Religion1,Lefevor2017}\SpecialCharTok{$}\NormalTok{ClientID))}\CommentTok{\#aggregated at group mean}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{Rel2 }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{group.mean}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Religion2,Lefevor2017}\SpecialCharTok{$}\NormalTok{ClientID))}\CommentTok{\#aggregated at group mean}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{SxID }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{group.mean}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{SexualIdentity,Lefevor2017}\SpecialCharTok{$}\NormalTok{ClientID))}\CommentTok{\#aggregated at group mean}
+
+\CommentTok{\#Rel2 has contrast codes for dominant religion (DR, 0), nondominant religious (NDR, 1) and nondominant unspecified (NDU, {-}1)}
+\CommentTok{\#Strategy is to figure out the raw score associated with the percentile rank of  {-}1 and 0, to set the breakpoints for the coding}
+\CommentTok{\#NDU coded as {-}1}
+\CommentTok{\#19.2+13.5+9.6}
+\CommentTok{\#NDU has bottom 42.3 percent}
+
+\CommentTok{\#DR coded as 0, so quantile cut will be 42.3 + 52.7 = 95th}
+\CommentTok{\#33.4 + 19.3}
+\CommentTok{\#52.7\% of sample (according to article) was DR}
+\CommentTok{\#must look up percentile ranks for 5\% and 57.5\%}
+
+\CommentTok{\#NDR}
+\CommentTok{\#2.3+1+1+.7}
+\CommentTok{\#NDR has 5\% of sample}
+\CommentTok{\#42.3+52.7}
+\CommentTok{\#quantile(Lefevor2017$Religion2, probs = c(.423, .95))}
+\CommentTok{\#effects coding the second Religion variable so that NDU = {-}1, DR = 0, NDR = 1}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{Rel2L2 }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Religion2 }\SpecialCharTok{\textless{}=} \SpecialCharTok{{-}}\FloatTok{3.0877087}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+                             \FunctionTok{ifelse}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Religion2 }\SpecialCharTok{\textgreater{}=} \SpecialCharTok{{-}}\FloatTok{3.0877087} \SpecialCharTok{\&}\NormalTok{ Lefevor2017}\SpecialCharTok{$}\NormalTok{Religion2 }\SpecialCharTok{\textless{}=} \FloatTok{0.9299491}\NormalTok{, }\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+
+\CommentTok{\#checking work}
+\CommentTok{\#Rel2L2\_table \textless{}{-} table(Lefevor2017$Rel2L2)}
+\CommentTok{\#prop.table(Rel2L2\_table)}
+\CommentTok{\#Lefevor2017 \%\textgreater{}\%}
+\CommentTok{\#count(Rel2L2)}
+
+\CommentTok{\#creating the first religion variable where DR is 2 and NDR and NDU are both {-}1}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{Rel1L2 }\OtherTok{\textless{}{-}}\NormalTok{ plyr}\SpecialCharTok{::}\FunctionTok{mapvalues}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Rel2L2, }\AttributeTok{from =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{to =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{DRel0 }\OtherTok{\textless{}{-}}\NormalTok{ plyr}\SpecialCharTok{::}\FunctionTok{mapvalues}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Rel2L2, }\AttributeTok{from =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{to =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\CommentTok{\#checking to make sure that 52.7\% are coded 2 (DR)}
+\CommentTok{\#Rel1L2\_table \textless{}{-} table(Lefevor2017$Rel1L2)}
+\CommentTok{\#prop.table(Rel1L2\_table)}
+
+\CommentTok{\#heterosexual is {-}1}
+\CommentTok{\#LGBTQIA+ is 1}
+\CommentTok{\#quantile(Lefevor2017$SxID, probs = c(.85))}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{SexID }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{SxID }\SpecialCharTok{\textless{}=} \FloatTok{1.203468}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{Het0 }\OtherTok{\textless{}{-}}\NormalTok{ plyr}\SpecialCharTok{::}\FunctionTok{mapvalues}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{SexID, }\AttributeTok{from =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{), }\AttributeTok{to =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\CommentTok{\#SexID\_table \textless{}{-} table(Lefevor2017$SexID)}
+\CommentTok{\#prop.table(SexID\_table)}
+
+\CommentTok{\#creating a variable representing the session number for each client, in the article up to 20 sessions were allowed. }
+\CommentTok{\#install.packages("scales")}
+\FunctionTok{library}\NormalTok{(scales)}
+\CommentTok{\#Right from the beginning I centered this so that 0 would represent intake}
+\NormalTok{Lefevor2017}\SpecialCharTok{$}\NormalTok{Session0 }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(Lefevor2017}\SpecialCharTok{$}\NormalTok{Session, }\AttributeTok{to =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{19}\NormalTok{)))}
+
+\CommentTok{\#creating session waves (1 thru 5) by rank ordering within each person\textquotesingle{}s variable the continuous variable Session that was created in the original simulation}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{Lefevor2017 }\OtherTok{\textless{}{-}}\NormalTok{ Lefevor2017}\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(ClientID) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Index =} \FunctionTok{rank}\NormalTok{(Session))}
+
+\CommentTok{\#selecting the simulated variables}
+\NormalTok{Lefevor2017\_sim }\OtherTok{\textless{}{-}}\NormalTok{ Lefevor2017}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ClientID, Index, Session0, Anxiety, DRel0, Het0)}
+
+\CommentTok{\#In the transition from long{-}to{-}wide, it seems like you can only do one L1 variable at a time}
+\CommentTok{\#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde}
+\CommentTok{\#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum}
+\CommentTok{\#Put the name of the SINGLE L1 variable in the concatonated list}
+\FunctionTok{library}\NormalTok{(data.table)}
+\NormalTok{LfvrWp1}\OtherTok{\textless{}{-}}\NormalTok{reshape2}\SpecialCharTok{::}\FunctionTok{dcast}\NormalTok{(Lefevor2017\_sim, ClientID }\SpecialCharTok{+}\NormalTok{ DRel0 }\SpecialCharTok{+}\NormalTok{ Het0 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Index, }\AttributeTok{value.var =} \FunctionTok{c}\NormalTok{(}\StringTok{"Index"}\NormalTok{))}
+\CommentTok{\#rename the anxiety variable}
+\NormalTok{LfvrWp1}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrWp1, }\AttributeTok{Index1 =} \StringTok{"1"}\NormalTok{, }\AttributeTok{Index2 =} \StringTok{"2"}\NormalTok{, }\AttributeTok{Index3 =} \StringTok{"3"}\NormalTok{, }\AttributeTok{Index4 =} \StringTok{"4"}\NormalTok{, }\AttributeTok{Index5 =} \StringTok{"5"}\NormalTok{)}
+\NormalTok{LfvrWp2}\OtherTok{\textless{}{-}}\NormalTok{reshape2}\SpecialCharTok{::}\FunctionTok{dcast}\NormalTok{(Lefevor2017\_sim, ClientID }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Index, }\AttributeTok{value.var =} \FunctionTok{c}\NormalTok{(}\StringTok{"Anxiety"}\NormalTok{))}
+\CommentTok{\#rename the anxiety variable}
+\NormalTok{LfvrWp2}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrWp2, }\AttributeTok{Anx1 =} \StringTok{"1"}\NormalTok{, }\AttributeTok{Anx2 =} \StringTok{"2"}\NormalTok{, }\AttributeTok{Anx3 =} \StringTok{"3"}\NormalTok{, }\AttributeTok{Anx4 =} \StringTok{"4"}\NormalTok{, }\AttributeTok{Anx5 =} \StringTok{"5"}\NormalTok{)}
+\CommentTok{\#For remaining L1 variable, do them one at a time {-}{-} key them from the person{-}level ID and the wave/index.}
+\NormalTok{LfvrWp3}\OtherTok{\textless{}{-}}\NormalTok{reshape2}\SpecialCharTok{::}\FunctionTok{dcast}\NormalTok{(Lefevor2017\_sim, ClientID }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Index, }\AttributeTok{value.var =} \FunctionTok{c}\NormalTok{(}\StringTok{"Session0"}\NormalTok{))}
+\NormalTok{LfvrWp3}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrWp3, }\AttributeTok{Sess1 =} \StringTok{"1"}\NormalTok{, }\AttributeTok{Sess2 =} \StringTok{"2"}\NormalTok{, }\AttributeTok{Sess3 =} \StringTok{"3"}\NormalTok{, }\AttributeTok{Sess4 =} \StringTok{"4"}\NormalTok{, }\AttributeTok{Sess5 =} \StringTok{"5"}\NormalTok{)}
+\CommentTok{\#Next, join the dataframes by the person{-}level ID}
+\CommentTok{\#Only two can be joined at a time}
+\NormalTok{LfvrWide }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{full\_join}\NormalTok{(LfvrWp1, LfvrWp2, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"ClientID"}\NormalTok{))}
+\NormalTok{LfvrWide }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{full\_join}\NormalTok{(LfvrWide, LfvrWp3,  }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"ClientID"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+To increase the portability of the OER, this lesson uses simulated data. Here is script for exporting/downloading the data as a .csv file to your local computer and then importing/uploading it again. I find that saving the .csv file (data) in the same place as the .rmd file(s) is essential for R to connect the two.
+
+Because this simulation can take a few minutes, you may wish to do this, even as you work through this lesson, so that resimulations take less time and comuting resources.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Exporting and importing the wide df}
+\FunctionTok{write.table}\NormalTok{(LfvrWide, }\AttributeTok{file=}\StringTok{"LefevorWide.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{","}\NormalTok{, }\AttributeTok{col.names=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{row.names=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{LfvrWide }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{ (}\StringTok{"LefevorWide.csv"}\NormalTok{, }\AttributeTok{head =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{","}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+As before we need to restructure it into a long format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{LfvrLong }\OtherTok{\textless{}{-}}\NormalTok{ (data.table}\SpecialCharTok{::}\FunctionTok{melt}\NormalTok{(}\FunctionTok{setDT}\NormalTok{(LfvrWide), }\AttributeTok{id.vars =} \FunctionTok{c}\NormalTok{(}\StringTok{"ClientID"}\NormalTok{, }\StringTok{"DRel0"}\NormalTok{, }\StringTok{"Het0"}\NormalTok{), }\AttributeTok{measure.vars =}\FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Anx1"}\NormalTok{, }\StringTok{"Anx2"}\NormalTok{, }\StringTok{"Anx3"}\NormalTok{, }\StringTok{"Anx4"}\NormalTok{, }\StringTok{"Anx5"}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\StringTok{"Sess1"}\NormalTok{, }\StringTok{"Sess2"}\NormalTok{, }\StringTok{"Sess3"}\NormalTok{, }\StringTok{"Sess4"}\NormalTok{, }\StringTok{"Sess5"}\NormalTok{))))}
+\CommentTok{\#This process  does not preserve the variable names, so we need to rename them}
+\NormalTok{LfvrLong}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrLong}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrLong}\OtherTok{\textless{}{-}}  \FunctionTok{rename}\NormalTok{(LfvrLong, }\AttributeTok{Index =}\NormalTok{ variable, }\AttributeTok{Anxiety =} \StringTok{"value1"}\NormalTok{, }\AttributeTok{SesNum =} \StringTok{"value2"}\NormalTok{)))}
+
+\CommentTok{\#rearanging variables so that IDs are together}
+\NormalTok{LfvrLong }\OtherTok{\textless{}{-}}\NormalTok{ LfvrLong}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ClientID, Index, SesNum, Anxiety, DRel0, Het0)}
+\CommentTok{\#resorting data so that each person is together}
+\NormalTok{LfvrLong }\OtherTok{\textless{}{-}} \FunctionTok{arrange}\NormalTok{(LfvrLong, ClientID, Index)}
+\end{Highlighting}
+\end{Shaded}
+
+And here is code for writing it as an outfile and bringing it back in. This means that you can just import the file and start working from here (without taking time to resimulate the data and convert it again).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.table}\NormalTok{(LfvrLong, }\AttributeTok{file=}\StringTok{"LfvrLong.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{","}\NormalTok{, }\AttributeTok{col.names=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{row.names=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{LfvrLong }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{ (}\StringTok{"LfvrLong.csv"}\NormalTok{, }\AttributeTok{head =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{","}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{working-the-longitudinal-multilevel-model}{%
+\section{Working the Longitudinal, Multilevel Model}\label{working-the-longitudinal-multilevel-model}}
+
+Our preliminary exploration in the \protect\hyperlink{MLMexplore}{previous lesson} supported positing an L1 individual growth model that anxiety is \emph{linear} with number of sessions. Recall we centered session number around zero:
+
+\[Y_{ij}=\beta_{0i}+\beta _{1i}(SesNum_{ij})+\varepsilon _{ij}\]
+What are we saying? We are predicting each client's anxiety at a given time \(Y_{ij}\). This prediction includes anxiety at the first session (\(\beta_{0i}\), the intercept) and the rate of change, centered around zero (\(\beta _{1i}\)). Of course, each equation isn't perfect, and so a little residual remains: \(\varepsilon _{ij}\).
+
+Just a little more recap:
+
+\(\beta _{0i}\) is the individual \(i\)'s \emph{true} initial status, the value of the outcome when \(SesNum_{ij}\) is zero.
+
+\(\beta _{1i}\) is the individual \(i\)'s \emph{true} rate of change during the period under study.
+
+\(\varepsilon _{ij}\) represents that portion of the individual \(i\)'s outcome that is unpredicted on occasion \(j\).
+
+We \emph{assume} that the \(\varepsilon _{ij}\)'s are independently drawn from a normal distribution with a mean of 0 and a variance of \(\sigma _{\varepsilon }^{2}\).
+
+\hypertarget{a-moment-on-estimators}{%
+\subsection{A Moment on Estimators}\label{a-moment-on-estimators}}
+
+Although we tend to use maximum likelihood estimators (ML) in MLMs, two OLS approaches (generalized least squares {[}GLS{]} and iterative generalized least squares {[}IGLS{]}) are also used. They are described in more depth in Singer and Willett's text \citeyearpar{singer_applied_2003} and demonstrated in their chapter four.
+
+ML estimators fall into two categories: \emph{full} (FML) and \emph{restricted}(RML) types. The essential difference is in how the likelihood function is formed. It, in turn, affects parameter estimation and the strategies used to test hypotheses. It is most proper to select the ML method prior to fitting models. All stats packages have defaults; it is important to know what they are and how to change them. \emph{Note. We are no longer in lavaan, so a decision between FIML and REML in MLM doesn't help with missingness.}
+
+\hypertarget{full-maximum-likelihood}{%
+\subsubsection{Full maximum likelihood**}\label{full-maximum-likelihood}}
+
+\begin{itemize}
+\tightlist
+\item
+  FML assesses the joint probability of simultaneously observing all the sample data actually obtained
+\item
+  The sampling likelihood is a function of all the data and hypothesized model and its assumptions. It includes all the unknown parameters, both the fixed effects (the gammas) and the variance components (the 4 sigmas).
+\item
+  The computer computes those estimates of these population parameters that jointly maximize this likelihood
+\item
+  The criticism of FML is that it ignores uncertainty about the fixed effects when estimating the variance components, treating their values as known. FML overstates the degrees of freedom left for estimating variance components and underestimates the variance components themselves, leading to biased estimates when samples are small.
+\end{itemize}
+
+\hypertarget{restricted-maximum-likelihood}{%
+\subsubsection{Restricted maximum likelihood}\label{restricted-maximum-likelihood}}
+
+\begin{itemize}
+\tightlist
+\item
+  RML estimates of the variance components are those values that maximize the likelihood of observing the sample \emph{residuals} (not the sample data).
+\item
+  Like FML, it's an iterative process beginning with the fixed effects (the gammas) using OLS or GLS. Next, the predicted gammas are used to estimate a residual for each person on each occasion. A likelihood of observing this particular collection (residuals and the unknown variance components that govern their distribution) is noted. The logarithm of the restricted likelihood is maximized to yield RML estimates of variance components -- the only known parameters remaining.
+\end{itemize}
+
+\textbf{Which to use when?}
+There has been controversy for decades and neither is clearly better than the other.
+
+\begin{itemize}
+\tightlist
+\item
+  Goodness of fit statistics from FML can be used to test hypotheses about any type of parameter (either a fixed effect or variance component)
+\item
+  Goodness of fit statistics from RML can only be used to test hypotheses about variance components (\emph{not} fixed effects)
+\item
+  Thus, when we compare models that differ in both fixed and variance components we need to use FML; when they differ only in variance components, we can use either.
+\item
+  In today's example we will use FML.
+\end{itemize}
+
+\hypertarget{two-unconditional-multilevel-models-for-change}{%
+\subsection{Two Unconditional Multilevel Models for Change}\label{two-unconditional-multilevel-models-for-change}}
+
+Subsequent to identifying the research questions, restructuring the dataset from wide to long, conducting the exploratory analyses, and choosing the estimation approach, we start small by fitting first an \emph{unconditional means model} and then an \emph{unconditional growth model.}
+
+These \emph{unconditional} (no moderators) partition and quantify the outcome variation in two ways:
+
+\begin{itemize}
+\tightlist
+\item
+  across people without regard to time (unconditional means model)
+\item
+  across both time and people (unconditional growth model)
+\end{itemize}
+
+This allows us to establish
+
+\begin{itemize}
+\tightlist
+\item
+  whether there is systematic variation in the outcome that is worth modeling
+\item
+  \emph{where} variation resides (within or between people)
+\item
+  baselines for evaluating the successive models (long live Joreskog's \emph{model generating} approach)
+\end{itemize}
+
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
+
+\hypertarget{model-1-the-unconditional-means-model-aka-the-empty-model-or-intercept-only-model}{%
+\subsection{\texorpdfstring{Model 1: The \emph{unconditional} means model (aka the ``empty model'' or intercept-only model)}{Model 1: The unconditional means model (aka the ``empty model'' or intercept-only model)}}\label{model-1-the-unconditional-means-model-aka-the-empty-model-or-intercept-only-model}}
+
+Always fit the empty model first. With zero predictors at every level it is our starting point for describing and partitioning the outcome \emph{variation}.
+
+\[Y_{ij}=\beta _{0i}+\varepsilon _{ij}\]
+\[\beta _{0i}=\gamma _{00}+\zeta _{0i}\]
+
+The unconditional means model (with no slope parameter) stipulates that at L1, the true individual change trajectory for person \emph{i} is flat, sitting at elevation \(\beta _{0i}\). Plus, the single part of the L2 model means that while these flat trajectories may differ in elevation, their average elevation across everyone in the population is \(\gamma _{00}\). There is no link to interindividual variation and predictors.
+
+In sum: this model is not about change. It really just gives you a \emph{mean}. However, it is a necessary first step because it partitions the total variation in the outcome. Harkening back to ANOVA:
+
+\(Y_{ij}\) is the person-specific mean
+\(\beta _{0i}\) is the grand mean
+
+The unconditional means model postulates that the observed value of \emph{Y} for individual \emph{i} on occasion \emph{j} is composed of deviations about these means. On occasion \emph{j}, \(Y_{ij}\) deviates from individual \emph{i}'s true mean (\(\beta _{0i}\)) by \(\varepsilon _{ij}\). Thus, the L1 residual is a ``within-person'' deviation that assesses the distance between \(Y_{ij}\) and\(\beta _{0i}\).
+
+THEN, for person \emph{i}, his or her true mean (\(\beta _{0i}\)) deviates from the population average true mean \(\gamma _{00}\) by \(\zeta _{0i}\). This L2 residual is a ``between person'' deviation that assesses distance between \(\beta _{0i}\) and \(\gamma _{00}\).
+
+Model A output (the unconditional means model) will provide us with two variance components:
+
+\(\sigma _^2\) is the within-person variance -- the pooled scatter of each person's data around his/her own mean
+\(\tau _{00}\) is the between-person variance -- the pooled scatter of the person-specific means around the grand mean.
+
+The purpose of fitting the unconditioned means model is to get these two variance components so we can estimate the amount of variation that exists at each level. We can use employ associated hypothesis tests to help determine whether there is sufficient variation at that level to continue modeling. If a variation component is\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  Zero, there is no point in trying to predict outcome variation \emph{at that level}
+\item
+  Non-zero, there is some variation \emph{at that level} that could potentially be explained
+\end{itemize}
+
+\hypertarget{a-moment-on-lmer-syntax}{%
+\subsection{\texorpdfstring{A moment on \emph{lmer()} syntax}{A moment on lmer() syntax}}\label{a-moment-on-lmer-syntax}}
+
+\emph{lmer()} script is not so different from the \emph{lm()} function; it just has the additional random effect portion added in.
+
+We can think of random effects as those things that are outside our control. For example, assignment to a treatment or control condition is in our control; it's a \emph{fixed effect}. However, anxiety at the first session (intercept) is going to vary from individual to individual -- a \emph{random effect}. We can model this random effect (i.e., that individuals have different anxiety intercepts). We can also create models with random slopes (i.e., anxiety growth trajectories).
+
+To model a random intercept, we use this basic formula: DV \textasciitilde{} IV + (1 \textbar{} rand.int)
+
+\begin{itemize}
+\tightlist
+\item
+  DV is the dependent variable
+\item
+  IV represents independent variables
+\item
+  1 represents the coefficients (or slope) of the independent variables
+\item
+  rand.int is the variable acting as a random intercept (usually this is the column of participant IDs)
+\end{itemize}
+
+To model a random slope we use: DV \textasciitilde{} IV + (rand.slope \textbar{} rand.int).
+
+In the model below (the goal of which is really to just get a mean and understand our within/between variance), we put a ``1'' in front of the ``\textbar{}'' because we are fixing slope to a single value -- it will not vary. But we are interested in knowing how our intercepts are different as a function of person (ID).
+
+RML is the default for \emph{lme4}, we switch to FML with the statement, ``REML = FALSE''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(lme4)}
+\NormalTok{Mod1a }\OtherTok{\textless{}{-}} \FunctionTok{lmer}\NormalTok{(Anxiety }\SpecialCharTok{\textasciitilde{}}\DecValTok{1} \SpecialCharTok{+}\NormalTok{(}\DecValTok{1} \SpecialCharTok{|}\NormalTok{ ClientID), LfvrLong, }\AttributeTok{REML =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{M1a\_obj }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(Mod1a)}
+\NormalTok{reM1a\_obj }\OtherTok{\textless{}{-}} \FunctionTok{ranef}\NormalTok{(Mod1a)}
+\NormalTok{M1a\_obj}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: Anxiety ~ 1 + (1 | ClientID)
+   Data: LfvrLong
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 243113.5  243140.7 -121553.7  243107.5     64122 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6752 -0.6104  0.0018  0.6120  3.9085 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ClientID (Intercept) 5.118    2.262   
+ Residual             1.444    1.202   
+Number of obs: 64125, groups:  ClientID, 12825
+
+Fixed effects:
+               Estimate  Std. Error          df t value            Pr(>|t|)    
+(Intercept)     2.07564     0.02053 12824.99885   101.1 <0.0000000000000002 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sjPlot)}
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{tab\_model}\NormalTok{(Mod1a, }\AttributeTok{p.style =} \StringTok{"numeric"}\NormalTok{, }\AttributeTok{show.ci =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.se =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.df =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.re.var =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.aic =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.dev =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{use.viewer =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{dv.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mod1"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+Mod1
+
+Predictors
+
+Estimates
+
+std. Error
+
+p
+
+(Intercept)
+
+2.08
+
+0.02
+
+\textless0.001
+
+Random Effects
+
+σ2
+
+1.44
+
+τ00 ClientID
+
+5.12
+
+ICC
+
+0.78
+
+N ClientID
+
+12825
+
+Observations
+
+64125
+
+Marginal R2 / Conditional R2
+
+0.000 / 0.780
+
+Deviance
+
+243107.470
+
+AIC
+
+243113.470
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#can swap this statement with the "file = "TabMod\_Table"" to get Viewer output or the outfile that you can open in Word}
+\CommentTok{\#file = "TabMod\_Table.doc"}
+\end{Highlighting}
+\end{Shaded}
+
+With the \emph{plot\_model()} function in \emph{sjPlot}, we can plot the random effects. For this intercept-only model, we see the mean and range of the anxiety variable
+
+With an intercept only, there is not much to plot. We can, though, look at the residuals to see about outliers, non-normality, and heteroscedasticity. They look reasonable to me.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod1a, }\AttributeTok{type=}\StringTok{"diag"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-1.pdf}
+
+\begin{verbatim}
+[[2]]
+[[2]]$ClientID
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-2.pdf}
+
+\begin{verbatim}
+
+[[3]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-3.pdf}
+
+\begin{verbatim}
+[[4]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-4.pdf}
+
+\textbf{Some interpretation}
+
+\(\gamma_{00}\), the intercept, estimates the grand mean across all occasions and individuals. The value, 2.076 (\emph{p} \textless{} 0.001) confirms that the average anxiety of the average client between 0 and 19 sessions is non-zero.
+
+\(\sigma^{2}\), within-person variance, is 1.44 (\emph{SD} = 1.202). Find this in the lme4* output labeled RANDOM EFECTS: RESIDUAL
+
+\(\tau_{00}\), between-person variance, is 5.12 (\emph{SD}= 2.26). In addition to the tab\_model output, this is located in the \emph{lme4} output labeled RANDOM EFFECTS: ClientID
+
+The \emph{intraclass correlation coeffient (ICC)}, \$\rho \$, describes the proportion of variance that lies \emph{between} people. It is the essential piece of data we need from this model. Because the total variation in \emph{Y} is just the sum of the within and between-person variance components, the population intraclass correlation is:
+
+\[\rho =\frac{\tau_{00}}{\sigma^{2}+\tau_{00}}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{5.12}\SpecialCharTok{/}\NormalTok{(}\FloatTok{5.12+1.44}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.7804878
+\end{verbatim}
+
+In our case this translates:\\
+\[\rho =\frac{5.12}{1.44 + 5.12} = 0.78\]
+This means that 78\% of the total variation in anxiety use is attributable to differences among clients. Within the context of the unconditional means model, the ICC also summarizes the size of the \emph{residual (or error) autocorrelation}. Practically speaking, this means that we estimate that for each person, the average correlation between any pair of composite residuals (e.g., between occasions 1 and 2, 2 and 3, or 1 and 3) is 0.78. This is considered to be large and far away from the zero residual autocorrelation that an OLS analysis would assume (require).
+
+In addition to hand-calculating the ICC we spot it in the tab\_model/Viewer pane when we ask for a table from the \emph{lme4} model.
+
+\hypertarget{model-2-the-unconditional-growth-model}{%
+\subsection{Model 2: The unconditional growth model}\label{model-2-the-unconditional-growth-model}}
+
+The second model is introduces TIME into the L1 submodel. Because a linear model made sense in our exploratory analyses, we specify a trajectory of linear change. We do not include any other substantive predictors.Because there are no other predictors, it is an \emph{unconditional} growth model.
+
+\[Y_{ij}=\beta _{0i}+\beta _{1i}SesNum_{ij}+\varepsilon _{ij}\]
+\[\beta _{0i}=\gamma _{00} + \zeta _{0i}\]
+\[\beta _{1i}=\gamma _{10} + \zeta _{1j}\]
+
+\hypertarget{another-moment-on-lmer-syntax}{%
+\subsection{\texorpdfstring{Another moment on \emph{lmer()} syntax}{Another moment on lmer() syntax}}\label{another-moment-on-lmer-syntax}}
+
+To model a random intercept, we use this basic formula: DV \textasciitilde{} IV + (1 \textbar{} rand.int), where
+
+\begin{itemize}
+\tightlist
+\item
+  DV is the dependent variable
+\item
+  IV represents independent variables
+\item
+  1 represents the coefficients (or slope) of the independent variables
+\item
+  rand.int is the variable acting as a random intercept (usually this is the column of participant IDs)
+\end{itemize}
+
+To model a random slope we use: DV \textasciitilde{} IV + (rand.slope \textbar{} rand.int).
+
+\textbf{For comparison}, this was our prior model; we can see how the model building occurs.
+Mod1a \textless- lmer(Anxiety \textasciitilde1 +(1 \textbar{} ClientID), LfvrLong, REML = FALSE)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#with lme4 package}
+\NormalTok{Mod2a }\OtherTok{\textless{}{-}} \FunctionTok{lmer}\NormalTok{(Anxiety }\SpecialCharTok{\textasciitilde{}}\NormalTok{ SesNum }\SpecialCharTok{+}\NormalTok{(SesNum }\SpecialCharTok{|}\NormalTok{ ClientID), LfvrLong, }\AttributeTok{REML =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Mod2a )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: Anxiety ~ SesNum + (SesNum | ClientID)
+   Data: LfvrLong
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 236029.0  236083.4 -118008.5  236017.0     64119 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8724 -0.6074 -0.0034  0.6132  3.5660 
+
+Random effects:
+ Groups   Name        Variance    Std.Dev. Corr 
+ ClientID (Intercept) 5.181154032 2.27621       
+          SesNum      0.000001932 0.00139  -1.00
+ Residual             1.259247013 1.12216       
+Number of obs: 64125, groups:  ClientID, 12825
+
+Fixed effects:
+                 Estimate    Std. Error            df t value
+(Intercept)     2.7787360     0.0221083 12887.3758540  125.69
+SesNum         -0.0782356     0.0008979 52401.2308073  -87.13
+                       Pr(>|t|)    
+(Intercept) <0.0000000000000002 ***
+SesNum      <0.0000000000000002 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+       (Intr)
+SesNum -0.377
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tab\_model}\NormalTok{(Mod1a, Mod2a, }\AttributeTok{p.style =} \StringTok{"numeric"}\NormalTok{, }\AttributeTok{show.ci =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.se =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.df =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.re.var =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.aic =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.dev =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{use.viewer =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{dv.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mod1"}\NormalTok{, }\StringTok{"Mod2"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+Mod1
+
+Mod2
+
+Predictors
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+(Intercept)
+
+2.08
+
+0.02
+
+\textless0.001
+
+2.78
+
+0.02
+
+\textless0.001
+
+SesNum
+
+-0.08
+
+0.00
+
+\textless0.001
+
+Random Effects
+
+σ2
+
+1.44
+
+1.26
+
+τ00
+
+5.12 ClientID
+
+5.18 ClientID
+
+τ11
+
+~
+
+0.00 ClientID.SesNum
+
+ρ01
+
+~
+
+-1.00 ClientID
+
+ICC
+
+0.78
+
+~
+
+N
+
+12825 ClientID
+
+12825 ClientID
+
+Observations
+
+64125
+
+64125
+
+Marginal R2 / Conditional R2
+
+0.000 / 0.780
+
+0.127 / NA
+
+Deviance
+
+243107.470
+
+236017.007
+
+AIC
+
+243113.470
+
+236029.007
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#can swap this statement with the "file = "TabMod\_Table"" to get Viewer output or the outfile that you can open in Word}
+\CommentTok{\#file = "TabMod\_Table.doc"}
+\end{Highlighting}
+\end{Shaded}
+
+A plot of predicted values illustrates the decrease in anxiety as sessions continue.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sjPlot)}
+\FunctionTok{plot\_model}\NormalTok{ (Mod2a, }\AttributeTok{type=}\StringTok{"pred"}\NormalTok{, }\AttributeTok{vars=}\StringTok{"SesNum"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+$SesNum
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-35-1.pdf}
+
+Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod2a, }\AttributeTok{type=}\StringTok{"diag"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+\begin{verbatim}
+[[2]]
+[[2]]$ClientID
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-2.pdf}
+
+\begin{verbatim}
+
+[[3]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-3.pdf}
+
+\begin{verbatim}
+[[4]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-4.pdf}
+
+\textbf{Interpreting Fixed Effects}
+Looking at the \emph{tab\_model()} in the viewer, we can see that
+
+At Session \#1 (which was rescaled so that the value of 0 is the first session), the average client has a non-zero anxiety level of 2.78 (\emph{p} \textless{} 0.001; \(\gamma _{00}\)). On average, anxiety decreases by 0.08 units per session. Using these values together, at Session \#3, the average client could be expected to have an anxiety level of 1.92 (2.08 + (-.08) + (-.08)).
+
+\textbf{Interpreting Variance Components}
+
+Focusing on what this change means to the L1 residuals:
+
+In Mod1 we postulated that individual \(i\)'s observed score on occasion \(j\) (i.e,. \(Y_{ij}\)) deviates by \(\varepsilon _{ij}\) from his or her \emph{person-specific mean}
+
+In Mod2, we postulate that \(Y_{ij}\) deviates by \(\varepsilon _{ij}\) from his or her \emph{true change trajectory}.
+
+Comparing the Mod1 to Mod2 means that we also have a second part to the L2 submodel that depicts interindividual variation in the rates of change (\(\beta _{1i}\)).
+
+The L1 residual variance, \(\sigma^{2}\) now summarizes the scatter of each person's data \emph{around his or her own linear change trajectory} (not around his/her own specific mean). Our value of 1.26 is a decrease of 0.18 from Mod1. While we don't get \emph{p} values to let us know whether/not within-person variation remains, the value is non-zero. Explaining more within-person variance would require another, \emph{substantive} time-covarying (L1) predictor. This example only has \emph{time-invariant} predictors.
+
+The L2 residual variances (\(\sigma_{0 }^{2}\), \(\sigma_{1 }^{2}\)) now summarize between-person variability in initial status and rates of change.
+
+The value of \(\tau _{00}\) is 5.12; this is variance remaining around the intercept (anxiety at Session \#1). Stated another way, it is the scatter of \(\beta _{_{0i}}\) around \(\hat{\gamma }_{00}\). While we would not expect that our L1 addition (SesNum) to have decreased between-person variance, it is a little surprising (but not uncommon) that it increased.
+
+The value of \(\tau _{11}\) is 0.00; this is variance remaining around the slope (rate of growth). Stated another way, it is the scatter of \(\beta _{_{1i}}\) around \(\hat{\gamma }_{10}\). This value of 0.00 suggests that there is no remaining variance to explain in the slope.
+
+Because the introduction of the time variable, SesNum, changes the meaning of the L2 variance components, we do not compare the \(\tau _{00}\)) values between Models 1 and 2. As we move forward (keeping SesNum in the model) we will use the Model 2 estimates as benchmarks for comparison.
+
+Together, these 3 variance components allow us to distinguish L1 variation from two different kinds of L2 variation and determine whether interindividual differences in change are due to interindividual differences in true initial status or true rate of change.
+
+\(\rho_{01}\) is the population correlation of the L2 residuals that quantifies the relationship between true initial status and true change. The value of -1.00 is negative and strong meaning that the less anxious the individual was at Session \#1, the slower that anxiety subsided.
+
+\textbf{Proportion of Variance Explained}
+
+In OLS regression, a simple way of computing a summary \(R^2\) statistic is to square the sample correlation between observed and predicted values of the outcome.
+
+A similar approach can be used in the multilevel model for change. We need to
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Compute a predicted outcome value for each person on each occasion of measurement; and
+\item
+  Square the sample correlation between observed and predicted values.
+\end{enumerate}
+
+The result is the \(pseudo-R^2\) statistic -- an assessment of the proportion of total outcome variation \emph{explained} by the multilevel model's specific combination of predictors.
+
+In \emph{lme4} output, \(pseudo-R^2\) is labeled as ``Marginal\(R^2\)'' and is shown to be 0.127. That is, 13\% of the total variability in anxiety is associated with linear time. As we add substantive predictors to this model, we examine whether, and by how much, this \(pseudo-R^2\) statistic increases.
+
+We can also compute \(pseudo-R^2\) statistics for the variance components.
+
+\textbf{Residual variation} is the portion of the outcome variation \emph{unexplained} by the model's predictors. We can use these to further explain the model. When we evaluate a series of models we hope that adding predictors further explains unexplained outcome variation. Thus, residual variation should decline. The magnitude of the decline quantifies improvement in fit. If the decline is relatively large -- we've made a large difference. To assess these declines on a common scale we compute the \emph{proportional reduction in residual variance} as we add the predictors.
+
+\emph{Unconditional models} provide a baseline for comparison: the unconditional means model provides a baseline estimate of \(\sigma ^{2}\) (within-person variance); the unconditional growth model provides baseline estimates of both \(\tau _{00}\) and \(\tau _{11}\) (between person variance around the intercept and slope .
+
+We'll start by examining the decrease in within-person residual variance between the unconditional means model and unconditional growth model. We are comparing \(\sigma ^{2}\). We have to do this by hand, here's the formula:
+
+\[Pseudo R_{\varepsilon }^{2} = \frac{\sigma^{2}(unconditional. means. model) - \sigma^{2}(unconditional. growth. model)}{\sigma ^{2}(unconditional. means. model)}\]
+
+We calculate it manually:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\FloatTok{1.44} \SpecialCharTok{{-}} \FloatTok{1.26}\NormalTok{)}\SpecialCharTok{/}\FloatTok{1.44}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.125
+\end{verbatim}
+
+We conclude that 13\% of the within-person variation in anxiety is explained by number of sessions. The only way to further reduce this variance component is to add time-covarying predictors to the L1 submodel.
+
+Singer and Willett \citeyearpar{singer_applied_2003} warn us about the flaws of \(pseudo-R^2\). Specifically, these stats can go wonky! In the multilevel model for change, additional predictors \emph{generally} reduce variance components and increase \(pseudo-R^2\) statistics.
+
+However, because of explicit links among the model's several parts, there are times when the addition of predictors \emph{increases} the variance components' magnitude. This is most likely to happen when all, or most, of the outcome variation is exclusively within- or between-. Then, a predictor added at one level reduces the residual variance at that level, but potentially increases the residual at the other level. This results in a \emph{negative} \(pseudo-R^2\). In summary: be cautious in interpreting these.
+
+\hypertarget{a-taxonomy-of-statistical-models}{%
+\subsection{A Taxonomy of Statistical Models}\label{a-taxonomy-of-statistical-models}}
+
+The Singer and Willett \citeyearpar{singer_applied_2003} version of Jorsekog's \citeyearpar{bollen_testing_1993} ``model generating'' and Hayes' \citeyearpar{hayes_introduction_2018} ``piecewise'' approach might be their taxonomical approach to model building. Specifically:
+
+\begin{itemize}
+\tightlist
+\item
+  ``Each model in the taxonomy extends a prior model in some sensible way; inspection and comparison of its elements tell the story of predictors' individual and joint effects. Most data analysis iterate toward a meaningful path; good analysis does not proceed in a rigidly predetermined order'' \citep[p.~105]{singer_applied_2003}.
+\end{itemize}
+
+How do you approach model specification: logic, theory, prior research\ldots supplemented by hypothesis testing and comparison of model fit.
+
+A possible order:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Examine the effect of each predictor, individually.
+\item
+  Focus on predictors of primary interest (while including others whose effects you want to control).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    You can add predictors individually, or in groups
+  \item
+    You can address issues of functional form with interactions and transformations
+  \end{itemize}
+\item
+  Progression toward a ``final model'' whose interpretation will address your research questions
+  *the quotations mean that no statistical model is ever final; it's merely a placeholder until a better model is found
+\item
+  Longitudinal modeling brings complexities
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Multiple L2 outcomes can each be related to predictors
+  \item
+    Multiple kinds of effects (fixed effects and variance components)
+  \end{itemize}
+\item
+  The simplest strategy is to initially include each L2 predictor (simultaneously) in all L2 submodels, but as demonstrated in later examples, they may be trimmed.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Each individual growth parameter can have its own predictors and one goal of model building is to identify which predictors are important for which L1 parameters.
+  \item
+    Although each L2 submodel can contain fixed and random effects, both are not necessarily required; sometimes a model with fewer random effects will provide a more parsimonious representation and clearer substantive insights
+  \end{itemize}
+\end{enumerate}
+
+Singer and Willett \citeyearpar{singer_applied_2003} distinguish between two types of predictors:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question} predictors are those whose effects are of primary, substantive, interest.
+\item
+  \textbf{Control} predictors are those whose effects you would like to remove.
+\end{itemize}
+
+Not surprisingly, different approaches may lead to the same ``final model.'' The process Lefevor and colleagues \citeyearpar{lefevor_religious_2017} follow echoes the Singer and Willett \citeyearpar{singer_applied_2003} approach, so that is what we will do.
+
+As we procede:
+
+\begin{itemize}
+\tightlist
+\item
+  Model 3 includes sexual identity (and its cross-level interaction with session number) as predictor of both initial status and change.
+\item
+  Model 4 adds religious affiliation to both L2 models. Its addition also includes interaction terms with session number and sexual identity.
+\item
+  Model 5 trims non-significant effects.
+\end{itemize}
+
+\textbf{How much of this goes in the ms?}
+
+Singer and Willett\citeyearpar{singer_applied_2003} indicate that we ``identify a manageable subset of models that, taken together, tells a persuasive story parsimoniously'' (p.~106). Minimally, include the (a) unconditional means model, (b) unconditional growth model, (c) ``final model.'' Intermediary models may be included if they provide important steps and/or tell interesting stories in their own right.
+Tables (easily produced with the \emph{tab\_model()} function) should always be included (again, not all models tested are required) because they allow comparison of fitted models in a systematic way.
+
+\hypertarget{model-3-the-uncontrolled-effects-of-sexual-identity}{%
+\subsection{Model 3: The uncontrolled effects of sexual identity}\label{model-3-the-uncontrolled-effects-of-sexual-identity}}
+
+\textbf{For comparison}:
+Mod1a \textless- lmer(Anxiety \textasciitilde1 +(1 \textbar{} ClientID), LfvrLong, REML = FALSE)
+Mod2a \textless- lmer(Anxiety \textasciitilde{} SesNum +(SesNum \textbar{} ClientID), LfvrLong, REML = FALSE)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#with lme4 package}
+\NormalTok{Mod3a }\OtherTok{\textless{}{-}} \FunctionTok{lmer}\NormalTok{(Anxiety }\SpecialCharTok{\textasciitilde{}}\NormalTok{ SesNum}\SpecialCharTok{*}\NormalTok{Het0 }\SpecialCharTok{+}\NormalTok{(SesNum }\SpecialCharTok{|}\NormalTok{ ClientID), LfvrLong, }\AttributeTok{REML =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+Model failed to converge with max|grad| = 0.0936369 (tol = 0.002, component 1)
+\end{verbatim}
+
+\begin{verbatim}
+Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+ - Rescale variables?
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Mod3a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: Anxiety ~ SesNum * Het0 + (SesNum | ClientID)
+   Data: LfvrLong
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 235991.7  236064.3 -117987.9  235975.7     64117 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8707 -0.6073 -0.0033  0.6135  3.5663 
+
+Random effects:
+ Groups   Name        Variance    Std.Dev. Corr 
+ ClientID (Intercept) 5.165293363 2.272728      
+          SesNum      0.000002378 0.001542 -0.92
+ Residual             1.259228931 1.122154      
+Number of obs: 64125, groups:  ClientID, 12825
+
+Fixed effects:
+                Estimate   Std. Error           df t value             Pr(>|t|)
+(Intercept)     2.700371     0.025994 12869.461063 103.886 < 0.0000000000000002
+SesNum         -0.078559     0.001058 42697.704011 -74.284 < 0.0000000000000002
+Het0            0.281411     0.049261 12882.202380   5.713         0.0000000114
+SesNum:Het0     0.001143     0.002002 42673.127403   0.571                0.568
+               
+(Intercept) ***
+SesNum      ***
+Het0        ***
+SesNum:Het0    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) SesNum Het0  
+SesNum      -0.378              
+Het0        -0.528  0.199       
+SesNum:Het0  0.200 -0.528 -0.379
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0936369 (tol = 0.002, component 1)
+Model is nearly unidentifiable: very large eigenvalue
+ - Rescale variables?
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tab\_model}\NormalTok{(Mod1a, Mod2a,Mod3a, }\AttributeTok{p.style =} \StringTok{"numeric"}\NormalTok{, }\AttributeTok{show.ci =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.se =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.df =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.re.var =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.aic =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.dev =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{use.viewer =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{dv.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mod1"}\NormalTok{, }\StringTok{"Mod2"}\NormalTok{, }\StringTok{"Mod3"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+Mod1
+
+Mod2
+
+Mod3
+
+Predictors
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+(Intercept)
+
+2.08
+
+0.02
+
+\textless0.001
+
+2.78
+
+0.02
+
+\textless0.001
+
+2.70
+
+0.03
+
+\textless0.001
+
+SesNum
+
+-0.08
+
+0.00
+
+\textless0.001
+
+-0.08
+
+0.00
+
+\textless0.001
+
+Het0
+
+0.28
+
+0.05
+
+\textless0.001
+
+SesNum * Het0
+
+0.00
+
+0.00
+
+0.568
+
+Random Effects
+
+σ2
+
+1.44
+
+1.26
+
+1.26
+
+τ00
+
+5.12 ClientID
+
+5.18 ClientID
+
+5.17 ClientID
+
+τ11
+
+~
+
+0.00 ClientID.SesNum
+
+0.00 ClientID.SesNum
+
+ρ01
+
+~
+
+-1.00 ClientID
+
+-0.92 ClientID
+
+ICC
+
+0.78
+
+~
+
+0.80
+
+N
+
+12825 ClientID
+
+12825 ClientID
+
+12825 ClientID
+
+Observations
+
+64125
+
+64125
+
+64125
+
+Marginal R2 / Conditional R2
+
+0.000 / 0.780
+
+0.127 / NA
+
+0.030 / 0.808
+
+Deviance
+
+243107.470
+
+236017.007
+
+235975.714
+
+AIC
+
+243113.470
+
+236029.007
+
+235991.714
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#can swap this statement with the "file = "TabMod\_Table"" to get Viewer output or the outfile that you can open in Word}
+\CommentTok{\#file = "TabMod\_Table.doc"}
+\end{Highlighting}
+\end{Shaded}
+
+Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod3a, }\AttributeTok{type=}\StringTok{"diag"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-1.pdf}
+
+\begin{verbatim}
+[[2]]
+[[2]]$ClientID
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-2.pdf}
+
+\begin{verbatim}
+
+[[3]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-3.pdf}
+
+\begin{verbatim}
+[[4]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sjPlot)}
+\FunctionTok{plot\_model}\NormalTok{ (Mod3a, }\AttributeTok{type=}\StringTok{"int"}\NormalTok{, }\AttributeTok{terms =} \FunctionTok{c}\NormalTok{(}\StringTok{"SesNum"}\NormalTok{, }\StringTok{"Het0 [0,1]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/Mod3a_lme4 plot_model-1.pdf}
+
+\textbf{Interpreting Fixed Effects}
+The estimated anxiety at Session \#1 for heterosexual individuals is 2.70 (\emph{p} \textless{} .001). If the client is LGBQQ, the average Session \#1 anxiety level is higher: 2.98 (\emph{p} \textless{} .001; 2.70 + .28).
+
+The estimated rate of change in anxiety for the average client who is heterosexual is -.08 (\emph{p} \textless{} .001) units per session. The estimated differential in the rate of change in anxiety between clients who are heterosexual and LGBQQ is nondistinguishable (\(\beta\) = 0.00, \emph{p} = .568). This is evident in the interaction plot produced by the \emph{plot\_model()} function.
+
+\textbf{Interpreting Variance Components}
+
+Not surprisingly, the \(\sigma ^{2}\) value (1.26) stayed the same from Mod2a to Mod3a. This is because we did not add a within-subjects (time covarying) predictor. If it had changed, we would have conducted the proportionate reduction in variance evaluation.
+
+\(\tau _{00}\) decreased from 5.18 (Mod2a) to 5.17 (Mod3a). We can apply the proportionate reduction in variance formula to determine the proportion of L2 intercept variance accounted for by the COA addition.
+
+\[Pseudo R_{\zeta }^{2} = \frac{\tau _{00} (unconditional. growth. model) - \tau _{00}(subsequent. model)}{\tau _{00}(unconditional. growth. model)}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\FloatTok{5.18{-}5.17}\NormalTok{)}\SpecialCharTok{/}\FloatTok{5.18}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.001930502
+\end{verbatim}
+
+The \(\tau _{00}\) variance component decreases by less than 1\% from the unconditional growth model (Mod2a)
+
+\(\tau _{11}\) is unchanged. Both Mod2a and Mod3a are 0.00; adding sexual identity did not change between-subjects' slopes. Similarly, if it had changed, we would have conducted the proportionate reduction in variance evaluation.
+
+These variance components are now considered \emph{partial} or \emph{conditional} variances because they quantify the interindividual differences in change that remain unexplained by the model's predictors.
+
+Here's what we might observe
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  It appears there is residual around the intercept (\(\tau _{00}\)) remaining, so exploring the contribution of religious affiliation seems justifiable.
+\item
+  While Lefevor and colleagues \citeyearpar{lefevor_religious_2017} immediately trim the interaction term (leaving only the main effect of sexual identity), Singer and Willett \citeyearpar{singer_applied_2003} caution against immediately trimming effects because they fail to predict rate-of-change variance. Because it is a focal predictor, it is worth retaining it until we have investigated the full spectrum of its effects. We will try this approach.
+\end{enumerate}
+
+\hypertarget{model-4-the-effects-of-religious-affiliation}{%
+\subsection{Model 4: The effects of religious affiliation}\label{model-4-the-effects-of-religious-affiliation}}
+
+Model 4 evaluates the effects of religious affiliation on initial status and rates of change in anxiety, controlling for the effects of sexual identity on initial status and rate of change.
+
+\textbf{For comparison}:
+Mod1a \textless- lmer(Anxiety \textasciitilde1 +(1 \textbar{} ClientID), LfvrLong, REML = FALSE)
+Mod2a \textless- lmer(Anxiety \textasciitilde{} SesNum +(SesNum \textbar{} ClientID), LfvrLong, REML = FALSE)
+Mod3a \textless- lmer(Anxiety \textasciitilde{} SesNum*Het0 +(SesNum \textbar{} ClientID), LfvrLong, REML = FALSE)
+
+Note that in this \emph{lmer()} specification, I have added a control statement: \emph{control = lmerControl(optimizer = ``bobyq'')}. This is because I was getting a ``failure to converge'' warning. Although it is more complicated than I will present, trying different \emph{engines} can sometimes force a convergence. There are a variety of different optimizers (e.g., bobyqa, Nelder-Mead, optimx, nlminb). There is much to learn about optimizers and so internet searching and evaluating will probably be required if/when you encounter convergence issues.
+
+Another troubleshooting solution would be to trim the model of the non-significant effects. At this point, I will try to get the full model to run and then trim at the end.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#with lme4 package}
+\NormalTok{Mod4a }\OtherTok{\textless{}{-}} \FunctionTok{lmer}\NormalTok{(Anxiety }\SpecialCharTok{\textasciitilde{}}\NormalTok{ SesNum}\SpecialCharTok{*}\NormalTok{Het0 }\SpecialCharTok{+}\NormalTok{ SesNum}\SpecialCharTok{*}\NormalTok{DRel0 }\SpecialCharTok{+}\NormalTok{ Het0}\SpecialCharTok{*}\NormalTok{DRel0 }\SpecialCharTok{+}\NormalTok{ (SesNum }\SpecialCharTok{|}\NormalTok{ ClientID), LfvrLong, }\AttributeTok{REML =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{control =} \FunctionTok{lmerControl}\NormalTok{(}\AttributeTok{optimizer=} \StringTok{"bobyqa"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Mod4a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum |  
+    ClientID)
+   Data: LfvrLong
+Control: lmerControl(optimizer = "bobyqa")
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 235995.6  236095.3 -117986.8  235973.6     64114 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8761 -0.6073 -0.0032  0.6131  3.5787 
+
+Random effects:
+ Groups   Name        Variance    Std.Dev. Corr 
+ ClientID (Intercept) 5.165064172 2.272678      
+          SesNum      0.000002011 0.001418 -1.00
+ Residual             1.259186847 1.122135      
+Number of obs: 64125, groups:  ClientID, 12825
+
+Fixed effects:
+                 Estimate   Std. Error           df t value
+(Intercept)      2.676170     0.040708 13340.083398  65.741
+SesNum          -0.077048     0.001528 52370.311106 -50.438
+Het0             0.309204     0.074189 13819.649006   4.168
+DRel0            0.040209     0.052031 13570.792578   0.773
+SesNum:Het0      0.001122     0.002002 52428.230140   0.561
+SesNum:DRel0    -0.002512     0.001832 52398.919720  -1.371
+Het0:DRel0      -0.046310     0.092939 12825.615011  -0.498
+                         Pr(>|t|)    
+(Intercept)  < 0.0000000000000002 ***
+SesNum       < 0.0000000000000002 ***
+Het0                    0.0000309 ***
+DRel0                       0.440    
+SesNum:Het0                 0.575    
+SesNum:DRel0                0.171    
+Het0:DRel0                  0.618    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) SesNum Het0   DRel0  SsN:H0 SN:DR0
+SesNum      -0.349                                   
+Het0        -0.514  0.092                            
+DRel0       -0.770  0.236  0.377                     
+SesNum:Het0  0.129 -0.371 -0.252 -0.002              
+SesNum:DRl0  0.252 -0.722  0.000 -0.327  0.007       
+Het0:DRel0   0.384  0.001 -0.748 -0.500  0.001 -0.001
+optimizer (bobyqa) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tab\_model}\NormalTok{(Mod1a, Mod2a, Mod3a, Mod4a, }\AttributeTok{p.style =} \StringTok{"numeric"}\NormalTok{, }\AttributeTok{show.ci =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.se =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.df =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.re.var =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.aic =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.dev =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{use.viewer =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{dv.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mod1"}\NormalTok{, }\StringTok{"Mod2"}\NormalTok{, }\StringTok{"Mod3"}\NormalTok{, }\StringTok{"Mod4"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+Mod1
+
+Mod2
+
+Mod3
+
+Mod4
+
+Predictors
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+(Intercept)
+
+2.08
+
+0.02
+
+\textless0.001
+
+2.78
+
+0.02
+
+\textless0.001
+
+2.70
+
+0.03
+
+\textless0.001
+
+2.68
+
+0.04
+
+\textless0.001
+
+SesNum
+
+-0.08
+
+0.00
+
+\textless0.001
+
+-0.08
+
+0.00
+
+\textless0.001
+
+-0.08
+
+0.00
+
+\textless0.001
+
+Het0
+
+0.28
+
+0.05
+
+\textless0.001
+
+0.31
+
+0.07
+
+\textless0.001
+
+SesNum * Het0
+
+0.00
+
+0.00
+
+0.568
+
+0.00
+
+0.00
+
+0.575
+
+DRel0
+
+0.04
+
+0.05
+
+0.440
+
+SesNum * DRel0
+
+-0.00
+
+0.00
+
+0.170
+
+Het0 * DRel0
+
+-0.05
+
+0.09
+
+0.618
+
+Random Effects
+
+σ2
+
+1.44
+
+1.26
+
+1.26
+
+1.26
+
+τ00
+
+5.12 ClientID
+
+5.18 ClientID
+
+5.17 ClientID
+
+5.17 ClientID
+
+τ11
+
+~
+
+0.00 ClientID.SesNum
+
+0.00 ClientID.SesNum
+
+0.00 ClientID.SesNum
+
+ρ01
+
+~
+
+-1.00 ClientID
+
+-0.92 ClientID
+
+-1.00 ClientID
+
+ICC
+
+0.78
+
+~
+
+0.80
+
+~
+
+N
+
+12825 ClientID
+
+12825 ClientID
+
+12825 ClientID
+
+12825 ClientID
+
+Observations
+
+64125
+
+64125
+
+64125
+
+64125
+
+Marginal R2 / Conditional R2
+
+0.000 / 0.780
+
+0.127 / NA
+
+0.030 / 0.808
+
+0.137 / NA
+
+Deviance
+
+243107.470
+
+236017.007
+
+235975.714
+
+235973.577
+
+AIC
+
+243113.470
+
+236029.007
+
+235991.714
+
+235995.577
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#can swap this statement with the "file = "TabMod\_Table"" to get Viewer output or the outfile that you can open in Word}
+\CommentTok{\#file = "TabMod\_Table.doc"}
+\end{Highlighting}
+\end{Shaded}
+
+Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod4a, }\AttributeTok{type=}\StringTok{"diag"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-1.pdf}
+
+\begin{verbatim}
+[[2]]
+[[2]]$ClientID
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-2.pdf}
+
+\begin{verbatim}
+
+[[3]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-3.pdf}
+
+\begin{verbatim}
+[[4]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-4.pdf}
+
+A plot of predicted values illustrates that anxiety continues decrease as sessions increase, even though we have added additional predictors. So far, this suggests stability in that result.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sjPlot)}
+\FunctionTok{plot\_model}\NormalTok{ (Mod4a, }\AttributeTok{type=}\StringTok{"int"}\NormalTok{, }\AttributeTok{terms =} \FunctionTok{c}\NormalTok{(}\StringTok{"SesNum"}\NormalTok{, }\StringTok{"Het0 [0,1]"}\NormalTok{, }\StringTok{"DRel[0,1]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-1.pdf}
+
+\begin{verbatim}
+[[2]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-2.pdf}
+
+\begin{verbatim}
+[[3]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#plot\_model (Mod3a, type="int", terms = c("SesNum", "Het0 [0,1]")) \#this produces the same result, I included it as an example of how to add further specifications}
+\CommentTok{\#sjPlot::plot\_model (Mod4a, type="pred",terms=c("SesNum", "Het0", "DRel0"))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod4a, }\AttributeTok{type=}\StringTok{"pred"}\NormalTok{,}\AttributeTok{terms=}\FunctionTok{c}\NormalTok{(}\StringTok{"SesNum"}\NormalTok{, }\StringTok{"Het0"}\NormalTok{, }\StringTok{"DRel0"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-43-1.pdf}
+
+\textbf{Interpreting Fixed Effects}
+
+The additions are all nonsignificant. That is:
+
+\begin{itemize}
+\tightlist
+\item
+  The prior predictors of SesNum and Het0 continue to have significant (and stable) effects.
+\item
+  We previously considered trimming the SesNum*Het0 interaction effect (but left it in).
+\item
+  DRel0 as an individual predictor, and also in moderating relations with SesNum and Het0 were all non-significant.
+\end{itemize}
+
+\textbf{Interpreting Variance Components}
+Similarly, we see little change in the variance components. In fact, because the \(\sigma ^{2}\), \(\tau _{00}\) (intercept), and \(\tau _{11}\) (slope) remained constant, there is no point in conducting the proportionate reduction in variance tests.
+
+\hypertarget{model-5-model-trimming}{%
+\subsection{Model 5: Model trimming}\label{model-5-model-trimming}}
+
+In this model, we trim the non-significant effects. Researchers will sometimes retain focal predictors, even if they are non-significant. Lefevor and colleagues \citep{lefevor_religious_2017} appear to do this when by retaining the non-significant sexual identity/religious affiliation interaction.
+
+Reviewing my code will show that in trimming, I tried different combinations of trimming, ``just to make sure'' nothing became significant when something else was trimmed. Alas, nothing became significant. None-the-less, hashtagging it out allows me to retain a record of what I tried, while not walking through the entire process of taking notes about what I found.
+
+\textbf{For comparison}
+Mod1a \textless- lmer(Anxiety \textasciitilde1 +(1 \textbar{} ClientID), LfvrLong, REML = FALSE)
+Mod2a \textless- lmer(Anxiety \textasciitilde{} SesNum +(SesNum \textbar{} ClientID), LfvrLong, REML = FALSE)
+Mod3a \textless- lmer(Anxiety \textasciitilde{} SesNum\emph{Het0 +(SesNum \textbar{} ClientID), LfvrLong, REML = FALSE)
+Mod4a \textless- lmer(Anxiety \textasciitilde{} SesNum}Het0 + SesNum\emph{DRel0 + Het0}DRel0 + (SesNum \textbar{} ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= ``bobyqa''))
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Mod5a\textless{}{-} lmer(Anxiety \textasciitilde{}  SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))}
+\CommentTok{\#Mod5a\textless{}{-} lmer(Anxiety \textasciitilde{} SesNum*Het0 +  Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))\#Mod5a\textless{}{-} lmer(Anxiety \textasciitilde{} SesNum*Het0 + SesNum*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))}
+\CommentTok{\#Mod5a\textless{}{-} lmer(Anxiety \textasciitilde{} SesNum + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))}
+\CommentTok{\#Mod5a \textless{}{-} lmer(Anxiety \textasciitilde{} Het0 + SesNum + DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))}
+
+\NormalTok{Mod5a}\OtherTok{\textless{}{-}} \FunctionTok{lmer}\NormalTok{(Anxiety }\SpecialCharTok{\textasciitilde{}}\NormalTok{ SesNum }\SpecialCharTok{+}\NormalTok{ Het0 }\SpecialCharTok{+}\NormalTok{ (SesNum }\SpecialCharTok{|}\NormalTok{ ClientID), LfvrLong, }\AttributeTok{REML =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{control =} \FunctionTok{lmerControl}\NormalTok{(}\AttributeTok{optimizer=} \StringTok{"bobyqa"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Mod5a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
+   Data: LfvrLong
+Control: lmerControl(optimizer = "bobyqa")
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 235990.0  236053.5 -117988.0  235976.0     64118 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8692 -0.6073 -0.0039  0.6137  3.5690 
+
+Random effects:
+ Groups   Name        Variance   Std.Dev. Corr 
+ ClientID (Intercept) 5.16508886 2.272683      
+          SesNum      0.00000201 0.001418 -1.00
+ Residual             1.25924483 1.122161      
+Number of obs: 64125, groups:  ClientID, 12825
+
+Fixed effects:
+                 Estimate    Std. Error            df t value
+(Intercept)     2.6974082     0.0254699 13568.2762227 105.906
+SesNum         -0.0782400     0.0008979 52402.5696211 -87.136
+Het0            0.2920586     0.0455930 12825.8954758   6.406
+                        Pr(>|t|)    
+(Intercept) < 0.0000000000000002 ***
+SesNum      < 0.0000000000000002 ***
+Het0              0.000000000155 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+       (Intr) SesNum
+SesNum -0.327       
+Het0   -0.498 -0.001
+optimizer (bobyqa) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tab\_model}\NormalTok{(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a, }\AttributeTok{p.style =} \StringTok{"numeric"}\NormalTok{, }\AttributeTok{show.ci =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.se =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.df =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{show.re.var =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.aic =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show.dev =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{use.viewer =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{dv.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mod1"}\NormalTok{, }\StringTok{"Mod2"}\NormalTok{, }\StringTok{"Mod3"}\NormalTok{, }\StringTok{"Mod4"}\NormalTok{, }\StringTok{"Mod5"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+Mod1
+
+Mod2
+
+Mod3
+
+Mod4
+
+Mod5
+
+Predictors
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+Estimates
+
+std. Error
+
+p
+
+(Intercept)
+
+2.08
+
+0.02
+
+\textless0.001
+
+2.78
+
+0.02
+
+\textless0.001
+
+2.70
+
+0.03
+
+\textless0.001
+
+2.68
+
+0.04
+
+\textless0.001
+
+2.70
+
+0.03
+
+\textless0.001
+
+SesNum
+
+-0.08
+
+0.00
+
+\textless0.001
+
+-0.08
+
+0.00
+
+\textless0.001
+
+-0.08
+
+0.00
+
+\textless0.001
+
+-0.08
+
+0.00
+
+\textless0.001
+
+Het0
+
+0.28
+
+0.05
+
+\textless0.001
+
+0.31
+
+0.07
+
+\textless0.001
+
+0.29
+
+0.05
+
+\textless0.001
+
+SesNum * Het0
+
+0.00
+
+0.00
+
+0.568
+
+0.00
+
+0.00
+
+0.575
+
+DRel0
+
+0.04
+
+0.05
+
+0.440
+
+SesNum * DRel0
+
+-0.00
+
+0.00
+
+0.170
+
+Het0 * DRel0
+
+-0.05
+
+0.09
+
+0.618
+
+Random Effects
+
+σ2
+
+1.44
+
+1.26
+
+1.26
+
+1.26
+
+1.26
+
+τ00
+
+5.12 ClientID
+
+5.18 ClientID
+
+5.17 ClientID
+
+5.17 ClientID
+
+5.17 ClientID
+
+τ11
+
+~
+
+0.00 ClientID.SesNum
+
+0.00 ClientID.SesNum
+
+0.00 ClientID.SesNum
+
+0.00 ClientID.SesNum
+
+ρ01
+
+~
+
+-1.00 ClientID
+
+-0.92 ClientID
+
+-1.00 ClientID
+
+-1.00 ClientID
+
+ICC
+
+0.78
+
+~
+
+0.80
+
+~
+
+~
+
+N
+
+12825 ClientID
+
+12825 ClientID
+
+12825 ClientID
+
+12825 ClientID
+
+12825 ClientID
+
+Observations
+
+64125
+
+64125
+
+64125
+
+64125
+
+64125
+
+Marginal R2 / Conditional R2
+
+0.000 / 0.780
+
+0.127 / NA
+
+0.030 / 0.808
+
+0.137 / NA
+
+0.137 / NA
+
+Deviance
+
+243107.470
+
+236017.007
+
+235975.714
+
+235973.577
+
+235976.039
+
+AIC
+
+243113.470
+
+236029.007
+
+235991.714
+
+235995.577
+
+235990.039
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#can swap this statement with the "file = "TabMod\_Table"" to get Viewer output or the outfile that you can open in Word}
+\CommentTok{\#file = "TabMod\_Table.doc"}
+\end{Highlighting}
+\end{Shaded}
+
+Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod5a, }\AttributeTok{type=}\StringTok{"diag"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[1]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-1.pdf}
+
+\begin{verbatim}
+[[2]]
+[[2]]$ClientID
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-2.pdf}
+
+\begin{verbatim}
+
+[[3]]
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-3.pdf}
+
+\begin{verbatim}
+[[4]]
+\end{verbatim}
+
+\begin{verbatim}
+`geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-4.pdf}
+Because of the significant trimming (of non-significant interaction effects), our plot resemble those we have observed throughout the model building process.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sjPlot}\SpecialCharTok{::}\FunctionTok{plot\_model}\NormalTok{ (Mod5a, }\AttributeTok{type=}\StringTok{"pred"}\NormalTok{,}\AttributeTok{terms=}\FunctionTok{c}\NormalTok{(}\StringTok{"SesNum"}\NormalTok{, }\StringTok{"Het0"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-45-1.pdf}
+
+Summary interpretations:
+
+\textbf{Fixed Effects}: Model trimming resulted in the retention of two significant predictor variables. Controlling for sexual identity, anxiety decreased .08 points (\emph{p} \textless{} 0.001) from one session to the next. In turn, controlling for sexual identity, LGBQQ clients were .29 points higher on anxiety (\emph{p} \textless{} 0.001). All interaction terms were trimmed from the model. The figures illustrate the main effects of session number and sexual identity.
+
+\textbf{Variance Components}: The variance components did change from Mod4a to Mod5a. Given that the effects we trimmed were \emph{non-significant}, it is not surprising that it did not have a significant effect on the model. We should,though, compare our the final model's \(\sigma ^{2}\) back to the appropriate unconditional means model. This asks, ``What within-person's variance does Mod5a account for, relative to the within-person variance observed in Mod1a?'' In parallel, we compare the final model's \(\tau _{00}\) and \(\tau _{11}\) back to the unconditional growth model (Mod2a).This asks, ``What between-person's intercept and slope variance does Mod5a account for, relative wo those variances observed in Mod2a?''
+
+Here's the general formula that we can apply across the \(\sigma ^{2}\)(within subjects {[}L1{]} variance), \(\tau _{00}\) (between-subjects {[}L2{]} intercepts), and \(\tau _{11}\) (between-subjects {[}L2{]} slopes)
+
+\[Pseudo R^{2} = \frac{\sigma^2 (unconditional. means(or.growth)model) - \sigma^2(final. model)}{\sigma^{2}(unconditional.means(or.growth)model)}\]
+
+First we assess the relative proportion of within-persons variance accounted for by the final model. Using the \(\sigma ^{2}\) (L1/Within-subjects variance) we compare Mod5a (final, trimmed model) compared to Mod1a (unconditioned means model). In calculating this (all of these, actually), I recognize it did not decrease after Mod2a, but I want to demonstrate it as practice.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#for within{-}subjects variance}
+\NormalTok{(}\FloatTok{1.44{-}1.26}\NormalTok{)}\SpecialCharTok{/}\FloatTok{1.44}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.125
+\end{verbatim}
+
+Relative to the empty model, the final, trimmed model (Mod5a) explains 13\% of the within-subjects variance.
+
+Next we assess the relative proportion of between-persons intercept variance accounted for by the final model. Using the \(\tau _{00}\) (L2/intercept variance) we compare Mod5a (final, trimmed model) to Mod2a (unconditional growth model).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#for bewteen subjects intercept}
+\NormalTok{(}\FloatTok{5.18{-}5.17}\NormalTok{)}\SpecialCharTok{/}\FloatTok{5.18}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.001930502
+\end{verbatim}
+
+Relative to the unconditional growth model (Mod2a), the final model (Mod5a) explains less than 1\% of the variance.
+
+Finally, we assess the relative proportion of between-persons slope variance accounted for by the final model. Using the \(\tau _{11}\) (L2/slope variance), we compare Mod5a (final, trimmed model) to Mod2a (unconditional growth model).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#for for between subjects slope}
+\DecValTok{0{-}0}\SpecialCharTok{/}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] NaN
+\end{verbatim}
+
+With values of zero, the calculation returns an impossible solution. The point, though, is that there has been no claim of variance in the between-persons (L2) slopes.
+
+\hypertarget{evaluating-the-tenability-quality-of-the-final-model}{%
+\section{Evaluating the ``Tenability'' (quality) of the Final Model}\label{evaluating-the-tenability-quality-of-the-final-model}}
+
+\begin{itemize}
+\item
+  \textbf{Graphs of fitted trajectories} are essential to communicating results. The dichotomous coding made it possible to plot the growth trajectories according to our focal predictors: SesNum (by session), Het0 (as 0,1 coding), and DRel0 (as 0,1 coding). O
+\item
+  \textbf{Centering predictors} often improves interpretation.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    We centered SesNum, so that 0 would represent the initial value/intercept.
+  \item
+    Centering time-invariant predictors (L2) can also be useful. Much has been written around ``grand mean centering'' (centering around the entire sample mean) and ``group mean centering'' (centering around an individual's mean).\\
+  \item
+    Although this example did not include time-covarying predictors, I strongly recommend the \emph{compositional effects} \citep{enders_centering_2007} approach where the L1 time-covarying variable is group-mean centered (centered within context) at L1 and then its group aggregate is entered again at L2. I demonstrated this in the lesson on the \protect\hyperlink{wGroups}{Nested Within Groups lesson}.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{the-deviance-statistics}{%
+\subsection{The Deviance Statistics}\label{the-deviance-statistics}}
+
+The output at the bottom of the tab-model are a cluster of relative fit indices.
+
+The \textbf{deviance statistic} compares log-likelihood statistics for two models at a time: (a) the current model and (b) a saturated model (e.g., a more general model that fits the sample data perfectly). Deviance quantifies \emph{how much worse} the current model is in comparison to the best possible model. The deviance is identical to the residual sums of squares used in regression. While you cannot directly interpret any particular deviance statistic, you can compare \emph{nested} models; the smaller value ``wins.''
+
+Two requirements to use the deviance statistic:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The dataset must be identical. If you have a difference in 1 record in the person-period dataset that is missing or any variable in either model, then the comparison is invalidated.
+\item
+  A reduced model must be \emph{nested} within the other. Every parameter must be in both models. The difference is the \emph{constraints}
+\item
+  But it's even more complicated. Remember the FML v. REML distinction/decision?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If you used FML, the underlying estimation made use of the \emph{full} sample data. Consequently, the FML deviance statistic describes the fit of the entire model (both fixed and random effects). Thus, you can use the deviance statistics to test hypotheses about any combination of parameters, fixed effects, or variance components.
+  \item
+    If you used RML, the underlying estimation \emph{restricted} itself fo the sample \emph{residuals}. Consequently, the the deviance statistic describes only the stochastic portion of the model. Thus, you can use deviance statistics to test hypotheses only about variance components.
+  \end{itemize}
+\end{enumerate}
+
+We can see the deviance values in the tab-Model and observe if they increase or decrease. The \emph{anova()} function can formally conduct a Chi-square difference test to tell us if the models are statistically significantly different from each other.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devALL }\OtherTok{\textless{}{-}} \FunctionTok{anova}\NormalTok{(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a) }
+\NormalTok{devALL}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Data: LfvrLong
+Models:
+Mod1a: Anxiety ~ 1 + (1 | ClientID)
+Mod2a: Anxiety ~ SesNum + (SesNum | ClientID)
+Mod5a: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
+Mod3a: Anxiety ~ SesNum * Het0 + (SesNum | ClientID)
+Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | 
+Mod4a:     ClientID)
+      npar    AIC    BIC  logLik deviance     Chisq Df            Pr(>Chisq)
+Mod1a    3 243113 243141 -121554   243107                                   
+Mod2a    6 236029 236083 -118009   236017 7090.4634  3 < 0.00000000000000022
+Mod5a    7 235990 236054 -117988   235976   40.9677  1       0.0000000001548
+Mod3a    8 235992 236064 -117988   235976    0.3253  1                0.5684
+Mod4a   11 235996 236095 -117987   235974    2.1375  3                0.5444
+         
+Mod1a    
+Mod2a ***
+Mod5a ***
+Mod3a    
+Mod4a    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+In a manner consistent with the fixed effects, we see that models 2a and 5a are improvements over the more simple models that precede them. If we wanted specific comparisons we could list pairs, for example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devM4M5 }\OtherTok{\textless{}{-}} \FunctionTok{anova}\NormalTok{(Mod4a, Mod5a) }
+\NormalTok{devM4M5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Data: LfvrLong
+Models:
+Mod5a: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
+Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | 
+Mod4a:     ClientID)
+      npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+Mod5a    7 235990 236054 -117988   235976                     
+Mod4a   11 235996 236095 -117987   235974 2.4628  4     0.6513
+\end{verbatim}
+
+With \(\chi^2\)(4) = 2.46, \(p\) = 0.651, we see that these Mod4a and Mod5a are not statistically significantly different than each other.
+
+Interpreting deviance stats means you are paying attention to what is different in the model. The effects that are changed are what are different. Recall that if you used RML, you can only use the deviance tests for comparing models where the \emph{only} diffs are those that occur in the random effects.
+
+\hypertarget{comparing-nonnested-models-with-information-criteria}{%
+\subsection{Comparing Nonnested Models with Information Criteria}\label{comparing-nonnested-models-with-information-criteria}}
+
+The AIC (Akaike Information Criteria) allow the comparison of the relative \emph{goodness of fit} of models that are not nested. That is, they can involve different sets of parameters.
+
+Like the deviance statistic, the AIC is based on the log-likelihood statistic. Instead of using the LL itself, the AIC penalizes (e.g., decreases) the LL based on the number of parameters. Why? Adding parameters (even if they have no effect) \emph{will} increase the LL statistic and decrease the deviance statistic.
+
+\emph{As long as two models are fit to the identical same set of data}, the AICs and BICs can be compared. The model with the smaller information critera ``wins.'' There are no established criteria for determining how large the difference is for it to matter. Across our models M5a has the lowest AIC.
+
+\hypertarget{evaluating-the-models-assumptions}{%
+\subsection{Evaluating the Model's Assumptions}\label{evaluating-the-models-assumptions}}
+
+Especially with the proliferation of so many models and comparisons, this can quickly get unwieldy. Singer and Willett \citeyearpar{singer_applied_2003} recommed that you examine the assumptions of several initial models (making sure things are looking ok), and then again in any model you explicitly write up. We briefly look at 3 sets of assumptions: functional form, normality, homoschedasticity.
+
+\hypertarget{checking-functional-form}{%
+\subsubsection{Checking functional form}\label{checking-functional-form}}
+
+\textbf{Level 1} We checked these early in the process by examining the empirical growth plots with superimposed OLS-estimated individual change trajectories. We saw that the linear model seemed quite reasonable for many; less so for others.
+
+\textbf{Level 2} We plotted OLS-estimated individual growth parameters against the two substantive predictors. Similarly, we observed that a linear model would be appropriate for the Het0 and DRel0 predictors.
+
+\hypertarget{checking-normality}{%
+\subsubsection{Checking normality}\label{checking-normality}}
+
+MLMers really like visual inspection of residual distributions. For each raw residual (the one at L1 and two at L2) you can plot values against the associated normal scores. If the distribution is normal, the points form a line. Departures from linearity indicates a departure from normality. We observed these in the diagnostic plots at the testing of each new model.
+
+\hypertarget{checking-homoscedasticity}{%
+\subsubsection{Checking homoscedasticity}\label{checking-homoscedasticity}}
+
+This is evaluated by plotting raw residuals against predictors: the L1 residuals against the L1 predictor; the L2 residuals against the L2 predictors. If the assumption holds, residual variability will be approximately equal at every predictor. Similarly, we observed this in the diagnostic plots as we evaluated each model.
+
+\hypertarget{apa-style-writeup-2}{%
+\section{APA Style Writeup}\label{apa-style-writeup-2}}
+
+There are a variety of ways to write this up. The Lefevor et al. \citeyearpar{lefevor_religious_2017} writeup is excellent and one worth modeling. I like to collect and consult a variety of write-ups when I draft my own. Here is an example of how I might write it up.
+
+\textbf{Method/Analytic Strategy}
+
+Longitudinal studies produce data with a hierarchical structure in which the repeated measures (level 1 {[}L1{]}) are clustered within individuals (level 2 {[}L2{]}). Multilevel modeling (MLM) with the R package \emph{lme4} (v. 1.1-26) was appropriate to use in this analysis because it allows for the dependent nature of the repeated measures data. Thus, we simultaneously estimated within- and between-person effects. We had one L1 variable, session number, which was centered on the client's first sesion. Thus, intercepts (i.e., the initial level of a variable) were anxiety levels at the first session (centered on the client's first sesion) and slopes represented changes in the dependent variable as the session count increased.
+
+L2 variables included sexual and religious identities. Given the large proportion of individuals who identified as heterosexual, dummy coding was used such that heterosexual was coded 0 and LGBQQ was coded 1. Similarly, those who claimed a dominant religion were 1; non-dominant religious affiliations (both named and unnamed) were coded 0. Data was modeled with a linear mixed effects approach with full information maximum likelihood (FML).
+
+A mdoel building approach was used to specify the model \citep{hancock_hierarchical_2010, singer_applied_2003}. Model 1 was an unconditioned growth model, primarily used to calculate the ICC. We entered the time variable, session number in Model 2. In Model 3 we entered the L2 variable sexual identity as an L2 predictor and cross-level interaction. In Model 4 we entered the L2 variable religious affiliation as an L2 predictor and in cross-level interactions with the other variables. In Model 5 we trimmed nonsignificant predictors. At each stage we tracked the proportionate variance accounted for in our within- and between-subjects variance components.
+
+\textbf{Preliminary Analyses}
+
+\emph{Data Preparation ad Missing Data} (a mangy draft) Our data set included 64125 observations across five sessions for 12825 clients of university counseling centers. Although our dataset was balanced (five sessions were available for all clients) we used an unstructured form of time (unevenly spaced counseling sessions counted by session number
+
+\emph{Distributional characteristics, assumptions, etc.} (another mangy draft) Our preliminary analysis included extensive exploratory analyses recommended by Singer and Willett (2003). Not reported here (but available in \emph{whatever OSF frame or as a supplement to the journal}) this included (a) plotting empirical growth plots for a random sample (\emph{20\%}n* = 30) of the the sample, (b) creating within-person regression models for each person in the dataset and superimposing each person's fitted regression line on the plot of his/her empircal growth record, and (c) examining the fit of these regressions via the \(R^2\) statistic and an individual estimated residual variance. Further analysis explored differences in the trajectories as a function of sexual identity and religious affiliation. Specifically, we plotted raw and fitted trajectories separately comparing heterosexual and LGBQQ clients and comparing those claiming dominant and nondominant religions. Our observations indicated that it would be appropriate to proceed by specifying a linear growth trajectory.
+
+\textbf{Primary Analyses}
+We followed Singer and Willett's \citep{singer_applied_2003} recommendations by creating and reporting on taxonomy of statistical models, where each model in the taxonomy extends a prior model in some sensible way. As shown in Table 1, Model 1 was an unconditional means model where we learned that the average anxiety level at the first session (all participants across all waves) was 2.08 (\emph{p} \textless{} .001). Further, the intraclass correlation suggested that 78\% of the variance was between subjects. This supported our decision to use a multilevel approach.
+
+Model 2 was an unconditional growth model; simply adding session number (centered so that the first session equalled 0). In Model 3 we added a focal predictor, sexual identity to predict both intercept and slope at the submodels of the L2 equation. Results suggested that LGBQQ individuals were 0.28 (\emph{P} \textless{} .008) units higher on anxiety; there was no interaction with session number. In Model 4 we added religious affiliation and allowed it to interact with the other variables. There was no additional significance. In Model 5 we trimmed all non-signifciant effects.
+
+Results, depicted in Figure 1, suggested that, controlling for sexual identity, the anxiety level at the first sesion w as 2.70 (\emph{p} \textless{} .001) and decreased by .08 (\emph{p} \textless{} .001) units each session. Controlling for sexual identity, LGBQQ clients' anxiety was, on average 0.29 units higher (\emph{p} \textless{} .001) throughout the counseling process.
+
+With regard to the model as a whole, 13\% of the within-subjects variance in anxiety was explained session number. Relative to the unconditional growth model almost no variance at session one and no variance in the rate of change was explained by sexual identity or religious affiliation. Further, the deviance and AIC statistics supported our decision for retaining only session number and sexual identity.
+
+\hypertarget{residual-and-related-questions-2}{%
+\section{Residual and Related Questions\ldots{}}\label{residual-and-related-questions-2}}
+
+..that you might have; or at least I had, but if had answered them earlier it would have disrupt the flow.
+
+\begin{itemize}
+\item
+  \textbf{Why are the results different in the Lefevor et al. \citeyearpar{lefevor_religious_2017} article and should we worry?} Recall that the data is simulated. My simulation was different enough (e.g., I used dummy coding, whereas they used effects coding; I chunked religious affiliation into two categories and not three) that it likely introduced more noise into the data than even the simple simulation.
+\item
+  \textbf{What if my data does not include a time variable (or one that is suitable for modeling)?} Repeated measures studies can be longitudinal without clocking time. If this particular study did not clock time, the researcher could ask, ``Is anxiety different as a function of sexual identity, religious affiliation, and/or its interaction?'' In this particular study, both depression and anxiety were measured. Researchers could ask, ``Does anxiety fluctuate (increase or decrease) predictably with levels of depression?'' A lesson is forthcoming that will demonstrate MLM repeated measures without time.
+\end{itemize}
+
+\hypertarget{practice-problems-2}{%
+\section{Practice Problems}\label{practice-problems-2}}
+
+This assignment grows from the \protect\hyperlink{MLMexplore}{lesson} on preliminary exploration of longitudinal data and extends it with model specification and evaluation. The suggested practice problem for this lesson is to conduct a longitudinal MLM that includes at least one L1 predictor (ideally one that clocks time), at least one L2 predictor, and a cross-level interaction. The dependent variable should be time-varying (i.e., one of the L1, repeated measures) and the measurement scale should be continuous. If the L1 predictor is time, it should be on a sensible metric as described in the lecture (e.g., should have a zero/start point and never go backwards). The L2 variable can be categorical or continuous. Specific steps are identified in the grading rubric.
+
+\hypertarget{problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-2}{%
+\subsection{Problem \#1: Rework the research vignette as demonstrated, but change the random seed}\label{problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-2}}
+
+If this topic feels a bit overwhelming, simply change the random seed in the data simulation, then rework the problem. This should provide minor changes to the data (maybe in the second or third decimal point), but the results will likely be very similar.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+\toprule
+Assignment Component & & \\
+\midrule
+\endhead
+1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
+2. Provide three examples of data exploration: an unfitted model, a model fitted with a linear growth trajectory, and the fitted (or unfitted) data identified by the L2 predictor & 5 & \_\_\_\_\_ \\
+3. Model 1: unconditional means model (i.e., empty model) & 5 & \_\_\_\_\_ \\
+4. Model 2: unconditional growth model (i.e., includes the time variable) & 5 & \_\_\_\_\_ \\
+5. Model 3: focal predictor and cross-level interaction & 5 & \_\_\_\_\_ \\
+6. Model 4 and/or 5: more predictors and/or trimming (if no more predictors) & 5 & \_\_\_\_\_ \\
+7. Calculate the proportionate reduction of variance (\(pseudoR^2\)) for each progression & & \\
+8. Create a tab\_model table with the final set of models & 5 & \_\_\_\_\_ \\
+9. Create a figure to represent the result & 5 & \_\_\_\_\_ \\
+10. APA Style writeup & 5 & \_\_\_\_\_ \\
+11. Explanation to grader & 5 & \_\_\_\_\_ \\
+\textbf{Totals} & 50 & \_\_\_\_\_ \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{problem-2-rework-the-research-vignette-but-use-the-depression-variable-as-an-outcome}{%
+\subsection{Problem \#2: Rework the research vignette, but use the depression variable as an outcome}\label{problem-2-rework-the-research-vignette-but-use-the-depression-variable-as-an-outcome}}
+
+In the Bonus Track of the prior \protect\hyperlink{MLMexplore}{lesson} I provided the code to simulate this data where depression was the dependent variable. Repeat this analysis with that data.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+\toprule
+Assignment Component & & \\
+\midrule
+\endhead
+1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
+2. Provide three examples of data exploration: an unfitted model, a model fitted with a linear growth trajectory, and the fitted (or unfitted) data identified by the L2 predictor & 5 & \_\_\_\_\_ \\
+3. Model 1: unconditional means model (i.e., empty model) & 5 & \_\_\_\_\_ \\
+4. Model 2: unconditional growth model (i.e., includes the time variable) & 5 & \_\_\_\_\_ \\
+5. Model 3: focal predictor and cross-level interaction & 5 & \_\_\_\_\_ \\
+6. Model 4 and/or 5: more predictors and/or trimming (if no more predictors) & 5 & \_\_\_\_\_ \\
+7. Calculate the proportionate reduction of variance (\(pseudoR^2\)) for each progression & & \\
+8. Create a tab\_model table with the final set of models & 5 & \_\_\_\_\_ \\
+9. Create a figure to represent the result & 5 & \_\_\_\_\_ \\
+10. APA Style writeup & 5 & \_\_\_\_\_ \\
+11. Explanation to grader & 5 & \_\_\_\_\_ \\
+\textbf{Totals} & 50 & \_\_\_\_\_ \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{problem-3-use-other-data-that-is-available-to-you-2}{%
+\subsection{Problem \#3: Use other data that is available to you}\label{problem-3-use-other-data-that-is-available-to-you-2}}
+
+Conduct a multilevel model with data to which you have access. This could include data you simulate on your own or from a published article.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+\toprule
+Assignment Component & & \\
+\midrule
+\endhead
+1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
+2. Provide three examples of data exploration: an unfitted model, a model fitted with a linear growth trajectory, and the fitted (or unfitted) data identified by the L2 predictor & 5 & \_\_\_\_\_ \\
+3. Model 1: unconditional means model (i.e., empty model) & 5 & \_\_\_\_\_ \\
+4. Model 2: unconditional growth model (i.e., includes the time variable) & 5 & \_\_\_\_\_ \\
+5. Model 3: focal predictor and cross-level interaction & 5 & \_\_\_\_\_ \\
+6. Model 4 and/or 5: more predictors and/or trimming (if no more predictors) & 5 & \_\_\_\_\_ \\
+7. Calculate the proportionate reduction of variance (\(pseudoR^2\)) for each progression & & \\
+8. Create a tab\_model table with the final set of models & 5 & \_\_\_\_\_ \\
+9. Create a figure to represent the result & 5 & \_\_\_\_\_ \\
+10. APA Style writeup & 5 & \_\_\_\_\_ \\
+11. Explanation to grader & 5 & \_\_\_\_\_ \\
+\textbf{Totals} & 50 & \_\_\_\_\_ \\
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+R version 4.0.4 (2021-02-15)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 18362)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] formattable_0.2.1          lattice_0.20-41           
+ [3] data.table_1.14.0          scales_1.1.1              
+ [5] sjPlot_2.8.7               PerformanceAnalytics_2.0.4
+ [7] xts_0.12.1                 zoo_1.8-9                 
+ [9] robumeta_2.0               lmerTest_3.1-3            
+[11] forcats_0.5.1              stringr_1.4.0             
+[13] dplyr_1.0.5                purrr_0.3.4               
+[15] readr_1.4.0                tidyr_1.1.3               
+[17] tibble_3.1.1               ggplot2_3.3.3             
+[19] tidyverse_1.3.1            sjstats_0.18.1            
+[21] nlme_3.1-151               lme4_1.1-26               
+[23] Matrix_1.2-18              psych_2.1.3               
+
+loaded via a namespace (and not attached):
+ [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-0   
+ [4] ellipsis_0.3.1      sjlabelled_1.1.7    estimability_1.3   
+ [7] snakecase_0.11.0    parameters_0.13.0   fs_1.5.0           
+[10] rstudioapi_0.13     glmmTMB_1.0.2.1     farver_2.1.0       
+[13] fansi_0.4.2         mvtnorm_1.1-1       lubridate_1.7.10   
+[16] xml2_1.3.2          codetools_0.2-18    splines_4.0.4      
+[19] mnormt_2.0.2        knitr_1.33          sjmisc_2.8.6       
+[22] jsonlite_1.7.2      nloptr_1.2.2.2      ggeffects_1.1.0    
+[25] broom_0.7.6         dbplyr_2.1.1        effectsize_0.4.4-1 
+[28] compiler_4.0.4      httr_1.4.2          emmeans_1.6.0      
+[31] backports_1.2.1     assertthat_0.2.1    cli_2.5.0          
+[34] htmltools_0.5.1.1   tools_4.0.4         coda_0.19-4        
+[37] gtable_0.3.0        glue_1.4.2          reshape2_1.4.4     
+[40] Rcpp_1.0.6          cellranger_1.1.0    vctrs_0.3.7        
+[43] apaTables_2.0.8     insight_0.13.2      xfun_0.22          
+[46] rvest_1.0.0         lifecycle_1.0.0     statmod_1.4.35     
+[49] MASS_7.3-53.1       hms_1.0.0           parallel_4.0.4     
+[52] sandwich_3.0-0      TMB_1.7.20          RColorBrewer_1.1-2 
+[55] yaml_2.2.1          stringi_1.5.3       highr_0.9          
+[58] bayestestR_0.9.0    boot_1.3-27         rlang_0.4.11       
+[61] pkgconfig_2.0.3     evaluate_0.14       htmlwidgets_1.5.3  
+[64] labeling_0.4.2      tidyselect_1.1.1    plyr_1.8.6         
+[67] magrittr_2.0.1      bookdown_0.22       R6_2.5.0           
+[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
+[73] pillar_1.6.0        haven_2.4.1         withr_2.4.2        
+[76] mgcv_1.8-35         survival_3.2-11     performance_0.7.1  
+[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.1         
+[82] tmvnsim_1.0-2       rmarkdown_2.7       grid_4.0.4         
+[85] readxl_1.3.1        reprex_2.0.0        digest_0.6.27      
+[88] xtable_1.8-4        numDeriv_2016.8-1.1 munsell_0.5.0      
+[91] quadprog_1.5-8     
 \end{verbatim}
 
 \hypertarget{refs}{%

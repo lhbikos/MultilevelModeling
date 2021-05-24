@@ -1,0 +1,6 @@
+"0","DLfvrLong <- DLfvrLong%>%
+  select(ClientID, Index, SesNum, Depression, DRel0, Het0)
+"
+"2","Error in select(., ClientID, Index, SesNum, Depression, DRel0, Het0) : 
+  object 'DLfvrLong' not found
+"

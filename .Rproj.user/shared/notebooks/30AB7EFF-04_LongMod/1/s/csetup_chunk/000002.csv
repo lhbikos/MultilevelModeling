@@ -1,0 +1,16 @@
+"0","knitr::opts_chunk$set(echo = TRUE)"
+"2","Warning messages:
+"
+"2","1: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_MultivariateModeling/MultilevelModeling/index.Rmd'
+"
+"2","2: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_MultivariateModeling/MultilevelModeling/index.Rmd'
+"
+"0","knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits"
