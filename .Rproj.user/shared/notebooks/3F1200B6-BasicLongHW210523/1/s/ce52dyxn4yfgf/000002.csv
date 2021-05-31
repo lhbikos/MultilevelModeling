@@ -1,0 +1,6 @@
+"0","Mod4d <- lme4::lmer(Depression ~ SesNum*Het0 + SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), DLfvr_Long, REML = FALSE, control = lmerControl(optimizer= ""bobyqa""))"
+"2","fixed-effect model matrix is rank deficient so dropping 1 column / coefficient
+"
+"2","boundary (singular) fit: see ?isSingular
+"
+"0","sjPlot::tab_model(Mod1d, Mod2d, Mod3d, Mod4d, p.style = ""numeric"", show.ci = FALSE, show.se = TRUE, show.df = FALSE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE, dv.labels = c(""Mod1"", ""Mod2"", ""Mod3"", ""Mod4""))"

@@ -1,0 +1,5 @@
+"0","Mod2d <- lme4::lmer(Depression ~ SesNum +(SesNum | ClientID), DLfvr_Long, REML = FALSE, control = lmerControl(optimizer= ""bobyqa""))"
+"2","boundary (singular) fit: see ?isSingular
+"
+"0","sjPlot::tab_model(Mod1d, Mod2d, p.style = ""numeric"", show.ci = FALSE, show.se = TRUE, show.df = FALSE, show.re.var = TRUE, show.aic = TRUE, show.dev = TRUE, use.viewer = TRUE, dv.labels = c(""Mod1"", ""Mod2""))"
+"0",""

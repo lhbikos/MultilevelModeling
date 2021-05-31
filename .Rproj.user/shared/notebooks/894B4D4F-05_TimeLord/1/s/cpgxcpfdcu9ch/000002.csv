@@ -1,0 +1,6 @@
+"0","library(sjPlot)"
+"0","sjPlot::plot_model (M2a, type=""pred"", vars=""Weeks"")"
+"1","$Weeks
+"
+"1","
+"

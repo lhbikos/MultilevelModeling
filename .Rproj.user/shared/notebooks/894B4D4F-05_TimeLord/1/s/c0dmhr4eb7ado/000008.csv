@@ -1,0 +1,8 @@
+"0","TIMEwide <- TIMEwide %>%"
+"0","  mutate(TimeInterval1 = Weeks1 %--% Weeks1)%>%"
+"0","  mutate(TimeInterval2 = Weeks1 %--% Weeks2)%>%"
+"0","  mutate(TimeInterval3 = Weeks1 %--% Weeks3)%>%"
+"0","  mutate(TimeInterval4 = Weeks1 %--% Weeks4)%>%"
+"0","  mutate(TimeInterval5 = Weeks1 %--% Weeks5)"
+"0",""
+"0","head(TIMEwide)"

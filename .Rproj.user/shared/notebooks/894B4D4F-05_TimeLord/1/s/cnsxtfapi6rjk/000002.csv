@@ -1,0 +1,4 @@
+"0","#Once you simulate the data, the ""write.table"" script saves it -- ideally to the folder where your .rmd file is located"
+"0","write.table(LefevorTIME_sim , file=""LefevorTLong.csv"", sep="","", col.names=TRUE, row.names=FALSE)"
+"0","#If you have used the above code, you can clear your environment, then simply run this line of code to bring the data back in"
+"0","TIMElong <- read.csv (""LefevorTLong.csv"", head = TRUE, sep = "","")"

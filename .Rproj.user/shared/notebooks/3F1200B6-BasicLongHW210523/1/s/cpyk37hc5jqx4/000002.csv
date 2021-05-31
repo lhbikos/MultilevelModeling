@@ -1,0 +1,8 @@
+"0","DLfvr_Long <- (data.table::melt(setDT(DLfvrWide ), id.vars = c(""ClientID"", ""DRel0"", ""Het0""), measure.vars =list(c(""Dep1"", ""Dep2"", ""Dep3"", ""Dep4"", ""Dep5""), c(""Sess1"", ""Sess2"", ""Sess3"", ""Sess4"", ""Sess5""))))"
+"0",""
+"0","DLfvr_Long<-  rename(DLfvr_Long<-  rename(DLfvr_Long<-  rename(DLfvr_Long, Index = variable, Depression = ""value1"", SesNum = ""value2"")))"
+"0",""
+"0","DLfvr_Long<- DLfvr_Long%>%"
+"0","  select(ClientID, Index, SesNum, Depression, DRel0, Het0)"
+"0","#resorting data so that each person is together"
+"0","DLfvr_Long <- arrange(DLfvr_Long, ClientID, Index)"
