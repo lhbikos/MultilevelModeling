@@ -1,0 +1,155 @@
+h1:book-cover BOOK COVER
+h1:preface PREFACE
+h2:copyright-with-open-access Copyright with Open Access
+h1:acknowledgements ACKNOWLEDGEMENTS
+h1:ReCintro Introduction
+h2:what-to-expect-in-each-chapter What to expect in each chapter
+h2:strategies-for-accessing-and-using-this-oer Strategies for Accessing and Using this OER
+h2:if-you-are-new-to-r If You are New to R
+h3:base-r Base R
+h3:r-studio R Studio
+h3:r-hygiene R Hygiene
+h4:everything-is-documented-in-the-.rmd-file Everything is documented in the .rmd file
+h4:file-organization File organization
+h4:chunks Chunks
+h4:packages Packages
+h4:knitting Knitting
+h3:troubleshooting-in-r-markdown tRoubleshooting in R maRkdown
+h3:strategies-for-success stRategies for success
+h3:resources-for-getting-started Resources for getting staRted
+h1:wGroups Nested Within Groups
+h2:navigating-this-lesson Navigating this Lesson
+h3:learning-objectives Learning Objectives
+h3:planning-for-practice Planning for Practice
+h3:readings-resources Readings & Resources
+h3:packages-1 Packages
+h2:multilevel-modeling-nested-within-groups Multilevel Modeling: Nested within Groups
+h3:the-dilemma-of-aggregation-and-disaggregation The dilemma of aggregation and disaggregation
+h3:multilevel-modeling-the-definitional-and-conceptual Multilevel modeling: The definitional and conceptual
+h2:workflow Workflow
+h2:research-vignette Research Vignette
+h3:simulating-the-data-from-the-journal-article Simulating the data from the journal article
+h2:working-the-problem-and-learning-mlm Working the Problem (and learning MLM)
+h3:data-diagnostics Data diagnostics
+h3:levels Levels
+h3:centering Centering
+h3:model-building Model Building
+h4:model-1-the-empty-model Model 1: The  model
+h4:model-2-adding-the-l1-predictor Model 2: Adding the L1 predictor
+h4:model-3-adding-the-l2-predictors Model 3: Adding the L2 predictors
+h4:model-4-adding-a-cross-level-interaction-term Model 4: Adding a cross-level interaction term
+h3:final-model Final Model
+h3:oh-right-the-formulae Oh right, the Formulae
+h3:apa-style-writeup APA Style Writeup
+h2:residual-and-related-questions Residual and Related Questions…
+h2:practice-problems Practice Problems
+h3:problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed Problem #1: Rework the research vignette as demonstrated, but change the random seed
+h3:problem-2-rework-the-research-vignette-but-swap-one-or-more-variables Problem #2: Rework the research vignette, but swap one or more variables
+h3:problem-3-use-other-data-that-is-available-to-you Problem #3: Use other data that is available to you
+h2:bonus-track Bonus Track:
+h3:working-the-entire-vignette Working the Entire Vignette
+h3:just-the-code-please Just the Code Please
+h1:MLMexplore Preliminary (OLS style) Exploration of Longitudinal Growth
+h2:navigating-this-lesson-1 Navigating this Lesson
+h3:learning-objectives-1 Learning Objectives
+h3:planning-for-practice-1 Planning for Practice
+h3:readings-resources-1 Readings & Resources
+h3:packages-2 Packages
+h2:change-over-time-analytics Change-Over-Time Analytics
+h2:workflow-for-longitudinal-mlm Workflow for Longitudinal MLM
+h2:research-vignette-1 Research Vignette
+h3:simulating-the-data-from-the-journal-article-1 Simulating the data from the journal article
+h2:longitudinal-exploration Longitudinal Exploration
+h3:the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling The Structure of the Data File as the First Step in Understanding Longitudinal Modeling
+h3:job1-is-to-get-our-data-from-person-level-into-person-period Job#1 is to get our data from person-level into person-period
+h3:empirical-growth-plots Empirical Growth Plots
+h3:plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record
+h4:nonparametrical-smoothing-of-the-empirical-growth-trajectory Nonparametrical Smoothing of the Empirical Growth Trajectory**
+h4:parametric-smoothing-of-the-empirical-growth-trajectory-w-ols-regression Parametric Smoothing of the Empirical Growth Trajectory w OLS Regression**
+h4:snapshot-of-the-entire-set-of-smooth-trajectories Snapshot of the Entire Set of Smooth Trajectories**
+h3:examining-intercepts-slopes-and-their-relationship Examining intercepts, slopes, and their relationship
+h3:exploring-the-relationship-between-change-and-time-invariant-predictors Exploring the relationship between Change and Time-Invariant Predictors
+h3:the-relationship-between-ols-estimated-trajectories-and-substantive-predictors The Relationship between OLS-Estimated Trajectories and Substantive Predictors
+h3:apa-style-writeup-1 APA Style Writeup
+h2:observations-about-the-social-and-cultural-responsivity-of-the-project Observations about the Social and Cultural Responsivity of the Project
+h2:residual-and-related-questions-1 Residual and Related Questions…
+h2:practice-problems-1 Practice Problems
+h3:problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1 Problem #1: Rework the research vignette as demonstrated, but change the random seed
+h3:problem-2-rework-the-research-vignette-using-the-second-set-of-simulated-data-where-depression-is-the-outcome-variable Problem #2: Rework the research vignette using the second set of simulated data where depression is the outcome variable
+h3:problem-3-use-other-data-that-is-available-to-you-1 Problem #3: Use other data that is available to you
+h2:bonus-track-1 Bonus Track:
+h3:simulated-data-when-depression-is-the-outcome Simulated Data when Depression is the Outcome
+h1:LongMod A Basic Longitudinal Model
+h2:navigating-this-lesson-2 Navigating this Lesson
+h3:learning-objectives-2 Learning Objectives
+h3:planning-for-practice-2 Planning for Practice
+h3:readings-resources-2 Readings & Resources
+h3:packages-3 Packages
+h2:the-basic-longitudinal-multilevel-model The Basic, Longitudinal, Multilevel Model
+h3:the-definitional-and-conceptual The definitional and conceptual
+h2:workflow-for-a-basic-longitudinal-multilevel-model Workflow for a Basic, Longitudinal, Multilevel Model
+h2:research-vignette-2 Research Vignette
+h3:simulating-the-data-from-the-journal-article-2 Simulating the data from the journal article
+h2:working-the-longitudinal-multilevel-model Working the Longitudinal, Multilevel Model
+h3:a-moment-on-estimators A Moment on Estimators
+h4:full-maximum-likelihood Full maximum likelihood**
+h4:restricted-maximum-likelihood Restricted maximum likelihood
+h3:two-unconditional-multilevel-models-for-change Two Unconditional Multilevel Models for Change
+h2:analysis Analysis
+h3:model-1-the-unconditional-means-model-aka-the-empty-model-or-intercept-only-model Model 1: The  means model (aka the  or intercept-only model)
+h3:a-moment-on-lmer-syntax A moment on  syntax
+h3:model-2-the-unconditional-growth-model Model 2: The unconditional growth model
+h3:another-moment-on-lmer-syntax Another moment on  syntax
+h3:a-taxonomy-of-statistical-models A Taxonomy of Statistical Models
+h3:model-3-the-uncontrolled-effects-of-sexual-identity Model 3: The uncontrolled effects of sexual identity
+h3:model-4-the-effects-of-religious-affiliation Model 4: The effects of religious affiliation
+h3:model-5-model-trimming Model 5: Model trimming
+h2:evaluating-the-tenability-quality-of-the-final-model Evaluating the  (quality) of the Final Model
+h3:the-deviance-statistics The Deviance Statistics
+h3:comparing-nonnested-models-with-information-criteria Comparing Nonnested Models with Information Criteria
+h3:evaluating-the-models-assumptions Evaluating the Model’s Assumptions
+h4:checking-functional-form Checking functional form
+h4:checking-normality Checking normality
+h4:checking-homoscedasticity Checking homoscedasticity
+h2:apa-style-writeup-2 APA Style Writeup
+h2:residual-and-related-questions-2 Residual and Related Questions…
+h2:practice-problems-2 Practice Problems
+h3:problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-2 Problem #1: Rework the research vignette as demonstrated, but change the random seed
+h3:problem-2-rework-the-research-vignette-but-use-the-depression-variable-as-an-outcome Problem #2: Rework the research vignette, but use the depression variable as an outcome
+h3:problem-3-use-other-data-that-is-available-to-you-2 Problem #3: Use other data that is available to you
+h1:TimeLord Calendrical Time (and Missingness) in MLMs
+h2:navigating-this-lesson-3 Navigating this Lesson
+h3:learning-objectives-3 Learning Objectives
+h3:planning-for-practice-3 Planning for Practice
+h3:readings-resources-3 Readings & Resources
+h3:packages-4 Packages
+h2:exploring-variants-of-time-and-balance Exploring Variants of Time and Balance
+h2:research-vignette-3 Research Vignette
+h3:simulating-the-data-from-the-journal-article-3 Simulating the data from the journal article
+h2:more-simulation-appointment-dates More Simulation – Appointment Dates
+h2:reworking-lefevor-et-al.--lefevor_religious_2017-using-calendrical-time-and-unbalanced-data Reworking Lefevor et al.  using Calendrical Time (and Unbalanced Data)
+h3:creating-time-intervals Creating Time Intervals
+h3:wide-to-long Wide to Long
+h3:mlm-is-for-unbalanced-designs MLM is for unbalanced designs
+h3:abbreviated-ols-style-exploration Abbreviated OLS Style Exploration
+h3:rebuilding-the-model-unstructured-time-unbalanced-design Rebuilding the Model (Unstructured Time, Unbalanced Design)
+h4:model-1-unconditional-means-model Model 1: Unconditional means model
+h4:model-2-unconditional-growth-model Model 2: Unconditional growth model
+h4:model-3-the-uncontrolled-effects-of-sexual-identity-1 Model 3: The uncontrolled effects of sexual identity
+h4:model-4-the-controlled-effects-of-religious-affiliation Model 4: The controlled effects of religious affiliation
+h4:model-5-trimming-non-signifcant-effects Model 5: Trimming non-signifcant effects
+h2:structured-time-reworking-the-vignette-with-index Structured Time: Reworking the Vignette with Index
+h2:apa-style-writeup-3 APA Style Writeup
+h2:residual-and-related-questions-3 Residual and Related Questions…
+h3:what-did-we-gainlose-by-using-weeks-or-sessnum-unstructured-versus-index-structured-to-mark-time What did we gain/lose by using Weeks or SessNum (unstructured) versus Index (structured) to mark time?
+h3:how-did-the-unbalanced-time-impact-the-analysis-and-results How did the unbalanced time impact the analysis and results?
+h2:practice-problems-3 Practice Problems
+h3:problem-1-rework-this-lessons-example-by-changing-the-time-metric-to-days-or-months Problem #1: Rework this Lesson’s Example by Changing the Time Metric to Days or Months
+h3:problem-2-compare-balanced-and-unbalanced-designs Problem #2: Compare balanced and unbalanced designs
+h3:problem-3-experiment-with-time-and-balanceunbalance-in-data-that-is-available-to-you Problem #3: Experiment with time and balance/unbalance in data that is available to you
+h2:bonus-track-2 Bonus Track:
+h3:faqs FAQs
+h4:what-if-this-was-a-qualtrics-datestamp What if this was a Qualtrics datestamp?
+h4:what-if-i-care-about-time-zones What if I care about time zones?
+h1:refs References
+

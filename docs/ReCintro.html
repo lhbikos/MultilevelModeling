@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling</title>
-  <meta name="description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling" />
   <meta property="og:type" content="book" />
-  
-  
-  <meta property="og:description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
-  
+  <meta property="og:url" content="https://lhbikos.github.io/MultilevelModeling/" />
+  <meta property="og:image" content="https://lhbikos.github.io/MultilevelModeling/images/ReC_mlevel_bkcvr.png" />
+  <meta property="og:description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
+  <meta name="github-repo" content="lhbikos/extRas" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 1 Introduction | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling" />
   
-  <meta name="twitter:description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
-  
+  <meta name="twitter:description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
+  <meta name="twitter:image" content="https://lhbikos.github.io/MultilevelModeling/images/ReC_mlevel_bkcvr.png" />
 
-<meta name="author" content="Lynette H Bikos, PhD, ABPP" />
+<meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,8 +33,9 @@
   
 <link rel="prev" href="acknowledgements.html"/>
 <link rel="next" href="wGroups.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -142,7 +143,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -155,7 +156,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./"><strong>ReCentering Psych Stats: Multivariate Modeling</strong><br>by Lynette H Bikos, PhD, ABPP</a></li>
+<li><a href="./">ReCentering Psych Stats</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a></li>
@@ -172,14 +173,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
 <li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
-<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a>
-<ul>
-<li class="chapter" data-level="1.3.3.1" data-path="ReCintro.html"><a href="ReCintro.html#everything-is-documented-in-the-.rmd-file"><i class="fa fa-check"></i><b>1.3.3.1</b> Everything is documented in the .rmd file</a></li>
-<li class="chapter" data-level="1.3.3.2" data-path="ReCintro.html"><a href="ReCintro.html#file-organization"><i class="fa fa-check"></i><b>1.3.3.2</b> File organization</a></li>
-<li class="chapter" data-level="1.3.3.3" data-path="ReCintro.html"><a href="ReCintro.html#chunks"><i class="fa fa-check"></i><b>1.3.3.3</b> Chunks</a></li>
-<li class="chapter" data-level="1.3.3.4" data-path="ReCintro.html"><a href="ReCintro.html#packages"><i class="fa fa-check"></i><b>1.3.3.4</b> Packages</a></li>
-<li class="chapter" data-level="1.3.3.5" data-path="ReCintro.html"><a href="ReCintro.html#knitting"><i class="fa fa-check"></i><b>1.3.3.5</b> Knitting</a></li>
-</ul></li>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a></li>
 <li class="chapter" data-level="1.3.4" data-path="ReCintro.html"><a href="ReCintro.html#troubleshooting-in-r-markdown"><i class="fa fa-check"></i><b>1.3.4</b> tRoubleshooting in R maRkdown</a></li>
 <li class="chapter" data-level="1.3.5" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-success"><i class="fa fa-check"></i><b>1.3.5</b> stRategies for success</a></li>
 <li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
@@ -209,13 +203,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.5.1" data-path="wGroups.html"><a href="wGroups.html#data-diagnostics"><i class="fa fa-check"></i><b>2.5.1</b> Data diagnostics</a></li>
 <li class="chapter" data-level="2.5.2" data-path="wGroups.html"><a href="wGroups.html#levels"><i class="fa fa-check"></i><b>2.5.2</b> Levels</a></li>
 <li class="chapter" data-level="2.5.3" data-path="wGroups.html"><a href="wGroups.html#centering"><i class="fa fa-check"></i><b>2.5.3</b> Centering</a></li>
-<li class="chapter" data-level="2.5.4" data-path="wGroups.html"><a href="wGroups.html#model-building"><i class="fa fa-check"></i><b>2.5.4</b> Model Building</a>
-<ul>
-<li class="chapter" data-level="2.5.4.1" data-path="wGroups.html"><a href="wGroups.html#model-1-the-empty-model"><i class="fa fa-check"></i><b>2.5.4.1</b> Model 1: The <em>empty</em> model</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="wGroups.html"><a href="wGroups.html#model-2-adding-the-l1-predictor"><i class="fa fa-check"></i><b>2.5.4.2</b> Model 2: Adding the L1 predictor</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="wGroups.html"><a href="wGroups.html#model-3-adding-the-l2-predictors"><i class="fa fa-check"></i><b>2.5.4.3</b> Model 3: Adding the L2 predictors</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="wGroups.html"><a href="wGroups.html#model-4-adding-a-cross-level-interaction-term"><i class="fa fa-check"></i><b>2.5.4.4</b> Model 4: Adding a cross-level interaction term</a></li>
-</ul></li>
+<li class="chapter" data-level="2.5.4" data-path="wGroups.html"><a href="wGroups.html#model-building"><i class="fa fa-check"></i><b>2.5.4</b> Model Building</a></li>
 <li class="chapter" data-level="2.5.5" data-path="wGroups.html"><a href="wGroups.html#final-model"><i class="fa fa-check"></i><b>2.5.5</b> Final Model</a></li>
 <li class="chapter" data-level="2.5.6" data-path="wGroups.html"><a href="wGroups.html#oh-right-the-formulae"><i class="fa fa-check"></i><b>2.5.6</b> Oh right, the Formulae</a></li>
 <li class="chapter" data-level="2.5.7" data-path="wGroups.html"><a href="wGroups.html#apa-style-writeup"><i class="fa fa-check"></i><b>2.5.7</b> APA Style Writeup</a></li>
@@ -253,12 +241,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.1" data-path="MLMexplore.html"><a href="MLMexplore.html#the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling"><i class="fa fa-check"></i><b>3.5.1</b> The Structure of the Data File as the First Step in Understanding Longitudinal Modeling</a></li>
 <li class="chapter" data-level="3.5.2" data-path="MLMexplore.html"><a href="MLMexplore.html#job1-is-to-get-our-data-from-person-level-into-person-period"><i class="fa fa-check"></i><b>3.5.2</b> Job#1 is to get our data from person-level into person-period</a></li>
 <li class="chapter" data-level="3.5.3" data-path="MLMexplore.html"><a href="MLMexplore.html#empirical-growth-plots"><i class="fa fa-check"></i><b>3.5.3</b> Empirical Growth Plots</a></li>
-<li class="chapter" data-level="3.5.4" data-path="MLMexplore.html"><a href="MLMexplore.html#plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record"><i class="fa fa-check"></i><b>3.5.4</b> Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record</a>
-<ul>
-<li class="chapter" data-level="3.5.4.1" data-path="MLMexplore.html"><a href="MLMexplore.html#nonparametrical-smoothing-of-the-empirical-growth-trajectory"><i class="fa fa-check"></i><b>3.5.4.1</b> Nonparametrical Smoothing of the Empirical Growth Trajectory**</a></li>
-<li class="chapter" data-level="3.5.4.2" data-path="MLMexplore.html"><a href="MLMexplore.html#parametric-smoothing-of-the-empirical-growth-trajectory-w-ols-regression"><i class="fa fa-check"></i><b>3.5.4.2</b> Parametric Smoothing of the Empirical Growth Trajectory w OLS Regression**</a></li>
-<li class="chapter" data-level="3.5.4.3" data-path="MLMexplore.html"><a href="MLMexplore.html#snapshot-of-the-entire-set-of-smooth-trajectories"><i class="fa fa-check"></i><b>3.5.4.3</b> Snapshot of the Entire Set of Smooth Trajectories**</a></li>
-</ul></li>
+<li class="chapter" data-level="3.5.4" data-path="MLMexplore.html"><a href="MLMexplore.html#plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record"><i class="fa fa-check"></i><b>3.5.4</b> Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record</a></li>
 <li class="chapter" data-level="3.5.5" data-path="MLMexplore.html"><a href="MLMexplore.html#examining-intercepts-slopes-and-their-relationship"><i class="fa fa-check"></i><b>3.5.5</b> Examining intercepts, slopes, and their relationship</a></li>
 <li class="chapter" data-level="3.5.6" data-path="MLMexplore.html"><a href="MLMexplore.html#exploring-the-relationship-between-change-and-time-invariant-predictors"><i class="fa fa-check"></i><b>3.5.6</b> Exploring the relationship between Change and Time-Invariant Predictors</a></li>
 <li class="chapter" data-level="3.5.7" data-path="MLMexplore.html"><a href="MLMexplore.html#the-relationship-between-ols-estimated-trajectories-and-substantive-predictors"><i class="fa fa-check"></i><b>3.5.7</b> The Relationship between OLS-Estimated Trajectories and Substantive Predictors</a></li>
@@ -297,11 +280,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="LongMod.html"><a href="LongMod.html#working-the-longitudinal-multilevel-model"><i class="fa fa-check"></i><b>4.5</b> Working the Longitudinal, Multilevel Model</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="LongMod.html"><a href="LongMod.html#a-moment-on-estimators"><i class="fa fa-check"></i><b>4.5.1</b> A Moment on Estimators</a>
-<ul>
-<li class="chapter" data-level="4.5.1.1" data-path="LongMod.html"><a href="LongMod.html#full-maximum-likelihood"><i class="fa fa-check"></i><b>4.5.1.1</b> Full maximum likelihood**</a></li>
-<li class="chapter" data-level="4.5.1.2" data-path="LongMod.html"><a href="LongMod.html#restricted-maximum-likelihood"><i class="fa fa-check"></i><b>4.5.1.2</b> Restricted maximum likelihood</a></li>
-</ul></li>
+<li class="chapter" data-level="4.5.1" data-path="LongMod.html"><a href="LongMod.html#a-moment-on-estimators"><i class="fa fa-check"></i><b>4.5.1</b> A Moment on Estimators</a></li>
 <li class="chapter" data-level="4.5.2" data-path="LongMod.html"><a href="LongMod.html#two-unconditional-multilevel-models-for-change"><i class="fa fa-check"></i><b>4.5.2</b> Two Unconditional Multilevel Models for Change</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="LongMod.html"><a href="LongMod.html#analysis"><i class="fa fa-check"></i><b>4.6</b> Analysis</a>
@@ -319,12 +298,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="4.7.1" data-path="LongMod.html"><a href="LongMod.html#the-deviance-statistics"><i class="fa fa-check"></i><b>4.7.1</b> The Deviance Statistics</a></li>
 <li class="chapter" data-level="4.7.2" data-path="LongMod.html"><a href="LongMod.html#comparing-nonnested-models-with-information-criteria"><i class="fa fa-check"></i><b>4.7.2</b> Comparing Nonnested Models with Information Criteria</a></li>
-<li class="chapter" data-level="4.7.3" data-path="LongMod.html"><a href="LongMod.html#evaluating-the-models-assumptions"><i class="fa fa-check"></i><b>4.7.3</b> Evaluating the Model’s Assumptions</a>
-<ul>
-<li class="chapter" data-level="4.7.3.1" data-path="LongMod.html"><a href="LongMod.html#checking-functional-form"><i class="fa fa-check"></i><b>4.7.3.1</b> Checking functional form</a></li>
-<li class="chapter" data-level="4.7.3.2" data-path="LongMod.html"><a href="LongMod.html#checking-normality"><i class="fa fa-check"></i><b>4.7.3.2</b> Checking normality</a></li>
-<li class="chapter" data-level="4.7.3.3" data-path="LongMod.html"><a href="LongMod.html#checking-homoscedasticity"><i class="fa fa-check"></i><b>4.7.3.3</b> Checking homoscedasticity</a></li>
-</ul></li>
+<li class="chapter" data-level="4.7.3" data-path="LongMod.html"><a href="LongMod.html#evaluating-the-models-assumptions"><i class="fa fa-check"></i><b>4.7.3</b> Evaluating the Model’s Assumptions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="LongMod.html"><a href="LongMod.html#apa-style-writeup-2"><i class="fa fa-check"></i><b>4.8</b> APA Style Writeup</a></li>
 <li class="chapter" data-level="4.9" data-path="LongMod.html"><a href="LongMod.html#residual-and-related-questions-2"><i class="fa fa-check"></i><b>4.9</b> Residual and Related Questions…</a></li>
@@ -356,14 +330,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.5.2" data-path="TimeLord.html"><a href="TimeLord.html#wide-to-long"><i class="fa fa-check"></i><b>5.5.2</b> Wide to Long</a></li>
 <li class="chapter" data-level="5.5.3" data-path="TimeLord.html"><a href="TimeLord.html#mlm-is-for-unbalanced-designs"><i class="fa fa-check"></i><b>5.5.3</b> MLM is for unbalanced designs</a></li>
 <li class="chapter" data-level="5.5.4" data-path="TimeLord.html"><a href="TimeLord.html#abbreviated-ols-style-exploration"><i class="fa fa-check"></i><b>5.5.4</b> Abbreviated OLS Style Exploration</a></li>
-<li class="chapter" data-level="5.5.5" data-path="TimeLord.html"><a href="TimeLord.html#rebuilding-the-model-unstructured-time-unbalanced-design"><i class="fa fa-check"></i><b>5.5.5</b> Rebuilding the Model (Unstructured Time, Unbalanced Design)</a>
-<ul>
-<li class="chapter" data-level="5.5.5.1" data-path="TimeLord.html"><a href="TimeLord.html#model-1-unconditional-means-model"><i class="fa fa-check"></i><b>5.5.5.1</b> Model 1: Unconditional means model</a></li>
-<li class="chapter" data-level="5.5.5.2" data-path="TimeLord.html"><a href="TimeLord.html#model-2-unconditional-growth-model"><i class="fa fa-check"></i><b>5.5.5.2</b> Model 2: Unconditional growth model</a></li>
-<li class="chapter" data-level="5.5.5.3" data-path="TimeLord.html"><a href="TimeLord.html#model-3-the-uncontrolled-effects-of-sexual-identity-1"><i class="fa fa-check"></i><b>5.5.5.3</b> Model 3: The uncontrolled effects of sexual identity</a></li>
-<li class="chapter" data-level="5.5.5.4" data-path="TimeLord.html"><a href="TimeLord.html#model-4-the-controlled-effects-of-religious-affiliation"><i class="fa fa-check"></i><b>5.5.5.4</b> Model 4: The controlled effects of religious affiliation</a></li>
-<li class="chapter" data-level="5.5.5.5" data-path="TimeLord.html"><a href="TimeLord.html#model-5-trimming-non-signifcant-effects"><i class="fa fa-check"></i><b>5.5.5.5</b> Model 5: Trimming non-signifcant effects</a></li>
-</ul></li>
+<li class="chapter" data-level="5.5.5" data-path="TimeLord.html"><a href="TimeLord.html#rebuilding-the-model-unstructured-time-unbalanced-design"><i class="fa fa-check"></i><b>5.5.5</b> Rebuilding the Model (Unstructured Time, Unbalanced Design)</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="TimeLord.html"><a href="TimeLord.html#structured-time-reworking-the-vignette-with-index"><i class="fa fa-check"></i><b>5.6</b> Structured Time: Reworking the Vignette with Index</a></li>
 <li class="chapter" data-level="5.7" data-path="TimeLord.html"><a href="TimeLord.html#apa-style-writeup-3"><i class="fa fa-check"></i><b>5.7</b> APA Style Writeup</a></li>
@@ -380,18 +347,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.10" data-path="TimeLord.html"><a href="TimeLord.html#bonus-track-2"><i class="fa fa-check"></i><b>5.10</b> Bonus Track:</a>
 <ul>
-<li class="chapter" data-level="5.10.1" data-path="TimeLord.html"><a href="TimeLord.html#faqs"><i class="fa fa-check"></i><b>5.10.1</b> FAQs</a>
-<ul>
-<li class="chapter" data-level="5.10.1.1" data-path="TimeLord.html"><a href="TimeLord.html#what-if-this-was-a-qualtrics-datestamp"><i class="fa fa-check"></i><b>5.10.1.1</b> What if this was a Qualtrics datestamp?</a></li>
-<li class="chapter" data-level="5.10.1.2" data-path="TimeLord.html"><a href="TimeLord.html#what-if-i-care-about-time-zones"><i class="fa fa-check"></i><b>5.10.1.2</b> What if I care about time zones?</a></li>
-</ul></li>
+<li class="chapter" data-level="5.10.1" data-path="TimeLord.html"><a href="TimeLord.html#faqs"><i class="fa fa-check"></i><b>5.10.1</b> FAQs</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="refs.html"><a href="refs.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-#<li><a href="https:link" target="_blank">Open access book-in-progress</br>
-<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></li>
-  <li><a href="https://bookdown.org" target="_blank">Built with Bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -528,10 +489,9 @@ div.csl-indent {
 <p>Researchers treat packages differently. In these lectures, I list all the packages we will use in an opening chunk that asks R to check to see if the package is installed, and if not, installs it.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ReCintro.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(psych)){<span class="fu">install.packages</span>(<span class="st">&quot;psych&quot;</span>)}</span></code></pre></div>
 <pre><code>## Loading required package: psych</code></pre>
-<pre><code>## Warning: package &#39;psych&#39; was built under R version 4.0.5</code></pre>
 <p>To make a package operable, you need to open it through the library. This process must be repeated each time you restart R. I don’t open the package (through the “library(package_name)”) command until it is time to use it. Especially for new users, I think it’s important to connect the functions with the specific packages.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ReCintro.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages (&quot;psych&quot;)</span></span>
-<span id="cb6-2"><a href="ReCintro.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (psych)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ReCintro.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages (&quot;psych&quot;)</span></span>
+<span id="cb5-2"><a href="ReCintro.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (psych)</span></code></pre></div>
 <p>If you type in your own “install.packages” code, hashtag it out once it’s been installed. It is problematic to continue to re-run this code .</p>
 </div>
 <div id="knitting" class="section level4" number="1.3.3.5">
@@ -605,7 +565,6 @@ Gladwell, M. (2008). <em>Outliers: The story of success</em> (First edition.). L
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -617,7 +576,7 @@ Gladwell, M. (2008). <em>Outliers: The story of success</em> (First edition.). L
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -641,15 +600,17 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ontheline/otl-bookdown/blob/master/01-Introduction.Rmd",
+"link": null,
 "text": null
 },
-"download": ["ReC_Multilevel.pdf"],
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
+"download": ["ReC_Multilevel.pdf", "ReC_Multilevel.epub"],
+"search": {
+"engine": "fuse",
+"options": null
 },
-"search": true
+"toc": {
+"collapse": "subsection"
+}
 });
 });
 </script>

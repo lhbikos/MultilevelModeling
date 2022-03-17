@@ -1,14 +1,15 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  english,
+  11pt,
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -38,11 +39,15 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling},
-  pdfauthor={Lynette H Bikos, PhD, ABPP},
-  pdflang={en},
-  hidelinks,
+  pdfauthor={Lynette H. Bikos, PhD, ABPP},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -111,30 +116,21 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
 \title{ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling}
-\author{Lynette H Bikos, PhD, ABPP}
-\date{}
+\author{Lynette H. Bikos, PhD, ABPP}
+\date{17 Mar 2022}
 
 \begin{document}
 \maketitle
 
 {
+\hypersetup{linkcolor=}
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
@@ -148,11 +144,27 @@
 \caption{An image of the book cover. It includes four quadrants of non-normal distributions representing gender, race/ethnicty, sustainability/global concerns, and journal articles}
 \end{figure}
 
+This open education resource is available in the following formats:
+
+\begin{itemize}
+\tightlist
+\item
+  Formatted as an \href{https://lhbikos.github.io/MultilevelModeling/}{html book} via GitHub Pages available in the \href{https://github.com/lhbikos/MultilevelModeling/tree/main/docs}{docs} folder at the GitHub repository
+\item
+  As a \href{https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.pdf}{PDF}
+\item
+  As an \href{https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.epub}{ebook}
+\item
+  As a \href{https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.docx}{Word} d
+\end{itemize}
+
+All materials used in creating this OER are available at its \href{https://github.com/lhbikos/MultilevelModeling}{GitHub repo}.
+
 \hypertarget{preface}{%
 \chapter*{PREFACE}\label{preface}}
 \addcontentsline{toc}{chapter}{PREFACE}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 30 May 2021}
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 17 Mar 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -184,20 +196,29 @@ In training for multicultural competence, the saying, ``A fish doesn't know that
 
 This book is published under a a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. This means that this book can be reused, remixed, retained, revised and redistributed (including commercially) as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license - CC BY-SA.
 
-A \href{https://github.com/lhbikos/ReC_MultivariateModeling}{GitHub open-source repository} contains all of the text and source code for the book, including data and images.
+A \href{https://github.com/lhbikos/MultilevelModeling}{GitHub open-source repository} contains all of the text and source code for the book, including data and images.
 
 \hypertarget{acknowledgements}{%
 \chapter*{ACKNOWLEDGEMENTS}\label{acknowledgements}}
 \addcontentsline{toc}{chapter}{ACKNOWLEDGEMENTS}
 
-As a doctoral student at the University of Kansas (1992-2005), I learned that ``a foreign language'' was required for graduation. \emph{Please note that as one who studies the intersections of global, vocational, and sustainable psychology, I regret that I do not have language skills beyond English.} This could have been met with credit from high school my rural, mid-Missouri high school did not offer such classes. This requirement would have typically been met with courses taken during an undergraduate program -- but my non-teaching degree in the University of Missouri's School of Education was exempt from this. The requirement could have also been met with a computer language (fortran, C++) -- I did not have any of those either. There was a tiny footnote on my doctoral degree plan that indicated that a 2-credit course, ``SPSS for Windows'' would substitute for the language requirement. Given that it was taught by my one of my favorite professors, I readily signed up. As it turns out, Samuel B. Green, PhD, was using the course to draft chapters in the textbook \citep{green_using_2014} that has been so helpful for so many. Unfortunately, Drs. Green (1947 - 2018) and Salkind (2947 - 2017) are no longer with us. I have worn out numerous versions of their text. Another favorite text of mine was Dr.~Barbara Byrne's \citeyearpar{byrne_structural_2016}, ``Structural Equation Modeling with AMOS.'' I loved the way she worked through each problem and paired it with a published journal article, so that the user could see how the statistical evaluation fit within the larger project/article. I took my tea-stained text with me to a workshop she taught at APA and was proud of the signature she added to it (a little catfur might have fallen out). Dr.~Byrne created SEM texts for a number of statistical programs (e.g., LISREL, EQS, MPlus). As I was learning R, I wrote Dr.~Byrne, asking if she had an edition teaching SEM/CFA with R. She promptly wrote back, saying that she did not have the bandwidth to learn a new statistics package. We lost Dr.~Byrne in December 2020. I am so grateful to these role models for their contributions to my statistical training. I am also grateful for the doctoral students who have taken my courses and are continuing to provide input for how to improve the materials.
+As a doctoral student at the University of Kansas (1992-2005), I learned that ``a foreign language'' was a graduation requirement. \emph{Please note that as one who studies the intersections of global, vocational, and sustainable psychology, I regret that I do not have language skills beyond English.} This could have been met with credit from high school my rural, mid-Missouri high school did not offer such classes. This requirement would have typically been met with courses taken during an undergraduate program -- but my non-teaching degree in the University of Missouri's School of Education was exempt from this. The requirement could have also been met with a computer language (fortran, C++) -- I did not have any of those either. There was a tiny footnote on my doctoral degree plan that indicated that a 2-credit course, ``SPSS for Windows'' would substitute for the language requirement. Given that it was taught by my one of my favorite professors, I readily signed up. As it turns out, Samuel B. Green, PhD, was using the course to draft chapters in the textbook \citep{green_using_2014} that has been so helpful for so many. Unfortunately, Drs. Green (1947 - 2018) and Salkind (2947 - 2017) are no longer with us. I have worn out numerous versions of their text. Another favorite text of mine was Dr.~Barbara Byrne's \citeyearpar{byrne_structural_2016}, ``Structural Equation Modeling with AMOS.'' I loved the way she worked through each problem and paired it with a published journal article, so that the user could see how the statistical evaluation fit within the larger project/article. I took my tea-stained text with me to a workshop she taught at APA and was proud of the signature she added to it (a little catfur might have fallen out). Dr.~Byrne created SEM texts for a number of statistical programs (e.g., LISREL, EQS, MPlus). As I was learning R, I wrote Dr.~Byrne, asking if she had an edition teaching SEM/CFA with R. She promptly wrote back, saying that she did not have the bandwidth to learn a new statistics package. We lost Dr.~Byrne in December 2020. I am so grateful to these role models for their contributions to my statistical training. I am also grateful for the doctoral students who have taken my courses and are continuing to provide input for how to improve the materials.
 
 The inspiration for training materials that re*center statistics and research methods came from the \href{https://www.academics4blacklives.com/}{Academics for Black Survival and Wellness Initiative}. This project, co-founded by Della V. Mosley, Ph.D., and Pearis L. Bellamy, M.S., made clear the necessity and urgency for change in higher education and the profession of psychology.
 
 At very practical levels, I am indebted to SPU's Library, and more specifically, SPU's Education, Technology, and Media Department. Assistant Dean for Instructional Design and Emerging Technologies, R. John Robertson, MSc, MCS, has offered unlimited consultation, support, and connection. Senior Instructional Designer in Graphics \& Illustrations, Dominic Wilkinson, designed the logo and bookcover. Psychology and Scholarly Communications Librarian, Kristin Hoffman, MLIS, has provided consultation on topics ranging from OERS to citations. I am alo indebted to Associate Vice President, Teaching and Learning at Kwantlen Polytechnic University, Rajiv Jhangiani, PhD. Dr.~Jhangiani's text \citeyearpar{jhangiani_research_2019} was the first OER I ever used and I was grateful for his encouraging conversation.
 
-Financial support for this text has been provided from the \emph{Call to Action on Equity, Inclusion, Diversity, Justice, and Social Responsivity
-Request for Proposals} grant from the Association of Psychology Postdoctoral and Internship Centers (2021-2022).
+Financial support for this project has been provided the following:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Call to Action on Equity, Inclusion, Diversity, Justice, and Social Responsivity Request for Proposals} grant from the Association of Psychology Postdoctoral and Internship Centers (2021-2022).
+\item
+  \emph{Diversity Seed Grant}, Office of Inclusive Excellence and Advisory Council for Diversity and Reconciliation (ACDR), Seattle Pacific University.
+\item
+  \emph{ETM Open Textbook \& OER Development Funding}, Office of Education, Technology, \& Media, Seattle Pacific University.
+\end{itemize}
 
 \hypertarget{ReCintro}{%
 \chapter{Introduction}\label{ReCintro}}
@@ -421,10 +442,6 @@ Researchers treat packages differently. In these lectures, I list all the packag
 ## Loading required package: psych
 \end{verbatim}
 
-\begin{verbatim}
-## Warning: package 'psych' was built under R version 4.0.5
-\end{verbatim}
-
 To make a package operable, you need to open it through the library. This process must be repeated each time you restart R. I don't open the package (through the ``library(package\_name)'') command until it is time to use it. Especially for new users, I think it's important to connect the functions with the specific packages.
 
 \begin{Shaded}
@@ -633,7 +650,7 @@ The script below will (a) check to see if the following packages are installed o
 \hypertarget{the-dilemma-of-aggregation-and-disaggregation}{%
 \subsection{The dilemma of aggregation and disaggregation}\label{the-dilemma-of-aggregation-and-disaggregation}}
 
-It was the 1980s and researchers were studying group attitudes and were confused about how to analyze the data \citep{singer_applied_2003}.They ran into difficulties with \emph{aggregation} and asked, ``Do we aggregate the data'' by summing individuals within groups (i.e., giving everyone in the group the same score)?" Or, ``Do we disaggregate the data'' by ignoring group membership and analyzing the individual cases.
+It was the 1980s and researchers were studying group attitudes and were confused about how to analyze the data \citep{singer_applied_2003}.They ran into difficulties with \emph{aggregation} and asked, ``Do we aggregate the data'' by summing individuals within groups (i.e., giving everyone in the group the same score)?'' Or, ``Do we disaggregate the data'' by ignoring group membership and analyzing the individual cases.
 
 Problems with aggregation (using group means) include the following:
 
@@ -1673,10 +1690,6 @@ Computing profile confidence intervals ...
 \end{Shaded}
 
 \begin{verbatim}
-Warning: package 'sjPlot' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
 Learn more about sjPlot with 'browseVignettes("sjPlot")'.
 \end{verbatim}
 
@@ -1792,12 +1805,12 @@ With the \emph{plot\_model()} function in \emph{sjPlot}, we can plot the random 
 
 \begin{verbatim}
 Warning in checkMatrixPackageVersion(): Package version inconsistency detected.
-TMB was built with Matrix version 1.3.2
-Current Matrix version is 1.2.18
+TMB was built with Matrix version 1.3.4
+Current Matrix version is 1.4.0
 Please re-install 'TMB' from source using install.packages('TMB', type = 'source') or ask CRAN for a binary version of 'TMB' matching CRAN's 'Matrix' package
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-6-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-7-1.pdf}
 
 Focusing on the information in viewer, we can first check to see if things look right. We know we have 15 churches, each with 15 observations (225), so our data is reading correctly.
 
@@ -1846,7 +1859,7 @@ The \emph{AIC} is another fit index. The AIC (Akaike Information Criteria) allow
 \hypertarget{model-2-adding-the-l1-predictor}{%
 \subsubsection{Model 2: Adding the L1 predictor}\label{model-2-adding-the-l1-predictor}}
 
-When we add the L1 predictor(s), we add them in their group-mean centered (CWC) form. In our specific research question, we are asking, "What effect does an individual's church attendance (relative to the attendance of others at the same church) have on an individual's attitudes toward same-sex sexuality (homonegativity)?
+When we add the L1 predictor(s), we add them in their group-mean centered (CWC) form. In our specific research question, we are asking, ``What effect does an individual's church attendance (relative to the attendance of others at the same church) have on an individual's attitudes toward same-sex sexuality (homonegativity)?
 
 We update our script by:
 
@@ -2175,7 +2188,7 @@ Plots can help us further understand what is happening. The ``pred'' (predicted 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-7-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-8-1.pdf}
 MLM is a little different than other statistics in that our evaluation of the statistical assumptions continues through the evaluative process. The diagnostic plots (type = ``diag'') provide a check of the model assumptions. Each of the plots provides some guidance of how to interpret them to see if we have violated the assumptions. In the QQ plots, the points generally track along the lines. In the non-normality of residuals, our distribution approximates the superimposed normal curve. In the homoscedasticity plot, the points are scattered above/blow the line in a reasonably equal amounts with random spread.
 
 \begin{Shaded}
@@ -2192,7 +2205,7 @@ MLM is a little different than other statistics in that our evaluation of the st
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -2203,14 +2216,14 @@ MLM is a little different than other statistics in that our evaluation of the st
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-8-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-8-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -2220,7 +2233,7 @@ MLM is a little different than other statistics in that our evaluation of the st
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-8-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-4.pdf}
 
 With the \emph{plot\_model()} function in \emph{sjPlot}, we can plot the random effects. For this intercept-only model, we see the mean and range of the ATSS variable.
 
@@ -2615,19 +2628,19 @@ Let's look at plots. With three predictors, we can examine each of their relatio
 $AttendL1
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \begin{verbatim}
 $AttendL2
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-10-2.pdf}
 
 \begin{verbatim}
 $Homogeneity
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-9-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-10-3.pdf}
 
 Because the next phase of model building will include cross-level interactions, let's display this mode by examining the relationship between individual attendance and homonegativity, chunked into clusters that let us also examine the influene of church-level attendance and racial homogeneity. This is not a formal test of an interaction; however, I don't sense that there will be interacting effects.
 
@@ -2637,7 +2650,7 @@ Because the next phase of model building will include cross-level interactions, 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 Our diagnostic plots continue to support our modeling. In the QQ plots, the points generally track along the lines. In the non-normality of residuals, our distribution approximates the superimposed normal curve. In the homoscedasticity plot, the points are scattered above/blow the line in a reasonably equal amounts with random spread.
 
@@ -3087,7 +3100,7 @@ Not surprisingly, our resultant models are consistent with the ``peek'' we took 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-13-1.pdf}
 Another way to view this is to request the ``int'' (interaction) model type.
 
 \begin{Shaded}
@@ -3096,7 +3109,7 @@ Another way to view this is to request the ``int'' (interaction) model type.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-13-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-14-1.pdf}
 Even though the addition of the interaction term did not improve our model, it does not look like it harmed it. These diagnostics remain consistent with those we saw before.
 
 \begin{Shaded}
@@ -3113,7 +3126,7 @@ Even though the addition of the interaction term did not improve our model, it d
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-14-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-15-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -3124,14 +3137,14 @@ Even though the addition of the interaction term did not improve our model, it d
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-14-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-15-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-14-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-15-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -3141,7 +3154,7 @@ Even though the addition of the interaction term did not improve our model, it d
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-14-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-15-4.pdf}
 
 \hypertarget{final-model}{%
 \subsection{Final Model}\label{final-model}}
@@ -3491,11 +3504,15 @@ The suggested practice problem for this chapter is to conduct a MLM that include
 If this topic feels a bit overwhelming, simply change the random seed in the data simulation, then rework the problem. This should provide minor changes to the data (maybe in the second or third decimal point), but the results will likely be very similar.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
@@ -3518,11 +3535,15 @@ Assignment Component & & \\
 The research vignette analyzes a number of variables, simultaneously. We selected only two for the example. Swap out one or more variables in the multilevel model and compare your solution to the one in the chapter (and/or oNe you mimicked in the journal article). If you wish to increase your probability of finding statistically significant effects, look for hints in Table 2 of the \citep{lefevor_homonegativity_2020} research article that sources the vignettes by selecting a variable(s) with a significant relationship with your DV.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
@@ -3545,11 +3566,15 @@ Assignment Component & & \\
 Conduct a multilevel model with data to which you have access. This could include data you simulate on your own or from a published article.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
@@ -3589,7 +3614,7 @@ Below is the script that works the entire vignette in the Lefevor et al. \citeye
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-16-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4536,8 +4561,7 @@ Data: Lefevor2020
 Models:
 ATSSm1: ATSS ~ 1 + (1 | church)
 ATSSm2: ATSS ~ GenderL1 + AgeL1 + EducL1 + AttendL1 + (1 | church)
-ATSSm3: ATSS ~ GenderL1 + AgeL1 + EducL1 + AttendL1 + GenderL2 + AgeL2 + 
-ATSSm3:     EducL2 + AttendL2 + Homogeneity + (1 | church)
+ATSSm3: ATSS ~ GenderL1 + AgeL1 + EducL1 + AttendL1 + GenderL2 + AgeL2 + EducL2 + AttendL2 + Homogeneity + (1 | church)
        npar    AIC    BIC  logLik deviance   Chisq Df Pr(>Chisq)  
 ATSSm1    3 694.73 704.98 -344.37   688.73                        
 ATSSm2    7 697.85 721.76 -341.93   683.85  4.8783  4    0.30001  
@@ -4743,9 +4767,9 @@ STAY TUNED
 \end{Shaded}
 
 \begin{verbatim}
-R version 4.0.4 (2021-02-15)
+R version 4.1.3 (2022-03-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18362)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
@@ -4760,49 +4784,49 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] sjPlot_2.8.7               PerformanceAnalytics_2.0.4
+ [1] sjPlot_2.8.10              PerformanceAnalytics_2.0.4
  [3] xts_0.12.1                 zoo_1.8-9                 
  [5] robumeta_2.0               lmerTest_3.1-3            
  [7] forcats_0.5.1              stringr_1.4.0             
- [9] dplyr_1.0.5                purrr_0.3.4               
-[11] readr_1.4.0                tidyr_1.1.3               
-[13] tibble_3.1.1               ggplot2_3.3.3             
+ [9] dplyr_1.0.7                purrr_0.3.4               
+[11] readr_2.0.1                tidyr_1.1.3               
+[13] tibble_3.1.4               ggplot2_3.3.5             
 [15] tidyverse_1.3.1            sjstats_0.18.1            
-[17] nlme_3.1-151               lme4_1.1-26               
-[19] Matrix_1.2-18              psych_2.1.3               
+[17] nlme_3.1-155               lme4_1.1-27.1             
+[19] Matrix_1.4-0               psych_2.1.6               
 
 loaded via a namespace (and not attached):
- [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-0   
- [4] ellipsis_0.3.1      sjlabelled_1.1.7    estimability_1.3   
- [7] snakecase_0.11.0    parameters_0.13.0   fs_1.5.0           
-[10] rstudioapi_0.13     glmmTMB_1.0.2.1     farver_2.1.0       
-[13] fansi_0.4.2         mvtnorm_1.1-1       lubridate_1.7.10   
-[16] xml2_1.3.2          codetools_0.2-18    splines_4.0.4      
-[19] mnormt_2.0.2        knitr_1.33          sjmisc_2.8.6       
-[22] jsonlite_1.7.2      nloptr_1.2.2.2      ggeffects_1.1.0    
-[25] broom_0.7.6         dbplyr_2.1.1        effectsize_0.4.4-1 
-[28] compiler_4.0.4      httr_1.4.2          emmeans_1.6.0      
-[31] backports_1.2.1     assertthat_0.2.1    cli_2.5.0          
-[34] htmltools_0.5.1.1   tools_4.0.4         coda_0.19-4        
-[37] gtable_0.3.0        glue_1.4.2          Rcpp_1.0.6         
-[40] cellranger_1.1.0    vctrs_0.3.7         apaTables_2.0.8    
-[43] insight_0.13.2      xfun_0.22           rvest_1.0.0        
-[46] lifecycle_1.0.0     statmod_1.4.35      MASS_7.3-53.1      
-[49] scales_1.1.1        hms_1.0.0           parallel_4.0.4     
-[52] sandwich_3.0-0      TMB_1.7.20          RColorBrewer_1.1-2 
-[55] yaml_2.2.1          stringi_1.5.3       highr_0.9          
-[58] bayestestR_0.9.0    boot_1.3-27         rlang_0.4.11       
-[61] pkgconfig_2.0.3     evaluate_0.14       lattice_0.20-41    
-[64] labeling_0.4.2      tidyselect_1.1.1    plyr_1.8.6         
-[67] magrittr_2.0.1      bookdown_0.22       R6_2.5.0           
-[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
-[73] pillar_1.6.0        haven_2.4.1         withr_2.4.2        
-[76] mgcv_1.8-35         survival_3.2-11     performance_0.7.1  
-[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.1         
-[82] tmvnsim_1.0-2       rmarkdown_2.7       grid_4.0.4         
-[85] readxl_1.3.1        reprex_2.0.0        digest_0.6.27      
-[88] xtable_1.8-4        numDeriv_2016.8-1.1 munsell_0.5.0      
-[91] quadprog_1.5-8     
+ [1] fs_1.5.0            lubridate_1.7.10    RColorBrewer_1.1-2 
+ [4] insight_0.14.4      httr_1.4.2          numDeriv_2016.8-1.1
+ [7] TMB_1.7.22          tools_4.1.3         backports_1.2.1    
+[10] utf8_1.2.2          R6_2.5.1            sjlabelled_1.1.8   
+[13] mgcv_1.8-39         DBI_1.1.1           colorspace_2.0-2   
+[16] withr_2.4.2         tidyselect_1.1.1    mnormt_2.0.2       
+[19] emmeans_1.6.3       compiler_4.1.3      cli_3.0.1          
+[22] performance_0.7.3   rvest_1.0.1         xml2_1.3.2         
+[25] sandwich_3.0-1      labeling_0.4.2      bookdown_0.24      
+[28] bayestestR_0.11.0   scales_1.1.1        mvtnorm_1.1-2      
+[31] quadprog_1.5-8      digest_0.6.27       minqa_1.2.4        
+[34] rmarkdown_2.10      pkgconfig_2.0.3     htmltools_0.5.2    
+[37] highr_0.9           dbplyr_2.1.1        fastmap_1.1.0      
+[40] rlang_0.4.11        readxl_1.3.1        rstudioapi_0.13    
+[43] farver_2.1.0        generics_0.1.0      apaTables_2.0.8    
+[46] jsonlite_1.7.2      magrittr_2.0.1      parameters_0.14.0  
+[49] Rcpp_1.0.7          munsell_0.5.0       fansi_0.5.0        
+[52] lifecycle_1.0.0     stringi_1.7.4       multcomp_1.4-17    
+[55] yaml_2.2.1          MASS_7.3-55         plyr_1.8.6         
+[58] grid_4.1.3          parallel_4.1.3      sjmisc_2.8.7       
+[61] crayon_1.4.1        lattice_0.20-45     ggeffects_1.1.1    
+[64] haven_2.4.3         splines_4.1.3       hms_1.1.0          
+[67] tmvnsim_1.0-2       knitr_1.34          pillar_1.6.2       
+[70] boot_1.3-28         estimability_1.3    effectsize_0.4.5   
+[73] codetools_0.2-18    reprex_2.0.1        glue_1.4.2         
+[76] evaluate_0.14       modelr_0.1.8        vctrs_0.3.8        
+[79] nloptr_1.2.2.2      tzdb_0.1.2          cellranger_1.1.0   
+[82] gtable_0.3.0        assertthat_0.2.1    datawizard_0.2.0.1 
+[85] xfun_0.25           xtable_1.8-4        broom_0.7.9        
+[88] coda_0.19-4         survival_3.2-13     glmmTMB_1.1.2.3    
+[91] TH.data_1.1-0       ellipsis_0.3.2     
 \end{verbatim}
 
 \hypertarget{MLMexplore}{%
@@ -5216,10 +5240,6 @@ Let's take a look at the variables in the study
 \FunctionTok{library}\NormalTok{(data.table)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-Warning: package 'data.table' was built under R version 4.0.5
-\end{verbatim}
 
 \begin{verbatim}
 Attaching package: 'data.table'
@@ -6862,11 +6882,15 @@ FROM SUBSEQUENT LESSONS
 If this topic feels a bit overwhelming, simply change the random seed in the data simulation, then rework the problem. This should provide minor changes to the data (maybe in the second or third decimal point), but the results will likely be very similar.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Restructure the dataset from wide to long (or from long to wide) & 5 & \_\_\_\_\_ \\
@@ -6883,11 +6907,15 @@ Assignment Component & & \\
 Use the simulated data, but select one of the other models that was evaluated in the Lewis et al. \citep{lewis_applying_2017} study. Compare your results to those reported in the mansucript.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Restructure the dataset from wide to long (or from long to wide) & 5 & \_\_\_\_\_ \\
@@ -6904,11 +6932,15 @@ Assignment Component & & \\
 Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete the exploratory analyses.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Restructure the dataset from wide to long (or from long to wide) & 5 & \_\_\_\_\_ \\
@@ -7071,9 +7103,9 @@ The parallel dataset with depression as the outcome is called: DLfvrWide Here is
 \end{Shaded}
 
 \begin{verbatim}
-R version 4.0.4 (2021-02-15)
+R version 4.1.3 (2022-03-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18362)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
@@ -7088,50 +7120,51 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] lattice_0.20-41            data.table_1.14.0         
- [3] scales_1.1.1               sjPlot_2.8.7              
+ [1] lattice_0.20-45            data.table_1.14.0         
+ [3] scales_1.1.1               sjPlot_2.8.10             
  [5] PerformanceAnalytics_2.0.4 xts_0.12.1                
  [7] zoo_1.8-9                  robumeta_2.0              
  [9] lmerTest_3.1-3             forcats_0.5.1             
-[11] stringr_1.4.0              dplyr_1.0.5               
-[13] purrr_0.3.4                readr_1.4.0               
-[15] tidyr_1.1.3                tibble_3.1.1              
-[17] ggplot2_3.3.3              tidyverse_1.3.1           
-[19] sjstats_0.18.1             nlme_3.1-151              
-[21] lme4_1.1-26                Matrix_1.2-18             
-[23] psych_2.1.3               
+[11] stringr_1.4.0              dplyr_1.0.7               
+[13] purrr_0.3.4                readr_2.0.1               
+[15] tidyr_1.1.3                tibble_3.1.4              
+[17] ggplot2_3.3.5              tidyverse_1.3.1           
+[19] sjstats_0.18.1             nlme_3.1-155              
+[21] lme4_1.1-27.1              Matrix_1.4-0              
+[23] psych_2.1.6               
 
 loaded via a namespace (and not attached):
- [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-0   
- [4] ellipsis_0.3.1      sjlabelled_1.1.7    estimability_1.3   
- [7] snakecase_0.11.0    parameters_0.13.0   fs_1.5.0           
-[10] rstudioapi_0.13     glmmTMB_1.0.2.1     farver_2.1.0       
-[13] fansi_0.4.2         mvtnorm_1.1-1       lubridate_1.7.10   
-[16] xml2_1.3.2          codetools_0.2-18    splines_4.0.4      
-[19] mnormt_2.0.2        knitr_1.33          sjmisc_2.8.6       
-[22] jsonlite_1.7.2      nloptr_1.2.2.2      ggeffects_1.1.0    
-[25] broom_0.7.6         dbplyr_2.1.1        effectsize_0.4.4-1 
-[28] compiler_4.0.4      httr_1.4.2          emmeans_1.6.0      
-[31] backports_1.2.1     assertthat_0.2.1    cli_2.5.0          
-[34] htmltools_0.5.1.1   tools_4.0.4         coda_0.19-4        
+ [1] TH.data_1.1-0       minqa_1.2.4         colorspace_2.0-2   
+ [4] ellipsis_0.3.2      sjlabelled_1.1.8    estimability_1.3   
+ [7] parameters_0.14.0   fs_1.5.0            rstudioapi_0.13    
+[10] glmmTMB_1.1.2.3     farver_2.1.0        fansi_0.5.0        
+[13] mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
+[16] codetools_0.2-18    splines_4.1.3       mnormt_2.0.2       
+[19] knitr_1.34          sjmisc_2.8.7        jsonlite_1.7.2     
+[22] nloptr_1.2.2.2      ggeffects_1.1.1     broom_0.7.9        
+[25] dbplyr_2.1.1        effectsize_0.4.5    compiler_4.1.3     
+[28] httr_1.4.2          emmeans_1.6.3       backports_1.2.1    
+[31] assertthat_0.2.1    fastmap_1.1.0       cli_3.0.1          
+[34] htmltools_0.5.2     tools_4.1.3         coda_0.19-4        
 [37] gtable_0.3.0        glue_1.4.2          reshape2_1.4.4     
-[40] Rcpp_1.0.6          cellranger_1.1.0    vctrs_0.3.7        
-[43] apaTables_2.0.8     insight_0.13.2      xfun_0.22          
-[46] rvest_1.0.0         lifecycle_1.0.0     statmod_1.4.35     
-[49] MASS_7.3-53.1       hms_1.0.0           parallel_4.0.4     
-[52] sandwich_3.0-0      TMB_1.7.20          RColorBrewer_1.1-2 
-[55] yaml_2.2.1          stringi_1.5.3       highr_0.9          
-[58] bayestestR_0.9.0    boot_1.3-27         rlang_0.4.11       
-[61] pkgconfig_2.0.3     evaluate_0.14       labeling_0.4.2     
-[64] tidyselect_1.1.1    plyr_1.8.6          magrittr_2.0.1     
-[67] bookdown_0.22       R6_2.5.0            generics_0.1.0     
-[70] multcomp_1.4-17     DBI_1.1.1           pillar_1.6.0       
-[73] haven_2.4.1         withr_2.4.2         mgcv_1.8-35        
-[76] survival_3.2-11     performance_0.7.1   modelr_0.1.8       
-[79] crayon_1.4.1        utf8_1.2.1          tmvnsim_1.0-2      
-[82] rmarkdown_2.7       grid_4.0.4          readxl_1.3.1       
-[85] reprex_2.0.0        digest_0.6.27       xtable_1.8-4       
-[88] numDeriv_2016.8-1.1 munsell_0.5.0       quadprog_1.5-8     
+[40] Rcpp_1.0.7          cellranger_1.1.0    vctrs_0.3.8        
+[43] apaTables_2.0.8     insight_0.14.4      xfun_0.25          
+[46] rvest_1.0.1         lifecycle_1.0.0     MASS_7.3-55        
+[49] hms_1.1.0           parallel_4.1.3      sandwich_3.0-1     
+[52] TMB_1.7.22          RColorBrewer_1.1-2  yaml_2.2.1         
+[55] stringi_1.7.4       highr_0.9           bayestestR_0.11.0  
+[58] boot_1.3-28         rlang_0.4.11        pkgconfig_2.0.3    
+[61] evaluate_0.14       labeling_0.4.2      tidyselect_1.1.1   
+[64] plyr_1.8.6          magrittr_2.0.1      bookdown_0.24      
+[67] R6_2.5.1            generics_0.1.0      multcomp_1.4-17    
+[70] DBI_1.1.1           pillar_1.6.2        haven_2.4.3        
+[73] withr_2.4.2         mgcv_1.8-39         survival_3.2-13    
+[76] datawizard_0.2.0.1  performance_0.7.3   modelr_0.1.8       
+[79] crayon_1.4.1        utf8_1.2.2          tmvnsim_1.0-2      
+[82] tzdb_0.1.2          rmarkdown_2.10      grid_4.1.3         
+[85] readxl_1.3.1        reprex_2.0.1        digest_0.6.27      
+[88] xtable_1.8-4        numDeriv_2016.8-1.1 munsell_0.5.0      
+[91] quadprog_1.5-8     
 \end{verbatim}
 
 \hypertarget{LongMod}{%
@@ -7751,7 +7784,7 @@ With an intercept only, there is not much to plot. We can, though, look at the r
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-33-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -7762,14 +7795,14 @@ With an intercept only, there is not much to plot. We can, though, look at the r
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-33-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-33-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -7779,7 +7812,7 @@ With an intercept only, there is not much to plot. We can, though, look at the r
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-32-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-33-4.pdf}
 
 \textbf{Some interpretation}
 
@@ -8024,7 +8057,7 @@ A plot of predicted values illustrates the decrease in anxiety as sessions conti
 $SesNum
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-35-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf}
 
 Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.
 
@@ -8042,7 +8075,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-37-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -8053,14 +8086,14 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-37-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-37-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -8070,7 +8103,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-36-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-37-4.pdf}
 
 \textbf{Interpreting Fixed Effects}
 Looking at the \emph{tab\_model()} in the viewer, we can see that
@@ -8496,7 +8529,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-40-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -8507,14 +8540,14 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-40-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-40-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -8524,7 +8557,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-39-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-40-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8925,7 +8958,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -8936,14 +8969,14 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -8953,7 +8986,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-41-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-4.pdf}
 
 A plot of predicted values illustrates that anxiety continues decrease as sessions increase, even though we have added additional predictors. So far, this suggests stability in that result.
 
@@ -8968,19 +9001,19 @@ A plot of predicted values illustrates that anxiety continues decrease as sessio
 [[1]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-43-1.pdf}
 
 \begin{verbatim}
 [[2]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-43-2.pdf}
 
 \begin{verbatim}
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-42-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-43-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8995,7 +9028,7 @@ A plot of predicted values illustrates that anxiety continues decrease as sessio
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-43-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-1.pdf}
 
 \textbf{Interpreting Fixed Effects}
 
@@ -9400,7 +9433,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-45-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -9411,14 +9444,14 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-45-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-45-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -9428,7 +9461,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-44-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-45-4.pdf}
 Because of the significant trimming (of non-significant interaction effects), our plot resemble those we have observed throughout the model building process.
 
 \begin{Shaded}
@@ -9437,7 +9470,7 @@ Because of the significant trimming (of non-significant interaction effects), ou
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-45-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-46-1.pdf}
 
 Summary interpretations:
 
@@ -9558,8 +9591,7 @@ Mod1a: Anxiety ~ 1 + (1 | ClientID)
 Mod2a: Anxiety ~ SesNum + (SesNum | ClientID)
 Mod5a: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
 Mod3a: Anxiety ~ SesNum * Het0 + (SesNum | ClientID)
-Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | 
-Mod4a:     ClientID)
+Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | ClientID)
       npar    AIC    BIC  logLik deviance     Chisq Df            Pr(>Chisq)
 Mod1a    3 243113 243141 -121554   243107                                   
 Mod2a    6 236029 236083 -118009   236017 7090.4634  3 < 0.00000000000000022
@@ -9589,8 +9621,7 @@ In a manner consistent with the fixed effects, we see that models 2a and 5a are 
 Data: LfvrLong
 Models:
 Mod5a: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
-Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | 
-Mod4a:     ClientID)
+Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | ClientID)
       npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
 Mod5a    7 235990 236054 -117988   235976                     
 Mod4a   11 235996 236095 -117987   235974 2.4628  4     0.6513
@@ -9682,11 +9713,15 @@ This assignment grows from the \protect\hyperlink{MLMexplore}{lesson} on prelimi
 If this topic feels a bit overwhelming, simply change the random seed in the data simulation, then rework the problem. This should provide minor changes to the data (maybe in the second or third decimal point), but the results will likely be very similar.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
@@ -9710,11 +9745,15 @@ Assignment Component & & \\
 In the Bonus Track of the prior \protect\hyperlink{MLMexplore}{lesson} I provided the code to simulate this data where depression was the dependent variable. Repeat this analysis with that data.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
@@ -9738,11 +9777,15 @@ Assignment Component & & \\
 Conduct a multilevel model with data to which you have access. This could include data you simulate on your own or from a published article.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.76}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.11}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7642}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1220}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1138}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Assign each variable to the L1 or L2 roles & 5 & \_\_\_\_\_ \\
@@ -9767,9 +9810,9 @@ Assignment Component & & \\
 \end{Shaded}
 
 \begin{verbatim}
-R version 4.0.4 (2021-02-15)
+R version 4.1.3 (2022-03-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18362)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
@@ -9784,51 +9827,51 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] formattable_0.2.1          lattice_0.20-41           
+ [1] formattable_0.2.1          lattice_0.20-45           
  [3] data.table_1.14.0          scales_1.1.1              
- [5] sjPlot_2.8.7               PerformanceAnalytics_2.0.4
+ [5] sjPlot_2.8.10              PerformanceAnalytics_2.0.4
  [7] xts_0.12.1                 zoo_1.8-9                 
  [9] robumeta_2.0               lmerTest_3.1-3            
 [11] forcats_0.5.1              stringr_1.4.0             
-[13] dplyr_1.0.5                purrr_0.3.4               
-[15] readr_1.4.0                tidyr_1.1.3               
-[17] tibble_3.1.1               ggplot2_3.3.3             
+[13] dplyr_1.0.7                purrr_0.3.4               
+[15] readr_2.0.1                tidyr_1.1.3               
+[17] tibble_3.1.4               ggplot2_3.3.5             
 [19] tidyverse_1.3.1            sjstats_0.18.1            
-[21] nlme_3.1-151               lme4_1.1-26               
-[23] Matrix_1.2-18              psych_2.1.3               
+[21] nlme_3.1-155               lme4_1.1-27.1             
+[23] Matrix_1.4-0               psych_2.1.6               
 
 loaded via a namespace (and not attached):
- [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-0   
- [4] ellipsis_0.3.1      sjlabelled_1.1.7    estimability_1.3   
- [7] snakecase_0.11.0    parameters_0.13.0   fs_1.5.0           
-[10] rstudioapi_0.13     glmmTMB_1.0.2.1     farver_2.1.0       
-[13] fansi_0.4.2         mvtnorm_1.1-1       lubridate_1.7.10   
-[16] xml2_1.3.2          codetools_0.2-18    splines_4.0.4      
-[19] mnormt_2.0.2        knitr_1.33          sjmisc_2.8.6       
-[22] jsonlite_1.7.2      nloptr_1.2.2.2      ggeffects_1.1.0    
-[25] broom_0.7.6         dbplyr_2.1.1        effectsize_0.4.4-1 
-[28] compiler_4.0.4      httr_1.4.2          emmeans_1.6.0      
-[31] backports_1.2.1     assertthat_0.2.1    cli_2.5.0          
-[34] htmltools_0.5.1.1   tools_4.0.4         coda_0.19-4        
+ [1] TH.data_1.1-0       minqa_1.2.4         colorspace_2.0-2   
+ [4] ellipsis_0.3.2      sjlabelled_1.1.8    estimability_1.3   
+ [7] parameters_0.14.0   fs_1.5.0            rstudioapi_0.13    
+[10] glmmTMB_1.1.2.3     farver_2.1.0        fansi_0.5.0        
+[13] mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
+[16] codetools_0.2-18    splines_4.1.3       mnormt_2.0.2       
+[19] knitr_1.34          sjmisc_2.8.7        jsonlite_1.7.2     
+[22] nloptr_1.2.2.2      ggeffects_1.1.1     broom_0.7.9        
+[25] dbplyr_2.1.1        effectsize_0.4.5    compiler_4.1.3     
+[28] httr_1.4.2          emmeans_1.6.3       backports_1.2.1    
+[31] assertthat_0.2.1    fastmap_1.1.0       cli_3.0.1          
+[34] htmltools_0.5.2     tools_4.1.3         coda_0.19-4        
 [37] gtable_0.3.0        glue_1.4.2          reshape2_1.4.4     
-[40] Rcpp_1.0.6          cellranger_1.1.0    vctrs_0.3.7        
-[43] apaTables_2.0.8     insight_0.13.2      xfun_0.22          
-[46] rvest_1.0.0         lifecycle_1.0.0     statmod_1.4.35     
-[49] MASS_7.3-53.1       hms_1.0.0           parallel_4.0.4     
-[52] sandwich_3.0-0      TMB_1.7.20          RColorBrewer_1.1-2 
-[55] yaml_2.2.1          stringi_1.5.3       highr_0.9          
-[58] bayestestR_0.9.0    boot_1.3-27         rlang_0.4.11       
-[61] pkgconfig_2.0.3     evaluate_0.14       htmlwidgets_1.5.3  
-[64] labeling_0.4.2      tidyselect_1.1.1    plyr_1.8.6         
-[67] magrittr_2.0.1      bookdown_0.22       R6_2.5.0           
-[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
-[73] pillar_1.6.0        haven_2.4.1         withr_2.4.2        
-[76] mgcv_1.8-35         survival_3.2-11     performance_0.7.1  
-[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.1         
-[82] tmvnsim_1.0-2       rmarkdown_2.7       grid_4.0.4         
-[85] readxl_1.3.1        reprex_2.0.0        digest_0.6.27      
-[88] xtable_1.8-4        numDeriv_2016.8-1.1 munsell_0.5.0      
-[91] quadprog_1.5-8     
+[40] Rcpp_1.0.7          cellranger_1.1.0    vctrs_0.3.8        
+[43] apaTables_2.0.8     insight_0.14.4      xfun_0.25          
+[46] rvest_1.0.1         lifecycle_1.0.0     MASS_7.3-55        
+[49] hms_1.1.0           parallel_4.1.3      sandwich_3.0-1     
+[52] TMB_1.7.22          RColorBrewer_1.1-2  yaml_2.2.1         
+[55] stringi_1.7.4       highr_0.9           bayestestR_0.11.0  
+[58] boot_1.3-28         rlang_0.4.11        pkgconfig_2.0.3    
+[61] evaluate_0.14       htmlwidgets_1.5.4   labeling_0.4.2     
+[64] tidyselect_1.1.1    plyr_1.8.6          magrittr_2.0.1     
+[67] bookdown_0.24       R6_2.5.1            generics_0.1.0     
+[70] multcomp_1.4-17     DBI_1.1.1           pillar_1.6.2       
+[73] haven_2.4.3         withr_2.4.2         mgcv_1.8-39        
+[76] survival_3.2-13     datawizard_0.2.0.1  performance_0.7.3  
+[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.2         
+[82] tmvnsim_1.0-2       tzdb_0.1.2          rmarkdown_2.10     
+[85] grid_4.1.3          readxl_1.3.1        reprex_2.0.1       
+[88] digest_0.6.27       xtable_1.8-4        numDeriv_2016.8-1.1
+[91] munsell_0.5.0       quadprog_1.5-8     
 \end{verbatim}
 
 \hypertarget{TimeLord}{%
@@ -10159,10 +10202,6 @@ In the script below, I am creating the variable ``Intake.'' I have assigned all 
 \FunctionTok{library}\NormalTok{(lubridate)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-Warning: package 'lubridate' was built under R version 4.0.5
-\end{verbatim}
 
 \begin{verbatim}
 Attaching package: 'lubridate'
@@ -10567,7 +10606,7 @@ In these first two plots we look at anxiety as a function of the time-unstructur
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-68-1.pdf}
 
 In the lesson on \href{MLMexplore}{longitudinal exploration} we created individual regression equations and superimposed them on the raw data. This second plot does not print the individual regression equations for us, but calculates them behind the scenes and creates the individual plots. Similar to the plots with nonparametric smoothing, we notice the difference in numbers of observations per cases. The straight line, though, does seem to be an appropriate functional form.
 
@@ -10582,7 +10621,7 @@ In the lesson on \href{MLMexplore}{longitudinal exploration} we created individu
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-68-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-69-1.pdf}
 If this were our real data, we would complete the process outlined in the \href{MLMexplore}{longitudinal exploration} chapter. Because the purpose of this lesson is focused on unstructured time with unbalanced data, we will move forward with a quick recap of building the MLM. This next section is abbreviated from the more thorough process demonstrated in the \href{LongMod}{basic longitudinal model} lesson.
 
 \hypertarget{rebuilding-the-model-unstructured-time-unbalanced-design}{%
@@ -10727,7 +10766,7 @@ Although I would normally run the diagnostic plots after each model, in this les
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-70-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-71-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -10738,14 +10777,14 @@ Although I would normally run the diagnostic plots after each model, in this les
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-70-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-71-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-70-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-71-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -10755,7 +10794,7 @@ Although I would normally run the diagnostic plots after each model, in this les
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-70-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-71-4.pdf}
 
 \hypertarget{model-2-unconditional-growth-model}{%
 \subsubsection{Model 2: Unconditional growth model}\label{model-2-unconditional-growth-model}}
@@ -10943,7 +10982,7 @@ A plot of predicted values illustrates the decrease in anxiety as sessions conti
 $Weeks
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-72-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-73-1.pdf}
 
 \textbf{Interpreting Fixed Effects}
 Looking at the \emph{tab\_model()} in the viewer, we can see that
@@ -11215,7 +11254,7 @@ AIC
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 \textbf{Interpreting Fixed Effects}
 The estimated anxiety at Week1 for heterosexual individuals is 2.49 (\emph{p} \textless{} .001). If the client is LGBQQ, the average Week1 anxiety level is higher: 2.77 (\emph{p} \textless{} .001; 2.49 + .28).
@@ -11936,7 +11975,7 @@ AIC
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-80-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-81-1.pdf}
 
 \begin{verbatim}
 [[2]]
@@ -11947,14 +11986,14 @@ AIC
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-80-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-81-2.pdf}
 
 \begin{verbatim}
 
 [[3]]
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-80-3.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-81-3.pdf}
 
 \begin{verbatim}
 [[4]]
@@ -11964,7 +12003,7 @@ AIC
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-80-4.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-81-4.pdf}
 Because of the significant trimming (of non-significant interaction effects), our plot resemble those we have observed throughout the model building process. For this final model we cannot use the \emph{type = ``int''} because it requires an interaction term and we did not have one.
 
 \begin{Shaded}
@@ -11973,7 +12012,7 @@ Because of the significant trimming (of non-significant interaction effects), ou
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-81-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-82-1.pdf}
 
 Our results are, not surprisingly, consistent with what we expected when we trimmed. That is, Anxiety for heterosexual clients at Week1 is 2.48; for LGBQQ clients it is 2.78. For all clients, anxiety decreases, on average, .08 per week.
 
@@ -13734,7 +13773,7 @@ geom_path: Each group consists of only one observation. Do you need to adjust
 the group aesthetic?
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-85-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-86-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13747,7 +13786,7 @@ the group aesthetic?
 `geom_smooth()` using formula 'y ~ x'
 \end{verbatim}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-85-2.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-86-2.pdf}
 
 I will run all of the models in one chunk and produce the \emph{tab\_model} table.
 
@@ -14134,7 +14173,7 @@ AIC
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-87-1.pdf}
+\includegraphics{ReC_Multilevel_files/figure-latex/unnamed-chunk-88-1.pdf}
 How do the models differ when Index (time-structured) is used to mark time?
 
 In the fixed effects:
@@ -14188,11 +14227,15 @@ The prior lessons suggests working a longitudinal MLM from exploration through m
 If you would like practice with time conversions, rework this lesson by changing calendrical time from weeks (dweeks) to another unit such as days or months. Work the example and compare the answers to those in the lesson. For more of a challenge use the simulation from the Lefevor et al. \citeyearpar{lefevor_religious_2017} where depression is the outcome. This will require you to engage in more of the simulation. The simulation is available in the Bonus Track of the \href{MLMexplore}{longitudinal exploration}lesson.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.74}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.13}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7387}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1261}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Apply date format to variables & 5 & \_\_\_\_\_ \\
@@ -14215,11 +14258,15 @@ Assignment Component & & \\
 Using (a) this lesson's data or (b) the simulation where depression is the outcome (located in the Bonus Track of the \href{MLMexplore}{longitudinal exploration}lesson), delete a different number of cases from the long file and rework the problem.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.74}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.13}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7387}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1261}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. From the long file, delete a meaningful number of cases & 5 & \_\_\_\_\_ \\
@@ -14239,11 +14286,15 @@ Assignment Component & & \\
 Using data for which you have permission and access play around with time and balance/unbalance.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.74}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.13}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7387}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1351}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1261}}@{}}
 \toprule
-Assignment Component & & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 1. Play with time?\_\_\_\_\_\_\_\_\_\_ & 5 & \_\_\_\_\_ \\
@@ -14305,9 +14356,9 @@ As noted in the prior question, ``tz'' is the function used to indicate the time
 \end{Shaded}
 
 \begin{verbatim}
-R version 4.0.4 (2021-02-15)
+R version 4.1.3 (2022-03-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18362)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
@@ -14323,50 +14374,51 @@ attached base packages:
 
 other attached packages:
  [1] lubridate_1.7.10           formattable_0.2.1         
- [3] lattice_0.20-41            data.table_1.14.0         
- [5] scales_1.1.1               sjPlot_2.8.7              
+ [3] lattice_0.20-45            data.table_1.14.0         
+ [5] scales_1.1.1               sjPlot_2.8.10             
  [7] PerformanceAnalytics_2.0.4 xts_0.12.1                
  [9] zoo_1.8-9                  robumeta_2.0              
 [11] lmerTest_3.1-3             forcats_0.5.1             
-[13] stringr_1.4.0              dplyr_1.0.5               
-[15] purrr_0.3.4                readr_1.4.0               
-[17] tidyr_1.1.3                tibble_3.1.1              
-[19] ggplot2_3.3.3              tidyverse_1.3.1           
-[21] sjstats_0.18.1             nlme_3.1-151              
-[23] lme4_1.1-26                Matrix_1.2-18             
-[25] psych_2.1.3               
+[13] stringr_1.4.0              dplyr_1.0.7               
+[15] purrr_0.3.4                readr_2.0.1               
+[17] tidyr_1.1.3                tibble_3.1.4              
+[19] ggplot2_3.3.5              tidyverse_1.3.1           
+[21] sjstats_0.18.1             nlme_3.1-155              
+[23] lme4_1.1-27.1              Matrix_1.4-0              
+[25] psych_2.1.6               
 
 loaded via a namespace (and not attached):
- [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-0   
- [4] ellipsis_0.3.1      sjlabelled_1.1.7    estimability_1.3   
- [7] snakecase_0.11.0    parameters_0.13.0   fs_1.5.0           
-[10] rstudioapi_0.13     glmmTMB_1.0.2.1     farver_2.1.0       
-[13] fansi_0.4.2         mvtnorm_1.1-1       xml2_1.3.2         
-[16] codetools_0.2-18    splines_4.0.4       mnormt_2.0.2       
-[19] knitr_1.33          sjmisc_2.8.6        jsonlite_1.7.2     
-[22] nloptr_1.2.2.2      ggeffects_1.1.0     broom_0.7.6        
-[25] dbplyr_2.1.1        effectsize_0.4.4-1  compiler_4.0.4     
-[28] httr_1.4.2          emmeans_1.6.0       backports_1.2.1    
-[31] assertthat_0.2.1    cli_2.5.0           htmltools_0.5.1.1  
-[34] tools_4.0.4         coda_0.19-4         gtable_0.3.0       
-[37] glue_1.4.2          reshape2_1.4.4      Rcpp_1.0.6         
-[40] cellranger_1.1.0    vctrs_0.3.7         apaTables_2.0.8    
-[43] insight_0.13.2      xfun_0.22           rvest_1.0.0        
-[46] lifecycle_1.0.0     statmod_1.4.35      MASS_7.3-53.1      
-[49] hms_1.0.0           parallel_4.0.4      sandwich_3.0-0     
-[52] TMB_1.7.20          RColorBrewer_1.1-2  yaml_2.2.1         
-[55] stringi_1.5.3       highr_0.9           bayestestR_0.9.0   
-[58] boot_1.3-27         rlang_0.4.11        pkgconfig_2.0.3    
-[61] evaluate_0.14       htmlwidgets_1.5.3   labeling_0.4.2     
-[64] tidyselect_1.1.1    plyr_1.8.6          magrittr_2.0.1     
-[67] bookdown_0.22       R6_2.5.0            generics_0.1.0     
-[70] multcomp_1.4-17     DBI_1.1.1           pillar_1.6.0       
-[73] haven_2.4.1         withr_2.4.2         mgcv_1.8-35        
-[76] survival_3.2-11     performance_0.7.1   modelr_0.1.8       
-[79] crayon_1.4.1        utf8_1.2.1          tmvnsim_1.0-2      
-[82] rmarkdown_2.7       grid_4.0.4          readxl_1.3.1       
-[85] reprex_2.0.0        digest_0.6.27       xtable_1.8-4       
-[88] numDeriv_2016.8-1.1 munsell_0.5.0       quadprog_1.5-8     
+ [1] TH.data_1.1-0       minqa_1.2.4         colorspace_2.0-2   
+ [4] ellipsis_0.3.2      sjlabelled_1.1.8    estimability_1.3   
+ [7] parameters_0.14.0   fs_1.5.0            rstudioapi_0.13    
+[10] glmmTMB_1.1.2.3     farver_2.1.0        fansi_0.5.0        
+[13] mvtnorm_1.1-2       xml2_1.3.2          codetools_0.2-18   
+[16] splines_4.1.3       mnormt_2.0.2        knitr_1.34         
+[19] sjmisc_2.8.7        jsonlite_1.7.2      nloptr_1.2.2.2     
+[22] ggeffects_1.1.1     broom_0.7.9         dbplyr_2.1.1       
+[25] effectsize_0.4.5    compiler_4.1.3      httr_1.4.2         
+[28] emmeans_1.6.3       backports_1.2.1     assertthat_0.2.1   
+[31] fastmap_1.1.0       cli_3.0.1           htmltools_0.5.2    
+[34] tools_4.1.3         coda_0.19-4         gtable_0.3.0       
+[37] glue_1.4.2          reshape2_1.4.4      Rcpp_1.0.7         
+[40] cellranger_1.1.0    vctrs_0.3.8         apaTables_2.0.8    
+[43] insight_0.14.4      xfun_0.25           rvest_1.0.1        
+[46] lifecycle_1.0.0     MASS_7.3-55         hms_1.1.0          
+[49] parallel_4.1.3      sandwich_3.0-1      TMB_1.7.22         
+[52] RColorBrewer_1.1-2  yaml_2.2.1          stringi_1.7.4      
+[55] highr_0.9           bayestestR_0.11.0   boot_1.3-28        
+[58] rlang_0.4.11        pkgconfig_2.0.3     evaluate_0.14      
+[61] htmlwidgets_1.5.4   labeling_0.4.2      tidyselect_1.1.1   
+[64] plyr_1.8.6          magrittr_2.0.1      bookdown_0.24      
+[67] R6_2.5.1            generics_0.1.0      multcomp_1.4-17    
+[70] DBI_1.1.1           pillar_1.6.2        haven_2.4.3        
+[73] withr_2.4.2         mgcv_1.8-39         survival_3.2-13    
+[76] datawizard_0.2.0.1  performance_0.7.3   modelr_0.1.8       
+[79] crayon_1.4.1        utf8_1.2.2          tmvnsim_1.0-2      
+[82] tzdb_0.1.2          rmarkdown_2.10      grid_4.1.3         
+[85] readxl_1.3.1        reprex_2.0.1        digest_0.6.27      
+[88] xtable_1.8-4        numDeriv_2016.8-1.1 munsell_0.5.0      
+[91] quadprog_1.5-8     
 \end{verbatim}
 
 \hypertarget{refs}{%
