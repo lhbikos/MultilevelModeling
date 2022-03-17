@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.2.16)  17 MAR 2022 09:56
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.2.16)  17 MAR 2022 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -777,22 +777,22 @@ LaTeX Warning: Float too large for page by 39.16437pt on input line 145.
 
 [5] [6]
 
-Package natbib Warning: Citation `mallinckrodt_scientist-practitioner-advocate_2014' on page 7 undefined on input line 175.
+Package natbib Warning: Citation `mallinckrodt_scientist-practitioner-advocate_2014' on page 7 undefined on input line 171.
 
 
-Package natbib Warning: Citation `field_discovering_2012' on page 7 undefined on input line 175.
+Package natbib Warning: Citation `field_discovering_2012' on page 7 undefined on input line 171.
 
 [7
 
 ] [8]
 
-Package natbib Warning: Citation `green_using_2014' on page 9 undefined on input line 205.
+Package natbib Warning: Citation `green_using_2014' on page 9 undefined on input line 201.
 
 
-Package natbib Warning: Citation `byrne_structural_2016' on page 9 undefined on input line 205.
+Package natbib Warning: Citation `byrne_structural_2016' on page 9 undefined on input line 201.
 
 
-Package natbib Warning: Citation `jhangiani_research_2019' on page 9 undefined on input line 209.
+Package natbib Warning: Citation `jhangiani_research_2019' on page 9 undefined on input line 205.
 
 [9
 
@@ -802,34 +802,34 @@ Chapter 1.
 
 ]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 305.
+(Font)              scaled to size 7.665pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 305.
+(Font)              scaled to size 5.475pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 305.
+(Font)              scaled to size 10.95099pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 305.
+(Font)              scaled to size 7.66568pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 305.
+(Font)              scaled to size 5.4755pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 305.
+(Font)              scaled to size 10.94882pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 305.
+(Font)              scaled to size 7.66417pt on input line 301.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 305.
+(Font)              scaled to size 5.47441pt on input line 301.
 [12] [13] [14]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 437.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 433.
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 518--520
+Underfull \hbox (badness 10000) in paragraph at lines 514--516
 
  []
 
 
-Package natbib Warning: Citation `gladwell_outliers_2008' on page 16 undefined on input line 520.
+Package natbib Warning: Citation `gladwell_outliers_2008' on page 16 undefined on input line 516.
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 []\TU/lmr/m/n/10.95 R Markdown Reference guide: [][]$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][] [] [][] [][] [][][][][][][] [] [][][][][][][] [] [][][][] [] [][] []
  []
 
@@ -838,18 +838,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 538--539
 ]
 Chapter 2.
 
-Package natbib Warning: Citation `bryk_hierarchical_1992' on page 19 undefined on input line 559.
+Package natbib Warning: Citation `bryk_hierarchical_1992' on page 19 undefined on input line 555.
 
 
-Package natbib Warning: Citation `bell_how_2014' on page 19 undefined on input line 561.
+Package natbib Warning: Citation `bell_how_2014' on page 19 undefined on input line 557.
 
 [19]
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 20 undefined on input line 603.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 20 undefined on input line 599.
 
 [20]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 21 undefined on input line 653.
+Package natbib Warning: Citation `singer_applied_2003' on page 21 undefined on input line 649.
 
 [21]
 File: images/wiGroups/nesting.jpg Graphic file (type bmp)
@@ -858,49 +858,49 @@ File: images/wiGroups/nesting.jpg Graphic file (type bmp)
 File: images/wiGroups/MLM_workflow_xs.jpg Graphic file (type bmp)
 <images/wiGroups/MLM_workflow_xs.jpg>
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 23 undefined on input line 780.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 23 undefined on input line 776.
 
 
-Package natbib Warning: Citation `herek_assessing_1994' on page 23 undefined on input line 790.
+Package natbib Warning: Citation `herek_assessing_1994' on page 23 undefined on input line 786.
 
 
-Package natbib Warning: Citation `koenig_duke_2010' on page 23 undefined on input line 792.
+Package natbib Warning: Citation `koenig_duke_2010' on page 23 undefined on input line 788.
 
 [23] [24]
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 25 undefined on input line 799.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 25 undefined on input line 795.
 
 
-Package natbib Warning: Citation `muldoon_simulate_2018' on page 25 undefined on input line 804.
+Package natbib Warning: Citation `muldoon_simulate_2018' on page 25 undefined on input line 800.
 
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 25 undefined on input line 821.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 25 undefined on input line 817.
 
 [25] [26]
-File: ReC_Multilevel_files/figure-latex/pairs panels of MLM variables-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/pairs panels of MLM variables-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-11-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 912--914
+Underfull \hbox (badness 10000) in paragraph at lines 908--910
 [][]
  []
 
 [27]
 
-Package natbib Warning: Citation `kline_principles_2016' on page 28 undefined on input line 950.
+Package natbib Warning: Citation `kline_principles_2016' on page 28 undefined on input line 946.
 
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 28 undefined on input line 979.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 28 undefined on input line 975.
 
 [28]
 
-Package natbib Warning: Citation `newsom_centering_2019' on page 29 undefined on input line 1054.
+Package natbib Warning: Citation `newsom_centering_2019' on page 29 undefined on input line 1050.
 
 [29] [30]
 
-Package natbib Warning: Citation `enders_centering_2007' on page 31 undefined on input line 1130.
+Package natbib Warning: Citation `enders_centering_2007' on page 31 undefined on input line 1126.
 
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 31 undefined on input line 1142.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 31 undefined on input line 1138.
 
 [31] [32] [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -912,131 +912,131 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [36]
-Overfull \hbox (128.11485pt too wide) in paragraph at lines 1487--1487
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 1483--1483
 []\TU/lmtt/m/n/10.95 The ability to suppress reporting of reporting confidence intervals has been deprecated in this version.[] 
  []
 
 [37]
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 38 undefined on input line 1527.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 38 undefined on input line 1523.
 
 [38]
 
-Package natbib Warning: Citation `cumming_new_2014' on page 39 undefined on input line 1546.
+Package natbib Warning: Citation `cumming_new_2014' on page 39 undefined on input line 1542.
 
 [39] [40] [41]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [42]
-Overfull \hbox (432.79854pt too wide) in paragraph at lines 1811--1811
+Overfull \hbox (432.79854pt too wide) in paragraph at lines 1807--1807
 []\TU/lmtt/m/n/10.95 Please re-install 'TMB' from source using install.packages('TMB', type = 'source') or ask CRAN for a binary version of 'TMB' matching CRAN's 'Matrix' package[] 
  []
 
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-7-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-20-1.pdf>
 [43] [44] [45] [46] [47]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [48] [49]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-8-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-25-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2191--2193
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2189
 [][]
  []
 
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-9-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-26-1.pdf>
 [50]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-9-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-9-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-26-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-26-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [51]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-9-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-9-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-26-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-26-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [52]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-9-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-9-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-26-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-26-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [53]
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 54 undefined on input line 2254.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 54 undefined on input line 2250.
 
 [54] [55] [56] [57]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 2562--2564
+Underfull \hbox (badness 10000) in paragraph at lines 2558--2560
 
  []
 
 [59]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-10-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-29-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [60]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-10-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-10-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-29-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-29-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [61]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-10-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-10-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-29-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-29-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [62]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-11-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-30-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [63]
-File: ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-31-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [64]
-File: ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-31-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-31-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [65]
-File: ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-31-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-31-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [66]
-File: ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/diagnostic plots for Mod3-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-31-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-31-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [67]
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 68 undefined on input line 2701.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 68 undefined on input line 2697.
 
 [68] [69] [70] [71]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [72] [73]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-13-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-34-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3103--3105
+Underfull \hbox (badness 10000) in paragraph at lines 3099--3101
 [][]
  []
 
@@ -1044,10 +1044,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 3103--3105
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [74]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-14-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-35-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3112--3114
+Underfull \hbox (badness 10000) in paragraph at lines 3108--3110
 [][]
  []
 
@@ -1055,26 +1055,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 3112--3114
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [75]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-15-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [76]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-15-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-15-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-36-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-36-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [77]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-15-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-15-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-36-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-36-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [78]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-15-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-15-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-36-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-36-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1083,43 +1083,43 @@ Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=t
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [82] [83]
 
-Package natbib Warning: Citation `cohen_applied_2003' on page 84 undefined on input line 3443.
+Package natbib Warning: Citation `cohen_applied_2003' on page 84 undefined on input line 3439.
 
 [84]
 
-Package natbib Warning: Citation `enders_centering_2007' on page 85 undefined on input line 3453.
+Package natbib Warning: Citation `enders_centering_2007' on page 85 undefined on input line 3449.
 
 
-Package natbib Warning: Citation `bollen_testing_1993' on page 85 undefined on input line 3455.
+Package natbib Warning: Citation `bollen_testing_1993' on page 85 undefined on input line 3451.
 
 
-Package natbib Warning: Citation `hancock_hierarchical_2010' on page 85 undefined on input line 3455.
+Package natbib Warning: Citation `hancock_hierarchical_2010' on page 85 undefined on input line 3451.
 
 
-Package natbib Warning: Citation `petscher_linear_2013' on page 85 undefined on input line 3455.
+Package natbib Warning: Citation `petscher_linear_2013' on page 85 undefined on input line 3451.
 
 [85] [86]
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 87 undefined on input line 3535.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 87 undefined on input line 3531.
 
 [87]
 File: images/film-strip-1.jpg Graphic file (type bmp)
 <images/film-strip-1.jpg>
 
-Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 88 undefined on input line 3608.
+Package natbib Warning: Citation `lefevor_homonegativity_2020' on page 88 undefined on input line 3604.
 
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-16-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-38-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [88]
-Overfull \hbox (128.11485pt too wide) in paragraph at lines 3653--3653
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 3649--3649
 []\TU/lmtt/m/n/10.95 The ability to suppress reporting of reporting confidence intervals has been deprecated in this version.[] 
  []
 
 [89] [90]
-Overfull \hbox (128.11485pt too wide) in paragraph at lines 3737--3737
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 3733--3733
 []\TU/lmtt/m/n/10.95 The ability to suppress reporting of reporting confidence intervals has been deprecated in this version.[] 
  []
 
@@ -1133,30 +1133,30 @@ Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=t
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [100] [101] [102]
-Overfull \hbox (168.3561pt too wide) in paragraph at lines 4525--4525
+Overfull \hbox (168.3561pt too wide) in paragraph at lines 4521--4521
 []\TU/lmtt/m/n/10.95 ATSS ~ GenderL1 + AgeL1 + EducL1 + AttendL1 + GenderL2 + AgeL2 + EducL2 + AttendL2 + Homogeneity + (1 | church)[] 
  []
 
 [103]
-Overfull \hbox (214.34608pt too wide) in paragraph at lines 4571--4571
+Overfull \hbox (214.34608pt too wide) in paragraph at lines 4567--4567
 []\TU/lmtt/m/n/10.95 ATSSm3: ATSS ~ GenderL1 + AgeL1 + EducL1 + AttendL1 + GenderL2 + AgeL2 + EducL2 + AttendL2 + Homogeneity + (1 | church)[] 
  []
 
 [104] [105]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-[106] [107] [108]
-Chapter 3.
-[109
+[106] [107] [108
 
 ]
+Chapter 3.
+[109]
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10.95 110 \TU/lmr/m/sl/10.95 CHAPTER 3.  PRELIMINARY (OLS STYLE) EXPLORATION OF LONGITUDINAL GROWTH
  []
 
 [110]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 111 undefined on input line 4956.
+Package natbib Warning: Citation `singer_applied_2003' on page 111 undefined on input line 4883.
 
 [111]
 File: images/LongExpl/LongNesting.jpg Graphic file (type bmp)
@@ -1168,13 +1168,13 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 
 [112]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 113 undefined on input line 5053.
+Package natbib Warning: Citation `singer_applied_2003' on page 113 undefined on input line 4980.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 113 undefined on input line 5053.
+Package natbib Warning: Citation `singer_applied_2003' on page 113 undefined on input line 4980.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5063--5065
+Underfull \hbox (badness 10000) in paragraph at lines 4990--4992
 
  []
 
@@ -1182,13 +1182,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 5063--5065
 File: images/LongExpl/WrkFlowLong.jpg Graphic file (type bmp)
 <images/LongExpl/WrkFlowLong.jpg>
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 114 undefined on input line 5113.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 114 undefined on input line 5040.
 
 
-Package natbib Warning: Citation `locke_development_2012' on page 114 undefined on input line 5115.
+Package natbib Warning: Citation `locke_development_2012' on page 114 undefined on input line 5042.
 
 
-Package natbib Warning: Citation `locke_development_2012' on page 114 undefined on input line 5121.
+Package natbib Warning: Citation `locke_development_2012' on page 114 undefined on input line 5048.
 
 
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
@@ -1201,11 +1201,11 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
  []
 
 [116]
-Underfull \vbox (badness 10000) detected at line 5242
+Underfull \vbox (badness 10000) detected at line 5169
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5242
+Underfull \vbox (badness 10000) detected at line 5169
  []
 
 [117]
@@ -1219,7 +1219,7 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
  []
 
 [120]
-Overfull \hbox (128.11485pt too wide) in paragraph at lines 5394--5394
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10.95 The ability to suppress reporting of reporting confidence intervals has been deprecated in this version.[] 
  []
 
@@ -1235,24 +1235,24 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 
 [124]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 125 undefined on input line 5647.
+Package natbib Warning: Citation `singer_applied_2003' on page 125 undefined on input line 5574.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 125 undefined on input line 5669.
+Package natbib Warning: Citation `singer_applied_2003' on page 125 undefined on input line 5596.
 
 [125]
-File: ReC_Multilevel_files/figure-latex/indiv growth plots_smoothed-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/indiv growth plots_smoothed-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-63-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-63-1.pdf>
 
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10.95 126 \TU/lmr/m/sl/10.95 CHAPTER 3.  PRELIMINARY (OLS STYLE) EXPLORATION OF LONGITUDINAL GROWTH
  []
 
 [126]
-File: ReC_Multilevel_files/figure-latex/indiv growth plots_smoothed-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/indiv growth plots_smoothed-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-63-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-63-2.pdf>
 
-Package natbib Warning: Citation `singer_applied_2003' on page 127 undefined on input line 5740.
+Package natbib Warning: Citation `singer_applied_2003' on page 127 undefined on input line 5667.
 
 [127]
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
@@ -1326,25 +1326,25 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
  []
 
 [140]
-File: ReC_Multilevel_files/figure-latex/superimposed plot-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/superimposed plot-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-65-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [141]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 142 undefined on input line 6427.
+Package natbib Warning: Citation `singer_applied_2003' on page 142 undefined on input line 6354.
 
-File: ReC_Multilevel_files/figure-latex/within person growth as one figure-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/within person growth as one figure-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-66-1.pdf>
 
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10.95 142 \TU/lmr/m/sl/10.95 CHAPTER 3.  PRELIMINARY (OLS STYLE) EXPLORATION OF LONGITUDINAL GROWTH
  []
 
 [142]
-File: ReC_Multilevel_files/figure-latex/single plot of indiv regressions-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/single plot of indiv regressions-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-68-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-68-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1354,10 +1354,10 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
  []
 
 [144] [145]
-File: ReC_Multilevel_files/figure-latex/plotting fit for DR-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plotting fit for DR-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-75-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-75-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 6585--6587
+Underfull \hbox (badness 10000) in paragraph at lines 6512--6514
 [][]
  []
 
@@ -1367,26 +1367,26 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
  []
 
 [146]
-File: ReC_Multilevel_files/figure-latex/plotting fit for NDR-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plotting fit for NDR-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-78-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-78-1.pdf>
 [147]
-File: ReC_Multilevel_files/figure-latex/plotting fit for heterosexual-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plotting fit for heterosexual-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-81-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-81-1.pdf>
 
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10.95 148 \TU/lmr/m/sl/10.95 CHAPTER 3.  PRELIMINARY (OLS STYLE) EXPLORATION OF LONGITUDINAL GROWTH
  []
 
 [148]
-File: ReC_Multilevel_files/figure-latex/plotting fit for LGBQQ-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plotting fit for LGBQQ-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-84-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-84-1.pdf>
 [149]
-File: ReC_Multilevel_files/figure-latex/plot of intercepts for boys and girls-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plot of intercepts for boys and girls-1.pdf>
-File: ReC_Multilevel_files/figure-latex/plot age 11 tolerance and exposure-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plot age 11 tolerance and exposure-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-85-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-85-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-87-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-87-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 6732--6734
+Underfull \hbox (badness 10000) in paragraph at lines 6659--6661
 [][]
  []
 
@@ -1399,14 +1399,14 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
  []
 
 [150]
-File: ReC_Multilevel_files/figure-latex/plot gender and slope-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plot gender and slope-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-89-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-89-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [151]
-File: ReC_Multilevel_files/figure-latex/plot tol change and exposure-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/plot tol change and exposure-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-91-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-91-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1422,13 +1422,13 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 
 [154]
 
-Package natbib Warning: Citation `lewis_applying_2017' on page 155 undefined on input line 6907.
+Package natbib Warning: Citation `lewis_applying_2017' on page 155 undefined on input line 6834.
 
 [155]
 File: images/film-strip-1.jpg Graphic file (type bmp)
 <images/film-strip-1.jpg>
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 156 undefined on input line 6968.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 156 undefined on input line 6895.
 
 
 Overfull \hbox (18.20256pt too wide) has occurred while \output is active
@@ -1448,16 +1448,16 @@ Overfull \hbox (18.20256pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10.95 160 \TU/lmr/m/sl/10.95 CHAPTER 3.  PRELIMINARY (OLS STYLE) EXPLORATION OF LONGITUDINAL GROWTH
  []
 
-[160]
+[160
+
+]
 Chapter 4.
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 161 undefined on input line 7181.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 161 undefined on input line 7037.
 
-[161
+[161] [162]
 
-] [162]
-
-Package natbib Warning: Citation `singer_applied_2003' on page 163 undefined on input line 7273.
+Package natbib Warning: Citation `singer_applied_2003' on page 163 undefined on input line 7129.
 
 [163]
 File: images/LongExpl/WrkFlowLong.jpg Graphic file (type bmp)
@@ -1467,58 +1467,58 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [164]
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 165 undefined on input line 7327.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 165 undefined on input line 7183.
 
 
-Package natbib Warning: Citation `locke_development_2012' on page 165 undefined on input line 7329.
+Package natbib Warning: Citation `locke_development_2012' on page 165 undefined on input line 7185.
 
 
-Package natbib Warning: Citation `locke_development_2012' on page 165 undefined on input line 7335.
+Package natbib Warning: Citation `locke_development_2012' on page 165 undefined on input line 7191.
 
 [165]
-Underfull \vbox (badness 10000) detected at line 7469
+Underfull \vbox (badness 10000) detected at line 7325
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7469
+Underfull \vbox (badness 10000) detected at line 7325
  []
 
 [166]
-Underfull \vbox (badness 10000) detected at line 7469
+Underfull \vbox (badness 10000) detected at line 7325
  []
 
 
-Overfull \vbox (0.66817pt too high) detected at line 7469
+Overfull \vbox (0.66817pt too high) detected at line 7325
  []
 
 [167] [168]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 169 undefined on input line 7529.
+Package natbib Warning: Citation `singer_applied_2003' on page 169 undefined on input line 7385.
 
 [169] [170] [171] [172]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 [173]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-33-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-33-1.pdf>
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-33-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-33-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-107-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-107-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-107-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-107-2.pdf>
 [174]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-33-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-33-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-107-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-107-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [175]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-33-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-33-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-107-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-107-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [176]
 Missing character: There is no 𝜌 (U+1D70C) in font [lmroman10-regular]:mapping=tex-text;!
 
-Underfull \hbox (badness 10000) in paragraph at lines 7839--7840
+Underfull \hbox (badness 10000) in paragraph at lines 7695--7696
 
  []
 
@@ -1528,66 +1528,66 @@ Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=t
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
 [180]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-36-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-111-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-111-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [181]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-37-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-112-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-112-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [182]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-37-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-37-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-112-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-112-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [183]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-37-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-37-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-112-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-112-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [184]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-37-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-37-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-112-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-112-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [185] [186] [187]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 188 undefined on input line 8180.
+Package natbib Warning: Citation `singer_applied_2003' on page 188 undefined on input line 8036.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 188 undefined on input line 8187.
+Package natbib Warning: Citation `singer_applied_2003' on page 188 undefined on input line 8043.
 
 
-Package natbib Warning: Citation `bollen_testing_1993' on page 188 undefined on input line 8187.
+Package natbib Warning: Citation `bollen_testing_1993' on page 188 undefined on input line 8043.
 
 
-Package natbib Warning: Citation `hayes_introduction_2018' on page 188 undefined on input line 8187.
+Package natbib Warning: Citation `hayes_introduction_2018' on page 188 undefined on input line 8043.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 188 undefined on input line 8192.
+Package natbib Warning: Citation `singer_applied_2003' on page 188 undefined on input line 8048.
 
 [188]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 189 undefined on input line 8239.
+Package natbib Warning: Citation `singer_applied_2003' on page 189 undefined on input line 8095.
 
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 189 undefined on input line 8249.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 189 undefined on input line 8105.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 189 undefined on input line 8249.
+Package natbib Warning: Citation `singer_applied_2003' on page 189 undefined on input line 8105.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 189 undefined on input line 8265.
+Package natbib Warning: Citation `singer_applied_2003' on page 189 undefined on input line 8121.
 
 
-Overfull \hbox (289.07982pt too wide) in paragraph at lines 8290--8290
+Overfull \hbox (289.07982pt too wide) in paragraph at lines 8146--8146
 []\TU/lmtt/m/n/10.95 Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue[] 
  []
 
@@ -1597,41 +1597,41 @@ Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=t
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
 [192]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-40-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-40-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-117-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-117-1.pdf>
 
 Underfull \vbox (badness 6893) has occurred while \output is active []
 
 [193]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-40-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-40-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-117-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-117-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [194]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-40-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-40-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-117-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-117-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [195]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-40-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-40-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-117-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-117-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [196]
-File: ReC_Multilevel_files/figure-latex/Mod3a_lme4 plot_model-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/Mod3a_lme4 plot_model-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-118-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-118-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [197] [198]
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 199 undefined on input line 8608.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 199 undefined on input line 8464.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 199 undefined on input line 8608.
+Package natbib Warning: Citation `singer_applied_2003' on page 199 undefined on input line 8464.
 
 [199]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1642,53 +1642,53 @@ Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=t
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
 [203]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-42-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-122-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-122-1.pdf>
 [204]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-42-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-42-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-122-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-122-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [205]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-42-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-42-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-122-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-122-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [206]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-42-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-42-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-122-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-122-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [207]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-43-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-123-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-123-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [208]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-43-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-43-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-123-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-123-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [209]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-43-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-43-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-123-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-123-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [210]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-44-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-124-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-124-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [211]
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 212 undefined on input line 9053.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 212 undefined on input line 8909.
 
 [212] [213] [214] [215]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
@@ -1697,28 +1697,28 @@ Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=t
 [216]
 Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
 [217]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-45-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-126-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-126-1.pdf>
 
 Underfull \vbox (badness 6893) has occurred while \output is active []
 
 [218]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-45-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-45-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-126-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-126-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [219]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-45-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-45-3.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-126-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-126-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [220]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-45-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-45-4.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-126-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-126-4.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9464--9466
+Underfull \hbox (badness 10000) in paragraph at lines 9320--9322
 [][]
  []
 
@@ -1726,124 +1726,134 @@ Underfull \hbox (badness 10000) in paragraph at lines 9464--9466
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [221]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-46-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-127-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-127-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [222] [223]
-Underfull \hbox (badness 10000) in paragraph at lines 9544--9546
+Underfull \hbox (badness 10000) in paragraph at lines 9400--9402
 
  []
 
 
-Package natbib Warning: Citation `enders_centering_2007' on page 224 undefined on input line 9546.
+Package natbib Warning: Citation `enders_centering_2007' on page 224 undefined on input line 9402.
 
 [224]
-Overfull \hbox (13.13988pt too wide) in paragraph at lines 9609--9609
+Overfull \hbox (13.13988pt too wide) in paragraph at lines 9465--9465
 []\TU/lmtt/m/n/10.95 Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | ClientID)[] 
  []
 
 [225]
-Overfull \hbox (13.13988pt too wide) in paragraph at lines 9628--9628
+Overfull \hbox (13.13988pt too wide) in paragraph at lines 9484--9484
 []\TU/lmtt/m/n/10.95 Mod4a: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum | ClientID)[] 
  []
 
 [226]
 
-Package natbib Warning: Citation `singer_applied_2003' on page 227 undefined on input line 9646.
+Package natbib Warning: Citation `singer_applied_2003' on page 227 undefined on input line 9502.
 
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 227 undefined on input line 9668.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 227 undefined on input line 9524.
 
 [227]
 
-Package natbib Warning: Citation `hancock_hierarchical_2010' on page 228 undefined on input line 9676.
+Package natbib Warning: Citation `hancock_hierarchical_2010' on page 228 undefined on input line 9532.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 228 undefined on input line 9676.
+Package natbib Warning: Citation `singer_applied_2003' on page 228 undefined on input line 9532.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 228 undefined on input line 9685.
+Package natbib Warning: Citation `singer_applied_2003' on page 228 undefined on input line 9541.
 
 [228]
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 229 undefined on input line 9700.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 229 undefined on input line 9556.
 
-[229] [230] [231]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[232] [233] [234
+[229] [230] [231] [232
 
 ]
 Chapter 5.
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 235 undefined on input line 9882.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 233 undefined on input line 9667.
 
-[235] [236]
+[233] [234]
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 237 undefined on input line 9986.
-
-
-Package natbib Warning: Citation `locke_development_2012' on page 237 undefined on input line 9988.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 235 undefined on input line 9771.
 
 
-Package natbib Warning: Citation `locke_development_2012' on page 237 undefined on input line 9994.
+Package natbib Warning: Citation `locke_development_2012' on page 235 undefined on input line 9773.
+
+
+Package natbib Warning: Citation `locke_development_2012' on page 235 undefined on input line 9779.
+
+[235]
+
+Package natbib Warning: Citation `lefevor_religious_2017' on page 236 undefined on input line 9785.
+
+[236]
+Underfull \vbox (badness 10000) detected at line 9924
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 9924
+ []
 
 [237]
+Underfull \vbox (badness 10000) detected at line 9924
+ []
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 238 undefined on input line 10000.
+
+Underfull \vbox (badness 10000) detected at line 9924
+ []
 
 [238]
-Underfull \vbox (badness 10000) detected at line 10139
- []
 
+Package natbib Warning: Citation `lefevor_religious_2017' on page 239 undefined on input line 9951.
 
-Underfull \vbox (badness 10000) detected at line 10139
- []
-
-[239]
-Underfull \vbox (badness 10000) detected at line 10139
- []
-
-
-Underfull \vbox (badness 10000) detected at line 10139
- []
-
-[240]
-
-Package natbib Warning: Citation `lefevor_religious_2017' on page 241 undefined on input line 10166.
-
-[241] [242]
-Overfull \hbox (59.12987pt too wide) in paragraph at lines 10239--10239
+[239] [240]
+Overfull \hbox (59.12987pt too wide) in paragraph at lines 10024--10024
 [] \TU/lmtt/m/n/10.95 Date[1:12825], format: "2021-05-28" "2021-05-28" "2021-05-28" "2021-05-28" "2021-05-28" ...[] 
  []
 
-[243]
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 10298--10298
+[241]
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 10083--10083
 [] \TU/lmtt/m/n/10.95 POSIXct[1:12825], format: "2021-05-29 07:00:29" "2021-07-05 14:07:36" "2021-06-04 20:29:44" ...[] 
  []
 
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 244 undefined on input line 10305.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 242 undefined on input line 10090.
 
 
-Package natbib Warning: Citation `singer_applied_2003' on page 244 undefined on input line 10310.
+Package natbib Warning: Citation `singer_applied_2003' on page 242 undefined on input line 10095.
 
-[244]
+[242]
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 245 undefined on input line 10393.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 243 undefined on input line 10178.
+
+
+Overfull \hbox (60.22624pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 243
+ []
+
+[243] [244]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 245 undefined on input line 10266.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 245
  []
 
-[245] [246]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[245]
 
+Package natbib Warning: Citation `singer_applied_2003' on page 246 undefined on input line 10305.
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 247 undefined on input line 10481.
+[246]
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 247 undefined on input line 10364.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
@@ -1851,29 +1861,16 @@ Overfull \hbox (60.22624pt too wide) has occurred while \output is active
  []
 
 [247]
-
-Package natbib Warning: Citation `singer_applied_2003' on page 248 undefined on input line 10520.
-
-[248]
-
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 249 undefined on input line 10579.
-
-
-Overfull \hbox (60.22624pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 249
- []
-
-[249]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-68-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-68-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-154-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-154-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[250]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-69-1.pdf>
+[248]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-155-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-155-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 10624--10626
+Underfull \hbox (badness 10000) in paragraph at lines 10409--10411
 [][]
  []
 
@@ -1881,18 +1878,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 10624--10626
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 251 undefined on input line 10626.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 249 undefined on input line 10411.
+
+
+Overfull \hbox (60.22624pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 249
+ []
+
+[249] [250]
+Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 251 undefined on input line 10505.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 251
  []
 
-[251] [252]
-Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+[251]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-157-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-157-1.pdf>
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 253 undefined on input line 10720.
+Underfull \vbox (badness 2088) has occurred while \output is active []
+
+[252]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-157-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-157-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 253 undefined on input line 10567.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
@@ -1900,73 +1917,67 @@ Overfull \hbox (60.22624pt too wide) has occurred while \output is active
  []
 
 [253]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-71-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-71-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-157-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-157-3.pdf>
 
-Underfull \vbox (badness 2088) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [254]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-71-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-71-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-157-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-157-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 255 undefined on input line 10782.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 255 undefined on input line 10585.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 255
  []
 
-[255]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-71-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-71-3.pdf>
+[255] [256]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[256]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-71-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-71-4.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 257 undefined on input line 10800.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 257 undefined on input line 10678.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 257
  []
 
-[257] [258]
+[257]
+Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
+[258]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-159-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-159-1.pdf>
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 259 undefined on input line 10893.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 259 undefined on input line 10782.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 259
  []
 
-[259]
-Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
-[260]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-73-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-73-1.pdf>
+[259] [260]
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 261 undefined on input line 10997.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 261 undefined on input line 10901.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 261
  []
 
-[261] [262]
+[261]
+Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+[262]
+Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 263 undefined on input line 11116.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 263 undefined on input line 11034.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
@@ -1974,38 +1985,38 @@ Overfull \hbox (60.22624pt too wide) has occurred while \output is active
  []
 
 [263]
-Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-162-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-162-1.pdf>
 [264]
-Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
+Underfull \hbox (badness 1430) in paragraph at lines 11078--11081
+[]\TU/lmr/m/n/10.95 M1a <- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE) M2a <-
+ []
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 265 undefined on input line 11249.
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 265 undefined on input line 11140.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 265
  []
 
-[265]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-76-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-76-1.pdf>
-[266]
-Underfull \hbox (badness 1430) in paragraph at lines 11293--11296
-[]\TU/lmr/m/n/10.95 M1a <- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE) M2a <-
- []
+[265] [266]
 
-
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 267 undefined on input line 11355.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 267 undefined on input line 11244.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 267
  []
 
-[267] [268]
+[267]
+Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+[268]
+Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 269 undefined on input line 11459.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 269 undefined on input line 11380.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
@@ -2013,38 +2024,41 @@ Overfull \hbox (60.22624pt too wide) has occurred while \output is active
  []
 
 [269]
-Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-[270]
-Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
+Underfull \hbox (badness 1430) in paragraph at lines 11393--11397
+[]\TU/lmr/m/n/10.95 M1a <- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE) M2a <-
+ []
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 271 undefined on input line 11595.
+[270]
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 271 undefined on input line 11504.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 271
  []
 
-[271]
-Underfull \hbox (badness 1430) in paragraph at lines 11608--11612
-[]\TU/lmr/m/n/10.95 M1a <- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE) M2a <-
- []
+[271] [272]
+Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 
-[272]
-
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 273 undefined on input line 11719.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 273 undefined on input line 11640.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 273
  []
 
-[273] [274]
-Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
+[273]
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
+[274]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-167-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-167-1.pdf>
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 275 undefined on input line 11855.
+Underfull \vbox (badness 1939) has occurred while \output is active []
+
+
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 275 undefined on input line 11765.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
@@ -2052,16 +2066,19 @@ Overfull \hbox (60.22624pt too wide) has occurred while \output is active
  []
 
 [275]
-Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-167-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-167-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [276]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-81-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-81-1.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-167-3.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-167-3.pdf>
 
-Underfull \vbox (badness 1939) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 277 undefined on input line 11980.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 277 undefined on input line 11783.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
@@ -2069,51 +2086,37 @@ Overfull \hbox (60.22624pt too wide) has occurred while \output is active
  []
 
 [277]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-81-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-81-2.pdf>
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-167-4.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-167-4.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[278]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-81-3.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-81-3.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 279 undefined on input line 11998.
-
-
-Overfull \hbox (60.22624pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 279
- []
-
-[279]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-81-4.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-81-4.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 12006--12008
+Underfull \hbox (badness 10000) in paragraph at lines 11791--11793
 [][]
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[280]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-82-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-82-1.pdf>
+[278]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-168-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-168-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 281 undefined on input line 12017.
+Package natbib Warning: Citation `LEFEVOR_RELIGIOUS_2017' on page 279 undefined on input line 11802.
 
 
 Overfull \hbox (60.22624pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 281
+\TU/lmr/m/sl/10.95 5.5.  REWORKING LEFEVOR ET AL. (\TU/lmr/bx/n/10.95 ?\TU/lmr/m/sl/10.95 ) USING CALENDRICAL TIME (AND UNBALANCED DATA) \TU/lmr/m/n/10.95 279
  []
 
-[281] [282]
+[279] [280]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[281]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[282]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [283]
@@ -2209,60 +2212,54 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [313]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[314]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[315]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[316] [317]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-86-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-86-1.pdf>
+[314] [315]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-172-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-172-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[318]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-86-2.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-86-2.pdf>
+[316]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-172-2.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-172-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[319] [320] [321] [322] [323]
+[317] [318] [319] [320] [321]
 Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no τ (U+03C4) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ρ (U+03C1) in font [lmroman10-regular]:mapping=tex-text;!
-[324] [325]
-File: ReC_Multilevel_files/figure-latex/unnamed-chunk-88-1.pdf Graphic file (type pdf)
-<use ReC_Multilevel_files/figure-latex/unnamed-chunk-88-1.pdf>
+[322] [323]
+File: ReC_Multilevel_files/figure-latex/unnamed-chunk-174-1.pdf Graphic file (type pdf)
+<use ReC_Multilevel_files/figure-latex/unnamed-chunk-174-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 14176--14178
+Underfull \hbox (badness 10000) in paragraph at lines 13961--13963
 [][]
  []
 
 
 Underfull \vbox (badness 1242) has occurred while \output is active []
 
-[326] [327]
+[324] [325]
 
-Package natbib Warning: Citation `lefevor_religious_2017' on page 328 undefined on input line 14227.
+Package natbib Warning: Citation `lefevor_religious_2017' on page 326 undefined on input line 14012.
 
-[328]
+[326]
 File: images/film-strip-1.jpg Graphic file (type bmp)
 <images/film-strip-1.jpg>
 
-Overfull \hbox (55.70477pt too wide) in paragraph at lines 14331--14332
+Overfull \hbox (55.70477pt too wide) in paragraph at lines 14116--14117
 []\TU/lmr/m/n/10.95 Correspondingly, it is important to let lubridate know that the format is year/month/day_hour/minute/second.
  []
 
-[329] [330] [331] [332
-
-]
+[327] [328]
 No file ReC_Multilevel.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-[333] (./ReC_Multilevel.aux)
+[329
+
+] (./ReC_Multilevel.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -2277,11 +2274,11 @@ Package rerunfilecheck Info: Checksums for `ReC_Multilevel.out':
  ) 
 Here is how much of TeX's memory you used:
  19241 strings out of 478181
- 381724 string characters out of 5852708
- 959653 words of memory out of 5000000
+ 380572 string characters out of 5852708
+ 959655 words of memory out of 5000000
  39517 multiletter control sequences out of 15000+600000
  475748 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,7n,121p,2368b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ReC_Multilevel.pdf (333 pages).
+Output written on ReC_Multilevel.pdf (329 pages).

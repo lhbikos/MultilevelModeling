@@ -374,7 +374,7 @@ div.csl-indent {
 <div id="LongMod" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> A Basic Longitudinal Model</h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=dedb85c8-e442-49bf-8f92-ad31018b1dd8">Screencasted Lecture Link</a></p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="LongMod.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)<span class="co">#eliminates scientific notation</span></span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="LongMod.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)<span class="co">#eliminates scientific notation</span></span></code></pre></div>
 <p>The focus of this lecture is to introduce longitudinal modeling with the multilevel modeling approach. Longitudinal MLM is a complicated statistic with decisions-to-be-made at every point. We will continue with the Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> example that served as the research vignette for the preliminary investigation that preceded model building. In this lesson’s example, we will engage in model building that sequentially specifies and analyzes a within-persons (Level 1 [L1]) predictor of time, two between-persons (Level 2 [L2]) predictors of sexual identity and religious affiliation, and cross-level actions. We will also trim non-significant effects. In-so-doing, we examine the conceptual and technical aspects of multilevel modeling and assemble the model (and explore the data) in a systematic and sequential manner.</p>
 <div id="navigating-this-lesson-2" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Navigating this Lesson</h2>
@@ -416,16 +416,16 @@ div.csl-indent {
 <div id="packages-3" class="section level3" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Packages</h3>
 <p>The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="LongMod.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
-<span id="cb284-2"><a href="LongMod.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lme4)){install.packages(&quot;lme4&quot;)}</span></span>
-<span id="cb284-3"><a href="LongMod.html#cb284-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjStats)){install.packages(&quot;sjStats&quot;)}</span></span>
-<span id="cb284-4"><a href="LongMod.html#cb284-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjPlot)){install.packages(&quot;sjPlot&quot;)}</span></span>
-<span id="cb284-5"><a href="LongMod.html#cb284-5" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(formattable)){install.packages(&quot;formattable&quot;)}</span></span>
-<span id="cb284-6"><a href="LongMod.html#cb284-6" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
-<span id="cb284-7"><a href="LongMod.html#cb284-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(robumeta)){install.packages(&quot;robumeta&quot;)}</span></span>
-<span id="cb284-8"><a href="LongMod.html#cb284-8" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(scales)){install.packages(&quot;scales&quot;)}</span></span>
-<span id="cb284-9"><a href="LongMod.html#cb284-9" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
-<span id="cb284-10"><a href="LongMod.html#cb284-10" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(data.table)){install.packages(&quot;data.table&quot;)}</span></span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="LongMod.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
+<span id="cb280-2"><a href="LongMod.html#cb280-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lme4)){install.packages(&quot;lme4&quot;)}</span></span>
+<span id="cb280-3"><a href="LongMod.html#cb280-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjStats)){install.packages(&quot;sjStats&quot;)}</span></span>
+<span id="cb280-4"><a href="LongMod.html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjPlot)){install.packages(&quot;sjPlot&quot;)}</span></span>
+<span id="cb280-5"><a href="LongMod.html#cb280-5" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(formattable)){install.packages(&quot;formattable&quot;)}</span></span>
+<span id="cb280-6"><a href="LongMod.html#cb280-6" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
+<span id="cb280-7"><a href="LongMod.html#cb280-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(robumeta)){install.packages(&quot;robumeta&quot;)}</span></span>
+<span id="cb280-8"><a href="LongMod.html#cb280-8" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(scales)){install.packages(&quot;scales&quot;)}</span></span>
+<span id="cb280-9"><a href="LongMod.html#cb280-9" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
+<span id="cb280-10"><a href="LongMod.html#cb280-10" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(data.table)){install.packages(&quot;data.table&quot;)}</span></span></code></pre></div>
 </div>
 </div>
 <div id="the-basic-longitudinal-multilevel-model" class="section level2" number="4.2">
@@ -475,145 +475,145 @@ div.csl-indent {
 </ul>
 <div id="simulating-the-data-from-the-journal-article-2" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Simulating the data from the journal article</h3>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="LongMod.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
-<span id="cb285-2"><a href="LongMod.html#cb285-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
-<span id="cb285-3"><a href="LongMod.html#cb285-3" aria-hidden="true" tabindex="-1"></a>n_session <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb285-4"><a href="LongMod.html#cb285-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="fl">2.03</span> <span class="co">#intercept for anxiety</span></span>
-<span id="cb285-5"><a href="LongMod.html#cb285-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="sc">-</span>.<span class="dv">22</span> <span class="co">#b weight for L1 session</span></span>
-<span id="cb285-6"><a href="LongMod.html#cb285-6" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">=</span> .<span class="dv">13</span> <span class="co">#b weight for L2 sexual identity</span></span>
-<span id="cb285-7"><a href="LongMod.html#cb285-7" aria-hidden="true" tabindex="-1"></a>b3 <span class="ot">=</span>  <span class="sc">-</span>.<span class="dv">03</span> <span class="co">#b weight for L2 Rel1 (D-R vs ND-R &amp; ND-U)</span></span>
-<span id="cb285-8"><a href="LongMod.html#cb285-8" aria-hidden="true" tabindex="-1"></a>b4 <span class="ot">=</span> .<span class="dv">01</span> <span class="co">#b weight for the L2 Rel2 (ND-R vs ND-U)</span></span>
-<span id="cb285-9"><a href="LongMod.html#cb285-9" aria-hidden="true" tabindex="-1"></a><span class="co">#the values used below are the +/- 3SD they produce continuous variables which later need to be transformed to categorical ones; admittedly this introduces a great deal of error/noise into the simulation</span></span>
-<span id="cb285-10"><a href="LongMod.html#cb285-10" aria-hidden="true" tabindex="-1"></a><span class="co">#the article didn&#39;t include a correlation matrix or M/SDs so this was a clunky process </span></span>
-<span id="cb285-11"><a href="LongMod.html#cb285-11" aria-hidden="true" tabindex="-1"></a>( <span class="at">Session =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>n_session, <span class="sc">-</span><span class="fl">3.61</span>, <span class="fl">3.18</span>)) <span class="co">#calc L1 Session, values are the +/3 3SD</span></span>
-<span id="cb285-12"><a href="LongMod.html#cb285-12" aria-hidden="true" tabindex="-1"></a>( <span class="at">SexualIdentity =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">6.66</span>, <span class="fl">6.92</span>)) <span class="co">#calc L2 Sexual Identity, values are the +/3 3SD</span></span>
-<span id="cb285-13"><a href="LongMod.html#cb285-13" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion1 =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">3.43</span>, <span class="fl">3.37</span>)) <span class="co">#calc L2 Religion1, values are the +/3 3SD</span></span>
-<span id="cb285-14"><a href="LongMod.html#cb285-14" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion2 =</span> <span class="fu">rep</span> (<span class="fu">runif</span>(n_session, <span class="sc">-</span><span class="fl">3.38</span>, <span class="fl">3.41</span>), <span class="at">each =</span> n_session)) <span class="co">#calc L2 Religion2, values are the +/3 3SD</span></span>
-<span id="cb285-15"><a href="LongMod.html#cb285-15" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="fl">1.76</span> <span class="co">#intercept of empty model </span></span>
-<span id="cb285-16"><a href="LongMod.html#cb285-16" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">=</span> <span class="fl">2.264</span> <span class="co">#this is the SD of the DV</span></span>
-<span id="cb285-17"><a href="LongMod.html#cb285-17" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this is the observation-level random effect variance that we set at 1</span></span>
-<span id="cb285-18"><a href="LongMod.html#cb285-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-19"><a href="LongMod.html#cb285-19" aria-hidden="true" tabindex="-1"></a><span class="co">#( church = rep(LETTERS[1:n_church], each = n_mbrs) ) #this worked in the prior</span></span>
-<span id="cb285-20"><a href="LongMod.html#cb285-20" aria-hidden="true" tabindex="-1"></a>( <span class="at">client =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span>n_client], <span class="at">each =</span> n_session) )</span>
-<span id="cb285-21"><a href="LongMod.html#cb285-21" aria-hidden="true" tabindex="-1"></a><span class="co">#( session = numbers[1:(n_client*n_session)] )</span></span>
-<span id="cb285-22"><a href="LongMod.html#cb285-22" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rnorm</span>(n_client, <span class="dv">0</span>, sds) )</span>
-<span id="cb285-23"><a href="LongMod.html#cb285-23" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rep</span>(clienteff, <span class="at">each =</span> n_session) )</span>
-<span id="cb285-24"><a href="LongMod.html#cb285-24" aria-hidden="true" tabindex="-1"></a>( <span class="at">sessioneff =</span> <span class="fu">rnorm</span>(n_client<span class="sc">*</span>n_session, <span class="dv">0</span>, sd) )</span>
-<span id="cb285-25"><a href="LongMod.html#cb285-25" aria-hidden="true" tabindex="-1"></a>( <span class="at">Anxiety =</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>Session <span class="sc">+</span> b2<span class="sc">*</span>SexualIdentity <span class="sc">+</span> b3<span class="sc">*</span>Religion1 <span class="sc">+</span> b4<span class="sc">*</span>Religion2 <span class="sc">+</span> clienteff <span class="sc">+</span> sessioneff)</span>
-<span id="cb285-26"><a href="LongMod.html#cb285-26" aria-hidden="true" tabindex="-1"></a>( <span class="at">dat =</span> <span class="fu">data.frame</span>(client, clienteff, sessioneff, Session, SexualIdentity, Religion1, Religion2, Anxiety) )</span>
-<span id="cb285-27"><a href="LongMod.html#cb285-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-28"><a href="LongMod.html#cb285-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb285-29"><a href="LongMod.html#cb285-29" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span>
-<span id="cb285-30"><a href="LongMod.html#cb285-30" aria-hidden="true" tabindex="-1"></a><span class="co">#moving the ID number to the first column; requires </span></span>
-<span id="cb285-31"><a href="LongMod.html#cb285-31" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
-<span id="cb285-32"><a href="LongMod.html#cb285-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-33"><a href="LongMod.html#cb285-33" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span></span>
-<span id="cb285-34"><a href="LongMod.html#cb285-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, client, Session, SexualIdentity, Religion1, Religion2, Anxiety)</span>
-<span id="cb285-35"><a href="LongMod.html#cb285-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-36"><a href="LongMod.html#cb285-36" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>ClientID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12825</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
-<span id="cb285-37"><a href="LongMod.html#cb285-37" aria-hidden="true" tabindex="-1"></a><span class="co">#rounded Sexual Identity into dichotomous variable</span></span>
-<span id="cb285-38"><a href="LongMod.html#cb285-38" aria-hidden="true" tabindex="-1"></a><span class="co">#85% were heterosexual, </span></span>
-<span id="cb285-39"><a href="LongMod.html#cb285-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-40"><a href="LongMod.html#cb285-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robumeta)</span>
-<span id="cb285-41"><a href="LongMod.html#cb285-41" aria-hidden="true" tabindex="-1"></a><span class="co">#The following variables should be L2, but were simulated as if they were L1</span></span>
-<span id="cb285-42"><a href="LongMod.html#cb285-42" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion1,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
-<span id="cb285-43"><a href="LongMod.html#cb285-43" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion2,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
-<span id="cb285-44"><a href="LongMod.html#cb285-44" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SxID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>SexualIdentity,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
-<span id="cb285-45"><a href="LongMod.html#cb285-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-46"><a href="LongMod.html#cb285-46" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2 has contrast codes for dominant religion (DR, 0), nondominant religious (NDR, 1) and nondominant unspecified (NDU, -1)</span></span>
-<span id="cb285-47"><a href="LongMod.html#cb285-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Strategy is to figure out the raw score associated with the percentile rank of  -1 and 0, to set the breakpoints for the coding</span></span>
-<span id="cb285-48"><a href="LongMod.html#cb285-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU coded as -1</span></span>
-<span id="cb285-49"><a href="LongMod.html#cb285-49" aria-hidden="true" tabindex="-1"></a><span class="co">#19.2+13.5+9.6</span></span>
-<span id="cb285-50"><a href="LongMod.html#cb285-50" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU has bottom 42.3 percent</span></span>
-<span id="cb285-51"><a href="LongMod.html#cb285-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-52"><a href="LongMod.html#cb285-52" aria-hidden="true" tabindex="-1"></a><span class="co">#DR coded as 0, so quantile cut will be 42.3 + 52.7 = 95th</span></span>
-<span id="cb285-53"><a href="LongMod.html#cb285-53" aria-hidden="true" tabindex="-1"></a><span class="co">#33.4 + 19.3</span></span>
-<span id="cb285-54"><a href="LongMod.html#cb285-54" aria-hidden="true" tabindex="-1"></a><span class="co">#52.7% of sample (according to article) was DR</span></span>
-<span id="cb285-55"><a href="LongMod.html#cb285-55" aria-hidden="true" tabindex="-1"></a><span class="co">#must look up percentile ranks for 5% and 57.5%</span></span>
-<span id="cb285-56"><a href="LongMod.html#cb285-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-57"><a href="LongMod.html#cb285-57" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR</span></span>
-<span id="cb285-58"><a href="LongMod.html#cb285-58" aria-hidden="true" tabindex="-1"></a><span class="co">#2.3+1+1+.7</span></span>
-<span id="cb285-59"><a href="LongMod.html#cb285-59" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR has 5% of sample</span></span>
-<span id="cb285-60"><a href="LongMod.html#cb285-60" aria-hidden="true" tabindex="-1"></a><span class="co">#42.3+52.7</span></span>
-<span id="cb285-61"><a href="LongMod.html#cb285-61" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$Religion2, probs = c(.423, .95))</span></span>
-<span id="cb285-62"><a href="LongMod.html#cb285-62" aria-hidden="true" tabindex="-1"></a><span class="co">#effects coding the second Religion variable so that NDU = -1, DR = 0, NDR = 1</span></span>
-<span id="cb285-63"><a href="LongMod.html#cb285-63" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2L2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span>, <span class="sc">-</span><span class="dv">1</span>, </span>
-<span id="cb285-64"><a href="LongMod.html#cb285-64" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span> <span class="sc">&amp;</span> Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="fl">0.9299491</span>, <span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb285-65"><a href="LongMod.html#cb285-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-66"><a href="LongMod.html#cb285-66" aria-hidden="true" tabindex="-1"></a><span class="co">#checking work</span></span>
-<span id="cb285-67"><a href="LongMod.html#cb285-67" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2L2_table &lt;- table(Lefevor2017$Rel2L2)</span></span>
-<span id="cb285-68"><a href="LongMod.html#cb285-68" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel2L2_table)</span></span>
-<span id="cb285-69"><a href="LongMod.html#cb285-69" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017 %&gt;%</span></span>
-<span id="cb285-70"><a href="LongMod.html#cb285-70" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Rel2L2)</span></span>
-<span id="cb285-71"><a href="LongMod.html#cb285-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-72"><a href="LongMod.html#cb285-72" aria-hidden="true" tabindex="-1"></a><span class="co">#creating the first religion variable where DR is 2 and NDR and NDU are both -1</span></span>
-<span id="cb285-73"><a href="LongMod.html#cb285-73" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1L2 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
-<span id="cb285-74"><a href="LongMod.html#cb285-74" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>DRel0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb285-75"><a href="LongMod.html#cb285-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-76"><a href="LongMod.html#cb285-76" aria-hidden="true" tabindex="-1"></a><span class="co">#checking to make sure that 52.7% are coded 2 (DR)</span></span>
-<span id="cb285-77"><a href="LongMod.html#cb285-77" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel1L2_table &lt;- table(Lefevor2017$Rel1L2)</span></span>
-<span id="cb285-78"><a href="LongMod.html#cb285-78" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel1L2_table)</span></span>
-<span id="cb285-79"><a href="LongMod.html#cb285-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-80"><a href="LongMod.html#cb285-80" aria-hidden="true" tabindex="-1"></a><span class="co">#heterosexual is -1</span></span>
-<span id="cb285-81"><a href="LongMod.html#cb285-81" aria-hidden="true" tabindex="-1"></a><span class="co">#LGBTQIA+ is 1</span></span>
-<span id="cb285-82"><a href="LongMod.html#cb285-82" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$SxID, probs = c(.85))</span></span>
-<span id="cb285-83"><a href="LongMod.html#cb285-83" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SexID <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>SxID <span class="sc">&lt;=</span> <span class="fl">1.203468</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb285-84"><a href="LongMod.html#cb285-84" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Het0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>SexID, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb285-85"><a href="LongMod.html#cb285-85" aria-hidden="true" tabindex="-1"></a><span class="co">#SexID_table &lt;- table(Lefevor2017$SexID)</span></span>
-<span id="cb285-86"><a href="LongMod.html#cb285-86" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(SexID_table)</span></span>
-<span id="cb285-87"><a href="LongMod.html#cb285-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-88"><a href="LongMod.html#cb285-88" aria-hidden="true" tabindex="-1"></a><span class="co">#creating a variable representing the session number for each client, in the article up to 20 sessions were allowed. </span></span>
-<span id="cb285-89"><a href="LongMod.html#cb285-89" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;scales&quot;)</span></span>
-<span id="cb285-90"><a href="LongMod.html#cb285-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb285-91"><a href="LongMod.html#cb285-91" aria-hidden="true" tabindex="-1"></a><span class="co">#Right from the beginning I centered this so that 0 would represent intake</span></span>
-<span id="cb285-92"><a href="LongMod.html#cb285-92" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Session0 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(scales<span class="sc">::</span><span class="fu">rescale</span>(Lefevor2017<span class="sc">$</span>Session, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19</span>)))</span>
-<span id="cb285-93"><a href="LongMod.html#cb285-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-94"><a href="LongMod.html#cb285-94" aria-hidden="true" tabindex="-1"></a><span class="co">#creating session waves (1 thru 5) by rank ordering within each person&#39;s variable the continuous variable Session that was created in the original simulation</span></span>
-<span id="cb285-95"><a href="LongMod.html#cb285-95" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb285-96"><a href="LongMod.html#cb285-96" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
-<span id="cb285-97"><a href="LongMod.html#cb285-97" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ClientID) <span class="sc">%&gt;%</span></span>
-<span id="cb285-98"><a href="LongMod.html#cb285-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">rank</span>(Session))</span>
-<span id="cb285-99"><a href="LongMod.html#cb285-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-100"><a href="LongMod.html#cb285-100" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting the simulated variables</span></span>
-<span id="cb285-101"><a href="LongMod.html#cb285-101" aria-hidden="true" tabindex="-1"></a>Lefevor2017_sim <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
-<span id="cb285-102"><a href="LongMod.html#cb285-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, Session0, Anxiety, DRel0, Het0)</span>
-<span id="cb285-103"><a href="LongMod.html#cb285-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb285-104"><a href="LongMod.html#cb285-104" aria-hidden="true" tabindex="-1"></a><span class="co">#In the transition from long-to-wide, it seems like you can only do one L1 variable at a time</span></span>
-<span id="cb285-105"><a href="LongMod.html#cb285-105" aria-hidden="true" tabindex="-1"></a><span class="co">#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde</span></span>
-<span id="cb285-106"><a href="LongMod.html#cb285-106" aria-hidden="true" tabindex="-1"></a><span class="co">#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum</span></span>
-<span id="cb285-107"><a href="LongMod.html#cb285-107" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the name of the SINGLE L1 variable in the concatonated list</span></span>
-<span id="cb285-108"><a href="LongMod.html#cb285-108" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb285-109"><a href="LongMod.html#cb285-109" aria-hidden="true" tabindex="-1"></a>LfvrWp1<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">+</span> DRel0 <span class="sc">+</span> Het0 <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>))</span>
-<span id="cb285-110"><a href="LongMod.html#cb285-110" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
-<span id="cb285-111"><a href="LongMod.html#cb285-111" aria-hidden="true" tabindex="-1"></a>LfvrWp1<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp1, <span class="at">Index1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Index2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Index3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Index4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Index5 =</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb285-112"><a href="LongMod.html#cb285-112" aria-hidden="true" tabindex="-1"></a>LfvrWp2<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Anxiety&quot;</span>))</span>
-<span id="cb285-113"><a href="LongMod.html#cb285-113" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
-<span id="cb285-114"><a href="LongMod.html#cb285-114" aria-hidden="true" tabindex="-1"></a>LfvrWp2<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp2, <span class="at">Anx1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Anx2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Anx3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Anx4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Anx5 =</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb285-115"><a href="LongMod.html#cb285-115" aria-hidden="true" tabindex="-1"></a><span class="co">#For remaining L1 variable, do them one at a time -- key them from the person-level ID and the wave/index.</span></span>
-<span id="cb285-116"><a href="LongMod.html#cb285-116" aria-hidden="true" tabindex="-1"></a>LfvrWp3<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Session0&quot;</span>))</span>
-<span id="cb285-117"><a href="LongMod.html#cb285-117" aria-hidden="true" tabindex="-1"></a>LfvrWp3<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp3, <span class="at">Sess1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Sess2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Sess3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Sess4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Sess5 =</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb285-118"><a href="LongMod.html#cb285-118" aria-hidden="true" tabindex="-1"></a><span class="co">#Next, join the dataframes by the person-level ID</span></span>
-<span id="cb285-119"><a href="LongMod.html#cb285-119" aria-hidden="true" tabindex="-1"></a><span class="co">#Only two can be joined at a time</span></span>
-<span id="cb285-120"><a href="LongMod.html#cb285-120" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrWp1, LfvrWp2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span>
-<span id="cb285-121"><a href="LongMod.html#cb285-121" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrWide, LfvrWp3,  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="LongMod.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
+<span id="cb281-2"><a href="LongMod.html#cb281-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
+<span id="cb281-3"><a href="LongMod.html#cb281-3" aria-hidden="true" tabindex="-1"></a>n_session <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb281-4"><a href="LongMod.html#cb281-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="fl">2.03</span> <span class="co">#intercept for anxiety</span></span>
+<span id="cb281-5"><a href="LongMod.html#cb281-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="sc">-</span>.<span class="dv">22</span> <span class="co">#b weight for L1 session</span></span>
+<span id="cb281-6"><a href="LongMod.html#cb281-6" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">=</span> .<span class="dv">13</span> <span class="co">#b weight for L2 sexual identity</span></span>
+<span id="cb281-7"><a href="LongMod.html#cb281-7" aria-hidden="true" tabindex="-1"></a>b3 <span class="ot">=</span>  <span class="sc">-</span>.<span class="dv">03</span> <span class="co">#b weight for L2 Rel1 (D-R vs ND-R &amp; ND-U)</span></span>
+<span id="cb281-8"><a href="LongMod.html#cb281-8" aria-hidden="true" tabindex="-1"></a>b4 <span class="ot">=</span> .<span class="dv">01</span> <span class="co">#b weight for the L2 Rel2 (ND-R vs ND-U)</span></span>
+<span id="cb281-9"><a href="LongMod.html#cb281-9" aria-hidden="true" tabindex="-1"></a><span class="co">#the values used below are the +/- 3SD they produce continuous variables which later need to be transformed to categorical ones; admittedly this introduces a great deal of error/noise into the simulation</span></span>
+<span id="cb281-10"><a href="LongMod.html#cb281-10" aria-hidden="true" tabindex="-1"></a><span class="co">#the article didn&#39;t include a correlation matrix or M/SDs so this was a clunky process </span></span>
+<span id="cb281-11"><a href="LongMod.html#cb281-11" aria-hidden="true" tabindex="-1"></a>( <span class="at">Session =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>n_session, <span class="sc">-</span><span class="fl">3.61</span>, <span class="fl">3.18</span>)) <span class="co">#calc L1 Session, values are the +/3 3SD</span></span>
+<span id="cb281-12"><a href="LongMod.html#cb281-12" aria-hidden="true" tabindex="-1"></a>( <span class="at">SexualIdentity =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">6.66</span>, <span class="fl">6.92</span>)) <span class="co">#calc L2 Sexual Identity, values are the +/3 3SD</span></span>
+<span id="cb281-13"><a href="LongMod.html#cb281-13" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion1 =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">3.43</span>, <span class="fl">3.37</span>)) <span class="co">#calc L2 Religion1, values are the +/3 3SD</span></span>
+<span id="cb281-14"><a href="LongMod.html#cb281-14" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion2 =</span> <span class="fu">rep</span> (<span class="fu">runif</span>(n_session, <span class="sc">-</span><span class="fl">3.38</span>, <span class="fl">3.41</span>), <span class="at">each =</span> n_session)) <span class="co">#calc L2 Religion2, values are the +/3 3SD</span></span>
+<span id="cb281-15"><a href="LongMod.html#cb281-15" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="fl">1.76</span> <span class="co">#intercept of empty model </span></span>
+<span id="cb281-16"><a href="LongMod.html#cb281-16" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">=</span> <span class="fl">2.264</span> <span class="co">#this is the SD of the DV</span></span>
+<span id="cb281-17"><a href="LongMod.html#cb281-17" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this is the observation-level random effect variance that we set at 1</span></span>
+<span id="cb281-18"><a href="LongMod.html#cb281-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-19"><a href="LongMod.html#cb281-19" aria-hidden="true" tabindex="-1"></a><span class="co">#( church = rep(LETTERS[1:n_church], each = n_mbrs) ) #this worked in the prior</span></span>
+<span id="cb281-20"><a href="LongMod.html#cb281-20" aria-hidden="true" tabindex="-1"></a>( <span class="at">client =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span>n_client], <span class="at">each =</span> n_session) )</span>
+<span id="cb281-21"><a href="LongMod.html#cb281-21" aria-hidden="true" tabindex="-1"></a><span class="co">#( session = numbers[1:(n_client*n_session)] )</span></span>
+<span id="cb281-22"><a href="LongMod.html#cb281-22" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rnorm</span>(n_client, <span class="dv">0</span>, sds) )</span>
+<span id="cb281-23"><a href="LongMod.html#cb281-23" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rep</span>(clienteff, <span class="at">each =</span> n_session) )</span>
+<span id="cb281-24"><a href="LongMod.html#cb281-24" aria-hidden="true" tabindex="-1"></a>( <span class="at">sessioneff =</span> <span class="fu">rnorm</span>(n_client<span class="sc">*</span>n_session, <span class="dv">0</span>, sd) )</span>
+<span id="cb281-25"><a href="LongMod.html#cb281-25" aria-hidden="true" tabindex="-1"></a>( <span class="at">Anxiety =</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>Session <span class="sc">+</span> b2<span class="sc">*</span>SexualIdentity <span class="sc">+</span> b3<span class="sc">*</span>Religion1 <span class="sc">+</span> b4<span class="sc">*</span>Religion2 <span class="sc">+</span> clienteff <span class="sc">+</span> sessioneff)</span>
+<span id="cb281-26"><a href="LongMod.html#cb281-26" aria-hidden="true" tabindex="-1"></a>( <span class="at">dat =</span> <span class="fu">data.frame</span>(client, clienteff, sessioneff, Session, SexualIdentity, Religion1, Religion2, Anxiety) )</span>
+<span id="cb281-27"><a href="LongMod.html#cb281-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-28"><a href="LongMod.html#cb281-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb281-29"><a href="LongMod.html#cb281-29" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span>
+<span id="cb281-30"><a href="LongMod.html#cb281-30" aria-hidden="true" tabindex="-1"></a><span class="co">#moving the ID number to the first column; requires </span></span>
+<span id="cb281-31"><a href="LongMod.html#cb281-31" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
+<span id="cb281-32"><a href="LongMod.html#cb281-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-33"><a href="LongMod.html#cb281-33" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span></span>
+<span id="cb281-34"><a href="LongMod.html#cb281-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, client, Session, SexualIdentity, Religion1, Religion2, Anxiety)</span>
+<span id="cb281-35"><a href="LongMod.html#cb281-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-36"><a href="LongMod.html#cb281-36" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>ClientID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12825</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
+<span id="cb281-37"><a href="LongMod.html#cb281-37" aria-hidden="true" tabindex="-1"></a><span class="co">#rounded Sexual Identity into dichotomous variable</span></span>
+<span id="cb281-38"><a href="LongMod.html#cb281-38" aria-hidden="true" tabindex="-1"></a><span class="co">#85% were heterosexual, </span></span>
+<span id="cb281-39"><a href="LongMod.html#cb281-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-40"><a href="LongMod.html#cb281-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robumeta)</span>
+<span id="cb281-41"><a href="LongMod.html#cb281-41" aria-hidden="true" tabindex="-1"></a><span class="co">#The following variables should be L2, but were simulated as if they were L1</span></span>
+<span id="cb281-42"><a href="LongMod.html#cb281-42" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion1,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb281-43"><a href="LongMod.html#cb281-43" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion2,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb281-44"><a href="LongMod.html#cb281-44" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SxID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>SexualIdentity,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb281-45"><a href="LongMod.html#cb281-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-46"><a href="LongMod.html#cb281-46" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2 has contrast codes for dominant religion (DR, 0), nondominant religious (NDR, 1) and nondominant unspecified (NDU, -1)</span></span>
+<span id="cb281-47"><a href="LongMod.html#cb281-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Strategy is to figure out the raw score associated with the percentile rank of  -1 and 0, to set the breakpoints for the coding</span></span>
+<span id="cb281-48"><a href="LongMod.html#cb281-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU coded as -1</span></span>
+<span id="cb281-49"><a href="LongMod.html#cb281-49" aria-hidden="true" tabindex="-1"></a><span class="co">#19.2+13.5+9.6</span></span>
+<span id="cb281-50"><a href="LongMod.html#cb281-50" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU has bottom 42.3 percent</span></span>
+<span id="cb281-51"><a href="LongMod.html#cb281-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-52"><a href="LongMod.html#cb281-52" aria-hidden="true" tabindex="-1"></a><span class="co">#DR coded as 0, so quantile cut will be 42.3 + 52.7 = 95th</span></span>
+<span id="cb281-53"><a href="LongMod.html#cb281-53" aria-hidden="true" tabindex="-1"></a><span class="co">#33.4 + 19.3</span></span>
+<span id="cb281-54"><a href="LongMod.html#cb281-54" aria-hidden="true" tabindex="-1"></a><span class="co">#52.7% of sample (according to article) was DR</span></span>
+<span id="cb281-55"><a href="LongMod.html#cb281-55" aria-hidden="true" tabindex="-1"></a><span class="co">#must look up percentile ranks for 5% and 57.5%</span></span>
+<span id="cb281-56"><a href="LongMod.html#cb281-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-57"><a href="LongMod.html#cb281-57" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR</span></span>
+<span id="cb281-58"><a href="LongMod.html#cb281-58" aria-hidden="true" tabindex="-1"></a><span class="co">#2.3+1+1+.7</span></span>
+<span id="cb281-59"><a href="LongMod.html#cb281-59" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR has 5% of sample</span></span>
+<span id="cb281-60"><a href="LongMod.html#cb281-60" aria-hidden="true" tabindex="-1"></a><span class="co">#42.3+52.7</span></span>
+<span id="cb281-61"><a href="LongMod.html#cb281-61" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$Religion2, probs = c(.423, .95))</span></span>
+<span id="cb281-62"><a href="LongMod.html#cb281-62" aria-hidden="true" tabindex="-1"></a><span class="co">#effects coding the second Religion variable so that NDU = -1, DR = 0, NDR = 1</span></span>
+<span id="cb281-63"><a href="LongMod.html#cb281-63" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2L2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span>, <span class="sc">-</span><span class="dv">1</span>, </span>
+<span id="cb281-64"><a href="LongMod.html#cb281-64" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span> <span class="sc">&amp;</span> Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="fl">0.9299491</span>, <span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb281-65"><a href="LongMod.html#cb281-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-66"><a href="LongMod.html#cb281-66" aria-hidden="true" tabindex="-1"></a><span class="co">#checking work</span></span>
+<span id="cb281-67"><a href="LongMod.html#cb281-67" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2L2_table &lt;- table(Lefevor2017$Rel2L2)</span></span>
+<span id="cb281-68"><a href="LongMod.html#cb281-68" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel2L2_table)</span></span>
+<span id="cb281-69"><a href="LongMod.html#cb281-69" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017 %&gt;%</span></span>
+<span id="cb281-70"><a href="LongMod.html#cb281-70" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Rel2L2)</span></span>
+<span id="cb281-71"><a href="LongMod.html#cb281-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-72"><a href="LongMod.html#cb281-72" aria-hidden="true" tabindex="-1"></a><span class="co">#creating the first religion variable where DR is 2 and NDR and NDU are both -1</span></span>
+<span id="cb281-73"><a href="LongMod.html#cb281-73" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1L2 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb281-74"><a href="LongMod.html#cb281-74" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>DRel0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb281-75"><a href="LongMod.html#cb281-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-76"><a href="LongMod.html#cb281-76" aria-hidden="true" tabindex="-1"></a><span class="co">#checking to make sure that 52.7% are coded 2 (DR)</span></span>
+<span id="cb281-77"><a href="LongMod.html#cb281-77" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel1L2_table &lt;- table(Lefevor2017$Rel1L2)</span></span>
+<span id="cb281-78"><a href="LongMod.html#cb281-78" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel1L2_table)</span></span>
+<span id="cb281-79"><a href="LongMod.html#cb281-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-80"><a href="LongMod.html#cb281-80" aria-hidden="true" tabindex="-1"></a><span class="co">#heterosexual is -1</span></span>
+<span id="cb281-81"><a href="LongMod.html#cb281-81" aria-hidden="true" tabindex="-1"></a><span class="co">#LGBTQIA+ is 1</span></span>
+<span id="cb281-82"><a href="LongMod.html#cb281-82" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$SxID, probs = c(.85))</span></span>
+<span id="cb281-83"><a href="LongMod.html#cb281-83" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SexID <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>SxID <span class="sc">&lt;=</span> <span class="fl">1.203468</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb281-84"><a href="LongMod.html#cb281-84" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Het0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>SexID, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb281-85"><a href="LongMod.html#cb281-85" aria-hidden="true" tabindex="-1"></a><span class="co">#SexID_table &lt;- table(Lefevor2017$SexID)</span></span>
+<span id="cb281-86"><a href="LongMod.html#cb281-86" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(SexID_table)</span></span>
+<span id="cb281-87"><a href="LongMod.html#cb281-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-88"><a href="LongMod.html#cb281-88" aria-hidden="true" tabindex="-1"></a><span class="co">#creating a variable representing the session number for each client, in the article up to 20 sessions were allowed. </span></span>
+<span id="cb281-89"><a href="LongMod.html#cb281-89" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;scales&quot;)</span></span>
+<span id="cb281-90"><a href="LongMod.html#cb281-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb281-91"><a href="LongMod.html#cb281-91" aria-hidden="true" tabindex="-1"></a><span class="co">#Right from the beginning I centered this so that 0 would represent intake</span></span>
+<span id="cb281-92"><a href="LongMod.html#cb281-92" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Session0 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(scales<span class="sc">::</span><span class="fu">rescale</span>(Lefevor2017<span class="sc">$</span>Session, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19</span>)))</span>
+<span id="cb281-93"><a href="LongMod.html#cb281-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-94"><a href="LongMod.html#cb281-94" aria-hidden="true" tabindex="-1"></a><span class="co">#creating session waves (1 thru 5) by rank ordering within each person&#39;s variable the continuous variable Session that was created in the original simulation</span></span>
+<span id="cb281-95"><a href="LongMod.html#cb281-95" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb281-96"><a href="LongMod.html#cb281-96" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
+<span id="cb281-97"><a href="LongMod.html#cb281-97" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ClientID) <span class="sc">%&gt;%</span></span>
+<span id="cb281-98"><a href="LongMod.html#cb281-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">rank</span>(Session))</span>
+<span id="cb281-99"><a href="LongMod.html#cb281-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-100"><a href="LongMod.html#cb281-100" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting the simulated variables</span></span>
+<span id="cb281-101"><a href="LongMod.html#cb281-101" aria-hidden="true" tabindex="-1"></a>Lefevor2017_sim <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
+<span id="cb281-102"><a href="LongMod.html#cb281-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, Session0, Anxiety, DRel0, Het0)</span>
+<span id="cb281-103"><a href="LongMod.html#cb281-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-104"><a href="LongMod.html#cb281-104" aria-hidden="true" tabindex="-1"></a><span class="co">#In the transition from long-to-wide, it seems like you can only do one L1 variable at a time</span></span>
+<span id="cb281-105"><a href="LongMod.html#cb281-105" aria-hidden="true" tabindex="-1"></a><span class="co">#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde</span></span>
+<span id="cb281-106"><a href="LongMod.html#cb281-106" aria-hidden="true" tabindex="-1"></a><span class="co">#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum</span></span>
+<span id="cb281-107"><a href="LongMod.html#cb281-107" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the name of the SINGLE L1 variable in the concatonated list</span></span>
+<span id="cb281-108"><a href="LongMod.html#cb281-108" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb281-109"><a href="LongMod.html#cb281-109" aria-hidden="true" tabindex="-1"></a>LfvrWp1<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">+</span> DRel0 <span class="sc">+</span> Het0 <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>))</span>
+<span id="cb281-110"><a href="LongMod.html#cb281-110" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
+<span id="cb281-111"><a href="LongMod.html#cb281-111" aria-hidden="true" tabindex="-1"></a>LfvrWp1<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp1, <span class="at">Index1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Index2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Index3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Index4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Index5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb281-112"><a href="LongMod.html#cb281-112" aria-hidden="true" tabindex="-1"></a>LfvrWp2<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Anxiety&quot;</span>))</span>
+<span id="cb281-113"><a href="LongMod.html#cb281-113" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
+<span id="cb281-114"><a href="LongMod.html#cb281-114" aria-hidden="true" tabindex="-1"></a>LfvrWp2<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp2, <span class="at">Anx1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Anx2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Anx3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Anx4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Anx5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb281-115"><a href="LongMod.html#cb281-115" aria-hidden="true" tabindex="-1"></a><span class="co">#For remaining L1 variable, do them one at a time -- key them from the person-level ID and the wave/index.</span></span>
+<span id="cb281-116"><a href="LongMod.html#cb281-116" aria-hidden="true" tabindex="-1"></a>LfvrWp3<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(Lefevor2017_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Session0&quot;</span>))</span>
+<span id="cb281-117"><a href="LongMod.html#cb281-117" aria-hidden="true" tabindex="-1"></a>LfvrWp3<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrWp3, <span class="at">Sess1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Sess2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Sess3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Sess4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Sess5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb281-118"><a href="LongMod.html#cb281-118" aria-hidden="true" tabindex="-1"></a><span class="co">#Next, join the dataframes by the person-level ID</span></span>
+<span id="cb281-119"><a href="LongMod.html#cb281-119" aria-hidden="true" tabindex="-1"></a><span class="co">#Only two can be joined at a time</span></span>
+<span id="cb281-120"><a href="LongMod.html#cb281-120" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrWp1, LfvrWp2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span>
+<span id="cb281-121"><a href="LongMod.html#cb281-121" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrWide, LfvrWp3,  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span></code></pre></div>
 <p>To increase the portability of the OER, this lesson uses simulated data. Here is script for exporting/downloading the data as a .csv file to your local computer and then importing/uploading it again. I find that saving the .csv file (data) in the same place as the .rmd file(s) is essential for R to connect the two.</p>
 <p>Because this simulation can take a few minutes, you may wish to do this, even as you work through this lesson, so that resimulations take less time and comuting resources.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="LongMod.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting and importing the wide df</span></span>
-<span id="cb286-2"><a href="LongMod.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrWide, <span class="at">file=</span><span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb286-3"><a href="LongMod.html#cb286-3" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="LongMod.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting and importing the wide df</span></span>
+<span id="cb282-2"><a href="LongMod.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrWide, <span class="at">file=</span><span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb282-3"><a href="LongMod.html#cb282-3" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <p>As before we need to restructure it into a long format.</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="LongMod.html#cb287-1" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(LfvrWide), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;Sess1&quot;</span>, <span class="st">&quot;Sess2&quot;</span>, <span class="st">&quot;Sess3&quot;</span>, <span class="st">&quot;Sess4&quot;</span>, <span class="st">&quot;Sess5&quot;</span>))))</span>
-<span id="cb287-2"><a href="LongMod.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="co">#This process  does not preserve the variable names, so we need to rename them</span></span>
-<span id="cb287-3"><a href="LongMod.html#cb287-3" aria-hidden="true" tabindex="-1"></a>LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong, <span class="at">Index =</span> variable, <span class="at">Anxiety =</span> <span class="st">&quot;value1&quot;</span>, <span class="at">SesNum =</span> <span class="st">&quot;value2&quot;</span>)))</span>
-<span id="cb287-4"><a href="LongMod.html#cb287-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb287-5"><a href="LongMod.html#cb287-5" aria-hidden="true" tabindex="-1"></a><span class="co">#rearanging variables so that IDs are together</span></span>
-<span id="cb287-6"><a href="LongMod.html#cb287-6" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> LfvrLong<span class="sc">%&gt;%</span></span>
-<span id="cb287-7"><a href="LongMod.html#cb287-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SesNum, Anxiety, DRel0, Het0)</span>
-<span id="cb287-8"><a href="LongMod.html#cb287-8" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
-<span id="cb287-9"><a href="LongMod.html#cb287-9" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(LfvrLong, ClientID, Index)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="LongMod.html#cb283-1" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(LfvrWide), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;Sess1&quot;</span>, <span class="st">&quot;Sess2&quot;</span>, <span class="st">&quot;Sess3&quot;</span>, <span class="st">&quot;Sess4&quot;</span>, <span class="st">&quot;Sess5&quot;</span>))))</span>
+<span id="cb283-2"><a href="LongMod.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="co">#This process  does not preserve the variable names, so we need to rename them</span></span>
+<span id="cb283-3"><a href="LongMod.html#cb283-3" aria-hidden="true" tabindex="-1"></a>LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrLong, <span class="at">Index =</span> variable, <span class="at">Anxiety =</span> <span class="st">&quot;value1&quot;</span>, <span class="at">SesNum =</span> <span class="st">&quot;value2&quot;</span>)))</span>
+<span id="cb283-4"><a href="LongMod.html#cb283-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb283-5"><a href="LongMod.html#cb283-5" aria-hidden="true" tabindex="-1"></a><span class="co">#rearanging variables so that IDs are together</span></span>
+<span id="cb283-6"><a href="LongMod.html#cb283-6" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> LfvrLong<span class="sc">%&gt;%</span></span>
+<span id="cb283-7"><a href="LongMod.html#cb283-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SesNum, Anxiety, DRel0, Het0)</span>
+<span id="cb283-8"><a href="LongMod.html#cb283-8" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
+<span id="cb283-9"><a href="LongMod.html#cb283-9" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(LfvrLong, ClientID, Index)</span></code></pre></div>
 <p>And here is code for writing it as an outfile and bringing it back in. This means that you can just import the file and start working from here (without taking time to resimulate the data and convert it again).</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="LongMod.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrLong, <span class="at">file=</span><span class="st">&quot;LfvrLong.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb288-2"><a href="LongMod.html#cb288-2" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LfvrLong.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="LongMod.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrLong, <span class="at">file=</span><span class="st">&quot;LfvrLong.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb284-2"><a href="LongMod.html#cb284-2" aria-hidden="true" tabindex="-1"></a>LfvrLong <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LfvrLong.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="working-the-longitudinal-multilevel-model" class="section level2" number="4.5">
@@ -707,11 +707,11 @@ There has been controversy for decades and neither is clearly better than the ot
 <p>To model a random slope we use: DV ~ IV + (rand.slope | rand.int).</p>
 <p>In the model below (the goal of which is really to just get a mean and understand our within/between variance), we put a “1” in front of the “|” because we are fixing slope to a single value – it will not vary. But we are interested in knowing how our intercepts are different as a function of person (ID).</p>
 <p>RML is the default for <em>lme4</em>, we switch to FML with the statement, “REML = FALSE”.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="LongMod.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb289-2"><a href="LongMod.html#cb289-2" aria-hidden="true" tabindex="-1"></a>Mod1a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb289-3"><a href="LongMod.html#cb289-3" aria-hidden="true" tabindex="-1"></a>M1a_obj <span class="ot">&lt;-</span> <span class="fu">summary</span>(Mod1a)</span>
-<span id="cb289-4"><a href="LongMod.html#cb289-4" aria-hidden="true" tabindex="-1"></a>reM1a_obj <span class="ot">&lt;-</span> <span class="fu">ranef</span>(Mod1a)</span>
-<span id="cb289-5"><a href="LongMod.html#cb289-5" aria-hidden="true" tabindex="-1"></a>M1a_obj</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="LongMod.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb285-2"><a href="LongMod.html#cb285-2" aria-hidden="true" tabindex="-1"></a>Mod1a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb285-3"><a href="LongMod.html#cb285-3" aria-hidden="true" tabindex="-1"></a>M1a_obj <span class="ot">&lt;-</span> <span class="fu">summary</span>(Mod1a)</span>
+<span id="cb285-4"><a href="LongMod.html#cb285-4" aria-hidden="true" tabindex="-1"></a>reM1a_obj <span class="ot">&lt;-</span> <span class="fu">ranef</span>(Mod1a)</span>
+<span id="cb285-5"><a href="LongMod.html#cb285-5" aria-hidden="true" tabindex="-1"></a>M1a_obj</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
   method [lmerModLmerTest]
 Formula: Anxiety ~ 1 + (1 | ClientID)
@@ -735,8 +735,8 @@ Fixed effects:
 (Intercept)     2.07564     0.02053 12824.99885   101.1 &lt;0.0000000000000002 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="LongMod.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb291-2"><a href="LongMod.html#cb291-2" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_model</span>(Mod1a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="LongMod.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb287-2"><a href="LongMod.html#cb287-2" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_model</span>(Mod1a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -841,34 +841,34 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="LongMod.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb292-2"><a href="LongMod.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="LongMod.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb288-2"><a href="LongMod.html#cb288-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>With the <em>plot_model()</em> function in <em>sjPlot</em>, we can plot the random effects. For this intercept-only model, we see the mean and range of the anxiety variable</p>
 <p>With an intercept only, there is not much to plot. We can, though, look at the residuals to see about outliers, non-normality, and heteroscedasticity. They look reasonable to me.</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="LongMod.html#cb293-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod1a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="LongMod.html#cb289-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod1a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-107-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-33-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-107-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-33-4.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-107-4.png" width="672" /></p>
 <p><strong>Some interpretation</strong></p>
 <p><span class="math inline">\(\gamma_{00}\)</span>, the intercept, estimates the grand mean across all occasions and individuals. The value, 2.076 (<em>p</em> &lt; 0.001) confirms that the average anxiety of the average client between 0 and 19 sessions is non-zero.</p>
 <p><span class="math inline">\(\sigma^{2}\)</span>, within-person variance, is 1.44 (<em>SD</em> = 1.202). Find this in the lme4* output labeled RANDOM EFECTS: RESIDUAL</p>
 <p><span class="math inline">\(\tau_{00}\)</span>, between-person variance, is 5.12 (<em>SD</em>= 2.26). In addition to the tab_model output, this is located in the <em>lme4</em> output labeled RANDOM EFFECTS: ClientID</p>
 <p>The <em>intraclass correlation coeffient (ICC)</em>, $$, describes the proportion of variance that lies <em>between</em> people. It is the essential piece of data we need from this model. Because the total variation in <em>Y</em> is just the sum of the within and between-person variance components, the population intraclass correlation is:</p>
 <p><span class="math display">\[\rho =\frac{\tau_{00}}{\sigma^{2}+\tau_{00}}\]</span></p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="LongMod.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fl">5.12</span><span class="sc">/</span>(<span class="fl">5.12+1.44</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="LongMod.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fl">5.12</span><span class="sc">/</span>(<span class="fl">5.12+1.44</span>)</span></code></pre></div>
 <pre><code>[1] 0.7804878</code></pre>
 <p>In our case this translates:<br />
 <span class="math display">\[\rho =\frac{5.12}{1.44 + 5.12} = 0.78\]</span>
@@ -894,10 +894,10 @@ This means that 78% of the total variation in anxiety use is attributable to dif
 <p>To model a random slope we use: DV ~ IV + (rand.slope | rand.int).</p>
 <p><strong>For comparison</strong>, this was our prior model; we can see how the model building occurs.
 Mod1a &lt;- lmer(Anxiety ~1 +(1 | ClientID), LfvrLong, REML = FALSE)</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="LongMod.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb303-2"><a href="LongMod.html#cb303-2" aria-hidden="true" tabindex="-1"></a>Mod2a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum <span class="sc">+</span>(SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="LongMod.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb299-2"><a href="LongMod.html#cb299-2" aria-hidden="true" tabindex="-1"></a>Mod2a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum <span class="sc">+</span>(SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="LongMod.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod2a )</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="LongMod.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod2a )</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
   method [lmerModLmerTest]
 Formula: Anxiety ~ SesNum + (SesNum | ClientID)
@@ -932,7 +932,7 @@ Correlation of Fixed Effects:
 SesNum -0.377
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="LongMod.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="LongMod.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1122,31 +1122,31 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="LongMod.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb308-2"><a href="LongMod.html#cb308-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="LongMod.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb304-2"><a href="LongMod.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>A plot of predicted values illustrates the decrease in anxiety as sessions continue.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="LongMod.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb309-2"><a href="LongMod.html#cb309-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span> (Mod2a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">vars=</span><span class="st">&quot;SesNum&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="LongMod.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb305-2"><a href="LongMod.html#cb305-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span> (Mod2a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">vars=</span><span class="st">&quot;SesNum&quot;</span>)</span></code></pre></div>
 <pre><code>$SesNum</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 <p>Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="LongMod.html#cb311-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod2a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="LongMod.html#cb307-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod2a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-112-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-37-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-112-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-37-4.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-112-4.png" width="672" /></p>
 <p><strong>Interpreting Fixed Effects</strong>
 Looking at the <em>tab_model()</em> in the viewer, we can see that</p>
 <p>At Session #1 (which was rescaled so that the value of 0 is the first session), the average client has a non-zero anxiety level of 2.78 (<em>p</em> &lt; 0.001; <span class="math inline">\(\gamma _{00}\)</span>). On average, anxiety decreases by 0.08 units per session. Using these values together, at Session #3, the average client could be expected to have an anxiety level of 1.92 (2.08 + (-.08) + (-.08)).</p>
@@ -1177,7 +1177,7 @@ Looking at the <em>tab_model()</em> in the viewer, we can see that</p>
 <p>We’ll start by examining the decrease in within-person residual variance between the unconditional means model and unconditional growth model. We are comparing <span class="math inline">\(\sigma ^{2}\)</span>. We have to do this by hand, here’s the formula:</p>
 <p><span class="math display">\[Pseudo R_{\varepsilon }^{2} = \frac{\sigma^{2}(unconditional. means. model) - \sigma^{2}(unconditional. growth. model)}{\sigma ^{2}(unconditional. means. model)}\]</span></p>
 <p>We calculate it manually:</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="LongMod.html#cb319-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.44</span> <span class="sc">-</span> <span class="fl">1.26</span>)<span class="sc">/</span><span class="fl">1.44</span></span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="LongMod.html#cb315-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.44</span> <span class="sc">-</span> <span class="fl">1.26</span>)<span class="sc">/</span><span class="fl">1.44</span></span></code></pre></div>
 <pre><code>[1] 0.125</code></pre>
 <p>We conclude that 13% of the within-person variation in anxiety is explained by number of sessions. The only way to further reduce this variance component is to add time-covarying predictors to the L1 submodel.</p>
 <p>Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> warn us about the flaws of <span class="math inline">\(pseudo-R^2\)</span>. Specifically, these stats can go wonky! In the multilevel model for change, additional predictors <em>generally</em> reduce variance components and increase <span class="math inline">\(pseudo-R^2\)</span> statistics.</p>
@@ -1232,13 +1232,13 @@ Tables (easily produced with the <em>tab_model()</em> function) should always be
 <p><strong>For comparison</strong>:
 Mod1a &lt;- lmer(Anxiety ~1 +(1 | ClientID), LfvrLong, REML = FALSE)
 Mod2a &lt;- lmer(Anxiety ~ SesNum +(SesNum | ClientID), LfvrLong, REML = FALSE)</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="LongMod.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb321-2"><a href="LongMod.html#cb321-2" aria-hidden="true" tabindex="-1"></a>Mod3a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum<span class="sc">*</span>Het0 <span class="sc">+</span>(SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="LongMod.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb317-2"><a href="LongMod.html#cb317-2" aria-hidden="true" tabindex="-1"></a>Mod3a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum<span class="sc">*</span>Het0 <span class="sc">+</span>(SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, :
 Model failed to converge with max|grad| = 0.0936369 (tol = 0.002, component 1)</code></pre>
 <pre><code>Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
  - Rescale variables?</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="LongMod.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod3a)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="LongMod.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod3a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
   method [lmerModLmerTest]
 Formula: Anxiety ~ SesNum * Het0 + (SesNum | ClientID)
@@ -1281,7 +1281,7 @@ optimizer (nloptwrap) convergence code: 0 (OK)
 Model failed to converge with max|grad| = 0.0936369 (tol = 0.002, component 1)
 Model is nearly unidentifiable: very large eigenvalue
  - Rescale variables?</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="LongMod.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a,Mod3a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="LongMod.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a,Mod3a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1583,29 +1583,29 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="LongMod.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb327-2"><a href="LongMod.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="LongMod.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb323-2"><a href="LongMod.html#cb323-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="LongMod.html#cb328-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod3a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="LongMod.html#cb324-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod3a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-40-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-117-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-40-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-117-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-40-4.png" width="672" /></p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="LongMod.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb336-2"><a href="LongMod.html#cb336-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span> (Mod3a, <span class="at">type=</span><span class="st">&quot;int&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0 [0,1]&quot;</span>))</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/Mod3a_lme4%20plot_model-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-117-4.png" width="672" /></p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="LongMod.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb332-2"><a href="LongMod.html#cb332-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span> (Mod3a, <span class="at">type=</span><span class="st">&quot;int&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0 [0,1]&quot;</span>))</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p><strong>Interpreting Fixed Effects</strong>
 The estimated anxiety at Session #1 for heterosexual individuals is 2.70 (<em>p</em> &lt; .001). If the client is LGBQQ, the average Session #1 anxiety level is higher: 2.98 (<em>p</em> &lt; .001; 2.70 + .28).</p>
 <p>The estimated rate of change in anxiety for the average client who is heterosexual is -.08 (<em>p</em> &lt; .001) units per session. The estimated differential in the rate of change in anxiety between clients who are heterosexual and LGBQQ is nondistinguishable (<span class="math inline">\(\beta\)</span> = 0.00, <em>p</em> = .568). This is evident in the interaction plot produced by the <em>plot_model()</em> function.</p>
@@ -1613,7 +1613,7 @@ The estimated anxiety at Session #1 for heterosexual individuals is 2.70 (<em>p<
 <p>Not surprisingly, the <span class="math inline">\(\sigma ^{2}\)</span> value (1.26) stayed the same from Mod2a to Mod3a. This is because we did not add a within-subjects (time covarying) predictor. If it had changed, we would have conducted the proportionate reduction in variance evaluation.</p>
 <p><span class="math inline">\(\tau _{00}\)</span> decreased from 5.18 (Mod2a) to 5.17 (Mod3a). We can apply the proportionate reduction in variance formula to determine the proportion of L2 intercept variance accounted for by the Het0 addition.</p>
 <p><span class="math display">\[Pseudo R_{\zeta }^{2} = \frac{\tau _{00} (unconditional. growth. model) - \tau _{00}(subsequent. model)}{\tau _{00}(unconditional. growth. model)}\]</span></p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="LongMod.html#cb337-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">5.18-5.17</span>)<span class="sc">/</span><span class="fl">5.18</span></span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="LongMod.html#cb333-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">5.18-5.17</span>)<span class="sc">/</span><span class="fl">5.18</span></span></code></pre></div>
 <pre><code>[1] 0.001930502</code></pre>
 <p>The <span class="math inline">\(\tau _{00}\)</span> variance component decreases by less than 1% from the unconditional growth model (Mod2a)</p>
 <p><span class="math inline">\(\tau _{11}\)</span> is unchanged. Both Mod2a and Mod3a are 0.00; adding sexual identity did not change between-subjects’ slopes. Similarly, if it had changed, we would have conducted the proportionate reduction in variance evaluation.</p>
@@ -1633,10 +1633,10 @@ Mod2a &lt;- lmer(Anxiety ~ SesNum +(SesNum | ClientID), LfvrLong, REML = FALSE)
 Mod3a &lt;- lmer(Anxiety ~ SesNum*Het0 +(SesNum | ClientID), LfvrLong, REML = FALSE)</p>
 <p>Note that in this <em>lmer()</em> specification, I have added a control statement: <em>control = lmerControl(optimizer = “bobyq”)</em>. This is because I was getting a “failure to converge” warning. Although it is more complicated than I will present, trying different <em>engines</em> can sometimes force a convergence. There are a variety of different optimizers (e.g., bobyqa, Nelder-Mead, optimx, nlminb). There is much to learn about optimizers and so internet searching and evaluating will probably be required if/when you encounter convergence issues.</p>
 <p>Another troubleshooting solution would be to trim the model of the non-significant effects. At this point, I will try to get the full model to run and then trim at the end.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="LongMod.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb339-2"><a href="LongMod.html#cb339-2" aria-hidden="true" tabindex="-1"></a>Mod4a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum<span class="sc">*</span>Het0 <span class="sc">+</span> SesNum<span class="sc">*</span>DRel0 <span class="sc">+</span> Het0<span class="sc">*</span>DRel0 <span class="sc">+</span> (SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="LongMod.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb335-2"><a href="LongMod.html#cb335-2" aria-hidden="true" tabindex="-1"></a>Mod4a <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum<span class="sc">*</span>Het0 <span class="sc">+</span> SesNum<span class="sc">*</span>DRel0 <span class="sc">+</span> Het0<span class="sc">*</span>DRel0 <span class="sc">+</span> (SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="LongMod.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod4a)</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="LongMod.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod4a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
   method [lmerModLmerTest]
 Formula: Anxiety ~ SesNum * Het0 + SesNum * DRel0 + Het0 * DRel0 + (SesNum |  
@@ -1688,7 +1688,7 @@ SesNum:DRl0  0.252 -0.722  0.000 -0.327  0.007
 Het0:DRel0   0.384  0.001 -0.748 -0.500  0.001 -0.001
 optimizer (bobyqa) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="LongMod.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a, Mod3a, Mod4a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="LongMod.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a, Mod3a, Mod4a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -2164,41 +2164,41 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="LongMod.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb344-2"><a href="LongMod.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="LongMod.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb340-2"><a href="LongMod.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="LongMod.html#cb345-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod4a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="LongMod.html#cb341-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod4a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-42-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-122-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-42-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-122-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-42-4.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-122-4.png" width="672" /></p>
 <p>A plot of predicted values illustrates that anxiety continues decrease as sessions increase, even though we have added additional predictors. So far, this suggests stability in that result.</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="LongMod.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb353-2"><a href="LongMod.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span> (Mod4a, <span class="at">type=</span><span class="st">&quot;int&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0 [0,1]&quot;</span>, <span class="st">&quot;DRel[0,1]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="LongMod.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb349-2"><a href="LongMod.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_model</span> (Mod4a, <span class="at">type=</span><span class="st">&quot;int&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0 [0,1]&quot;</span>, <span class="st">&quot;DRel[0,1]&quot;</span>))</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <pre><code>
 [[2]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-43-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-123-2.png" width="672" /></p>
 <pre><code>
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-43-3.png" width="672" /></p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="LongMod.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot_model (Mod3a, type=&quot;int&quot;, terms = c(&quot;SesNum&quot;, &quot;Het0 [0,1]&quot;)) #this produces the same result, I included it as an example of how to add further specifications</span></span>
-<span id="cb357-2"><a href="LongMod.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sjPlot::plot_model (Mod4a, type=&quot;pred&quot;,terms=c(&quot;SesNum&quot;, &quot;Het0&quot;, &quot;DRel0&quot;))</span></span></code></pre></div>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="LongMod.html#cb358-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod4a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0&quot;</span>, <span class="st">&quot;DRel0&quot;</span>))</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-123-3.png" width="672" /></p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="LongMod.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot_model (Mod3a, type=&quot;int&quot;, terms = c(&quot;SesNum&quot;, &quot;Het0 [0,1]&quot;)) #this produces the same result, I included it as an example of how to add further specifications</span></span>
+<span id="cb353-2"><a href="LongMod.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sjPlot::plot_model (Mod4a, type=&quot;pred&quot;,terms=c(&quot;SesNum&quot;, &quot;Het0&quot;, &quot;DRel0&quot;))</span></span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="LongMod.html#cb354-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod4a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0&quot;</span>, <span class="st">&quot;DRel0&quot;</span>))</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
 <p><strong>Interpreting Fixed Effects</strong></p>
 <p>The additions are all nonsignificant. That is:</p>
 <ul>
@@ -2218,14 +2218,14 @@ Mod1a &lt;- lmer(Anxiety ~1 +(1 | ClientID), LfvrLong, REML = FALSE)
 Mod2a &lt;- lmer(Anxiety ~ SesNum +(SesNum | ClientID), LfvrLong, REML = FALSE)
 Mod3a &lt;- lmer(Anxiety ~ SesNum<em>Het0 +(SesNum | ClientID), LfvrLong, REML = FALSE)
 Mod4a &lt;- lmer(Anxiety ~ SesNum</em>Het0 + SesNum<em>DRel0 + Het0</em>DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= “bobyqa”))</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="LongMod.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a&lt;- lmer(Anxiety ~  SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
-<span id="cb359-2"><a href="LongMod.html#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a&lt;- lmer(Anxiety ~ SesNum*Het0 +  Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))#Mod5a&lt;- lmer(Anxiety ~ SesNum*Het0 + SesNum*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
-<span id="cb359-3"><a href="LongMod.html#cb359-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a&lt;- lmer(Anxiety ~ SesNum + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
-<span id="cb359-4"><a href="LongMod.html#cb359-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a &lt;- lmer(Anxiety ~ Het0 + SesNum + DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
-<span id="cb359-5"><a href="LongMod.html#cb359-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb359-6"><a href="LongMod.html#cb359-6" aria-hidden="true" tabindex="-1"></a>Mod5a<span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum <span class="sc">+</span> Het0 <span class="sc">+</span> (SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="LongMod.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a&lt;- lmer(Anxiety ~  SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
+<span id="cb355-2"><a href="LongMod.html#cb355-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a&lt;- lmer(Anxiety ~ SesNum*Het0 +  Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))#Mod5a&lt;- lmer(Anxiety ~ SesNum*Het0 + SesNum*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
+<span id="cb355-3"><a href="LongMod.html#cb355-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a&lt;- lmer(Anxiety ~ SesNum + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
+<span id="cb355-4"><a href="LongMod.html#cb355-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Mod5a &lt;- lmer(Anxiety ~ Het0 + SesNum + DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= &quot;bobyqa&quot;))</span></span>
+<span id="cb355-5"><a href="LongMod.html#cb355-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-6"><a href="LongMod.html#cb355-6" aria-hidden="true" tabindex="-1"></a>Mod5a<span class="ot">&lt;-</span> <span class="fu">lmer</span>(Anxiety <span class="sc">~</span> SesNum <span class="sc">+</span> Het0 <span class="sc">+</span> (SesNum <span class="sc">|</span> ClientID), LfvrLong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="LongMod.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod5a)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="LongMod.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mod5a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
   method [lmerModLmerTest]
 Formula: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
@@ -2264,7 +2264,7 @@ SesNum -0.327
 Het0   -0.498 -0.001
 optimizer (bobyqa) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="LongMod.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>, <span class="st">&quot;Mod5&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="LongMod.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>, <span class="st">&quot;Mod5&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -2833,47 +2833,47 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="LongMod.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb364-2"><a href="LongMod.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="LongMod.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb360-2"><a href="LongMod.html#cb360-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>Diagnostic plots continue to check for outliers, non-normality, and heteroscedasticity. In my mind they continue to look reasonable.</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="LongMod.html#cb365-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod5a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="LongMod.html#cb361-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod5a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-45-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-126-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-45-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-126-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-45-4.png" width="672" />
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-126-4.png" width="672" />
 Because of the significant trimming (of non-significant interaction effects), our plot resemble those we have observed throughout the model building process.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="LongMod.html#cb373-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod5a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0&quot;</span>))</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="LongMod.html#cb369-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (Mod5a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;SesNum&quot;</span>, <span class="st">&quot;Het0&quot;</span>))</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>Summary interpretations:</p>
 <p><strong>Fixed Effects</strong>: Model trimming resulted in the retention of two significant predictor variables. Controlling for sexual identity, anxiety decreased .08 points (<em>p</em> &lt; 0.001) from one session to the next. In turn, controlling for sexual identity, LGBQQ clients were .29 points higher on anxiety (<em>p</em> &lt; 0.001). All interaction terms were trimmed from the model. The figures illustrate the main effects of session number and sexual identity.</p>
 <p><strong>Variance Components</strong>: The variance components did change from Mod4a to Mod5a. Given that the effects we trimmed were <em>non-significant</em>, it is not surprising that it did not have a significant effect on the model. We should,though, compare our the final model’s <span class="math inline">\(\sigma ^{2}\)</span> back to the appropriate unconditional means model. This asks, “What within-person’s variance does Mod5a account for, relative to the within-person variance observed in Mod1a?” In parallel, we compare the final model’s <span class="math inline">\(\tau _{00}\)</span> and <span class="math inline">\(\tau _{11}\)</span> back to the unconditional growth model (Mod2a).This asks, “What between-person’s intercept and slope variance does Mod5a account for, relative wo those variances observed in Mod2a?”</p>
 <p>Here’s the general formula that we can apply across the <span class="math inline">\(\sigma ^{2}\)</span>(within subjects [L1] variance), <span class="math inline">\(\tau _{00}\)</span> (between-subjects [L2] intercepts), and <span class="math inline">\(\tau _{11}\)</span> (between-subjects [L2] slopes)</p>
 <p><span class="math display">\[Pseudo R^{2} = \frac{\sigma^2 (unconditional. means(or.growth)model) - \sigma^2(final. model)}{\sigma^{2}(unconditional.means(or.growth)model)}\]</span></p>
 <p>First we assess the relative proportion of within-persons variance accounted for by the final model. Using the <span class="math inline">\(\sigma ^{2}\)</span> (L1/Within-subjects variance) we compare Mod5a (final, trimmed model) compared to Mod1a (unconditioned means model). In calculating this (all of these, actually), I recognize it did not decrease after Mod2a, but I want to demonstrate it as practice.</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="LongMod.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for within-subjects variance</span></span>
-<span id="cb374-2"><a href="LongMod.html#cb374-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.44-1.26</span>)<span class="sc">/</span><span class="fl">1.44</span></span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="LongMod.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for within-subjects variance</span></span>
+<span id="cb370-2"><a href="LongMod.html#cb370-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.44-1.26</span>)<span class="sc">/</span><span class="fl">1.44</span></span></code></pre></div>
 <pre><code>[1] 0.125</code></pre>
 <p>Relative to the empty model, the final, trimmed model (Mod5a) explains 13% of the within-subjects variance.</p>
 <p>Next we assess the relative proportion of between-persons intercept variance accounted for by the final model. Using the <span class="math inline">\(\tau _{00}\)</span> (L2/intercept variance) we compare Mod5a (final, trimmed model) to Mod2a (unconditional growth model).</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="LongMod.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for bewteen subjects intercept</span></span>
-<span id="cb376-2"><a href="LongMod.html#cb376-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">5.18-5.17</span>)<span class="sc">/</span><span class="fl">5.18</span></span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="LongMod.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for bewteen subjects intercept</span></span>
+<span id="cb372-2"><a href="LongMod.html#cb372-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">5.18-5.17</span>)<span class="sc">/</span><span class="fl">5.18</span></span></code></pre></div>
 <pre><code>[1] 0.001930502</code></pre>
 <p>Relative to the unconditional growth model (Mod2a), the final model (Mod5a) explains less than 1% of the variance.</p>
 <p>Finally, we assess the relative proportion of between-persons slope variance accounted for by the final model. Using the <span class="math inline">\(\tau _{11}\)</span> (L2/slope variance), we compare Mod5a (final, trimmed model) to Mod2a (unconditional growth model).</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="LongMod.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for for between subjects slope</span></span>
-<span id="cb378-2"><a href="LongMod.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0-0</span><span class="sc">/</span>(<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="LongMod.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for for between subjects slope</span></span>
+<span id="cb374-2"><a href="LongMod.html#cb374-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0-0</span><span class="sc">/</span>(<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>[1] NaN</code></pre>
 <p>With values of zero, the calculation returns an impossible solution. The point, though, is that there has been no claim of variance in the between-persons (L2) slopes.</p>
 </div>
@@ -2905,8 +2905,8 @@ Because of the significant trimming (of non-significant interaction effects), ou
 </ul></li>
 </ol>
 <p>We can see the deviance values in the tab-Model and observe if they increase or decrease. The <em>anova()</em> function can formally conduct a Chi-square difference test to tell us if the models are statistically significantly different from each other.</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="LongMod.html#cb380-1" aria-hidden="true" tabindex="-1"></a>devALL <span class="ot">&lt;-</span> <span class="fu">anova</span>(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a) </span>
-<span id="cb380-2"><a href="LongMod.html#cb380-2" aria-hidden="true" tabindex="-1"></a>devALL</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="LongMod.html#cb376-1" aria-hidden="true" tabindex="-1"></a>devALL <span class="ot">&lt;-</span> <span class="fu">anova</span>(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a) </span>
+<span id="cb376-2"><a href="LongMod.html#cb376-2" aria-hidden="true" tabindex="-1"></a>devALL</span></code></pre></div>
 <pre><code>Data: LfvrLong
 Models:
 Mod1a: Anxiety ~ 1 + (1 | ClientID)
@@ -2929,8 +2929,8 @@ Mod4a
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In a manner consistent with the fixed effects, we see that models 2a and 5a are improvements over the more simple models that precede them. If we wanted specific comparisons we could list pairs, for example:</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="LongMod.html#cb382-1" aria-hidden="true" tabindex="-1"></a>devM4M5 <span class="ot">&lt;-</span> <span class="fu">anova</span>(Mod4a, Mod5a) </span>
-<span id="cb382-2"><a href="LongMod.html#cb382-2" aria-hidden="true" tabindex="-1"></a>devM4M5</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="LongMod.html#cb378-1" aria-hidden="true" tabindex="-1"></a>devM4M5 <span class="ot">&lt;-</span> <span class="fu">anova</span>(Mod4a, Mod5a) </span>
+<span id="cb378-2"><a href="LongMod.html#cb378-2" aria-hidden="true" tabindex="-1"></a>devM4M5</span></code></pre></div>
 <pre><code>Data: LfvrLong
 Models:
 Mod5a: Anxiety ~ SesNum + Het0 + (SesNum | ClientID)
@@ -3231,70 +3231,6 @@ We followed Singer and Willett’s <span class="citation">(<a href="#ref-singer_
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="LongMod.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>R version 4.1.3 (2022-03-10)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18363)
-
-Matrix products: default
-
-locale:
-[1] LC_COLLATE=English_United States.1252 
-[2] LC_CTYPE=English_United States.1252   
-[3] LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                          
-[5] LC_TIME=English_United States.1252    
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] formattable_0.2.1          lattice_0.20-45           
- [3] data.table_1.14.0          scales_1.1.1              
- [5] sjPlot_2.8.10              PerformanceAnalytics_2.0.4
- [7] xts_0.12.1                 zoo_1.8-9                 
- [9] robumeta_2.0               lmerTest_3.1-3            
-[11] forcats_0.5.1              stringr_1.4.0             
-[13] dplyr_1.0.7                purrr_0.3.4               
-[15] readr_2.0.1                tidyr_1.1.3               
-[17] tibble_3.1.4               ggplot2_3.3.5             
-[19] tidyverse_1.3.1            sjstats_0.18.1            
-[21] nlme_3.1-155               lme4_1.1-27.1             
-[23] Matrix_1.4-0               psych_2.1.6               
-
-loaded via a namespace (and not attached):
- [1] TH.data_1.1-0       minqa_1.2.4         colorspace_2.0-2   
- [4] ellipsis_0.3.2      sjlabelled_1.1.8    estimability_1.3   
- [7] parameters_0.14.0   fs_1.5.0            rstudioapi_0.13    
-[10] glmmTMB_1.1.2.3     farver_2.1.0        fansi_0.5.0        
-[13] mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
-[16] codetools_0.2-18    splines_4.1.3       mnormt_2.0.2       
-[19] knitr_1.34          sjmisc_2.8.7        jsonlite_1.7.2     
-[22] nloptr_1.2.2.2      ggeffects_1.1.1     broom_0.7.9        
-[25] dbplyr_2.1.1        effectsize_0.4.5    compiler_4.1.3     
-[28] httr_1.4.2          emmeans_1.6.3       backports_1.2.1    
-[31] assertthat_0.2.1    fastmap_1.1.0       cli_3.0.1          
-[34] htmltools_0.5.2     tools_4.1.3         coda_0.19-4        
-[37] gtable_0.3.0        glue_1.4.2          reshape2_1.4.4     
-[40] Rcpp_1.0.7          cellranger_1.1.0    jquerylib_0.1.4    
-[43] vctrs_0.3.8         apaTables_2.0.8     insight_0.14.4     
-[46] xfun_0.25           rvest_1.0.1         lifecycle_1.0.0    
-[49] MASS_7.3-55         hms_1.1.0           parallel_4.1.3     
-[52] sandwich_3.0-1      TMB_1.7.22          RColorBrewer_1.1-2 
-[55] yaml_2.2.1          sass_0.4.0          stringi_1.7.4      
-[58] highr_0.9           bayestestR_0.11.0   boot_1.3-28        
-[61] rlang_0.4.11        pkgconfig_2.0.3     evaluate_0.14      
-[64] htmlwidgets_1.5.4   labeling_0.4.2      tidyselect_1.1.1   
-[67] plyr_1.8.6          magrittr_2.0.1      bookdown_0.24      
-[70] R6_2.5.1            generics_0.1.0      multcomp_1.4-17    
-[73] DBI_1.1.1           pillar_1.6.2        haven_2.4.3        
-[76] withr_2.4.2         mgcv_1.8-39         survival_3.2-13    
-[79] datawizard_0.2.0.1  performance_0.7.3   modelr_0.1.8       
-[82] crayon_1.4.1        utf8_1.2.2          tmvnsim_1.0-2      
-[85] tzdb_0.1.2          rmarkdown_2.10      grid_4.1.3         
-[88] readxl_1.3.1        reprex_2.0.1        digest_0.6.27      
-[91] xtable_1.8-4        numDeriv_2016.8-1.1 munsell_0.5.0      
-[94] bslib_0.3.0         quadprog_1.5-8     </code></pre>
 
 </div>
 </div>

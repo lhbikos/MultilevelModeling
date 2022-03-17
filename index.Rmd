@@ -22,12 +22,10 @@ github-repo: lhbikos/extRas
 
 ![An image of the book cover. It includes four quadrants of non-normal distributions representing gender, race/ethnicty, sustainability/global concerns, and journal articles](images/ReC_mlevel_bkcvr.png)
 
-This open education resource is available in the following formats:
+This open education resource is available in the following formats, all available in the [docs](https://github.com/lhbikos/ReC_MultivModel/tree/main/docs) folder at the GitHub repository:
 
-* Formatted as an [html book](https://lhbikos.github.io/MultilevelModeling/) via GitHub Pages available in the [docs](https://github.com/lhbikos/MultilevelModeling/tree/main/docs) folder at the GitHub repository
-* As a [PDF](https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.pdf) 
-* As an [ebook](https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.epub) 
-* As a [Word](https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.docx) d
+* Formatted as an [html book](https://lhbikos.github.io/MultilevelModeling/) 
+* As a [PDF](https://github.com/lhbikos/MultilevelModeling/blob/main/ReC_Multilevel.pdf) 
 
 All materials used in creating this OER are available at its [GitHub repo](https://github.com/lhbikos/MultilevelModeling).
 

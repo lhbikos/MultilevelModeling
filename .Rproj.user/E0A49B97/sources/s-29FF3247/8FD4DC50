@@ -3,7 +3,7 @@
     "path": "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_MultivariateModeling/MultilevelModeling/index.Rmd",
     "project_path": "index.Rmd",
     "type": "r_markdown",
-    "hash": "3939543971",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1647534014088.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "61,79",
-        "scrollLine": "45"
+        "cursorPosition": "65,378",
+        "scrollLine": "64"
     },
     "folds": "",
-    "lastKnownWriteTime": 1647534832,
+    "lastKnownWriteTime": 1647537610,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1647534832848,
+    "last_content_update": 1647537610962,
     "read_only": false,
     "read_only_alternatives": []
 }

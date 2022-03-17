@@ -417,18 +417,18 @@ div.csl-indent {
 <div id="packages-4" class="section level3" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Packages</h3>
 <p>The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="TimeLord.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
-<span id="cb386-2"><a href="TimeLord.html#cb386-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lme4)){install.packages(&quot;lme4&quot;)}</span></span>
-<span id="cb386-3"><a href="TimeLord.html#cb386-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjStats)){install.packages(&quot;sjStats&quot;)}</span></span>
-<span id="cb386-4"><a href="TimeLord.html#cb386-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjPlot)){install.packages(&quot;sjPlot&quot;)}</span></span>
-<span id="cb386-5"><a href="TimeLord.html#cb386-5" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(formattable)){install.packages(&quot;formattable&quot;)}</span></span>
-<span id="cb386-6"><a href="TimeLord.html#cb386-6" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
-<span id="cb386-7"><a href="TimeLord.html#cb386-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(robumeta)){install.packages(&quot;robumeta&quot;)}</span></span>
-<span id="cb386-8"><a href="TimeLord.html#cb386-8" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(scales)){install.packages(&quot;scales&quot;)}</span></span>
-<span id="cb386-9"><a href="TimeLord.html#cb386-9" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
-<span id="cb386-10"><a href="TimeLord.html#cb386-10" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(data.table)){install.packages(&quot;data.table&quot;)}</span></span>
-<span id="cb386-11"><a href="TimeLord.html#cb386-11" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(ggplot2)){install.packages(&quot;ggplot2&quot;)}</span></span>
-<span id="cb386-12"><a href="TimeLord.html#cb386-12" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lubridate)){install.packages(&quot;lubridate&quot;)}</span></span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="TimeLord.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
+<span id="cb380-2"><a href="TimeLord.html#cb380-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lme4)){install.packages(&quot;lme4&quot;)}</span></span>
+<span id="cb380-3"><a href="TimeLord.html#cb380-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjStats)){install.packages(&quot;sjStats&quot;)}</span></span>
+<span id="cb380-4"><a href="TimeLord.html#cb380-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjPlot)){install.packages(&quot;sjPlot&quot;)}</span></span>
+<span id="cb380-5"><a href="TimeLord.html#cb380-5" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(formattable)){install.packages(&quot;formattable&quot;)}</span></span>
+<span id="cb380-6"><a href="TimeLord.html#cb380-6" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
+<span id="cb380-7"><a href="TimeLord.html#cb380-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(robumeta)){install.packages(&quot;robumeta&quot;)}</span></span>
+<span id="cb380-8"><a href="TimeLord.html#cb380-8" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(scales)){install.packages(&quot;scales&quot;)}</span></span>
+<span id="cb380-9"><a href="TimeLord.html#cb380-9" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
+<span id="cb380-10"><a href="TimeLord.html#cb380-10" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(data.table)){install.packages(&quot;data.table&quot;)}</span></span>
+<span id="cb380-11"><a href="TimeLord.html#cb380-11" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(ggplot2)){install.packages(&quot;ggplot2&quot;)}</span></span>
+<span id="cb380-12"><a href="TimeLord.html#cb380-12" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lubridate)){install.packages(&quot;lubridate&quot;)}</span></span></code></pre></div>
 </div>
 </div>
 <div id="exploring-variants-of-time-and-balance" class="section level2" number="5.2">
@@ -451,152 +451,152 @@ div.csl-indent {
 <div id="simulating-the-data-from-the-journal-article-3" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Simulating the data from the journal article</h3>
 <p>This simulation is very similar (but not identical) to the simulation used in the MLM longitudinal exploration and model building chapters. The primary difference is that when I created the SessionT variable, I did not require the values to be integers. Instead, the number of sessions could be fractional as they still ranged from 0 to 19. The session variable becomes our key in creating a variable representing <em>calendrical time</em>.</p>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="TimeLord.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
-<span id="cb387-2"><a href="TimeLord.html#cb387-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
-<span id="cb387-3"><a href="TimeLord.html#cb387-3" aria-hidden="true" tabindex="-1"></a>n_session <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb387-4"><a href="TimeLord.html#cb387-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="fl">2.03</span> <span class="co">#intercept for anxiety</span></span>
-<span id="cb387-5"><a href="TimeLord.html#cb387-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="sc">-</span>.<span class="dv">22</span> <span class="co">#b weight for L1 session</span></span>
-<span id="cb387-6"><a href="TimeLord.html#cb387-6" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">=</span> .<span class="dv">13</span> <span class="co">#b weight for L2 sexual identity</span></span>
-<span id="cb387-7"><a href="TimeLord.html#cb387-7" aria-hidden="true" tabindex="-1"></a>b3 <span class="ot">=</span>  <span class="sc">-</span>.<span class="dv">03</span> <span class="co">#b weight for L2 Rel1 (D-R vs ND-R &amp; ND-U)</span></span>
-<span id="cb387-8"><a href="TimeLord.html#cb387-8" aria-hidden="true" tabindex="-1"></a>b4 <span class="ot">=</span> .<span class="dv">01</span> <span class="co">#b weight for the L2 Rel2 (ND-R vs ND-U)</span></span>
-<span id="cb387-9"><a href="TimeLord.html#cb387-9" aria-hidden="true" tabindex="-1"></a><span class="co">#the values used below are the +/- 3SD they produce continuous variables which later need to be transformed to categorical ones; admittedly this introduces a great deal of error/noise into the simulation</span></span>
-<span id="cb387-10"><a href="TimeLord.html#cb387-10" aria-hidden="true" tabindex="-1"></a><span class="co">#the article didn&#39;t include a correlation matrix or M/SDs so this was a clunky process </span></span>
-<span id="cb387-11"><a href="TimeLord.html#cb387-11" aria-hidden="true" tabindex="-1"></a>( <span class="at">Session =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>n_session, <span class="sc">-</span><span class="fl">3.61</span>, <span class="fl">3.18</span>)) <span class="co">#calc L1 Session, values are the +/3 3SD</span></span>
-<span id="cb387-12"><a href="TimeLord.html#cb387-12" aria-hidden="true" tabindex="-1"></a>( <span class="at">SexualIdentity =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">6.66</span>, <span class="fl">6.92</span>)) <span class="co">#calc L2 Sexual Identity, values are the +/3 3SD</span></span>
-<span id="cb387-13"><a href="TimeLord.html#cb387-13" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion1 =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">3.43</span>, <span class="fl">3.37</span>)) <span class="co">#calc L2 Religion1, values are the +/3 3SD</span></span>
-<span id="cb387-14"><a href="TimeLord.html#cb387-14" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion2 =</span> <span class="fu">rep</span> (<span class="fu">runif</span>(n_session, <span class="sc">-</span><span class="fl">3.38</span>, <span class="fl">3.41</span>), <span class="at">each =</span> n_session)) <span class="co">#calc L2 Religion2, values are the +/3 3SD</span></span>
-<span id="cb387-15"><a href="TimeLord.html#cb387-15" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="fl">1.76</span> <span class="co">#intercept of empty model </span></span>
-<span id="cb387-16"><a href="TimeLord.html#cb387-16" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">=</span> <span class="fl">2.264</span> <span class="co">#this is the SD of the DV</span></span>
-<span id="cb387-17"><a href="TimeLord.html#cb387-17" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this is the observation-level random effect variance that we set at 1</span></span>
-<span id="cb387-18"><a href="TimeLord.html#cb387-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-19"><a href="TimeLord.html#cb387-19" aria-hidden="true" tabindex="-1"></a><span class="co">#( church = rep(LETTERS[1:n_church], each = n_mbrs) ) #this worked in the prior</span></span>
-<span id="cb387-20"><a href="TimeLord.html#cb387-20" aria-hidden="true" tabindex="-1"></a>( <span class="at">client =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span>n_client], <span class="at">each =</span> n_session) )</span>
-<span id="cb387-21"><a href="TimeLord.html#cb387-21" aria-hidden="true" tabindex="-1"></a><span class="co">#( session = numbers[1:(n_client*n_session)] )</span></span>
-<span id="cb387-22"><a href="TimeLord.html#cb387-22" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rnorm</span>(n_client, <span class="dv">0</span>, sds) )</span>
-<span id="cb387-23"><a href="TimeLord.html#cb387-23" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rep</span>(clienteff, <span class="at">each =</span> n_session) )</span>
-<span id="cb387-24"><a href="TimeLord.html#cb387-24" aria-hidden="true" tabindex="-1"></a>( <span class="at">sessioneff =</span> <span class="fu">rnorm</span>(n_client<span class="sc">*</span>n_session, <span class="dv">0</span>, sd) )</span>
-<span id="cb387-25"><a href="TimeLord.html#cb387-25" aria-hidden="true" tabindex="-1"></a>( <span class="at">Anxiety =</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>Session <span class="sc">+</span> b2<span class="sc">*</span>SexualIdentity <span class="sc">+</span> b3<span class="sc">*</span>Religion1 <span class="sc">+</span> b4<span class="sc">*</span>Religion2 <span class="sc">+</span> clienteff <span class="sc">+</span> sessioneff)</span>
-<span id="cb387-26"><a href="TimeLord.html#cb387-26" aria-hidden="true" tabindex="-1"></a>( <span class="at">dat =</span> <span class="fu">data.frame</span>(client, clienteff, sessioneff, Session, SexualIdentity, Religion1, Religion2, Anxiety) )</span>
-<span id="cb387-27"><a href="TimeLord.html#cb387-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-28"><a href="TimeLord.html#cb387-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb387-29"><a href="TimeLord.html#cb387-29" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span>
-<span id="cb387-30"><a href="TimeLord.html#cb387-30" aria-hidden="true" tabindex="-1"></a><span class="co">#moving the ID number to the first column; requires </span></span>
-<span id="cb387-31"><a href="TimeLord.html#cb387-31" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
-<span id="cb387-32"><a href="TimeLord.html#cb387-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-33"><a href="TimeLord.html#cb387-33" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span></span>
-<span id="cb387-34"><a href="TimeLord.html#cb387-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, client, Session, SexualIdentity, Religion1, Religion2, Anxiety)</span>
-<span id="cb387-35"><a href="TimeLord.html#cb387-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-36"><a href="TimeLord.html#cb387-36" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>ClientID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12825</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
-<span id="cb387-37"><a href="TimeLord.html#cb387-37" aria-hidden="true" tabindex="-1"></a><span class="co">#rounded Sexual Identity into dichotomous variable</span></span>
-<span id="cb387-38"><a href="TimeLord.html#cb387-38" aria-hidden="true" tabindex="-1"></a><span class="co">#85% were heterosexual, </span></span>
-<span id="cb387-39"><a href="TimeLord.html#cb387-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-40"><a href="TimeLord.html#cb387-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robumeta)</span>
-<span id="cb387-41"><a href="TimeLord.html#cb387-41" aria-hidden="true" tabindex="-1"></a><span class="co">#The following variables should be L2, but were simulated as if they were L1</span></span>
-<span id="cb387-42"><a href="TimeLord.html#cb387-42" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion1,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
-<span id="cb387-43"><a href="TimeLord.html#cb387-43" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion2,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
-<span id="cb387-44"><a href="TimeLord.html#cb387-44" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SxID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>SexualIdentity,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
-<span id="cb387-45"><a href="TimeLord.html#cb387-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-46"><a href="TimeLord.html#cb387-46" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2 has contrast codes for dominant religion (DR, 0), nondominant religious (NDR, 1) and nondominant unspecified (NDU, -1)</span></span>
-<span id="cb387-47"><a href="TimeLord.html#cb387-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Strategy is to figure out the raw score associated with the percentile rank of  -1 and 0, to set the breakpoints for the coding</span></span>
-<span id="cb387-48"><a href="TimeLord.html#cb387-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU coded as -1</span></span>
-<span id="cb387-49"><a href="TimeLord.html#cb387-49" aria-hidden="true" tabindex="-1"></a><span class="co">#19.2+13.5+9.6</span></span>
-<span id="cb387-50"><a href="TimeLord.html#cb387-50" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU has bottom 42.3 percent</span></span>
-<span id="cb387-51"><a href="TimeLord.html#cb387-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-52"><a href="TimeLord.html#cb387-52" aria-hidden="true" tabindex="-1"></a><span class="co">#DR coded as 0, so quantile cut will be 42.3 + 52.7 = 95th</span></span>
-<span id="cb387-53"><a href="TimeLord.html#cb387-53" aria-hidden="true" tabindex="-1"></a><span class="co">#33.4 + 19.3</span></span>
-<span id="cb387-54"><a href="TimeLord.html#cb387-54" aria-hidden="true" tabindex="-1"></a><span class="co">#52.7% of sample (according to article) was DR</span></span>
-<span id="cb387-55"><a href="TimeLord.html#cb387-55" aria-hidden="true" tabindex="-1"></a><span class="co">#must look up percentile ranks for 5% and 57.5%</span></span>
-<span id="cb387-56"><a href="TimeLord.html#cb387-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-57"><a href="TimeLord.html#cb387-57" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR</span></span>
-<span id="cb387-58"><a href="TimeLord.html#cb387-58" aria-hidden="true" tabindex="-1"></a><span class="co">#2.3+1+1+.7</span></span>
-<span id="cb387-59"><a href="TimeLord.html#cb387-59" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR has 5% of sample</span></span>
-<span id="cb387-60"><a href="TimeLord.html#cb387-60" aria-hidden="true" tabindex="-1"></a><span class="co">#42.3+52.7</span></span>
-<span id="cb387-61"><a href="TimeLord.html#cb387-61" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$Religion2, probs = c(.423, .95))</span></span>
-<span id="cb387-62"><a href="TimeLord.html#cb387-62" aria-hidden="true" tabindex="-1"></a><span class="co">#effects coding the second Religion variable so that NDU = -1, DR = 0, NDR = 1</span></span>
-<span id="cb387-63"><a href="TimeLord.html#cb387-63" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2L2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span>, <span class="sc">-</span><span class="dv">1</span>, </span>
-<span id="cb387-64"><a href="TimeLord.html#cb387-64" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span> <span class="sc">&amp;</span> Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="fl">0.9299491</span>, <span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb387-65"><a href="TimeLord.html#cb387-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-66"><a href="TimeLord.html#cb387-66" aria-hidden="true" tabindex="-1"></a><span class="co">#checking work</span></span>
-<span id="cb387-67"><a href="TimeLord.html#cb387-67" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2L2_table &lt;- table(Lefevor2017$Rel2L2)</span></span>
-<span id="cb387-68"><a href="TimeLord.html#cb387-68" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel2L2_table)</span></span>
-<span id="cb387-69"><a href="TimeLord.html#cb387-69" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017 %&gt;%</span></span>
-<span id="cb387-70"><a href="TimeLord.html#cb387-70" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Rel2L2)</span></span>
-<span id="cb387-71"><a href="TimeLord.html#cb387-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-72"><a href="TimeLord.html#cb387-72" aria-hidden="true" tabindex="-1"></a><span class="co">#creating the first religion variable where DR is 2 and NDR and NDU are both -1</span></span>
-<span id="cb387-73"><a href="TimeLord.html#cb387-73" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1L2 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
-<span id="cb387-74"><a href="TimeLord.html#cb387-74" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>DRel0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb387-75"><a href="TimeLord.html#cb387-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-76"><a href="TimeLord.html#cb387-76" aria-hidden="true" tabindex="-1"></a><span class="co">#checking to make sure that 52.7% are coded 2 (DR)</span></span>
-<span id="cb387-77"><a href="TimeLord.html#cb387-77" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel1L2_table &lt;- table(Lefevor2017$Rel1L2)</span></span>
-<span id="cb387-78"><a href="TimeLord.html#cb387-78" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel1L2_table)</span></span>
-<span id="cb387-79"><a href="TimeLord.html#cb387-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-80"><a href="TimeLord.html#cb387-80" aria-hidden="true" tabindex="-1"></a><span class="co">#heterosexual is -1</span></span>
-<span id="cb387-81"><a href="TimeLord.html#cb387-81" aria-hidden="true" tabindex="-1"></a><span class="co">#LGBTQIA+ is 1</span></span>
-<span id="cb387-82"><a href="TimeLord.html#cb387-82" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$SxID, probs = c(.85))</span></span>
-<span id="cb387-83"><a href="TimeLord.html#cb387-83" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SexID <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>SxID <span class="sc">&lt;=</span> <span class="fl">1.203468</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb387-84"><a href="TimeLord.html#cb387-84" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Het0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>SexID, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb387-85"><a href="TimeLord.html#cb387-85" aria-hidden="true" tabindex="-1"></a><span class="co">#SexID_table &lt;- table(Lefevor2017$SexID)</span></span>
-<span id="cb387-86"><a href="TimeLord.html#cb387-86" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(SexID_table)</span></span>
-<span id="cb387-87"><a href="TimeLord.html#cb387-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-88"><a href="TimeLord.html#cb387-88" aria-hidden="true" tabindex="-1"></a><span class="co">#creating a variable representing the session number for each client, in the article up to 20 sessions were allowed. </span></span>
-<span id="cb387-89"><a href="TimeLord.html#cb387-89" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;scales&quot;)</span></span>
-<span id="cb387-90"><a href="TimeLord.html#cb387-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb387-91"><a href="TimeLord.html#cb387-91" aria-hidden="true" tabindex="-1"></a><span class="co">#Right from the beginning I centered this so that 0 would represent intake</span></span>
-<span id="cb387-92"><a href="TimeLord.html#cb387-92" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017$Session0 &lt;- as.integer(scales::rescale(Lefevor2017$Session, to = c(0, 19)))</span></span>
-<span id="cb387-93"><a href="TimeLord.html#cb387-93" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SessionT <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(Lefevor2017<span class="sc">$</span>Session, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19</span>))</span>
-<span id="cb387-94"><a href="TimeLord.html#cb387-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-95"><a href="TimeLord.html#cb387-95" aria-hidden="true" tabindex="-1"></a><span class="co">#creating session waves (1 thru 5) by rank ordering within each person&#39;s variable the continuous variable Session that was created in the original simulation</span></span>
-<span id="cb387-96"><a href="TimeLord.html#cb387-96" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb387-97"><a href="TimeLord.html#cb387-97" aria-hidden="true" tabindex="-1"></a>LefevorTIME <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
-<span id="cb387-98"><a href="TimeLord.html#cb387-98" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ClientID) <span class="sc">%&gt;%</span></span>
-<span id="cb387-99"><a href="TimeLord.html#cb387-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">rank</span>(Session))</span>
-<span id="cb387-100"><a href="TimeLord.html#cb387-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-101"><a href="TimeLord.html#cb387-101" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting the simulated variables</span></span>
-<span id="cb387-102"><a href="TimeLord.html#cb387-102" aria-hidden="true" tabindex="-1"></a>LefevorTIME_sim <span class="ot">&lt;-</span> LefevorTIME<span class="sc">%&gt;%</span></span>
-<span id="cb387-103"><a href="TimeLord.html#cb387-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SessionT, Anxiety, DRel0, Het0)</span>
-<span id="cb387-104"><a href="TimeLord.html#cb387-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-105"><a href="TimeLord.html#cb387-105" aria-hidden="true" tabindex="-1"></a><span class="co">#rearranging variables so that IDs are together</span></span>
-<span id="cb387-106"><a href="TimeLord.html#cb387-106" aria-hidden="true" tabindex="-1"></a>LefevorTIME_sim <span class="ot">&lt;-</span> LefevorTIME_sim<span class="sc">%&gt;%</span></span>
-<span id="cb387-107"><a href="TimeLord.html#cb387-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SessionT, Anxiety, DRel0, Het0)</span>
-<span id="cb387-108"><a href="TimeLord.html#cb387-108" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
-<span id="cb387-109"><a href="TimeLord.html#cb387-109" aria-hidden="true" tabindex="-1"></a>LefevorTIME_sim <span class="ot">&lt;-</span> <span class="fu">arrange</span>(LefevorTIME_sim, ClientID, Index)</span>
-<span id="cb387-110"><a href="TimeLord.html#cb387-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb387-111"><a href="TimeLord.html#cb387-111" aria-hidden="true" tabindex="-1"></a><span class="co">#In the transition from long-to-wide, it seems like you can only do one L1 variable at a time</span></span>
-<span id="cb387-112"><a href="TimeLord.html#cb387-112" aria-hidden="true" tabindex="-1"></a><span class="co">#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde</span></span>
-<span id="cb387-113"><a href="TimeLord.html#cb387-113" aria-hidden="true" tabindex="-1"></a><span class="co">#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum</span></span>
-<span id="cb387-114"><a href="TimeLord.html#cb387-114" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the name of the SINGLE L1 variable in the concatonated list</span></span>
-<span id="cb387-115"><a href="TimeLord.html#cb387-115" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb387-116"><a href="TimeLord.html#cb387-116" aria-hidden="true" tabindex="-1"></a>LfvrTWp1<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(LefevorTIME_sim, ClientID <span class="sc">+</span> DRel0 <span class="sc">+</span> Het0 <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>))</span>
-<span id="cb387-117"><a href="TimeLord.html#cb387-117" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
-<span id="cb387-118"><a href="TimeLord.html#cb387-118" aria-hidden="true" tabindex="-1"></a>LfvrTWp1<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrTWp1, <span class="at">Index1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Index2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Index3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Index4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Index5 =</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb387-119"><a href="TimeLord.html#cb387-119" aria-hidden="true" tabindex="-1"></a>LfvrTWp2<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(LefevorTIME_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Anxiety&quot;</span>))</span>
-<span id="cb387-120"><a href="TimeLord.html#cb387-120" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
-<span id="cb387-121"><a href="TimeLord.html#cb387-121" aria-hidden="true" tabindex="-1"></a>LfvrTWp2<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrTWp2, <span class="at">Anx1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Anx2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Anx3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Anx4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Anx5 =</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb387-122"><a href="TimeLord.html#cb387-122" aria-hidden="true" tabindex="-1"></a><span class="co">#For remaining L1 variable, do them one at a time -- key them from the person-level ID and the wave/index.</span></span>
-<span id="cb387-123"><a href="TimeLord.html#cb387-123" aria-hidden="true" tabindex="-1"></a>LfvrTWp3<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(LefevorTIME_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;SessionT&quot;</span>))</span>
-<span id="cb387-124"><a href="TimeLord.html#cb387-124" aria-hidden="true" tabindex="-1"></a>LfvrTWp3<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrTWp3, <span class="at">Sess1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Sess2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Sess3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Sess4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Sess5 =</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb387-125"><a href="TimeLord.html#cb387-125" aria-hidden="true" tabindex="-1"></a><span class="co">#Next, join the dataframes by the person-level ID</span></span>
-<span id="cb387-126"><a href="TimeLord.html#cb387-126" aria-hidden="true" tabindex="-1"></a><span class="co">#Only two can be joined at a time</span></span>
-<span id="cb387-127"><a href="TimeLord.html#cb387-127" aria-hidden="true" tabindex="-1"></a>LfvrTWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrTWp1, LfvrTWp2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span>
-<span id="cb387-128"><a href="TimeLord.html#cb387-128" aria-hidden="true" tabindex="-1"></a>LfvrTWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrTWide, LfvrTWp3,  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="TimeLord.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
+<span id="cb381-2"><a href="TimeLord.html#cb381-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
+<span id="cb381-3"><a href="TimeLord.html#cb381-3" aria-hidden="true" tabindex="-1"></a>n_session <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb381-4"><a href="TimeLord.html#cb381-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="fl">2.03</span> <span class="co">#intercept for anxiety</span></span>
+<span id="cb381-5"><a href="TimeLord.html#cb381-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="sc">-</span>.<span class="dv">22</span> <span class="co">#b weight for L1 session</span></span>
+<span id="cb381-6"><a href="TimeLord.html#cb381-6" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">=</span> .<span class="dv">13</span> <span class="co">#b weight for L2 sexual identity</span></span>
+<span id="cb381-7"><a href="TimeLord.html#cb381-7" aria-hidden="true" tabindex="-1"></a>b3 <span class="ot">=</span>  <span class="sc">-</span>.<span class="dv">03</span> <span class="co">#b weight for L2 Rel1 (D-R vs ND-R &amp; ND-U)</span></span>
+<span id="cb381-8"><a href="TimeLord.html#cb381-8" aria-hidden="true" tabindex="-1"></a>b4 <span class="ot">=</span> .<span class="dv">01</span> <span class="co">#b weight for the L2 Rel2 (ND-R vs ND-U)</span></span>
+<span id="cb381-9"><a href="TimeLord.html#cb381-9" aria-hidden="true" tabindex="-1"></a><span class="co">#the values used below are the +/- 3SD they produce continuous variables which later need to be transformed to categorical ones; admittedly this introduces a great deal of error/noise into the simulation</span></span>
+<span id="cb381-10"><a href="TimeLord.html#cb381-10" aria-hidden="true" tabindex="-1"></a><span class="co">#the article didn&#39;t include a correlation matrix or M/SDs so this was a clunky process </span></span>
+<span id="cb381-11"><a href="TimeLord.html#cb381-11" aria-hidden="true" tabindex="-1"></a>( <span class="at">Session =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>n_session, <span class="sc">-</span><span class="fl">3.61</span>, <span class="fl">3.18</span>)) <span class="co">#calc L1 Session, values are the +/3 3SD</span></span>
+<span id="cb381-12"><a href="TimeLord.html#cb381-12" aria-hidden="true" tabindex="-1"></a>( <span class="at">SexualIdentity =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">6.66</span>, <span class="fl">6.92</span>)) <span class="co">#calc L2 Sexual Identity, values are the +/3 3SD</span></span>
+<span id="cb381-13"><a href="TimeLord.html#cb381-13" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion1 =</span> <span class="fu">runif</span>(n_client<span class="sc">*</span>Session, <span class="sc">-</span><span class="fl">3.43</span>, <span class="fl">3.37</span>)) <span class="co">#calc L2 Religion1, values are the +/3 3SD</span></span>
+<span id="cb381-14"><a href="TimeLord.html#cb381-14" aria-hidden="true" tabindex="-1"></a>( <span class="at">Religion2 =</span> <span class="fu">rep</span> (<span class="fu">runif</span>(n_session, <span class="sc">-</span><span class="fl">3.38</span>, <span class="fl">3.41</span>), <span class="at">each =</span> n_session)) <span class="co">#calc L2 Religion2, values are the +/3 3SD</span></span>
+<span id="cb381-15"><a href="TimeLord.html#cb381-15" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="fl">1.76</span> <span class="co">#intercept of empty model </span></span>
+<span id="cb381-16"><a href="TimeLord.html#cb381-16" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">=</span> <span class="fl">2.264</span> <span class="co">#this is the SD of the DV</span></span>
+<span id="cb381-17"><a href="TimeLord.html#cb381-17" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this is the observation-level random effect variance that we set at 1</span></span>
+<span id="cb381-18"><a href="TimeLord.html#cb381-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-19"><a href="TimeLord.html#cb381-19" aria-hidden="true" tabindex="-1"></a><span class="co">#( church = rep(LETTERS[1:n_church], each = n_mbrs) ) #this worked in the prior</span></span>
+<span id="cb381-20"><a href="TimeLord.html#cb381-20" aria-hidden="true" tabindex="-1"></a>( <span class="at">client =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span>n_client], <span class="at">each =</span> n_session) )</span>
+<span id="cb381-21"><a href="TimeLord.html#cb381-21" aria-hidden="true" tabindex="-1"></a><span class="co">#( session = numbers[1:(n_client*n_session)] )</span></span>
+<span id="cb381-22"><a href="TimeLord.html#cb381-22" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rnorm</span>(n_client, <span class="dv">0</span>, sds) )</span>
+<span id="cb381-23"><a href="TimeLord.html#cb381-23" aria-hidden="true" tabindex="-1"></a>( <span class="at">clienteff =</span> <span class="fu">rep</span>(clienteff, <span class="at">each =</span> n_session) )</span>
+<span id="cb381-24"><a href="TimeLord.html#cb381-24" aria-hidden="true" tabindex="-1"></a>( <span class="at">sessioneff =</span> <span class="fu">rnorm</span>(n_client<span class="sc">*</span>n_session, <span class="dv">0</span>, sd) )</span>
+<span id="cb381-25"><a href="TimeLord.html#cb381-25" aria-hidden="true" tabindex="-1"></a>( <span class="at">Anxiety =</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>Session <span class="sc">+</span> b2<span class="sc">*</span>SexualIdentity <span class="sc">+</span> b3<span class="sc">*</span>Religion1 <span class="sc">+</span> b4<span class="sc">*</span>Religion2 <span class="sc">+</span> clienteff <span class="sc">+</span> sessioneff)</span>
+<span id="cb381-26"><a href="TimeLord.html#cb381-26" aria-hidden="true" tabindex="-1"></a>( <span class="at">dat =</span> <span class="fu">data.frame</span>(client, clienteff, sessioneff, Session, SexualIdentity, Religion1, Religion2, Anxiety) )</span>
+<span id="cb381-27"><a href="TimeLord.html#cb381-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-28"><a href="TimeLord.html#cb381-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb381-29"><a href="TimeLord.html#cb381-29" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span>
+<span id="cb381-30"><a href="TimeLord.html#cb381-30" aria-hidden="true" tabindex="-1"></a><span class="co">#moving the ID number to the first column; requires </span></span>
+<span id="cb381-31"><a href="TimeLord.html#cb381-31" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
+<span id="cb381-32"><a href="TimeLord.html#cb381-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-33"><a href="TimeLord.html#cb381-33" aria-hidden="true" tabindex="-1"></a>Lefevor2017 <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span></span>
+<span id="cb381-34"><a href="TimeLord.html#cb381-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, client, Session, SexualIdentity, Religion1, Religion2, Anxiety)</span>
+<span id="cb381-35"><a href="TimeLord.html#cb381-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-36"><a href="TimeLord.html#cb381-36" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>ClientID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12825</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
+<span id="cb381-37"><a href="TimeLord.html#cb381-37" aria-hidden="true" tabindex="-1"></a><span class="co">#rounded Sexual Identity into dichotomous variable</span></span>
+<span id="cb381-38"><a href="TimeLord.html#cb381-38" aria-hidden="true" tabindex="-1"></a><span class="co">#85% were heterosexual, </span></span>
+<span id="cb381-39"><a href="TimeLord.html#cb381-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-40"><a href="TimeLord.html#cb381-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robumeta)</span>
+<span id="cb381-41"><a href="TimeLord.html#cb381-41" aria-hidden="true" tabindex="-1"></a><span class="co">#The following variables should be L2, but were simulated as if they were L1</span></span>
+<span id="cb381-42"><a href="TimeLord.html#cb381-42" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion1,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb381-43"><a href="TimeLord.html#cb381-43" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>Religion2,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb381-44"><a href="TimeLord.html#cb381-44" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SxID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">group.mean</span>(Lefevor2017<span class="sc">$</span>SexualIdentity,Lefevor2017<span class="sc">$</span>ClientID))<span class="co">#aggregated at group mean</span></span>
+<span id="cb381-45"><a href="TimeLord.html#cb381-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-46"><a href="TimeLord.html#cb381-46" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2 has contrast codes for dominant religion (DR, 0), nondominant religious (NDR, 1) and nondominant unspecified (NDU, -1)</span></span>
+<span id="cb381-47"><a href="TimeLord.html#cb381-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Strategy is to figure out the raw score associated with the percentile rank of  -1 and 0, to set the breakpoints for the coding</span></span>
+<span id="cb381-48"><a href="TimeLord.html#cb381-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU coded as -1</span></span>
+<span id="cb381-49"><a href="TimeLord.html#cb381-49" aria-hidden="true" tabindex="-1"></a><span class="co">#19.2+13.5+9.6</span></span>
+<span id="cb381-50"><a href="TimeLord.html#cb381-50" aria-hidden="true" tabindex="-1"></a><span class="co">#NDU has bottom 42.3 percent</span></span>
+<span id="cb381-51"><a href="TimeLord.html#cb381-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-52"><a href="TimeLord.html#cb381-52" aria-hidden="true" tabindex="-1"></a><span class="co">#DR coded as 0, so quantile cut will be 42.3 + 52.7 = 95th</span></span>
+<span id="cb381-53"><a href="TimeLord.html#cb381-53" aria-hidden="true" tabindex="-1"></a><span class="co">#33.4 + 19.3</span></span>
+<span id="cb381-54"><a href="TimeLord.html#cb381-54" aria-hidden="true" tabindex="-1"></a><span class="co">#52.7% of sample (according to article) was DR</span></span>
+<span id="cb381-55"><a href="TimeLord.html#cb381-55" aria-hidden="true" tabindex="-1"></a><span class="co">#must look up percentile ranks for 5% and 57.5%</span></span>
+<span id="cb381-56"><a href="TimeLord.html#cb381-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-57"><a href="TimeLord.html#cb381-57" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR</span></span>
+<span id="cb381-58"><a href="TimeLord.html#cb381-58" aria-hidden="true" tabindex="-1"></a><span class="co">#2.3+1+1+.7</span></span>
+<span id="cb381-59"><a href="TimeLord.html#cb381-59" aria-hidden="true" tabindex="-1"></a><span class="co">#NDR has 5% of sample</span></span>
+<span id="cb381-60"><a href="TimeLord.html#cb381-60" aria-hidden="true" tabindex="-1"></a><span class="co">#42.3+52.7</span></span>
+<span id="cb381-61"><a href="TimeLord.html#cb381-61" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$Religion2, probs = c(.423, .95))</span></span>
+<span id="cb381-62"><a href="TimeLord.html#cb381-62" aria-hidden="true" tabindex="-1"></a><span class="co">#effects coding the second Religion variable so that NDU = -1, DR = 0, NDR = 1</span></span>
+<span id="cb381-63"><a href="TimeLord.html#cb381-63" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel2L2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span>, <span class="sc">-</span><span class="dv">1</span>, </span>
+<span id="cb381-64"><a href="TimeLord.html#cb381-64" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="fl">3.0877087</span> <span class="sc">&amp;</span> Lefevor2017<span class="sc">$</span>Religion2 <span class="sc">&lt;=</span> <span class="fl">0.9299491</span>, <span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb381-65"><a href="TimeLord.html#cb381-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-66"><a href="TimeLord.html#cb381-66" aria-hidden="true" tabindex="-1"></a><span class="co">#checking work</span></span>
+<span id="cb381-67"><a href="TimeLord.html#cb381-67" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel2L2_table &lt;- table(Lefevor2017$Rel2L2)</span></span>
+<span id="cb381-68"><a href="TimeLord.html#cb381-68" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel2L2_table)</span></span>
+<span id="cb381-69"><a href="TimeLord.html#cb381-69" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017 %&gt;%</span></span>
+<span id="cb381-70"><a href="TimeLord.html#cb381-70" aria-hidden="true" tabindex="-1"></a><span class="co">#count(Rel2L2)</span></span>
+<span id="cb381-71"><a href="TimeLord.html#cb381-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-72"><a href="TimeLord.html#cb381-72" aria-hidden="true" tabindex="-1"></a><span class="co">#creating the first religion variable where DR is 2 and NDR and NDU are both -1</span></span>
+<span id="cb381-73"><a href="TimeLord.html#cb381-73" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Rel1L2 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb381-74"><a href="TimeLord.html#cb381-74" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>DRel0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>Rel2L2, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb381-75"><a href="TimeLord.html#cb381-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-76"><a href="TimeLord.html#cb381-76" aria-hidden="true" tabindex="-1"></a><span class="co">#checking to make sure that 52.7% are coded 2 (DR)</span></span>
+<span id="cb381-77"><a href="TimeLord.html#cb381-77" aria-hidden="true" tabindex="-1"></a><span class="co">#Rel1L2_table &lt;- table(Lefevor2017$Rel1L2)</span></span>
+<span id="cb381-78"><a href="TimeLord.html#cb381-78" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(Rel1L2_table)</span></span>
+<span id="cb381-79"><a href="TimeLord.html#cb381-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-80"><a href="TimeLord.html#cb381-80" aria-hidden="true" tabindex="-1"></a><span class="co">#heterosexual is -1</span></span>
+<span id="cb381-81"><a href="TimeLord.html#cb381-81" aria-hidden="true" tabindex="-1"></a><span class="co">#LGBTQIA+ is 1</span></span>
+<span id="cb381-82"><a href="TimeLord.html#cb381-82" aria-hidden="true" tabindex="-1"></a><span class="co">#quantile(Lefevor2017$SxID, probs = c(.85))</span></span>
+<span id="cb381-83"><a href="TimeLord.html#cb381-83" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SexID <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Lefevor2017<span class="sc">$</span>SxID <span class="sc">&lt;=</span> <span class="fl">1.203468</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb381-84"><a href="TimeLord.html#cb381-84" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>Het0 <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">mapvalues</span>(Lefevor2017<span class="sc">$</span>SexID, <span class="at">from =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb381-85"><a href="TimeLord.html#cb381-85" aria-hidden="true" tabindex="-1"></a><span class="co">#SexID_table &lt;- table(Lefevor2017$SexID)</span></span>
+<span id="cb381-86"><a href="TimeLord.html#cb381-86" aria-hidden="true" tabindex="-1"></a><span class="co">#prop.table(SexID_table)</span></span>
+<span id="cb381-87"><a href="TimeLord.html#cb381-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-88"><a href="TimeLord.html#cb381-88" aria-hidden="true" tabindex="-1"></a><span class="co">#creating a variable representing the session number for each client, in the article up to 20 sessions were allowed. </span></span>
+<span id="cb381-89"><a href="TimeLord.html#cb381-89" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;scales&quot;)</span></span>
+<span id="cb381-90"><a href="TimeLord.html#cb381-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb381-91"><a href="TimeLord.html#cb381-91" aria-hidden="true" tabindex="-1"></a><span class="co">#Right from the beginning I centered this so that 0 would represent intake</span></span>
+<span id="cb381-92"><a href="TimeLord.html#cb381-92" aria-hidden="true" tabindex="-1"></a><span class="co">#Lefevor2017$Session0 &lt;- as.integer(scales::rescale(Lefevor2017$Session, to = c(0, 19)))</span></span>
+<span id="cb381-93"><a href="TimeLord.html#cb381-93" aria-hidden="true" tabindex="-1"></a>Lefevor2017<span class="sc">$</span>SessionT <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(Lefevor2017<span class="sc">$</span>Session, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">19</span>))</span>
+<span id="cb381-94"><a href="TimeLord.html#cb381-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-95"><a href="TimeLord.html#cb381-95" aria-hidden="true" tabindex="-1"></a><span class="co">#creating session waves (1 thru 5) by rank ordering within each person&#39;s variable the continuous variable Session that was created in the original simulation</span></span>
+<span id="cb381-96"><a href="TimeLord.html#cb381-96" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb381-97"><a href="TimeLord.html#cb381-97" aria-hidden="true" tabindex="-1"></a>LefevorTIME <span class="ot">&lt;-</span> Lefevor2017<span class="sc">%&gt;%</span></span>
+<span id="cb381-98"><a href="TimeLord.html#cb381-98" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(ClientID) <span class="sc">%&gt;%</span></span>
+<span id="cb381-99"><a href="TimeLord.html#cb381-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Index =</span> <span class="fu">rank</span>(Session))</span>
+<span id="cb381-100"><a href="TimeLord.html#cb381-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-101"><a href="TimeLord.html#cb381-101" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting the simulated variables</span></span>
+<span id="cb381-102"><a href="TimeLord.html#cb381-102" aria-hidden="true" tabindex="-1"></a>LefevorTIME_sim <span class="ot">&lt;-</span> LefevorTIME<span class="sc">%&gt;%</span></span>
+<span id="cb381-103"><a href="TimeLord.html#cb381-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SessionT, Anxiety, DRel0, Het0)</span>
+<span id="cb381-104"><a href="TimeLord.html#cb381-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-105"><a href="TimeLord.html#cb381-105" aria-hidden="true" tabindex="-1"></a><span class="co">#rearranging variables so that IDs are together</span></span>
+<span id="cb381-106"><a href="TimeLord.html#cb381-106" aria-hidden="true" tabindex="-1"></a>LefevorTIME_sim <span class="ot">&lt;-</span> LefevorTIME_sim<span class="sc">%&gt;%</span></span>
+<span id="cb381-107"><a href="TimeLord.html#cb381-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, SessionT, Anxiety, DRel0, Het0)</span>
+<span id="cb381-108"><a href="TimeLord.html#cb381-108" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
+<span id="cb381-109"><a href="TimeLord.html#cb381-109" aria-hidden="true" tabindex="-1"></a>LefevorTIME_sim <span class="ot">&lt;-</span> <span class="fu">arrange</span>(LefevorTIME_sim, ClientID, Index)</span>
+<span id="cb381-110"><a href="TimeLord.html#cb381-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-111"><a href="TimeLord.html#cb381-111" aria-hidden="true" tabindex="-1"></a><span class="co">#In the transition from long-to-wide, it seems like you can only do one L1 variable at a time</span></span>
+<span id="cb381-112"><a href="TimeLord.html#cb381-112" aria-hidden="true" tabindex="-1"></a><span class="co">#When there are multiple L1 and L2 vars, put all L2 vars on left of tilde</span></span>
+<span id="cb381-113"><a href="TimeLord.html#cb381-113" aria-hidden="true" tabindex="-1"></a><span class="co">#The wave/index function should come next; this should be finite (like integers of 1,2,3,4) with a maximum</span></span>
+<span id="cb381-114"><a href="TimeLord.html#cb381-114" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the name of the SINGLE L1 variable in the concatonated list</span></span>
+<span id="cb381-115"><a href="TimeLord.html#cb381-115" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb381-116"><a href="TimeLord.html#cb381-116" aria-hidden="true" tabindex="-1"></a>LfvrTWp1<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(LefevorTIME_sim, ClientID <span class="sc">+</span> DRel0 <span class="sc">+</span> Het0 <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>))</span>
+<span id="cb381-117"><a href="TimeLord.html#cb381-117" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
+<span id="cb381-118"><a href="TimeLord.html#cb381-118" aria-hidden="true" tabindex="-1"></a>LfvrTWp1<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrTWp1, <span class="at">Index1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Index2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Index3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Index4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Index5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb381-119"><a href="TimeLord.html#cb381-119" aria-hidden="true" tabindex="-1"></a>LfvrTWp2<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(LefevorTIME_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;Anxiety&quot;</span>))</span>
+<span id="cb381-120"><a href="TimeLord.html#cb381-120" aria-hidden="true" tabindex="-1"></a><span class="co">#rename the anxiety variable</span></span>
+<span id="cb381-121"><a href="TimeLord.html#cb381-121" aria-hidden="true" tabindex="-1"></a>LfvrTWp2<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrTWp2, <span class="at">Anx1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Anx2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Anx3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Anx4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Anx5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb381-122"><a href="TimeLord.html#cb381-122" aria-hidden="true" tabindex="-1"></a><span class="co">#For remaining L1 variable, do them one at a time -- key them from the person-level ID and the wave/index.</span></span>
+<span id="cb381-123"><a href="TimeLord.html#cb381-123" aria-hidden="true" tabindex="-1"></a>LfvrTWp3<span class="ot">&lt;-</span>reshape2<span class="sc">::</span><span class="fu">dcast</span>(LefevorTIME_sim, ClientID <span class="sc">~</span> Index, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">&quot;SessionT&quot;</span>))</span>
+<span id="cb381-124"><a href="TimeLord.html#cb381-124" aria-hidden="true" tabindex="-1"></a>LfvrTWp3<span class="ot">&lt;-</span>  <span class="fu">rename</span>(LfvrTWp3, <span class="at">Sess1 =</span> <span class="st">&quot;1&quot;</span>, <span class="at">Sess2 =</span> <span class="st">&quot;2&quot;</span>, <span class="at">Sess3 =</span> <span class="st">&quot;3&quot;</span>, <span class="at">Sess4 =</span> <span class="st">&quot;4&quot;</span>, <span class="at">Sess5 =</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb381-125"><a href="TimeLord.html#cb381-125" aria-hidden="true" tabindex="-1"></a><span class="co">#Next, join the dataframes by the person-level ID</span></span>
+<span id="cb381-126"><a href="TimeLord.html#cb381-126" aria-hidden="true" tabindex="-1"></a><span class="co">#Only two can be joined at a time</span></span>
+<span id="cb381-127"><a href="TimeLord.html#cb381-127" aria-hidden="true" tabindex="-1"></a>LfvrTWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrTWp1, LfvrTWp2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span>
+<span id="cb381-128"><a href="TimeLord.html#cb381-128" aria-hidden="true" tabindex="-1"></a>LfvrTWide <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">full_join</span>(LfvrTWide, LfvrTWp3,  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>))</span></code></pre></div>
 <p>To increase the portability of the OER, this lesson uses simulated data. Here is script for exporting/downloading the long and wide forms of the data as a .csv files to your local computer and then importing/uploading it again. I find that saving the .csv file (data) in the same place as the .rmd file(s) is essential for R to connect the two.</p>
 <p>Once you write the document to your file, you only need to run the piece of script that reads it back in.</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="TimeLord.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Once you simulate the data, the &quot;write.table&quot; script saves it -- ideally to the folder where your .rmd file is located</span></span>
-<span id="cb388-2"><a href="TimeLord.html#cb388-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(LefevorTIME_sim , file=&quot;LefevorTLong.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb388-3"><a href="TimeLord.html#cb388-3" aria-hidden="true" tabindex="-1"></a><span class="co">#If you have used the above code, you can clear your environment, then simply run this line of code to bring the data back in</span></span>
-<span id="cb388-4"><a href="TimeLord.html#cb388-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TIMElong &lt;- read.csv (&quot;LefevorTLong.csv&quot;, head = TRUE, sep = &quot;,&quot;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="TimeLord.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Once you simulate the data, the &quot;write.table&quot; script saves it -- ideally to the folder where your .rmd file is located</span></span>
-<span id="cb389-2"><a href="TimeLord.html#cb389-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrTWide, <span class="at">file=</span><span class="st">&quot;LefevorTWide.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb389-3"><a href="TimeLord.html#cb389-3" aria-hidden="true" tabindex="-1"></a><span class="co">#If you have used the above code, you can clear your environment, then simply run this line of code to bring the data back in</span></span>
-<span id="cb389-4"><a href="TimeLord.html#cb389-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TIMEwide &lt;- read.csv (&quot;LefevorTWide.csv&quot;, head = TRUE, sep = &quot;,&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="TimeLord.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Once you simulate the data, the &quot;write.table&quot; script saves it -- ideally to the folder where your .rmd file is located</span></span>
+<span id="cb382-2"><a href="TimeLord.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(LefevorTIME_sim , file=&quot;LefevorTLong.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
+<span id="cb382-3"><a href="TimeLord.html#cb382-3" aria-hidden="true" tabindex="-1"></a><span class="co">#If you have used the above code, you can clear your environment, then simply run this line of code to bring the data back in</span></span>
+<span id="cb382-4"><a href="TimeLord.html#cb382-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TIMElong &lt;- read.csv (&quot;LefevorTLong.csv&quot;, head = TRUE, sep = &quot;,&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="TimeLord.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Once you simulate the data, the &quot;write.table&quot; script saves it -- ideally to the folder where your .rmd file is located</span></span>
+<span id="cb383-2"><a href="TimeLord.html#cb383-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(LfvrTWide, <span class="at">file=</span><span class="st">&quot;LefevorTWide.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb383-3"><a href="TimeLord.html#cb383-3" aria-hidden="true" tabindex="-1"></a><span class="co">#If you have used the above code, you can clear your environment, then simply run this line of code to bring the data back in</span></span>
+<span id="cb383-4"><a href="TimeLord.html#cb383-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TIMEwide &lt;- read.csv (&quot;LefevorTWide.csv&quot;, head = TRUE, sep = &quot;,&quot;)</span></span></code></pre></div>
 </div>
 </div>
 <div id="more-simulation-appointment-dates" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> More Simulation – Appointment Dates</h2>
 <p>Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> treated sessions as a dosage marker and clocked time by the number of sessions. But what if we wanted to use calendrical time, as time? In this lesson we will get practice at working with dates and calculating time intervals (e.g., days, weeks, or months) with those dates. To demonstrate another possible way of working with time, I have decided to simulate the dates as part of this lesson.</p>
 <p>If you simulated the data and saved it locally, you should be able to bring it into the R Environment as a file.</p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="TimeLord.html#cb390-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorTWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb390-2"><a href="TimeLord.html#cb390-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="TimeLord.html#cb384-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorTWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb384-2"><a href="TimeLord.html#cb384-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
 <pre><code>  ClientID DRel0 Het0 Index1 Index2 Index3 Index4 Index5     Anx1       Anx2
 1        1     0    0      1      2      3      4      5 3.707621 3.57984960
 2        2     1    0      1      2      3      4      5 3.493704 3.09390261
@@ -614,7 +614,7 @@ div.csl-indent {
 <p>If we examine the head of the data, we see five variables (Sess1 to Sess5) that were resimulated to be fractional values between 0 and 19). Thinking this simulation through, we have five repeated measures from each client that correspond with when they took the CCAPS measure.Because counseling centers differed on the frequency and scheduling for the CCAPS, there is not a 1:1 correspondence with CCAPS administration and session number. I have kept this in mind in creating a “dates” based time metric.</p>
 <p>First I must create the Intake date. In this particular simulation, this is simply a marker/baseline for clocking time. I am only using it to create dates for the weekly counseling sessions. In my imagination this might have been the date that the client called to schedule an appointment.</p>
 <p>In the script below, I am creating the variable “Intake.” I have assigned all the clients the same intake date (May 28, 2021). I need to tell R that the format is “year/month/date.” The <em>ymd()</em> function does that for me.</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="TimeLord.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="TimeLord.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
 <pre><code>
 Attaching package: &#39;lubridate&#39;</code></pre>
 <pre><code>The following objects are masked from &#39;package:data.table&#39;:
@@ -624,20 +624,20 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 <pre><code>The following objects are masked from &#39;package:base&#39;:
 
     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="TimeLord.html#cb396-1" aria-hidden="true" tabindex="-1"></a>TIMEwide<span class="sc">$</span>Intake <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">&quot;2021-05-28&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="TimeLord.html#cb390-1" aria-hidden="true" tabindex="-1"></a>TIMEwide<span class="sc">$</span>Intake <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">&quot;2021-05-28&quot;</span>)</span></code></pre></div>
 <p>We can confirm that our Intake variable is a date by checking the structure.</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="TimeLord.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMEwide<span class="sc">$</span>Intake)</span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="TimeLord.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMEwide<span class="sc">$</span>Intake)</span></code></pre></div>
 <pre><code> Date[1:12825], format: &quot;2021-05-28&quot; &quot;2021-05-28&quot; &quot;2021-05-28&quot; &quot;2021-05-28&quot; &quot;2021-05-28&quot; ...</code></pre>
 <p>In the next step of the data simulation I need to create Weeks# variables that have a date. The date must consistently increase from Week1 through Week5. I am going to make the assumption that the simulated values for the Sess# variables (recall, they are fractional values that range from 0 to 19) are a reasonable estimate of <em>weekly</em> time. Therefore, I can add it to the Intake date to create new dates for each of the five observations for each client.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="TimeLord.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb399-2"><a href="TimeLord.html#cb399-2" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> TIMEwide<span class="sc">%&gt;%</span></span>
-<span id="cb399-3"><a href="TimeLord.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks1 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess1))<span class="sc">%&gt;%</span></span>
-<span id="cb399-4"><a href="TimeLord.html#cb399-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks2 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess2))<span class="sc">%&gt;%</span></span>
-<span id="cb399-5"><a href="TimeLord.html#cb399-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks3 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess3))<span class="sc">%&gt;%</span></span>
-<span id="cb399-6"><a href="TimeLord.html#cb399-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks4 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess4))<span class="sc">%&gt;%</span></span>
-<span id="cb399-7"><a href="TimeLord.html#cb399-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks5 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess5))</span>
-<span id="cb399-8"><a href="TimeLord.html#cb399-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb399-9"><a href="TimeLord.html#cb399-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="TimeLord.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb393-2"><a href="TimeLord.html#cb393-2" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> TIMEwide<span class="sc">%&gt;%</span></span>
+<span id="cb393-3"><a href="TimeLord.html#cb393-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks1 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess1))<span class="sc">%&gt;%</span></span>
+<span id="cb393-4"><a href="TimeLord.html#cb393-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks2 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess2))<span class="sc">%&gt;%</span></span>
+<span id="cb393-5"><a href="TimeLord.html#cb393-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks3 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess3))<span class="sc">%&gt;%</span></span>
+<span id="cb393-6"><a href="TimeLord.html#cb393-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks4 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess4))<span class="sc">%&gt;%</span></span>
+<span id="cb393-7"><a href="TimeLord.html#cb393-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Weeks5 =</span> Intake <span class="sc">+</span> <span class="fu">dweeks</span>(Sess5))</span>
+<span id="cb393-8"><a href="TimeLord.html#cb393-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb393-9"><a href="TimeLord.html#cb393-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
 <pre><code>  ClientID DRel0 Het0 Index1 Index2 Index3 Index4 Index5     Anx1       Anx2
 1        1     0    0      1      2      3      4      5 3.707621 3.57984960
 2        2     1    0      1      2      3      4      5 3.493704 3.09390261
@@ -667,7 +667,7 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 5 2021-09-16 15:04:45 2021-09-27 12:29:50
 6 2021-08-29 07:06:41 2021-09-03 06:17:18</code></pre>
 <p>Let’s peek at the structure of one of the Weeks# variables.</p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="TimeLord.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMEwide<span class="sc">$</span>Weeks1)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="TimeLord.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMEwide<span class="sc">$</span>Weeks1)</span></code></pre></div>
 <pre><code> POSIXct[1:12825], format: &quot;2021-05-29 07:00:29&quot; &quot;2021-07-05 14:07:36&quot; &quot;2021-06-04 20:29:44&quot; ...</code></pre>
 <p>The POSIXct format stores a date (complete with time) and an associated timezone (i.e., the default time zone is the one your computer is set to). The metric is seconds beginning from January 1, 1970. Any dates before that are in negative numbers. This format makes it possible to do calculate with dates/times and then extract intervals.</p>
 <p>To this point I have only been using some of the <em>lubridate</em> functions to simulate the data. This is generally the point where we would receive the data – that point where each event of interest has a time stamp.</p>
@@ -679,14 +679,14 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 <p>On their own, datestamps are not useful as predictors in a regression equation. Therefore, we must manipulate or transform them to represent some “sensible metric for time” <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">Singer &amp; Willett, 2003</a>)</span>; that is, we need to think about how we wish to clock time. In making this consideration, we also want to think about how regression works. Time will be a focal predictor and so we are interested in the meaningfulness and interpretability of a “one-unit change.” Using <em>days</em> as a metric seems too small because we would not expect to detect change in 1-day increments. Months feels reasonable to me, but with a maximum of 19 weeks, we would have a maximum of just under five units of the <em>months</em> metric. Because the span of time is only 19 session and sessions tend to occur weekly, let’s create a metric of weeks.</p>
 <p>First, I need to create the <em>time intervals</em> from which I will extract the durations. In regression, it is important to have a meaningful zero point. We want Week1 to be that zero.</p>
 <p>Calculating intervals of time requires using the %–% operator. This results in a data column that lists the two dates being compared. In our example we want to count time forward by listing the Intake variable before the %–% and the Appointment variable.</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="TimeLord.html#cb403-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> TIMEwide <span class="sc">%&gt;%</span></span>
-<span id="cb403-2"><a href="TimeLord.html#cb403-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval1 =</span> Weeks1 <span class="sc">%--%</span> Weeks1)<span class="sc">%&gt;%</span></span>
-<span id="cb403-3"><a href="TimeLord.html#cb403-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval2 =</span> Weeks1 <span class="sc">%--%</span> Weeks2)<span class="sc">%&gt;%</span></span>
-<span id="cb403-4"><a href="TimeLord.html#cb403-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval3 =</span> Weeks1 <span class="sc">%--%</span> Weeks3)<span class="sc">%&gt;%</span></span>
-<span id="cb403-5"><a href="TimeLord.html#cb403-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval4 =</span> Weeks1 <span class="sc">%--%</span> Weeks4)<span class="sc">%&gt;%</span></span>
-<span id="cb403-6"><a href="TimeLord.html#cb403-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval5 =</span> Weeks1 <span class="sc">%--%</span> Weeks5)</span>
-<span id="cb403-7"><a href="TimeLord.html#cb403-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb403-8"><a href="TimeLord.html#cb403-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="TimeLord.html#cb397-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> TIMEwide <span class="sc">%&gt;%</span></span>
+<span id="cb397-2"><a href="TimeLord.html#cb397-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval1 =</span> Weeks1 <span class="sc">%--%</span> Weeks1)<span class="sc">%&gt;%</span></span>
+<span id="cb397-3"><a href="TimeLord.html#cb397-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval2 =</span> Weeks1 <span class="sc">%--%</span> Weeks2)<span class="sc">%&gt;%</span></span>
+<span id="cb397-4"><a href="TimeLord.html#cb397-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval3 =</span> Weeks1 <span class="sc">%--%</span> Weeks3)<span class="sc">%&gt;%</span></span>
+<span id="cb397-5"><a href="TimeLord.html#cb397-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval4 =</span> Weeks1 <span class="sc">%--%</span> Weeks4)<span class="sc">%&gt;%</span></span>
+<span id="cb397-6"><a href="TimeLord.html#cb397-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TimeInterval5 =</span> Weeks1 <span class="sc">%--%</span> Weeks5)</span>
+<span id="cb397-7"><a href="TimeLord.html#cb397-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb397-8"><a href="TimeLord.html#cb397-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
 <pre><code>  ClientID DRel0 Het0 Index1 Index2 Index3 Index4 Index5     Anx1       Anx2
 1        1     0    0      1      2      3      4      5 3.707621 3.57984960
 2        2     1    0      1      2      3      4      5 3.493704 3.09390261
@@ -751,14 +751,14 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 5 2021-07-02 16:13:08 UTC--2021-09-27 12:29:50 UTC
 6 2021-07-09 22:20:48 UTC--2021-09-03 06:17:18 UTC</code></pre>
 <p>Don’t let the result of this script scare you! In the second step, we convert the TimeInterval# variable to weeks. The “d” in the “dweeks” function tells R that we are calculating a duration. The “x=1” indicates that we are counting 1 week at a time. If we wanted to create 2-week intervals, we simply write, “x = 2”.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="TimeLord.html#cb405-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> TIMEwide <span class="sc">%&gt;%</span></span>
-<span id="cb405-2"><a href="TimeLord.html#cb405-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks1 =</span> <span class="fu">as.duration</span>(TimeInterval1)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb405-3"><a href="TimeLord.html#cb405-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks2 =</span> <span class="fu">as.duration</span>(TimeInterval2)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb405-4"><a href="TimeLord.html#cb405-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks3 =</span> <span class="fu">as.duration</span>(TimeInterval3)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb405-5"><a href="TimeLord.html#cb405-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks4 =</span> <span class="fu">as.duration</span>(TimeInterval4)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb405-6"><a href="TimeLord.html#cb405-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks5 =</span> <span class="fu">as.duration</span>(TimeInterval5)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))</span>
-<span id="cb405-7"><a href="TimeLord.html#cb405-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-8"><a href="TimeLord.html#cb405-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="TimeLord.html#cb399-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> TIMEwide <span class="sc">%&gt;%</span></span>
+<span id="cb399-2"><a href="TimeLord.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks1 =</span> <span class="fu">as.duration</span>(TimeInterval1)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb399-3"><a href="TimeLord.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks2 =</span> <span class="fu">as.duration</span>(TimeInterval2)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb399-4"><a href="TimeLord.html#cb399-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks3 =</span> <span class="fu">as.duration</span>(TimeInterval3)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb399-5"><a href="TimeLord.html#cb399-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks4 =</span> <span class="fu">as.duration</span>(TimeInterval4)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb399-6"><a href="TimeLord.html#cb399-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Wks5 =</span> <span class="fu">as.duration</span>(TimeInterval5)<span class="sc">/</span><span class="fu">dweeks</span>(<span class="at">x=</span><span class="dv">1</span>))</span>
+<span id="cb399-7"><a href="TimeLord.html#cb399-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb399-8"><a href="TimeLord.html#cb399-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMEwide)</span></code></pre></div>
 <pre><code>  ClientID DRel0 Het0 Index1 Index2 Index3 Index4 Index5     Anx1       Anx2
 1        1     0    0      1      2      3      4      5 3.707621 3.57984960
 2        2     1    0      1      2      3      4      5 3.493704 3.09390261
@@ -830,10 +830,10 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 5 10.850359 12.406417
 6  7.195028  7.904416</code></pre>
 <p>Let’s check the structure of one of the Wks# variables.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="TimeLord.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMEwide<span class="sc">$</span>Wks1)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="TimeLord.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMEwide<span class="sc">$</span>Wks1)</span></code></pre></div>
 <pre><code> num [1:12825] 0 0 0 0 0 0 0 0 0 0 ...</code></pre>
 <p>Let’s also take a look at the descriptives</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="TimeLord.html#cb409-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(TIMEwide[<span class="fu">c</span>(<span class="st">&quot;Wks1&quot;</span>, <span class="st">&quot;Wks2&quot;</span>, <span class="st">&quot;Wks3&quot;</span>, <span class="st">&quot;Wks4&quot;</span>, <span class="st">&quot;Wks5&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="TimeLord.html#cb403-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(TIMEwide[<span class="fu">c</span>(<span class="st">&quot;Wks1&quot;</span>, <span class="st">&quot;Wks2&quot;</span>, <span class="st">&quot;Wks3&quot;</span>, <span class="st">&quot;Wks4&quot;</span>, <span class="st">&quot;Wks5&quot;</span>)])</span></code></pre></div>
 <pre><code>     vars     n  mean   sd median trimmed  mad  min   max range  skew kurtosis
 Wks1    1 12825  0.00 0.00   0.00    0.00 0.00 0.00  0.00  0.00   NaN      NaN
 Wks2    2 12825  3.20 2.66   2.52    2.84 2.41 0.00 16.19 16.19  1.17     1.17
@@ -852,18 +852,18 @@ Wks5 0.03</code></pre>
 <div id="wide-to-long" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> Wide to Long</h3>
 <p>Now that our date math is finished, we can restructure the data from wide to long. We have created a number of variables related to time. Regarding the time variables will only need the Index (created automatically) and the Wks# variables. Of course we will want our L1 (Anx#) and L2 (ClientID, DRel0, Het0) variables.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="TimeLord.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb411-2"><a href="TimeLord.html#cb411-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(TIMEwide), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>),  <span class="fu">c</span>(<span class="st">&quot;Wks1&quot;</span>, <span class="st">&quot;Wks2&quot;</span>, <span class="st">&quot;Wks3&quot;</span>, <span class="st">&quot;Wks4&quot;</span>, <span class="st">&quot;Wks5&quot;</span>) )))</span>
-<span id="cb411-3"><a href="TimeLord.html#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This process  does not preserve the variable names, so we need to rename them</span></span>
-<span id="cb411-4"><a href="TimeLord.html#cb411-4" aria-hidden="true" tabindex="-1"></a>TIMElong<span class="ot">&lt;-</span> <span class="fu">rename</span>(TIMElong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(TIMElong, <span class="at">Index =</span> variable, <span class="at">Anxiety =</span> <span class="st">&quot;value1&quot;</span>, <span class="at">Weeks =</span> <span class="st">&quot;value2&quot;</span>))</span>
-<span id="cb411-5"><a href="TimeLord.html#cb411-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-6"><a href="TimeLord.html#cb411-6" aria-hidden="true" tabindex="-1"></a><span class="co">#rearanging variables so that IDs are together</span></span>
-<span id="cb411-7"><a href="TimeLord.html#cb411-7" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong<span class="sc">%&gt;%</span></span>
-<span id="cb411-8"><a href="TimeLord.html#cb411-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, Weeks, Anxiety, DRel0, Het0)</span>
-<span id="cb411-9"><a href="TimeLord.html#cb411-9" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
-<span id="cb411-10"><a href="TimeLord.html#cb411-10" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(TIMElong, ClientID, Index)</span>
-<span id="cb411-11"><a href="TimeLord.html#cb411-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-12"><a href="TimeLord.html#cb411-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMElong)</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="TimeLord.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb405-2"><a href="TimeLord.html#cb405-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(TIMEwide), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>),  <span class="fu">c</span>(<span class="st">&quot;Wks1&quot;</span>, <span class="st">&quot;Wks2&quot;</span>, <span class="st">&quot;Wks3&quot;</span>, <span class="st">&quot;Wks4&quot;</span>, <span class="st">&quot;Wks5&quot;</span>) )))</span>
+<span id="cb405-3"><a href="TimeLord.html#cb405-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This process  does not preserve the variable names, so we need to rename them</span></span>
+<span id="cb405-4"><a href="TimeLord.html#cb405-4" aria-hidden="true" tabindex="-1"></a>TIMElong<span class="ot">&lt;-</span> <span class="fu">rename</span>(TIMElong<span class="ot">&lt;-</span>  <span class="fu">rename</span>(TIMElong, <span class="at">Index =</span> variable, <span class="at">Anxiety =</span> <span class="st">&quot;value1&quot;</span>, <span class="at">Weeks =</span> <span class="st">&quot;value2&quot;</span>))</span>
+<span id="cb405-5"><a href="TimeLord.html#cb405-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb405-6"><a href="TimeLord.html#cb405-6" aria-hidden="true" tabindex="-1"></a><span class="co">#rearanging variables so that IDs are together</span></span>
+<span id="cb405-7"><a href="TimeLord.html#cb405-7" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong<span class="sc">%&gt;%</span></span>
+<span id="cb405-8"><a href="TimeLord.html#cb405-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ClientID, Index, Weeks, Anxiety, DRel0, Het0)</span>
+<span id="cb405-9"><a href="TimeLord.html#cb405-9" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
+<span id="cb405-10"><a href="TimeLord.html#cb405-10" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(TIMElong, ClientID, Index)</span>
+<span id="cb405-11"><a href="TimeLord.html#cb405-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb405-12"><a href="TimeLord.html#cb405-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(TIMElong)</span></code></pre></div>
 <pre><code>   ClientID Index     Weeks  Anxiety DRel0 Het0
 1:        1     1  0.000000 3.707621     0    0
 2:        1     2  7.486114 3.579850     0    0
@@ -871,7 +871,7 @@ Wks5 0.03</code></pre>
 4:        1     4 13.089225 3.799490     0    0
 5:        1     5 15.830892 1.556770     0    0
 6:        2     1  0.000000 3.493704     1    0</code></pre>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="TimeLord.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMElong)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="TimeLord.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMElong)</span></code></pre></div>
 <pre><code>Classes &#39;data.table&#39; and &#39;data.frame&#39;:  64125 obs. of  6 variables:
  $ ClientID: int  1 1 1 1 1 2 2 2 2 2 ...
  $ Index   : Factor w/ 5 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
@@ -886,23 +886,23 @@ Wks5 0.03</code></pre>
 <h3><span class="header-section-number">5.5.3</span> MLM is for unbalanced designs</h3>
 <p>In the prior lessons I noted that a strength of MLM is that data can be unbalanced. The original simulations produced perfectly balanced sets of data with 5 observations each. To demonstrate that MLM can accommodate sets of data where the number of observations per person, vary.</p>
 <p>Here, I update the simulation by randomly deleting 5000 rows. With this <em>big data</em> circumstance, this still leaves us a number of cases! <strong>Note: this is for demonstration only. You would never, intentionally, delete cases without a compelling reason!</strong></p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="TimeLord.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210529</span>)</span>
-<span id="cb415-2"><a href="TimeLord.html#cb415-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong[<span class="sc">-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(TIMElong), <span class="dv">5000</span>),]</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="TimeLord.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210529</span>)</span>
+<span id="cb409-2"><a href="TimeLord.html#cb409-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong[<span class="sc">-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(TIMElong), <span class="dv">5000</span>),]</span></code></pre></div>
 </div>
 <div id="abbreviated-ols-style-exploration" class="section level3" number="5.5.4">
 <h3><span class="header-section-number">5.5.4</span> Abbreviated OLS Style Exploration</h3>
 <p>A more thorough preliminary investigation of the data occurs in a <a href="MLMexplore.html#MLMexplore">prior lesson</a>. In this quick demonstration, we take a look at individual growth plots from when clocked Weeks variable as nonparametric and parametric (i.e., where individual linear regressions are superimposed on the raw data).</p>
 <p>We start by creating a random sample. Here is script allowing us to sample entire cases (i.e., the individual client with all their appointment data).</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="TimeLord.html#cb416-1" aria-hidden="true" tabindex="-1"></a>rndm30time <span class="ot">&lt;-</span> <span class="fu">subset</span>(TIMElong, ClientID <span class="sc">%in%</span> <span class="fu">sample</span>(<span class="fu">unique</span>(TIMElong<span class="sc">$</span>ClientID), <span class="dv">30</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="TimeLord.html#cb410-1" aria-hidden="true" tabindex="-1"></a>rndm30time <span class="ot">&lt;-</span> <span class="fu">subset</span>(TIMElong, ClientID <span class="sc">%in%</span> <span class="fu">sample</span>(<span class="fu">unique</span>(TIMElong<span class="sc">$</span>ClientID), <span class="dv">30</span>))</span></code></pre></div>
 <p>In these first two plots we look at anxiety as a function of the time-unstructured, weeks, data. Compared to the graphs in the chapter where the data was balanced (each person had 5 observations), it is apparent that not everyone has the same number of observations.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="TimeLord.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Weeks, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb417-2"><a href="TimeLord.html#cb417-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="TimeLord.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Weeks, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb411-2"><a href="TimeLord.html#cb411-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>In the lesson on <a href="MLMexplore">longitudinal exploration</a> we created individual regression equations and superimposed them on the raw data. This second plot does not print the individual regression equations for us, but calculates them behind the scenes and creates the individual plots. Similar to the plots with nonparametric smoothing, we notice the difference in numbers of observations per cases. The straight line, though, does seem to be an appropriate functional form.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="TimeLord.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Weeks, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb418-2"><a href="TimeLord.html#cb418-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="TimeLord.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Weeks, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb412-2"><a href="TimeLord.html#cb412-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-69-1.png" width="672" />
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-155-1.png" width="672" />
 If this were our real data, we would complete the process outlined in the <a href="MLMexplore">longitudinal exploration</a> chapter. Because the purpose of this lesson is focused on unstructured time with unbalanced data, we will move forward with a quick recap of building the MLM. This next section is abbreviated from the more thorough process demonstrated in the <a href="LongMod">basic longitudinal model</a> lesson.</p>
 </div>
 <div id="rebuilding-the-model-unstructured-time-unbalanced-design" class="section level3" number="5.5.5">
@@ -918,9 +918,9 @@ If this were our real data, we would complete the process outlined in the <a hre
 <div id="model-1-unconditional-means-model" class="section level4" number="5.5.5.1">
 <h4><span class="header-section-number">5.5.5.1</span> Model 1: Unconditional means model</h4>
 <p>We start with the unconditional means model. In this model, we are seeking the grand mean. By identifying the nesting/grouping variable (ClientID) we also understand the proportions of between- and within- subjects variance.</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="TimeLord.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb420-2"><a href="TimeLord.html#cb420-2" aria-hidden="true" tabindex="-1"></a>M1a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb420-3"><a href="TimeLord.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1a)</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="TimeLord.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb414-2"><a href="TimeLord.html#cb414-2" aria-hidden="true" tabindex="-1"></a>M1a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb414-3"><a href="TimeLord.html#cb414-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 Formula: Anxiety ~ 1 + (1 | ClientID)
    Data: TIMElong
@@ -941,8 +941,8 @@ Number of obs: 59125, groups:  ClientID, 12825
 Fixed effects:
             Estimate Std. Error t value
 (Intercept)  2.07580    0.02056     101</code></pre>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="TimeLord.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb422-2"><a href="TimeLord.html#cb422-2" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_model</span>(M1a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="TimeLord.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb416-2"><a href="TimeLord.html#cb416-2" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_model</span>(M1a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1047,37 +1047,37 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="TimeLord.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb423-2"><a href="TimeLord.html#cb423-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="TimeLord.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb417-2"><a href="TimeLord.html#cb417-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>We learn that the mean anxiety score is 2.08 across all individuals and all times. A primary purpose of the unconditional means model is to obtain and interpret the ICC. Between-persons variance is 78%; within-persons variance is its inverse (22%).</p>
 <p>Although I would normally run the diagnostic plots after each model, in this lesson I am only displaying them after the first model (as a quick check to make sure there is nothing catastrophically wrong) and after the last model.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="TimeLord.html#cb424-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M1a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="TimeLord.html#cb418-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M1a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-71-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-157-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-71-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-157-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-71-4.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-157-4.png" width="672" /></p>
 </div>
 <div id="model-2-unconditional-growth-model" class="section level4" number="5.5.5.2">
 <h4><span class="header-section-number">5.5.5.2</span> Model 2: Unconditional growth model</h4>
 <p>The second model is introduces time (this time our Weeks variable) into the L1 submodel. Because a linear model made sense in our exploratory analyses, we specify a trajectory of linear change. We do not include any other substantive predictors.Because there are no other predictors, it is an <em>unconditional</em> growth model.</p>
 <p><strong>For comparison</strong>, this was our prior model; we can see how the model building occurs.
 M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="TimeLord.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb432-2"><a href="TimeLord.html#cb432-2" aria-hidden="true" tabindex="-1"></a>M2a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks <span class="sc">+</span>(Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="TimeLord.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb426-2"><a href="TimeLord.html#cb426-2" aria-hidden="true" tabindex="-1"></a>M2a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks <span class="sc">+</span>(Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="TimeLord.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M2a )</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="TimeLord.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M2a )</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 Formula: Anxiety ~ Weeks + (Weeks | ClientID)
    Data: TIMElong
@@ -1106,7 +1106,7 @@ Correlation of Fixed Effects:
 Weeks -0.290
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="TimeLord.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="TimeLord.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1296,13 +1296,13 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="TimeLord.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb437-2"><a href="TimeLord.html#cb437-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="TimeLord.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb431-2"><a href="TimeLord.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>A plot of predicted values illustrates the decrease in anxiety as sessions continue.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="TimeLord.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb438-2"><a href="TimeLord.html#cb438-2" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M2a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">vars=</span><span class="st">&quot;Weeks&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="TimeLord.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb432-2"><a href="TimeLord.html#cb432-2" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M2a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">vars=</span><span class="st">&quot;Weeks&quot;</span>)</span></code></pre></div>
 <pre><code>$Weeks</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
 <p><strong>Interpreting Fixed Effects</strong>
 Looking at the <em>tab_model()</em> in the viewer, we can see that</p>
 <p>At Week1 (the zero value), the average client was estimated to have a non-zero anxiety level of 2.82 (<em>p</em> &lt; 0.001; <span class="math inline">\(\gamma _{00}\)</span>). On average, anxiety decreases by 0.08 units per session.</p>
@@ -1311,7 +1311,7 @@ With Weeks in the model, the L1 residual variance, <span class="math inline">\(\
 <p>When we have both unconditional means and growth models, we can examine the decrease in within-person residual variance. Here’s the formula:</p>
 <p><span class="math display">\[Pseudo R_{\varepsilon }^{2} = \frac{\sigma^{2}(unconditional. means. model) - \sigma^{2}(unconditional. growth. model)}{\sigma ^{2}(unconditional. means. model)}\]</span></p>
 <p>We calculate it manually:</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="TimeLord.html#cb440-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.45</span> <span class="sc">-</span> <span class="fl">1.26</span>)<span class="sc">/</span><span class="fl">1.45</span></span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="TimeLord.html#cb434-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.45</span> <span class="sc">-</span> <span class="fl">1.26</span>)<span class="sc">/</span><span class="fl">1.45</span></span></code></pre></div>
 <pre><code>[1] 0.1310345</code></pre>
 <p>We conclude that 13% of the within-person variation in anxiety is explained by the number of weeks in therapy. The only way to further reduce this variance component is to add time-covarying predictors to the L1 submodel.</p>
 <p>The value of <span class="math inline">\(\tau _{00}\)</span> is 5.18; this is variance remaining around the intercept (anxiety at Week1). Because the introduction of the time variable, Weeks, changes the meaning of the L2 variance components, we do not compare the <span class="math inline">\(\tau _{00}\)</span>) values between Models 1 and 2. As we move forward (keeping Weeks in the model) we will use the Model 2 estimates as benchmarks for comparison.</p>
@@ -1323,10 +1323,10 @@ With Weeks in the model, the L1 residual variance, <span class="math inline">\(\
 <p><strong>For comparison</strong>:
 M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)
 M2a &lt;- lme4::lmer(Anxiety ~ Weeks +(Weeks | ClientID), TIMElong, REML = FALSE)</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="TimeLord.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb442-2"><a href="TimeLord.html#cb442-2" aria-hidden="true" tabindex="-1"></a>M3a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks<span class="sc">*</span>Het0 <span class="sc">+</span>(Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="TimeLord.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb436-2"><a href="TimeLord.html#cb436-2" aria-hidden="true" tabindex="-1"></a>M3a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks<span class="sc">*</span>Het0 <span class="sc">+</span>(Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="TimeLord.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M3a)</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="TimeLord.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M3a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 Formula: Anxiety ~ Weeks * Het0 + (Weeks | ClientID)
    Data: TIMElong
@@ -1359,7 +1359,7 @@ Het0       -0.528  0.153
 Weeks:Het0  0.153 -0.529 -0.292
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="TimeLord.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a,M3a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="TimeLord.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a,M3a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -1661,10 +1661,10 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="TimeLord.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb447-2"><a href="TimeLord.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="TimeLord.html#cb448-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M3a, <span class="at">type=</span><span class="st">&quot;int&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;Weeks&quot;</span>, <span class="st">&quot;Het0 [0,1]&quot;</span>))</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="TimeLord.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb441-2"><a href="TimeLord.html#cb441-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="TimeLord.html#cb442-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M3a, <span class="at">type=</span><span class="st">&quot;int&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;Weeks&quot;</span>, <span class="st">&quot;Het0 [0,1]&quot;</span>))</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
 <p><strong>Interpreting Fixed Effects</strong>
 The estimated anxiety at Week1 for heterosexual individuals is 2.49 (<em>p</em> &lt; .001). If the client is LGBQQ, the average Week1 anxiety level is higher: 2.77 (<em>p</em> &lt; .001; 2.49 + .28).</p>
 <p>The estimated rate of change in anxiety for the average client who is heterosexual is -.08 (<em>p</em> &lt; .001) units per week. The estimated differential in the rate of change in anxiety between clients who are heterosexual and LGBQQ is nondistinguishable (<span class="math inline">\(\beta\)</span> = 0.00, <em>p</em> = .883). This is evident in the interaction plot produced by the <em>plot_model()</em> function.</p>
@@ -1672,7 +1672,7 @@ The estimated anxiety at Week1 for heterosexual individuals is 2.49 (<em>p</em> 
 <p>Not surprisingly, the <span class="math inline">\(\sigma ^{2}\)</span> value (1.26) stayed the same from M2a to M3a. This is because we did not add a within-subjects (time covarying) predictor. If it had changed, we would have conducted the proportionate reduction in variance evaluation.</p>
 <p><span class="math inline">\(\tau _{00}\)</span> decreased from 5.18 (M2a) to 5.164 (M3a). We can apply the proportionate reduction in variance formula to determine the proportion of L2 intercept variance accounted for by the Het0 addition.</p>
 <p><span class="math display">\[Pseudo R_{\zeta }^{2} = \frac{\tau _{00} (unconditional. growth. model) - \tau _{00}(subsequent. model)}{\tau _{00}(unconditional. growth. model)}\]</span></p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="TimeLord.html#cb449-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">5.18-5.16</span>)<span class="sc">/</span><span class="fl">5.18</span></span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="TimeLord.html#cb443-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">5.18-5.16</span>)<span class="sc">/</span><span class="fl">5.18</span></span></code></pre></div>
 <pre><code>[1] 0.003861004</code></pre>
 <p>The <span class="math inline">\(\tau _{00}\)</span> variance component decreases by less than 1% from the unconditional growth model (M2a)</p>
 <p><span class="math inline">\(\tau _{11}\)</span> is unchanged. Both M2a and M3a are 0.00; adding sexual identity did not change between-subjects’ slopes. Similarly, if it had changed, we would have conducted the proportionate reduction in variance evaluation.</p>
@@ -1684,10 +1684,10 @@ The estimated anxiety at Week1 for heterosexual individuals is 2.49 (<em>p</em> 
 <p>M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)
 M2a &lt;- lme4::lmer(Anxiety ~ Weeks +(Weeks | ClientID), TIMElong, REML = FALSE)
 M3a &lt;- lme4::lmer(Anxiety ~ Weeks*Het0 +(Weeks | ClientID), TIMElong, REML = FALSE)</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="TimeLord.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb451-2"><a href="TimeLord.html#cb451-2" aria-hidden="true" tabindex="-1"></a>M4a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks<span class="sc">*</span>Het0 <span class="sc">+</span> Weeks<span class="sc">*</span>DRel0 <span class="sc">+</span> Het0<span class="sc">*</span>DRel0 <span class="sc">+</span> (Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="TimeLord.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb445-2"><a href="TimeLord.html#cb445-2" aria-hidden="true" tabindex="-1"></a>M4a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks<span class="sc">*</span>Het0 <span class="sc">+</span> Weeks<span class="sc">*</span>DRel0 <span class="sc">+</span> Het0<span class="sc">*</span>DRel0 <span class="sc">+</span> (Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="TimeLord.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M4a)</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="TimeLord.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M4a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 Formula: Anxiety ~ Weeks * Het0 + Weeks * DRel0 + Het0 * DRel0 + (Weeks |  
     ClientID)
@@ -1728,7 +1728,7 @@ Weeks:DRel0  0.192 -0.719  0.001 -0.249  0.003
 Het0:DRel0   0.395  0.001 -0.758 -0.512  0.002 -0.001
 optimizer (bobyqa) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="TimeLord.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a, M3a, M4a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="TimeLord.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a, M3a, M4a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -2204,8 +2204,8 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="TimeLord.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb456-2"><a href="TimeLord.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="TimeLord.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb450-2"><a href="TimeLord.html#cb450-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
 <p>We observe that none of the additional terms were statistically significant. Further, none of the variance components changed. Additionally, the output suggested convergence problems. Let’s trim.</p>
 <p>M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)
 M2a &lt;- lme4::lmer(Anxiety ~ Weeks +(Weeks | ClientID), TIMElong, REML = FALSE)
@@ -2215,10 +2215,10 @@ M4a &lt;- lme4::lmer(Anxiety ~ Weeks</em>Het0 + Weeks<em>DRel0 + Het0</em>DRel0 
 <div id="model-5-trimming-non-signifcant-effects" class="section level4" number="5.5.5.5">
 <h4><span class="header-section-number">5.5.5.5</span> Model 5: Trimming non-signifcant effects</h4>
 <p>If we strictly trim all no-significant effects, we retain Weeks and sexual identity. We do not specify any interactions.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="TimeLord.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb457-2"><a href="TimeLord.html#cb457-2" aria-hidden="true" tabindex="-1"></a>M5a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks <span class="sc">+</span> Het0 <span class="sc">+</span> (Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="TimeLord.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb451-2"><a href="TimeLord.html#cb451-2" aria-hidden="true" tabindex="-1"></a>M5a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks <span class="sc">+</span> Het0 <span class="sc">+</span> (Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="TimeLord.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M5a)</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="TimeLord.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M5a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 Formula: Anxiety ~ Weeks + Het0 + (Weeks | ClientID)
    Data: TIMElong
@@ -2250,7 +2250,7 @@ Weeks -0.249
 Het0  -0.511 -0.001
 optimizer (bobyqa) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="TimeLord.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a, M3a, M4a, M5a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>, <span class="st">&quot;Mod5&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="TimeLord.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1a, M2a, M3a, M4a, M5a, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1&quot;</span>, <span class="st">&quot;Mod2&quot;</span>, <span class="st">&quot;Mod3&quot;</span>, <span class="st">&quot;Mod4&quot;</span>, <span class="st">&quot;Mod5&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -2819,30 +2819,30 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="TimeLord.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb462-2"><a href="TimeLord.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="TimeLord.html#cb463-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M5a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="TimeLord.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb456-2"><a href="TimeLord.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="TimeLord.html#cb457-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M5a, <span class="at">type=</span><span class="st">&quot;diag&quot;</span>)</span></code></pre></div>
 <pre><code>[[1]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
 <pre><code>
 [[2]]
 [[2]]$ClientID</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-81-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-167-2.png" width="672" /></p>
 <pre><code>
 
 [[3]]</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-81-3.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-167-3.png" width="672" /></p>
 <pre><code>
 [[4]]</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-81-4.png" width="672" />
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-167-4.png" width="672" />
 Because of the significant trimming (of non-significant interaction effects), our plot resemble those we have observed throughout the model building process. For this final model we cannot use the <em>type = “int”</em> because it requires an interaction term and we did not have one.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="TimeLord.html#cb471-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M5a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Weeks&quot;</span>, <span class="st">&quot;Het0&quot;</span>))</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="TimeLord.html#cb465-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M5a, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Weeks&quot;</span>, <span class="st">&quot;Het0&quot;</span>))</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
 <p>Our results are, not surprisingly, consistent with what we expected when we trimmed. That is, Anxiety for heterosexual clients at Week1 is 2.48; for LGBQQ clients it is 2.78. For all clients, anxiety decreases, on average, .08 per week.</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="TimeLord.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.49</span> <span class="sc">+</span> .<span class="dv">29</span></span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="TimeLord.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.49</span> <span class="sc">+</span> .<span class="dv">29</span></span></code></pre></div>
 <pre><code>[1] 2.78</code></pre>
 </div>
 </div>
@@ -2851,13 +2851,13 @@ Because of the significant trimming (of non-significant interaction effects), ou
 <h2><span class="header-section-number">5.6</span> Structured Time: Reworking the Vignette with Index</h2>
 <p>So what would happen if we used the Index variable – representing the five, sequenced, observations but ignoring the dosage (i.e., when marked time with Session# ranging from 0 to 19) or calendrical time (i.e., when we marked time in Weeks [fractional, ranging from 0 to 19]).</p>
 <p>First, let’s format Index as numeric.</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="TimeLord.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) </span>
-<span id="cb474-2"><a href="TimeLord.html#cb474-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong <span class="sc">%&gt;%</span></span>
-<span id="cb474-3"><a href="TimeLord.html#cb474-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb474-4"><a href="TimeLord.html#cb474-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">Index =</span> <span class="fu">as.numeric</span>(Index)</span>
-<span id="cb474-5"><a href="TimeLord.html#cb474-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb474-6"><a href="TimeLord.html#cb474-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb474-7"><a href="TimeLord.html#cb474-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(TIMElong<span class="sc">$</span>Index))</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="TimeLord.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) </span>
+<span id="cb468-2"><a href="TimeLord.html#cb468-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong <span class="sc">%&gt;%</span></span>
+<span id="cb468-3"><a href="TimeLord.html#cb468-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb468-4"><a href="TimeLord.html#cb468-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">Index =</span> <span class="fu">as.numeric</span>(Index)</span>
+<span id="cb468-5"><a href="TimeLord.html#cb468-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb468-6"><a href="TimeLord.html#cb468-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb468-7"><a href="TimeLord.html#cb468-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(TIMElong<span class="sc">$</span>Index))</span></code></pre></div>
 <pre><code>    [1] 1 2 3 4 5 1 2 4 5 1 2 3 4 5 2 3 4 5 1 2 4 5 1 2 4 5 2 3 1 2 3 4 5 1 2 4
    [37] 5 1 2 3 5 1 2 3 4 5 1 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 3 4 5 1 3 4 5
    [73] 2 3 4 5 1 2 3 4 5 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 4 5 1 2 3 4
@@ -4501,11 +4501,11 @@ Because of the significant trimming (of non-significant interaction effects), ou
 [59041] 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 5 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 4 5 1 2
 [59077] 3 4 5 1 2 3 4 5 3 4 5 1 2 5 1 2 3 4 5 1 2 3 5 1 2 3 5 1 2 3 4 5 1 2 3 5
 [59113] 1 2 4 5 2 3 4 5 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="TimeLord.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMElong<span class="sc">$</span>Index)</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="TimeLord.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(TIMElong<span class="sc">$</span>Index)</span></code></pre></div>
 <pre><code> num [1:59125] 1 2 3 4 5 1 2 4 5 1 ...</code></pre>
 <p>Next, the abbreviated preliminary exploration. As you will see, the unbalanced design has prevented them from running properly. While MLM can accomodate unbalanced designs, it can cause difficulties here and there. I will be looking for an alternate way to produce these graphs that can accommodate missing data more effectively.</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="TimeLord.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Index, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb478-2"><a href="TimeLord.html#cb478-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="TimeLord.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Index, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb472-2"><a href="TimeLord.html#cb472-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
 <pre><code>geom_path: Each group consists of only one observation. Do you need to adjust
 the group aesthetic?
 geom_path: Each group consists of only one observation. Do you need to adjust
@@ -4566,23 +4566,23 @@ geom_path: Each group consists of only one observation. Do you need to adjust
 the group aesthetic?
 geom_path: Each group consists of only one observation. Do you need to adjust
 the group aesthetic?</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="TimeLord.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Index, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb480-2"><a href="TimeLord.html#cb480-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="TimeLord.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rndm30time, <span class="fu">aes</span>(<span class="at">x =</span> Index, <span class="at">y =</span> Anxiety)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb474-2"><a href="TimeLord.html#cb474-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>ClientID)</span></code></pre></div>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-86-2.png" width="672" /></p>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-172-2.png" width="672" /></p>
 <p>I will run all of the models in one chunk and produce the <em>tab_model</em> table.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="TimeLord.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
-<span id="cb482-2"><a href="TimeLord.html#cb482-2" aria-hidden="true" tabindex="-1"></a>M1i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb482-3"><a href="TimeLord.html#cb482-3" aria-hidden="true" tabindex="-1"></a>M2i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index <span class="sc">+</span> (Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control=</span><span class="fu">lmerControl</span>(<span class="at">check.nobs.vs.nRE=</span><span class="st">&quot;ignore&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="TimeLord.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
+<span id="cb476-2"><a href="TimeLord.html#cb476-2" aria-hidden="true" tabindex="-1"></a>M1i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb476-3"><a href="TimeLord.html#cb476-3" aria-hidden="true" tabindex="-1"></a>M2i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index <span class="sc">+</span> (Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control=</span><span class="fu">lmerControl</span>(<span class="at">check.nobs.vs.nRE=</span><span class="st">&quot;ignore&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="TimeLord.html#cb484-1" aria-hidden="true" tabindex="-1"></a>M3i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index<span class="sc">*</span>Het0 <span class="sc">+</span>(Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="TimeLord.html#cb478-1" aria-hidden="true" tabindex="-1"></a>M3i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index<span class="sc">*</span>Het0 <span class="sc">+</span>(Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="TimeLord.html#cb486-1" aria-hidden="true" tabindex="-1"></a>M4i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index<span class="sc">*</span>Het0 <span class="sc">+</span> Index<span class="sc">*</span>DRel0 <span class="sc">+</span> Het0<span class="sc">*</span>DRel0 <span class="sc">+</span> (Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="TimeLord.html#cb480-1" aria-hidden="true" tabindex="-1"></a>M4i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index<span class="sc">*</span>Het0 <span class="sc">+</span> Index<span class="sc">*</span>DRel0 <span class="sc">+</span> Het0<span class="sc">*</span>DRel0 <span class="sc">+</span> (Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="TimeLord.html#cb488-1" aria-hidden="true" tabindex="-1"></a>M5i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index <span class="sc">+</span> Het0 <span class="sc">+</span> (Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="TimeLord.html#cb482-1" aria-hidden="true" tabindex="-1"></a>M5i <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Index <span class="sc">+</span> Het0 <span class="sc">+</span> (Index <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="TimeLord.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M5a)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="TimeLord.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M5a)</span></code></pre></div>
 <pre><code>Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 Formula: Anxiety ~ Weeks + Het0 + (Weeks | ClientID)
    Data: TIMElong
@@ -4614,7 +4614,7 @@ Weeks -0.249
 Het0  -0.511 -0.001
 optimizer (bobyqa) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular</code></pre>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="TimeLord.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1i, M2i, M3i, M4i, M5i, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1i&quot;</span>, <span class="st">&quot;Mod2i&quot;</span>, <span class="st">&quot;Mod3i&quot;</span>, <span class="st">&quot;Mod4i&quot;</span>, <span class="st">&quot;Mod5i&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="TimeLord.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(M1i, M2i, M3i, M4i, M5i, <span class="at">p.style =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">show.ci =</span> <span class="cn">FALSE</span>, <span class="at">show.se =</span> <span class="cn">TRUE</span>, <span class="at">show.df =</span> <span class="cn">FALSE</span>, <span class="at">show.re.var =</span> <span class="cn">TRUE</span>, <span class="at">show.aic =</span> <span class="cn">TRUE</span>, <span class="at">show.dev =</span> <span class="cn">TRUE</span>, <span class="at">use.viewer =</span> <span class="cn">TRUE</span>, <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Mod1i&quot;</span>, <span class="st">&quot;Mod2i&quot;</span>, <span class="st">&quot;Mod3i&quot;</span>, <span class="st">&quot;Mod4i&quot;</span>, <span class="st">&quot;Mod5i&quot;</span>))</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
@@ -5183,10 +5183,10 @@ AIC
 </td>
 </tr>
 </table>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="TimeLord.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
-<span id="cb493-2"><a href="TimeLord.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="TimeLord.html#cb494-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M5i, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>, <span class="st">&quot;Het0&quot;</span>))</span></code></pre></div>
-<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-88-1.png" width="672" />
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="TimeLord.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can swap this statement with the &quot;file = &quot;TabMod_Table&quot;&quot; to get Viewer output or the outfile that you can open in Word</span></span>
+<span id="cb487-2"><a href="TimeLord.html#cb487-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file = &quot;TabMod_Table.doc&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="TimeLord.html#cb488-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span> (M5i, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Index&quot;</span>, <span class="st">&quot;Het0&quot;</span>))</span></code></pre></div>
+<p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-174-1.png" width="672" />
 How do the models differ when Index (time-structured) is used to mark time?</p>
 <p>In the fixed effects:</p>
 <ul>
@@ -5432,77 +5432,12 @@ How do the models differ when Index (time-structured) is used to mark time?</p>
 <p>Qualtrics date stamps look like this: 2018-01-03 10:05:46</p>
 <p>Correspondingly, it is important to let lubridate know that the format is year/month/day_hour/minute/second. The script below, denotes that with the function <em>ymd_hms()</em>. If your downloaded Qualtrics data does not have all those elements (or they are in different order), then consult the <em>lubridate</em> package options for the correct function.</p>
 <p>Below, hashtagged out, is code I have used to format the Qualtrics datestamp. Unless you have changed it for your own surveys, Qualtrics data is collected in Mountain time. Therefore, I have indicated the US/Mountain timezone.</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="TimeLord.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df$DateVariable &lt;- ymd_hms(df$DateVariable, tz = &quot;US/Mountain&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="TimeLord.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df$DateVariable &lt;- ymd_hms(df$DateVariable, tz = &quot;US/Mountain&quot;)</span></span></code></pre></div>
 </div>
 <div id="what-if-i-care-about-time-zones" class="section level4" number="5.10.1.2">
 <h4><span class="header-section-number">5.10.1.2</span> What if I care about time zones?</h4>
 <p>As noted in the prior question, “tz” is the function used to indicate the time zone. A complete list of timezones can be found with the <em>OlsonNames()</em> function. I have hashtagged it out because it is quite a length list!</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="TimeLord.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="co">#OlsonNames()</span></span></code></pre></div>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="TimeLord.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>R version 4.1.3 (2022-03-10)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 18363)
-
-Matrix products: default
-
-locale:
-[1] LC_COLLATE=English_United States.1252 
-[2] LC_CTYPE=English_United States.1252   
-[3] LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                          
-[5] LC_TIME=English_United States.1252    
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] lubridate_1.7.10           formattable_0.2.1         
- [3] lattice_0.20-45            data.table_1.14.0         
- [5] scales_1.1.1               sjPlot_2.8.10             
- [7] PerformanceAnalytics_2.0.4 xts_0.12.1                
- [9] zoo_1.8-9                  robumeta_2.0              
-[11] lmerTest_3.1-3             forcats_0.5.1             
-[13] stringr_1.4.0              dplyr_1.0.7               
-[15] purrr_0.3.4                readr_2.0.1               
-[17] tidyr_1.1.3                tibble_3.1.4              
-[19] ggplot2_3.3.5              tidyverse_1.3.1           
-[21] sjstats_0.18.1             nlme_3.1-155              
-[23] lme4_1.1-27.1              Matrix_1.4-0              
-[25] psych_2.1.6               
-
-loaded via a namespace (and not attached):
- [1] TH.data_1.1-0       minqa_1.2.4         colorspace_2.0-2   
- [4] ellipsis_0.3.2      sjlabelled_1.1.8    estimability_1.3   
- [7] parameters_0.14.0   fs_1.5.0            rstudioapi_0.13    
-[10] glmmTMB_1.1.2.3     farver_2.1.0        fansi_0.5.0        
-[13] mvtnorm_1.1-2       xml2_1.3.2          codetools_0.2-18   
-[16] splines_4.1.3       mnormt_2.0.2        knitr_1.34         
-[19] sjmisc_2.8.7        jsonlite_1.7.2      nloptr_1.2.2.2     
-[22] ggeffects_1.1.1     broom_0.7.9         dbplyr_2.1.1       
-[25] effectsize_0.4.5    compiler_4.1.3      httr_1.4.2         
-[28] emmeans_1.6.3       backports_1.2.1     assertthat_0.2.1   
-[31] fastmap_1.1.0       cli_3.0.1           htmltools_0.5.2    
-[34] tools_4.1.3         coda_0.19-4         gtable_0.3.0       
-[37] glue_1.4.2          reshape2_1.4.4      Rcpp_1.0.7         
-[40] cellranger_1.1.0    jquerylib_0.1.4     vctrs_0.3.8        
-[43] apaTables_2.0.8     insight_0.14.4      xfun_0.25          
-[46] rvest_1.0.1         lifecycle_1.0.0     MASS_7.3-55        
-[49] hms_1.1.0           parallel_4.1.3      sandwich_3.0-1     
-[52] TMB_1.7.22          RColorBrewer_1.1-2  yaml_2.2.1         
-[55] sass_0.4.0          stringi_1.7.4       highr_0.9          
-[58] bayestestR_0.11.0   boot_1.3-28         rlang_0.4.11       
-[61] pkgconfig_2.0.3     evaluate_0.14       htmlwidgets_1.5.4  
-[64] labeling_0.4.2      tidyselect_1.1.1    plyr_1.8.6         
-[67] magrittr_2.0.1      bookdown_0.24       R6_2.5.1           
-[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
-[73] pillar_1.6.2        haven_2.4.3         withr_2.4.2        
-[76] mgcv_1.8-39         survival_3.2-13     datawizard_0.2.0.1 
-[79] performance_0.7.3   modelr_0.1.8        crayon_1.4.1       
-[82] utf8_1.2.2          tmvnsim_1.0-2       tzdb_0.1.2         
-[85] rmarkdown_2.10      grid_4.1.3          readxl_1.3.1       
-[88] reprex_2.0.1        digest_0.6.27       xtable_1.8-4       
-[91] numDeriv_2016.8-1.1 munsell_0.5.0       bslib_0.3.0        
-[94] quadprog_1.5-8     </code></pre>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="TimeLord.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="co">#OlsonNames()</span></span></code></pre></div>
 </div>
 </div>
 </div>

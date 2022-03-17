@@ -22,12 +22,10 @@ github-repo: lhbikos/extRas
 
 ![An image of the book cover. It includes four quadrants of non-normal distributions representing gender, race/ethnicty, sustainability/global concerns, and journal articles](images/ReC_mlevel_bkcvr.png)
 
-This open education resource is available in the following formats:
+This open education resource is available in the following formats, all available in the [docs](https://github.com/lhbikos/ReC_MultivModel/tree/main/docs) folder at the GitHub repository:
 
-* Formatted as an [html book](https://lhbikos.github.io/MultilevelModeling/) via GitHub Pages available in the [docs](https://github.com/lhbikos/MultilevelModeling/tree/main/docs) folder at the GitHub repository
-* As a [PDF](https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.pdf) 
-* As an [ebook](https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.epub) 
-* As a [Word](https://github.com/lhbikos/MultilevelModeling/blob/main/docs/ReC_MultMod.docx) d
+* Formatted as an [html book](https://lhbikos.github.io/MultilevelModeling/) 
+* As a [PDF](https://github.com/lhbikos/MultilevelModeling/blob/main/ReC_Multilevel.pdf) 
 
 All materials used in creating this OER are available at its [GitHub repo](https://github.com/lhbikos/MultilevelModeling).
 
@@ -186,7 +184,7 @@ The easiest way to insert a chunk is to use the INSERT/R command at the top of t
 
 "Chunks" start and end with with those three tic marks and will show up in a shaded box, like this:
 
-```{r title for the chunk contents}
+```{r }
 #hashtags let me write comments to remind myself what I did
 #here I am simply demonstrating arithmetic (but I would normally be running code)
 2021 - 1966
@@ -205,13 +203,13 @@ As scientist-practitioners (and not coders), we will rely on *packages* to do ou
 
 Researchers treat packages differently. In these lectures, I list all the packages we will use in an opening chunk that asks R to check to see if the package is installed, and if not, installs it.  
 
-```{r checking for packages}
+```{r }
 if(!require(psych)){install.packages("psych")}
 ```
 
 To make a package operable, you need to open it through the library.  This process must be repeated each time you restart R. I don't open the package (through the "library(package_name)") command until it is time to use it.  Especially for new users, I think it's important to connect the functions with the specific packages.
 
-```{r opening psych, package, message=FALSE, warning=FALSE}
+```{r  message=FALSE, warning=FALSE}
 #install.packages ("psych")
 library (psych)
 ```
@@ -280,12 +278,12 @@ Co-Authors
 
 [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=f24e4b50-1204-4412-a78f-ad2500198bb6) 
  
-```{r setup, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 ```
 
-```{r eliminates scientific notation}
+```{r }
 options(scipen=999)#eliminates scientific notation
 ```
 
@@ -332,7 +330,7 @@ In preparing this chapter, I drew heavily from the following resource(s). Other 
 ### Packages
 
 The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
-```{r Install Packages for THIS SPECIFIC CHAPTER, message=FALSE, warning=FALSE}
+```{r  message=FALSE, warning=FALSE}
 #will install the package if not already installed
 if(!require(lme4)){install.packages("lme4")}
 if(!require(nlme)){install.packages("nlme")}
@@ -434,7 +432,7 @@ In the article, Lefevor [-@lefevor_homonegativity_2020] and colleagues predict a
 
 Muldoon [-@muldoon_simulate_2018] has provided clear and intuitive instructions for simulating multilevel data. 
 
-```{r calculating ranges from article, echo=FALSE, include = FALSE}
+```{r  echo=FALSE, include = FALSE}
 #Hidden from the HTML presentation of the OER, this is the calculation of the range of the variables used in the simulation.
 # Range of gender
 .29 - (.46*3)
@@ -462,7 +460,7 @@ Simulating the data gives us some information about the nature of MLM.  You can 
 * the mean and standard deviation of the dependent variable
 
 Further down in the code, we feed R the regression equation.
-```{r simulate raw data, results='hide'}
+```{r  results='hide'}
 set.seed(200407)
 n_church = 15
 n_mbrs = 15
@@ -506,7 +504,7 @@ Lefevor2020$Female0 <- plyr::mapvalues(Lefevor2020$Female0, from = c(-1, 0, 1), 
 ```
 Below is script that will allow you to export and reimport the dataset we just simulated. This may come in handy if you wish to start from the simulated data (and not wait for the simulation each time) and/or if you would like to use the dataset for further practice.
 
-```{r Exporting and importing the Lefevor 2020 ef}
+```{r }
 write.table(Lefevor2020, file="Lefevor2020.csv", sep=",", col.names=TRUE, row.names=FALSE)
 Lefevor2020 <- read.csv ("Lefevor2020.csv", head = TRUE, sep = ",")
 ```
@@ -527,7 +525,7 @@ Because I cover strategies for evaluating these assumptions in the [Data Dx](htt
 
 We should, though take a look at the relations between the variables in our model in their *natural* form.  In this case *natural* refers to their scored, ready-to-be-analyzed (but not further centered).
 
-```{r pairs panels of MLM variables}
+```{r }
 library(psych)
 psych::pairs.panels(Lefevor2020[c("ATSS", "Attendance", "Homogeneity")], stars = TRUE)
 ```
@@ -621,7 +619,7 @@ Following the Lefevor and colleagues' [-@lefevor_homonegativity_2020] example, w
 
 Similarly, *robumeta*'s *group.mean* function will aggregate variables at the group's mean.  
 
-```{r centering, warning=FALSE}
+```{r  warning=FALSE}
 library(robumeta)
 Lefevor2020$AttendL1 <- as.numeric(group.center(Lefevor2020$Attendance, Lefevor2020$church))#centered within context (group mean centering)
 Lefevor2020$AttendL2 <- as.numeric(group.mean(Lefevor2020$Attendance, Lefevor2020$church))#aggregated at group mean
@@ -656,7 +654,7 @@ Tables are produced for each church's data. Again, because of group-mean centeri
 
 Looking at the correlations between all forms of these variables can further help clarify why the *compositional effects* approach is useful.
 
-```{r Multilevel r matrix}
+```{r }
 #Multilevel level correlation matrix
 apaTables::apa.cor.table(Lefevor2020[c(
 "ATSS", "Attendance", "AttendL1", "AttendL2", "Homogeneity")], show.conf.interval = FALSE, landscape = TRUE, table.number = 1, filename="ML_CorMatrix.doc")
@@ -683,7 +681,7 @@ As you can see in the script below, we are specifying its intercept (~1).  The "
 
 There are two packages (*lme4*, *nlme*) that are primarily used for MLM. We are providing the code for both because -- although the core features are identical -- they are slightly different.  The *lmerTest* package offers some handy follow-up tests that help us understand our results.  Finally, the *tab_model()* function from the *sjPlot* package will help create a table that is readily usable in an APA style journal article. 
 
-```{r Mod1 Empty model}
+```{r }
 library(lme4)
 Mod1 <- lmer(ATSS ~1 + (1 | church), REML = FALSE, data = Lefevor2020)
 summary(Mod1)
@@ -729,12 +727,12 @@ $\sigma^{2}$ is within-church variance; the pooled scatter of each individual's 
 $\tau _{00}$ is between-church variance; the scatter of each church's data around the grand mean.
 The *intraclass correlation coefficient* (ICC) describes the proportion of variance that lies *between* churches. It is the essential piece of data that we need from this model.  Because the total variation in *Y* is just the sum of the within- and between- church variance components, we could have calculated this value from $\sigma^{2}$ and $\tau _{00}$.  Yet, it is handy that the *lmer()* function does it or us.
 
-```{r manual calculation of the ICC}
+```{r }
 .27/(1.13+.27)
 ```
 The ICC value of 0.19 means that 19% of the total variation in attitudes toward same-sex sexuality is attributable to differences between churches. The balance... 
 
-```{r manual calculation of within-church variation}
+```{r }
 1.00 - .19
 ```
 ...(81%) is attributable to within-church variation (or differences in people).
@@ -761,7 +759,7 @@ We update our script by:
 * Adding "Mod2" to the *anova()* function (this will let us know if the models are statistically significantly different from each other)
 * Replacing "ModB1" with "Mod2" in the *tab_model()* function 
 
-```{r Mod2 Adding L1 predictor}
+```{r }
 # MODEL 2
 Mod2 <- lmer(ATSS ~ AttendL1 + (1 | church), REML=FALSE, data = Lefevor2020)
 summary(Mod2)
@@ -800,7 +798,7 @@ Looking at the Viewer we can look a the models side by side.  We observe:
     * If we use FML (we did when we set REML = FALSE), a deviance comparison describes the fit of the entire model (both fixed and random effects).  Thus, deviance statistics test hypotheses about any combination of parameters, fixed effects, or variance components.
 ed.
 
-```{r printing the ANOVA object for Mod2}
+```{r }
 DevM2
 ```
 Deviance statistics can be formally with a chi-square test. The new value is subtracted from the older value. If the difference is greater than the test critical value associated with the change in degrees of freedom, then the model with the lower deviance value is statistically significantly improved.  Our deviance values differed by 4.20 units and this was a statistically significant differnce (*p* = .040).
@@ -827,7 +825,7 @@ Although Lefevor and colleagues [-@lefevor_homonegativity_2020] included more L1
 
 #### Model 3:  Adding the L2 predictors
 
-```{r Mod2 Adding L12 predictors}
+```{r }
 # MODEL 3
 Mod3 <- lmer(ATSS ~ AttendL1 + AttendL2 + Homogeneity + (1 | church), REML=FALSE, data = Lefevor2020)
 summary(Mod3)
@@ -859,7 +857,7 @@ Again, looking at the Viewer we can look at the three models side by side.  We o
  * AIC values that are lower indicate a better fitting model.  There is no formal way to compare these values, but we see that the Mod3 value is lower.
  * We can call up the object we created to formally compare the deviance statistics.
 
-```{r printing the ANOVA object for Mod3}
+```{r }
 devM3
 ```
 This repeats the comparison of Mod2 to Mod1 (it was significant). The comparison of Mod3 to Mod2 suggests even more statistically significant improvement.  Specifically,  $\chi ^{2}(2) = 9.009, p = .011$
@@ -880,7 +878,7 @@ sjPlot::plot_model (Mod3, type="pred",terms=c("AttendL1", "Homogeneity", "Attend
 ```
 
 Our diagnostic plots continue to support our modeling. In the QQ plots, the points generally track along the lines. In the non-normality of residuals, our distribution approximates the superimposed normal curve. In the homoscedasticity plot, the points are scattered above/blow the line in a reasonably equal amounts with random spread.
-```{r diagnostic plots for Mod3}
+```{r }
 sjPlot::plot_model (Mod3, type="diag")
 ```
 
@@ -916,7 +914,7 @@ Again, looking at the Viewer we can look at the four models side by side.  We ob
  * The AIC value increases -- meaning that Mod4 is worse than Mod3. 
  * Examining the formal comparison of Mod4 to Mod3 suggests no statistically significant difference ($\chi_{2}(1) = 0.838$).
 
-```{r printing the ANOVA object for Mod4}
+```{r }
 devM4
 ```
 
@@ -938,7 +936,7 @@ sjPlot::plot_model (Mod4, type="diag")
 
 Our analysis is consistent with Lefevor and colleagues' decision to stop after Mod3. Therefore I will "trim" the interaction term out. 
 
-```{r Model trimmed}
+```{r }
 # MODEL 3
 Mod3 <- lmer(ATSS ~ AttendL1 + AttendL2 + Homogeneity + (1 | church), REML=FALSE, data = Lefevor2020)
 summary(Mod3)
@@ -1127,13 +1125,13 @@ psych::pairs.panels(Lefevor2020[c("ATSS", "Female0", "Age", "Education", "Attend
 psych::describe(Lefevor2020[c("ATSS", "Female0", "Age", "Education", "Attendance", "Homogeneity")])
 ```
 
-```{r Single level r matrix}
+```{r }
 #Single level correlation matrix
 apaTables::apa.cor.table(Lefevor2020[c(
 "ATSS", "Female0", "Age", "Education", "Attendance", "Homogeneity")], show.conf.interval = FALSE, landscape = TRUE, table.number = 1, filename="CorMatrix.doc")
 ```
 
-```{r centering variables, warning=FALSE}
+```{r  warning=FALSE}
 library(robumeta)
 Lefevor2020$ATSSL1 <- as.numeric(group.center(Lefevor2020$ATSS, Lefevor2020$church))#centered within context (group mean centering)
 Lefevor2020$ATSSL2 <- as.numeric(group.mean(Lefevor2020$ATSS, Lefevor2020$church))#aggregated at group mean
@@ -1148,7 +1146,7 @@ Lefevor2020$EducL2 <- as.numeric(group.mean(Lefevor2020$Education, Lefevor2020$c
 ```
 
 CALCULATE L1 AND L2 ATTS
-```{r Multilevel r matrix for L1 and L2}
+```{r }
 #Multilevel level correlation matrix
 apaTables::apa.cor.table(Lefevor2020[c(
 "ATSSL1", "GenderL1", "AgeL1", "EducL1", "AttendL1",
@@ -1229,7 +1227,7 @@ tab_model(ATSSm1, ATSSm2, ATSSm3, p.style = "numeric", show.ci = FALSE, show.df 
 
 STAY TUNED
 
-```{r sessionInfo modmed}
+```{r include = FALSE}
 sessionInfo()
 ```
 
@@ -1242,12 +1240,12 @@ sessionInfo()
 
 [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=36075f1d-b805-40b9-92da-ad2b0053f46c) 
  
-```{r setup for long explore, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 ```
 
-```{r eliminates scientific notation in Long Explore}
+```{r }
 options(scipen=999)#eliminates scientific notation
 ```
 
@@ -1312,7 +1310,7 @@ I love the Singer and Willett [-@singer_applied_2003] text for so many reasons. 
 ### Packages
 
 The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
-```{r Install Packages for nested within persons, warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE}
 #will install the package if not already installed
 if(!require(robumeta)){install.packages("robumeta")}
 if(!require(tidyverse)){install.packages("tidyverse")}
@@ -1395,7 +1393,7 @@ Our research vignette [@lefevor_religious_2017] examines the intersection of rel
 
 The Method section of the article provides detailed information about the inclusion criteria ofr the study and the coding of the variables. This included data about the religious and sexual identities as well as a minimum of three separate scores on the Counseling Center Assessment of Psychologial Sympsoms [CCAPS, @locke_development_2012] measure. For the final dataset, clients attended an average of 10.58 sessions (*SD* = 7.65) and had an average of 5.36 CCAPS administrations (*SD* = 4.04).  This means that in the original dataset, each client was represented by a varying number of observations (likely ranging from 3 [the minimum required for inclusion] and, perhaps as many as 17 [adding +3*SD*s to the mean CCAPS administrations]). In simulating the data, I specified five observations for each of the 12,825 clients.
 
-```{r calculating the number of CCAPS adminsitrations plus 3SDs, echo = FALSE, results='hide'}
+```{r echo = FALSE, results='hide'}
 5.36 + 4.04*(3)
 ```
 
@@ -1438,7 +1436,7 @@ Let's take a look at the variables in the study
 .01 + 3*(.01 *sqrt(12825))
 ```
 
-```{r simulate raw data for MLM explore, results='hide'}
+```{r  results='hide'}
 set.seed(200513)
 n_client = 12825
 n_session = 5
@@ -1566,7 +1564,7 @@ LfvrWide <- dplyr::full_join(LfvrWide, LfvrWp3,  by = c("ClientID"))
 To increase the portability of the OER, this chapter uses simulated data. Here is script for exporting/downloading the data as a .csv file to your local computer and then importing/uploading it again. I find that saving the .csv file (data) in the same place as the .rmd file(s) is essential for R to connect the two.
 
 Because this simulation can take a few minutes, you may wish to do this, even as you work through this chapter, so that resimulations take less time and comuting resources.
-```{r Exporting and importing the wide df}
+```{r }
 write.table(LfvrWide, file="LefevorWide.csv", sep=",", col.names=TRUE, row.names=FALSE)
 LfvrWide <- read.csv ("LefevorWide.csv", head = TRUE, sep = ",")
 ```
@@ -1590,7 +1588,7 @@ There are **disadvantages** to the wide format:
 * It is inefficient/useless when the number and spacing of waves varies
 * It cannot handle the presence of time-varying predictors.
 
-```{r quick peek at descriptives}
+```{r }
 library(psych)
 round(psych::describe(LfvrWide),3)
 ```
@@ -1624,12 +1622,12 @@ I should note that a bivariate matrix created from the wide format is rather use
 Let's restructure (shapeshift) our dataset with the technique known as *melting*.
 
 Each set of variables being melted in each set being restructured need to be on the same scale.  In this problem, the Anx# and Sess# variables should be on the same scale.
-```{r check variable formats}
+```{r }
 str(LfvrWide)
 ```
 They are.  Each is *num*eric.
 
-```{r melt wide to long}
+```{r }
 library(data.table) #the package for melting (better than reshape2 because it can accommodate multiple repeated measures variables)
 
 #add the name of the wide df after "setDT"
@@ -1645,7 +1643,7 @@ Take a peek at LfvrLong:
   - *variable* is the former variable name; it represents the *unit* of time (or condition) associated with the repeated measure
   - *value* is the value of that measurement for that person
 * We must rename these
-```{r rename restructured vars}
+```{r }
 #This process  does not preserve the variable names, so we need to rename them
 LfvrLong<-  rename(LfvrLong<-  rename(LfvrLong<-  rename(LfvrLong, Index = variable, Anxiety = "value1", SesNum = "value2")))
 
@@ -1664,7 +1662,7 @@ LfvrLong <- read.csv ("LfvrLong.csv", head = TRUE, sep = ",")
 ```
 
 Let's peek at the characteristics and descriptives as a result of this restructuring from wide to long.
-```{r another quick check}
+```{r }
 str(LfvrLong)
 round(psych::describe(LfvrLong),3)
 ```
@@ -1673,7 +1671,7 @@ Evaluating longitudinal growth trajectories in MLM means that we invest in subst
 
 ### Empirical Growth Plots
 
-```{r packages for plotting growth, message=FALSE, warning=FALSE}
+```{r  message=FALSE, warning=FALSE}
 library(lattice)
 library(ggplot2)
 ```
@@ -1684,7 +1682,7 @@ With the *lattice* package we are asking for the anxiety scores to be plotted by
 
 Especially in large datasets it is common to create a smaller subset of data for this inspection. The easiest way I found to do this was to grab a set of 30 from the wide file and then quickly turn it to a long file.
 
-```{r Creating a smaller random sample}
+```{r }
 set.seed(210515)
 RndmSmpl30 <- LfvrWide[sample(1:nrow(LfvrWide), 30,
    replace=FALSE),] 
@@ -1716,7 +1714,7 @@ To evaluate, focus on elevation, shape, and title.  Where do scores hover at the
 
 Below I have shown how to plot these with variable, Index variable and then again with the variable, Session.  Recall that Index is a structured form of counting across the 5 client sessions.  In contrast, Session is "time-unstructured" because the intervals are unevenly spaced.  Our Index variable clocks 1 through 5; Session0 starts at 0.0, providing a better "intercept" at the first session. Singer and Willett [-@singer_applied_2003] recommend also  staring at the entire set together as a group.  Notice anything?
 
-```{r indiv growth plots_smoothed, warning=FALSE}
+```{r warning=FALSE}
 
 xyplot(Anxiety~Session0 | ClientID, data=RndmLong,
   prepanel = function(x, y) prepanel.loess(x, y, family="gaussian"),
@@ -1766,7 +1764,7 @@ Let's start with step #1:
 
 This little script produces individual regression models for each person.
 
-```{r improved within person regressions}
+```{r }
 ANX_OLS <- function (RndmLong){
   summary(lm(Anxiety ~ Session0, data = RndmLong))
 }
@@ -1783,7 +1781,7 @@ Looking at our data, we might observe:
 
 Next we superimpose each client's fitted OLS trajectory on their empirical growth plot.
 
-```{r superimposed plot, warning=FALSE}
+```{r  warning=FALSE}
 xyplot(Anxiety ~ Session0 | ClientID, data=RndmLong,
   panel = function(x, y){
     panel.xyplot(x, y)
@@ -1803,7 +1801,7 @@ Singer and Willett [-@singer_applied_2003] can read your minds, "Don't OLS regre
 
 We can plop all our trajectories in a set of smoothed individual trajectories. This first plot is simply the raw data.  This first plot is just a smoothed (there is a line for each client) plot of the raw/natural metric of the data.
 
-```{r within person growth as one figure}
+```{r }
 #plot of raw data for every case
 #Session0 provided splotchy data; Index0 gives some indication of change
 interaction.plot(RndmLong$Index, RndmLong$ClientID, RndmLong$Anxiety)
@@ -1813,14 +1811,14 @@ interaction.plot(RndmLong$Index, RndmLong$ClientID, RndmLong$Anxiety)
 The next two sets of code plot our fitted trajectories into a single plot. 
 
 First, we fit the model.
-```{r fitting individual regressions }
+```{r  }
 #fitting the linear model by ID
 fit <- by(RndmLong, RndmLong$ClientID, 
           function(bydata) fitted.values(lm(Anxiety ~ Session0, data=bydata)))
 fit <- unlist(fit)
 ```
 Then make the plot.
-```{r single plot of indiv regressions}
+```{r }
 #plotting the linear fit by ID
 interaction.plot(RndmLong$Index, RndmLong$ClientID, fit, xlab="Sessions", ylab="Anxiety")
 ```
@@ -1833,7 +1831,7 @@ What do we observe? Clients present with varying levels of anxiety.  On average,
 
 *Sample variances (SDs) of the estimated intercepts and slopes* quantify the amount of observed interindividual heterogeneity in change.
 
-```{r intercept of linear model}
+```{r }
 #obtaining the intercept from the linear model by ClientID
 ints <- by(RndmLong, RndmLong$ClientID,
           function(data) coefficients(lm(Anxiety ~ Session0, data=data))[[1]])
@@ -1850,7 +1848,7 @@ Our calculations tell us that at Session 1, anxiety is 3.23 (*SD* = 2.69).
 
 The next two values calculate the slope and its variation.
 
-```{r slope of linear model}
+```{r }
 #obtaining the slopes from linear model by id
 slopes <- by(RndmLong, RndmLong$ClientID,
             function(data) coefficients(lm(Anxiety ~ Session0, data=data))[[2]])
@@ -1859,7 +1857,7 @@ names(slopes1) <- NULL
 mean(slopes1)
 ```
 
-```{r variance of slope of linear model}
+```{r }
 sqrt(var(slopes1))
 ```
 
@@ -1867,7 +1865,7 @@ Here we learn that the average slope is -0.07 (*SD* = 0.08).  On average, anxiet
 
 **Sample correlation between the estimated intercepts and slopes** summarizes the association between the fitted initial status and fitted rate of change.  It answers the question, "Are observed initial status and rate of change related?"
 
-```{r relationship between age11 tolerance and rate of change}
+```{r }
 cor( ints1, slopes1)
 ```
 
@@ -1882,14 +1880,14 @@ Let's start with religious affiliation Is there a difference in intercept (initi
 
 We start by selecting DR, fitting a regression model, and plotting it.
 
-```{r fitting model for DR step 1}
+```{r }
 #fitting the linear model by ID, DR only
 DR <- filter(RndmLong, DRel0=="0")
 fitmlist <- by(DR, DR$ClientID, function(bydata) fitted.values(lm(Anxiety ~ Session0, data=bydata)))
 fitDR <- unlist(fitmlist)
 ```
 
-```{r fitting model for DR step 2}
+```{r }
 #appending the average for the whole group of DR
 lm.DR <- fitted( lm(Anxiety ~ Session0, data=DR) )
 names(lm.DR) <- NULL
@@ -1898,7 +1896,7 @@ Sess1.DR <- c(DR$Index, seq(1,5))#Note that I used Session0 to create the lm, bu
 id.DR <- c(DR$ClientID, rep(30, 5))
 ```
 
-```{r plotting fit for DR}
+```{r }
 #plotting the linear fit by id, males
 #id.m=111 denotes the average value for males
 interaction.plot(Sess1.DR, id.DR, fit.DR2, ylim=c(-2, 8), xlab="Sessions", ylab="Anxiety", lwd=1)
@@ -1908,14 +1906,14 @@ Trajectories for those from dominantreligions stay flat; a few decline.
 
 Now for non-dominant religious (including those that are affiliated and unaffiliated).
 
-```{r fitting model for NDR step 1}
+```{r }
 #fitting the linear model by ID, DR only
 NDR <- filter(RndmLong, DRel0=="1")
 fitmlist <- by(NDR, NDR$ClientID, function(bydata) fitted.values(lm(Anxiety ~ Session0, data=bydata)))
 fitNDR <- unlist(fitmlist)
 ```
 
-```{r fitting model for NDR step 2}
+```{r }
 #appending the average for the whole group of males
 lm.NDR <- fitted( lm(Anxiety ~ Session0, data=NDR) )
 names(lm.NDR) <- NULL
@@ -1924,7 +1922,7 @@ Sess1.NDR <- c(NDR$Index, seq(1,5))#Note that I used Session0 to create the lm, 
 id.NDR <- c(NDR$ClientID, rep(30, 5))
 ```
 
-```{r plotting fit for NDR}
+```{r }
 #plotting the linear fit by id, males
 #id.m=111 denotes the average value for males
 interaction.plot(Sess1.NDR, id.NDR, fit.NDR2, ylim=c(-2, 8), xlab="Sessions", ylab="Anxiety", lwd=1)
@@ -1935,14 +1933,14 @@ It appears that there is more decline in anxiety for those who claim non-dominan
 
 What about the effects of sexual identity?
 
-```{r fitting model for heterosexual step 1}
+```{r }
 #fitting the linear model by ID, HET = 0 only
 HET <- filter(RndmLong, Het0=="0")
 fitmlist <- by(HET, HET$ClientID, function(bydata) fitted.values(lm(Anxiety ~ Session0, data=bydata)))
 fitHET <- unlist(fitmlist)
 ```
 
-```{r fitting model for heterosexual step 2}
+```{r }
 #appending the average for the whole group of males
 lm.HET <- fitted( lm(Anxiety ~ Session0, data=HET) )
 names(lm.HET) <- NULL
@@ -1951,7 +1949,7 @@ Sess1.HET <- c(HET$Index, seq(1,5))#Note that I used Session0 to create the lm, 
 id.HET <- c(HET$ClientID, rep(30, 5))
 ```
 
-```{r plotting fit for heterosexual}
+```{r }
 #plotting the linear fit by id, males
 #id.m=111 denotes the average value for males
 interaction.plot(Sess1.HET, id.HET, fit.HET, ylim=c(-2, 8), xlab="Sessions", ylab="Anxiety", lwd=1)
@@ -1960,14 +1958,14 @@ title(main="Heterosexual")
 
 Among clients who identify as heterosexual, there is a mixed profile.  Clients start with varying degrees of anxiety and we see it stay the same, increase, and decrease.
 
-```{r fitting model for LGBQQ step 1}
+```{r }
 #fitting the linear model by ID, DR only
 LGBQQ <- filter(RndmLong, Het0=="1")
 fitmlist <- by(LGBQQ, LGBQQ$ClientID, function(bydata) fitted.values(lm(Anxiety ~ Session0, data=bydata)))
 fitLGBQQ <- unlist(fitmlist)
 ```
 
-```{r fitting model for LGBQQ step 2}
+```{r }
 #appending the average for the whole group of males
 lm.LGBQQ <- fitted( lm(Anxiety ~ Session0, data=LGBQQ) )
 names(lm.LGBQQ) <- NULL
@@ -1976,7 +1974,7 @@ Sess1.LGBQQ <- c(LGBQQ$Index, seq(1,5)) #Note that I used Session0 to create the
 id.LGBQQ <- c(LGBQQ$ClientID, rep(30, 5))
 ```
 
-```{r plotting fit for LGBQQ}
+```{r }
 #plotting the linear fit by id, males
 #id.m=111 denotes the average value for males
 interaction.plot(Sess1.LGBQQ, id.LGBQQ, fit.LGBQQ, ylim=c(-2, 8), xlab="Sessions", ylab="Anxiety", lwd=1)
@@ -1996,13 +1994,13 @@ Below are two plots (and corresponding correlation coefficients) for religious a
 
 For these analyses of intercepts, the fitted model that we are using for the plot and correlation keeps the assessment at the Session0 intercept.
 
-```{r plot of intercepts for boys and girls}
+```{r }
 #Using the slopes and intercepts from the linear model fitted by id
 #generated for use in table 2.3
 plot(RndmSmpl30$DRel0, ints1, xlab="Religion", ylab="Fitted initial status")
 ```
 
-```{r correlation of Session0 anxiety and religion}
+```{r }
 cor(RndmSmpl30$DRel0, ints1)
 ```
 
@@ -2010,34 +2008,34 @@ For religion, looking at the dots on 0 and 1 and the correlation, it looks like 
 
 **Next, is Anxiety at Session 1 different as a function of level of sexual identity?**
 
-```{r plot age 11 tolerance and exposure}
+```{r }
 plot(RndmSmpl30$Het0, ints1, xlab="Sexual Identity", ylab="Fitted initial status")
 ```
 The plot of this random sample of data emphasizes that those who identify as LGBQQ are, proportionately, much smaller. Their range of anxiety is more restricted, but higher.
 
-```{r corr between age11 tol and exposure}
+```{r }
 cor(RndmSmpl30$Het0, ints1)
 ```
 Looking at the correlation of intercepts and plot together, wee see that anxiety is higher for those who identify as LGBQQ.
 
 **Next, we look at 2 more plots and correlations for religion and sexual identity regarding slope/rate of change.**
 
-```{r plot gender and slope}
+```{r }
 plot(RndmSmpl30$DRel0, slopes1, xlab="Religion", ylab="Fitted rate of change")
 ```
-```{r corr between gender and slope}
+```{r }
 cor(RndmSmpl30$DRel0, slopes1)
 ```
 The plot is the rate of change or slope. It's maybe a little more difficult to plot. We see that dominant religions have a slower rate of change than those who claim a nondominant religion (or no religion).
 
 **What about change in anxiety as a function of sexual identity?**
 
-```{r plot tol change and exposure}
+```{r }
 plot(RndmSmpl30$Het0, slopes1, xlab = "Sexual Identity", ylab =
   "Fitted rate of change")
 ```
 
-```{r corr between tol change and exposure}
+```{r }
 cor(RndmSmpl30$Het0, slopes1)
 ```
 Those with who identify as LGBQQ have sharper rates of change.
@@ -2165,7 +2163,7 @@ One suggestion for practice is to work the second MLM example in the Lefevor et 
 -.04 + 3*(.01 *sqrt(12825))
 ```
 
-```{r simulate data when depression is outcome, results='hide'}
+```{r  results='hide'}
 set.seed(200513)
 n_client = 12825
 n_session = 5
@@ -2277,12 +2275,12 @@ DLfvrWide <- dplyr::full_join(DLfvrWide, DLfvrWp3,  by = c("ClientID"))
 
 The parallel dataset with depression as the outcome is called:  DLfvrWide  Here is script to save it as an outfile and then import it back into R.
 
-```{r Exporting and importing the wide df for the depression outcome}
+```{r }
 write.table(DLfvrWide, file="DLfvrWide.csv", sep=",", col.names=TRUE, row.names=FALSE)
 DLfvrWide <- read.csv ("DLfvrWide.csv", head = TRUE, sep = ",")
 ```
 
-```{r sessionInfo LongExpl}
+```{r include=FALSE}
 sessionInfo()
 ```
 
@@ -2345,7 +2343,7 @@ In preparing this lesson, I drew heavily from the following resource(s). Other r
 ### Packages
 
 The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
-```{r Install Packages for LongMod}
+```{r }
 #will install the package if not already installed
 #if(!require(lme4)){install.packages("lme4")}
 #if(!require(sjStats)){install.packages("sjStats")}
@@ -2706,7 +2704,7 @@ In the model below (the goal of which is really to just get a mean and understan
 
 RML is the default for *lme4*, we switch to FML with the statement, "REML = FALSE".
 
-```{r Mod1a specification}
+```{r }
 library(lme4)
 Mod1a <- lmer(Anxiety ~1 +(1 | ClientID), LfvrLong, REML = FALSE)
 M1a_obj <- summary(Mod1a)
@@ -2786,7 +2784,7 @@ To model a random slope we use:  DV ~ IV + (rand.slope | rand.int).
 **For comparison**, this was our prior model; we can see how the model building occurs.
 Mod1a <- lmer(Anxiety ~1 +(1 | ClientID), LfvrLong, REML = FALSE)
 
-```{r Mod2a specification}
+```{r }
 #with lme4 package
 Mod2a <- lmer(Anxiety ~ SesNum +(SesNum | ClientID), LfvrLong, REML = FALSE)
 summary(Mod2a )
@@ -2869,7 +2867,7 @@ $$Pseudo R_{\varepsilon }^{2} = \frac{\sigma^{2}(unconditional. means. model) - 
 
 We calculate it manually:
 
-```{r Mod2 pseudo Rsq}
+```{r }
 (1.44 - 1.26)/1.44
 ```
 
@@ -2927,7 +2925,7 @@ Tables (easily produced with the *tab_model()* function) should always be includ
 Mod1a <- lmer(Anxiety ~1 +(1 | ClientID), LfvrLong, REML = FALSE)
 Mod2a <- lmer(Anxiety ~ SesNum +(SesNum | ClientID), LfvrLong, REML = FALSE)
 
-```{r Mod3a specification}
+```{r }
 #with lme4 package
 Mod3a <- lmer(Anxiety ~ SesNum*Het0 +(SesNum | ClientID), LfvrLong, REML = FALSE)
 summary(Mod3a)
@@ -2942,7 +2940,7 @@ Diagnostic plots continue to check for outliers, non-normality, and heteroscedas
 sjPlot::plot_model (Mod3a, type="diag")
 ```
 
-```{r Mod3a_lme4 plot_model}
+```{r }
 library(sjPlot)
 plot_model (Mod3a, type="int", terms = c("SesNum", "Het0 [0,1]"))
 ```
@@ -2964,7 +2962,7 @@ $\tau _{00}$ decreased from 5.18 (Mod2a) to 5.17 (Mod3a). We can apply the propo
 
 $$Pseudo R_{\zeta }^{2} = \frac{\tau _{00} (unconditional. growth. model) - \tau _{00}(subsequent. model)}{\tau _{00}(unconditional. growth. model)}$$
 
-```{r Mod2a pseudo Rsq}
+```{r }
 (5.18-5.17)/5.18
 ```
 
@@ -2992,7 +2990,7 @@ Note that in this *lmer()* specification, I have added a control statement:  *co
 
 Another troubleshooting solution would be to trim the model of the non-significant effects. At this point, I will try to get the full model to run and then trim at the end.
 
-```{r Mod4a specification}
+```{r }
 #with lme4 package
 Mod4a <- lmer(Anxiety ~ SesNum*Het0 + SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))
 summary(Mod4a)
@@ -3044,7 +3042,7 @@ Mod2a <- lmer(Anxiety ~ SesNum +(SesNum | ClientID), LfvrLong, REML = FALSE)
 Mod3a <- lmer(Anxiety ~ SesNum*Het0 +(SesNum | ClientID), LfvrLong, REML = FALSE)
 Mod4a <- lmer(Anxiety ~ SesNum*Het0 + SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))
 
-```{r Mod5a specification}
+```{r }
 #Mod5a<- lmer(Anxiety ~  SesNum*DRel0 + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))
 #Mod5a<- lmer(Anxiety ~ SesNum*Het0 +  Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))#Mod5a<- lmer(Anxiety ~ SesNum*Het0 + SesNum*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))
 #Mod5a<- lmer(Anxiety ~ SesNum + Het0*DRel0 + (SesNum | ClientID), LfvrLong, REML = FALSE, control = lmerControl(optimizer= "bobyqa"))
@@ -3079,21 +3077,21 @@ Here's the general formula that we can apply across the $\sigma ^{2}$(within sub
 $$Pseudo R^{2} = \frac{\sigma^2 (unconditional. means(or.growth)model) - \sigma^2(final. model)}{\sigma^{2}(unconditional.means(or.growth)model)}$$
 
 First we assess the relative proportion of within-persons variance accounted for by the final model. Using the $\sigma ^{2}$ (L1/Within-subjects variance) we compare Mod5a (final, trimmed model) compared to Mod1a (unconditioned means model). In calculating this (all of these, actually), I recognize it did not decrease after Mod2a, but I want to demonstrate it as practice.  
-```{r ModE Pseudo Rsq}
+```{r }
 #for within-subjects variance
 (1.44-1.26)/1.44
 ```
 Relative to the empty model, the final, trimmed model (Mod5a) explains 13% of the within-subjects variance.
 
 Next we assess the relative proportion of between-persons intercept variance accounted for by the final model. Using the $\tau _{00}$ (L2/intercept variance) we compare Mod5a (final, trimmed model) to Mod2a (unconditional growth model).
-```{r ModE compare intercept variance}
+```{r }
 #for bewteen subjects intercept
 (5.18-5.17)/5.18
 ```
 Relative to the unconditional growth model (Mod2a), the final model (Mod5a) explains less than 1% of the variance.
 
 Finally, we assess the relative proportion of between-persons slope variance accounted for by the final model.  Using the $\tau _{11}$ (L2/slope variance), we compare Mod5a (final, trimmed model) to Mod2a (unconditional growth model).
-```{r ModE compare slope variance }
+```{r }
 #for for between subjects slope
 0-0/(0)
 ```
@@ -3124,7 +3122,7 @@ Two requirements to use the deviance statistic:
     
 We can see the deviance values in the tab-Model and observe if they increase or decrease. The *anova()* function can formally conduct a Chi-square difference test to tell us if the models are statistically significantly different from each other.
 
-```{r Deviance comp Mod2a from Mod1a}
+```{r }
 devALL <- anova(Mod1a, Mod2a, Mod3a, Mod4a, Mod5a) 
 devALL
 ```
@@ -3262,7 +3260,7 @@ Conduct a multilevel model with data to which you have access. This could includ
    
 
 
-```{r sessionInfo LongMod}
+```{r include = FALSE}
 sessionInfo()
 ```
 
@@ -4010,7 +4008,7 @@ As noted in the prior question, "tz" is the function used to indicate the time z
 
 
 
-```{r }
+```{r include = FALSE}
 sessionInfo()
 ```
 
