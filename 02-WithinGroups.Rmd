@@ -768,13 +768,16 @@ Table # reports the the bivariate correlations between ATSS/homonegative attitud
 
 We added the L1 predictor of individual church attendance in the second model. As shown in Table #, there was a significant effect such that as individual church attendance increased, so did homonegative attitudes. We added the L2 variables of the aggregate form of church attendance and racial homogeneity in our third model. The L2 form of church attendance had a non-significant effect, however racial homogeneity was significant. Specifically, as homogeneity increased, homonegativity decreased; this relationship is illustrated in Figure #. Our fourth model (not shown) included a cross-level interaction between individual church attendance and homogeneity. Because it was non-significant, made no changes in the variance components, and caused the AIC to increase, we trimmed it from the model. Thus, Model 3 is our final model.  Further support for this model is noted by the corresponding decreases in $\sigma^{2}$ and $\tau _{00}$ when L1 and L2 variables were added, respectively. Additionally, marginal and conditional $R^2$ increased and formal evaluation of the deviance statistic suggested that each addition was a statistically significant improvement.
 
+## A Conversation with Dr. Lefevor
 
-## Residual and Related Questions...
+Doctoral student (and student in one of my classes) Taniyah Roach and I were able to interview the first author (Tyler Lefevor, PhD) about the article and what it means. Here's a direct [link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c13bb0e0-8b69-41ab-b53d-aeb001440ea7) to that interview.  
 
-..that you might have; or at least I had, but if had answered them earlier it would have disrupt the flow.
+Among others, we asked:
 
-STAY TUNED
-
+* What were unexpected challenges to the research method or statistical analysis?
+* Retrospectively, what additional variables might you like to have included?
+* As a Principal Investigator you are a White male. How did you think about (and maybe what did you do) to see socially and culturally responsive to this particular topics which was focused on the Black church?
+* How do you expect the article to change science, practice, and/or advocacy?
    
 ## Practice Problems
 

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Calendrical Time (and Missingness) in MLMs | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling</title>
   <meta name="description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Calendrical Time (and Missingness) in MLMs | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/MultilevelModeling/" />
   <meta property="og:image" content="https://lhbikos.github.io/MultilevelModeling/images/ReC_mlevel_bkcvr.png" />
   <meta property="og:description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
   <meta name="github-repo" content="lhbikos/extRas" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-03-17" />
+<meta name="date" content="2022-06-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="LongMod.html"/>
 <link rel="next" href="refs.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -208,7 +207,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.5.6" data-path="wGroups.html"><a href="wGroups.html#oh-right-the-formulae"><i class="fa fa-check"></i><b>2.5.6</b> Oh right, the Formulae</a></li>
 <li class="chapter" data-level="2.5.7" data-path="wGroups.html"><a href="wGroups.html#apa-style-writeup"><i class="fa fa-check"></i><b>2.5.7</b> APA Style Writeup</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="wGroups.html"><a href="wGroups.html#residual-and-related-questions"><i class="fa fa-check"></i><b>2.6</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="2.6" data-path="wGroups.html"><a href="wGroups.html#a-conversation-with-dr.-lefevor"><i class="fa fa-check"></i><b>2.6</b> A Conversation with Dr. Lefevor</a></li>
 <li class="chapter" data-level="2.7" data-path="wGroups.html"><a href="wGroups.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="2.7.1" data-path="wGroups.html"><a href="wGroups.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed"><i class="fa fa-check"></i><b>2.7.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
@@ -248,7 +247,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.8" data-path="MLMexplore.html"><a href="MLMexplore.html#apa-style-writeup-1"><i class="fa fa-check"></i><b>3.5.8</b> APA Style Writeup</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="MLMexplore.html"><a href="MLMexplore.html#observations-about-the-social-and-cultural-responsivity-of-the-project"><i class="fa fa-check"></i><b>3.6</b> Observations about the Social and Cultural Responsivity of the Project</a></li>
-<li class="chapter" data-level="3.7" data-path="MLMexplore.html"><a href="MLMexplore.html#residual-and-related-questions-1"><i class="fa fa-check"></i><b>3.7</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="3.7" data-path="MLMexplore.html"><a href="MLMexplore.html#residual-and-related-questions"><i class="fa fa-check"></i><b>3.7</b> Residual and Related Questions…</a></li>
 <li class="chapter" data-level="3.8" data-path="MLMexplore.html"><a href="MLMexplore.html#practice-problems-1"><i class="fa fa-check"></i><b>3.8</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="3.8.1" data-path="MLMexplore.html"><a href="MLMexplore.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1"><i class="fa fa-check"></i><b>3.8.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
@@ -301,7 +300,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.7.3" data-path="LongMod.html"><a href="LongMod.html#evaluating-the-models-assumptions"><i class="fa fa-check"></i><b>4.7.3</b> Evaluating the Model’s Assumptions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="LongMod.html"><a href="LongMod.html#apa-style-writeup-2"><i class="fa fa-check"></i><b>4.8</b> APA Style Writeup</a></li>
-<li class="chapter" data-level="4.9" data-path="LongMod.html"><a href="LongMod.html#residual-and-related-questions-2"><i class="fa fa-check"></i><b>4.9</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="4.9" data-path="LongMod.html"><a href="LongMod.html#residual-and-related-questions-1"><i class="fa fa-check"></i><b>4.9</b> Residual and Related Questions…</a></li>
 <li class="chapter" data-level="4.10" data-path="LongMod.html"><a href="LongMod.html#practice-problems-2"><i class="fa fa-check"></i><b>4.10</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="4.10.1" data-path="LongMod.html"><a href="LongMod.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-2"><i class="fa fa-check"></i><b>4.10.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
@@ -334,7 +333,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="TimeLord.html"><a href="TimeLord.html#structured-time-reworking-the-vignette-with-index"><i class="fa fa-check"></i><b>5.6</b> Structured Time: Reworking the Vignette with Index</a></li>
 <li class="chapter" data-level="5.7" data-path="TimeLord.html"><a href="TimeLord.html#apa-style-writeup-3"><i class="fa fa-check"></i><b>5.7</b> APA Style Writeup</a></li>
-<li class="chapter" data-level="5.8" data-path="TimeLord.html"><a href="TimeLord.html#residual-and-related-questions-3"><i class="fa fa-check"></i><b>5.8</b> Residual and Related Questions…</a>
+<li class="chapter" data-level="5.8" data-path="TimeLord.html"><a href="TimeLord.html#residual-and-related-questions-2"><i class="fa fa-check"></i><b>5.8</b> Residual and Related Questions…</a>
 <ul>
 <li class="chapter" data-level="5.8.1" data-path="TimeLord.html"><a href="TimeLord.html#what-did-we-gainlose-by-using-weeks-or-sessnum-unstructured-versus-index-structured-to-mark-time"><i class="fa fa-check"></i><b>5.8.1</b> What did we gain/lose by using Weeks or SessNum (unstructured) versus Index (structured) to mark time?</a></li>
 <li class="chapter" data-level="5.8.2" data-path="TimeLord.html"><a href="TimeLord.html#how-did-the-unbalanced-time-impact-the-analysis-and-results"><i class="fa fa-check"></i><b>5.8.2</b> How did the unbalanced time impact the analysis and results?</a></li>
@@ -371,16 +370,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="TimeLord" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Calendrical Time (and Missingness) in MLMs</h1>
+<div id="TimeLord" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Calendrical Time (and Missingness) in MLMs<a href="TimeLord.html#TimeLord" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=5ea38416-c682-49f8-ba71-ad390025e36e">Screencasted Lecture Link</a></p>
 <p>Because much longitudinal research involves date or time stamps (and multi-level analyses can be improved by using unstructured time), the primary focus of this lecture is on working with <em>calendrical time.</em> We will consider what is the proper “metric” for clocking time, engage in “date math,” and then rework the Lefevor et al.<span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> with this alternate metric for time. The bonus reel of the chapter asks a number of “What if…?” questions (i.e., what if we used the Index (time structured) variable as an indicator of time; what if our dataset was unbalanced) and provides quick answers and offers possible R script solutions.</p>
-<div id="navigating-this-lesson-3" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-3" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Navigating this Lesson<a href="TimeLord.html#navigating-this-lesson-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about 1 hour and 20 minutes of lecture. If you work through the materials with me it would be plan for an additional two hours.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_CPA">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-3" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-3" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Learning Objectives<a href="TimeLord.html#learning-objectives-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Learning objectives from this lecture include the following:</p>
 <ul>
 <li>Select proper “metric” of time (selecting between days, weeks, months, year).</li>
@@ -396,8 +395,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="planning-for-practice-3" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-3" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Planning for Practice<a href="TimeLord.html#planning-for-practice-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The suggestions for practice in this lesson are quite flexible. I encourage you to try one or more that is relevant to the type of data you collect and the challenges you have when you use it. There are three basic suggestions:</p>
 <ul>
 <li>Rework the problem in the lesson but change the metric by which time is clocked from weeks to something else (e.g., hours, months). Compare the results. For more of a challenge, use the simulated data where depression (not anxiety) is the outcome and work through the entire process of preparing and analyzing calendrical time with that data.</li>
@@ -405,8 +404,8 @@ div.csl-indent {
 <li>Using data to which you have access, experiment with time and balance in a manner that makes sense ot you.</li>
 </ul>
 </div>
-<div id="readings-resources-3" class="section level3" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-3" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Readings &amp; Resources<a href="TimeLord.html#readings-resources-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
 <li>Singer, J. D., &amp; Willett, J.B. (2003). Chapter 5: Treating time more flexibly. In, Applied longitudinal data analysis: Modeling change and event occurrence. New York, NY: Oxford University Press.</li>
@@ -414,8 +413,8 @@ div.csl-indent {
 <li>Lefevor, G. T., Janis, R. A., &amp; Park, S. Y. (2017). Religious and sexual identities: An intersectional, longitudinal examination of change in therapy. <em>The Counseling Psychologist, 45</em>(3), 387–413. <a href="https://doi-org.ezproxy.spu.edu/10.1177/0011000017702721" class="uri">https://doi-org.ezproxy.spu.edu/10.1177/0011000017702721</a></li>
 </ul>
 </div>
-<div id="packages-4" class="section level3" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Packages</h3>
+<div id="packages-4" class="section level3 hasAnchor" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Packages<a href="TimeLord.html#packages-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="TimeLord.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb380-2"><a href="TimeLord.html#cb380-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lme4)){install.packages(&quot;lme4&quot;)}</span></span>
@@ -431,14 +430,14 @@ div.csl-indent {
 <span id="cb380-12"><a href="TimeLord.html#cb380-12" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lubridate)){install.packages(&quot;lubridate&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="exploring-variants-of-time-and-balance" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Exploring Variants of Time and Balance</h2>
+<div id="exploring-variants-of-time-and-balance" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Exploring Variants of Time and Balance<a href="TimeLord.html#exploring-variants-of-time-and-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Datasets present their unique challenges. In longitudinal designs where time is a focal predictor, the “clock” used to mark time is a critical choice. Further, there are a number of considerations when converting dates to markers of time.</p>
 <p>Another challenge has to do with balance. A highlight of MLM is the hope that individuals can have missing observations and varying numbers of observations per case. In this chapter, we randomly delete a number of cases from the otherwise perfectly balanced dataset to see how it challenges (or doesn’t) the process and the results.</p>
 <p>Given that this chapter does not introduce a new statistic, let’s get right to the example.</p>
 </div>
-<div id="research-vignette-3" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Research Vignette</h2>
+<div id="research-vignette-3" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Research Vignette<a href="TimeLord.html#research-vignette-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Our research vignette <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">Lefevor et al., 2017</a>)</span> examines the intersection of religious and sexual identities of clients in therapy. With 12,825 participants from the Center for Collegiate Mental Health 2012-2014 data set, the project is an example of working with <em>big data.</em> Because the data is available to members only (and behind a paywall), I simulated the data. In the simulation, categorical variables (e.g., sexual identity, session number, religious identity) were rendered as continuous variables and in the simulation, I needed to transform them back into categorical ones. Inevitably, this will have introduced a great deal of error. Thus, we can expect that the results from the simulated data will be different from those obtained by the authors.</p>
 <p>The Method section of the article provides detailed information about the inclusion criteria ofr the study and the coding of the variables. This included data about the religious and sexual identities as well as a minimum of three separate scores on the Counseling Center Assessment of Psychologial Sympsoms <span class="citation">(CCAPS, <a href="#ref-locke_development_2012" role="doc-biblioref">Locke et al., 2012</a>)</span> measure. For the final dataset, clients attended an average of 10.58 sessions (<em>SD</em> = 7.65) and had an average of 5.36 CCAPS administrations (<em>SD</em> = 4.04). This means that in the original dataset, each client was represented by a varying number of observations (likely ranging from 3 [the minimum required for inclusion] and, perhaps as many as 17 [adding +3<em>SD</em>s to the mean CCAPS administrations]). In simulating the data, I specified five observations for each of the 12,825 clients.</p>
 <p>Let’s take a look at the variables in the study</p>
@@ -448,8 +447,8 @@ div.csl-indent {
 <li><p><strong>Relious Identity</strong>: Religious identity was coded into three categories including dominant religious (DR; Christian, Catholic), nondominant religious (NDR; Muslim, Hindu, Buddhist, Jewish), and nondominant unaffiliated (NDU; agnostic, atheist, no preference). The three categories were contrast coded with an orthogonal contrast-coding scheme with two variables. The first variable compared DR(coded as 2) to NDU and NDR (coded as -1); the second variable compared the two nondominant groups (NDU = -1, DR = 0, NDR = 1).</p></li>
 <li><p><strong>Time</strong>: Time was a variable in the study. In the article, Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span>clocked time with session number. Conceptualizing session as an indicator of “dose”, each participants’ observation included a session variable representing a value ranging from the first to the twentieth session. In the prior lessons where we used this vignette, we centered the first session at 0 so that in the data simulation, session was an integer-level variable ranging from 1 to 19. In the simulation for this lesson (where the goal is to manipulate time), I have further transformed session so that it is a date (year, month, date).</p></li>
 </ul>
-<div id="simulating-the-data-from-the-journal-article-3" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Simulating the data from the journal article</h3>
+<div id="simulating-the-data-from-the-journal-article-3" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Simulating the data from the journal article<a href="TimeLord.html#simulating-the-data-from-the-journal-article-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This simulation is very similar (but not identical) to the simulation used in the MLM longitudinal exploration and model building chapters. The primary difference is that when I created the SessionT variable, I did not require the values to be integers. Instead, the number of sessions could be fractional as they still ranged from 0 to 19. The session variable becomes our key in creating a variable representing <em>calendrical time</em>.</p>
 <div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="TimeLord.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
 <span id="cb381-2"><a href="TimeLord.html#cb381-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
@@ -591,8 +590,8 @@ div.csl-indent {
 <span id="cb383-4"><a href="TimeLord.html#cb383-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TIMEwide &lt;- read.csv (&quot;LefevorTWide.csv&quot;, head = TRUE, sep = &quot;,&quot;)</span></span></code></pre></div>
 </div>
 </div>
-<div id="more-simulation-appointment-dates" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> More Simulation – Appointment Dates</h2>
+<div id="more-simulation-appointment-dates" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> More Simulation – Appointment Dates<a href="TimeLord.html#more-simulation-appointment-dates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> treated sessions as a dosage marker and clocked time by the number of sessions. But what if we wanted to use calendrical time, as time? In this lesson we will get practice at working with dates and calculating time intervals (e.g., days, weeks, or months) with those dates. To demonstrate another possible way of working with time, I have decided to simulate the dates as part of this lesson.</p>
 <p>If you simulated the data and saved it locally, you should be able to bring it into the R Environment as a file.</p>
 <div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="TimeLord.html#cb384-1" aria-hidden="true" tabindex="-1"></a>TIMEwide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorTWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
@@ -672,10 +671,10 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 <p>The POSIXct format stores a date (complete with time) and an associated timezone (i.e., the default time zone is the one your computer is set to). The metric is seconds beginning from January 1, 1970. Any dates before that are in negative numbers. This format makes it possible to do calculate with dates/times and then extract intervals.</p>
 <p>To this point I have only been using some of the <em>lubridate</em> functions to simulate the data. This is generally the point where we would receive the data – that point where each event of interest has a time stamp.</p>
 </div>
-<div id="reworking-lefevor-et-al.--lefevor_religious_2017-using-calendrical-time-and-unbalanced-data" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Reworking Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> using Calendrical Time (and Unbalanced Data)</h2>
-<div id="creating-time-intervals" class="section level3" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Creating Time Intervals</h3>
+<div id="reworking-lefevor-et-al.--lefevor_religious_2017-using-calendrical-time-and-unbalanced-data" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Reworking Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> using Calendrical Time (and Unbalanced Data)<a href="TimeLord.html#reworking-lefevor-et-al.--lefevor_religious_2017-using-calendrical-time-and-unbalanced-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="creating-time-intervals" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Creating Time Intervals<a href="TimeLord.html#creating-time-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On their own, datestamps are not useful as predictors in a regression equation. Therefore, we must manipulate or transform them to represent some “sensible metric for time” <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">Singer &amp; Willett, 2003</a>)</span>; that is, we need to think about how we wish to clock time. In making this consideration, we also want to think about how regression works. Time will be a focal predictor and so we are interested in the meaningfulness and interpretability of a “one-unit change.” Using <em>days</em> as a metric seems too small because we would not expect to detect change in 1-day increments. Months feels reasonable to me, but with a maximum of 19 weeks, we would have a maximum of just under five units of the <em>months</em> metric. Because the span of time is only 19 session and sessions tend to occur weekly, let’s create a metric of weeks.</p>
 <p>First, I need to create the <em>time intervals</em> from which I will extract the durations. In regression, it is important to have a meaningful zero point. We want Week1 to be that zero.</p>
 <p>Calculating intervals of time requires using the %–% operator. This results in a data column that lists the two dates being compared. In our example we want to count time forward by listing the Intake variable before the %–% and the Appointment variable.</p>
@@ -849,8 +848,8 @@ Wks5 0.03</code></pre>
 <p>The Wks1 through Wks5 variables are what we will use to clock time. We can see that they progress from 0 (hypothethically, the first appointment) to 18.90. This is consistent with the the original simulation, where I restricted the Session variable values were to range between 0 and 19.</p>
 <p>This simulation isn’t perfect in that the CCAPS administrations were not always at the first session. Additionally, there may be a few cases cases where the weeks values are extroardinarily close together or even in reverse order. A <em>time reversal</em> violates Singer and Willett’s <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> rules. None-the-less, in this simulation with over 12,000 cases, this should be sufficient for demonstration. Further, it models some of the decisions made when we are working with raw data (which, at least in my lab, always has some complexities).</p>
 </div>
-<div id="wide-to-long" class="section level3" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> Wide to Long</h3>
+<div id="wide-to-long" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Wide to Long<a href="TimeLord.html#wide-to-long" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now that our date math is finished, we can restructure the data from wide to long. We have created a number of variables related to time. Regarding the time variables will only need the Index (created automatically) and the Wks# variables. Of course we will want our L1 (Anx#) and L2 (ClientID, DRel0, Het0) variables.</p>
 <div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="TimeLord.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb405-2"><a href="TimeLord.html#cb405-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> (data.table<span class="sc">::</span><span class="fu">melt</span>(<span class="fu">setDT</span>(TIMEwide), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ClientID&quot;</span>, <span class="st">&quot;DRel0&quot;</span>, <span class="st">&quot;Het0&quot;</span>), <span class="at">measure.vars =</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Anx1&quot;</span>, <span class="st">&quot;Anx2&quot;</span>, <span class="st">&quot;Anx3&quot;</span>, <span class="st">&quot;Anx4&quot;</span>, <span class="st">&quot;Anx5&quot;</span>),  <span class="fu">c</span>(<span class="st">&quot;Wks1&quot;</span>, <span class="st">&quot;Wks2&quot;</span>, <span class="st">&quot;Wks3&quot;</span>, <span class="st">&quot;Wks4&quot;</span>, <span class="st">&quot;Wks5&quot;</span>) )))</span>
@@ -882,15 +881,15 @@ Wks5 0.03</code></pre>
  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt; </code></pre>
 <p>Examining the structure of the data assures us that the value of the Weeks and Index variables progress in a positive direction, together. We also see that the Weeks variable is <em>numerical</em>. This is appropriate since we are simply counting the number of weeks.</p>
 </div>
-<div id="mlm-is-for-unbalanced-designs" class="section level3" number="5.5.3">
-<h3><span class="header-section-number">5.5.3</span> MLM is for unbalanced designs</h3>
+<div id="mlm-is-for-unbalanced-designs" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> MLM is for unbalanced designs<a href="TimeLord.html#mlm-is-for-unbalanced-designs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the prior lessons I noted that a strength of MLM is that data can be unbalanced. The original simulations produced perfectly balanced sets of data with 5 observations each. To demonstrate that MLM can accommodate sets of data where the number of observations per person, vary.</p>
 <p>Here, I update the simulation by randomly deleting 5000 rows. With this <em>big data</em> circumstance, this still leaves us a number of cases! <strong>Note: this is for demonstration only. You would never, intentionally, delete cases without a compelling reason!</strong></p>
 <div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="TimeLord.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210529</span>)</span>
 <span id="cb409-2"><a href="TimeLord.html#cb409-2" aria-hidden="true" tabindex="-1"></a>TIMElong <span class="ot">&lt;-</span> TIMElong[<span class="sc">-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(TIMElong), <span class="dv">5000</span>),]</span></code></pre></div>
 </div>
-<div id="abbreviated-ols-style-exploration" class="section level3" number="5.5.4">
-<h3><span class="header-section-number">5.5.4</span> Abbreviated OLS Style Exploration</h3>
+<div id="abbreviated-ols-style-exploration" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> Abbreviated OLS Style Exploration<a href="TimeLord.html#abbreviated-ols-style-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A more thorough preliminary investigation of the data occurs in a <a href="MLMexplore.html#MLMexplore">prior lesson</a>. In this quick demonstration, we take a look at individual growth plots from when clocked Weeks variable as nonparametric and parametric (i.e., where individual linear regressions are superimposed on the raw data).</p>
 <p>We start by creating a random sample. Here is script allowing us to sample entire cases (i.e., the individual client with all their appointment data).</p>
 <div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="TimeLord.html#cb410-1" aria-hidden="true" tabindex="-1"></a>rndm30time <span class="ot">&lt;-</span> <span class="fu">subset</span>(TIMElong, ClientID <span class="sc">%in%</span> <span class="fu">sample</span>(<span class="fu">unique</span>(TIMElong<span class="sc">$</span>ClientID), <span class="dv">30</span>))</span></code></pre></div>
@@ -905,8 +904,8 @@ Wks5 0.03</code></pre>
 <p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-155-1.png" width="672" />
 If this were our real data, we would complete the process outlined in the <a href="MLMexplore">longitudinal exploration</a> chapter. Because the purpose of this lesson is focused on unstructured time with unbalanced data, we will move forward with a quick recap of building the MLM. This next section is abbreviated from the more thorough process demonstrated in the <a href="LongMod">basic longitudinal model</a> lesson.</p>
 </div>
-<div id="rebuilding-the-model-unstructured-time-unbalanced-design" class="section level3" number="5.5.5">
-<h3><span class="header-section-number">5.5.5</span> Rebuilding the Model (Unstructured Time, Unbalanced Design)</h3>
+<div id="rebuilding-the-model-unstructured-time-unbalanced-design" class="section level3 hasAnchor" number="5.5.5">
+<h3><span class="header-section-number">5.5.5</span> Rebuilding the Model (Unstructured Time, Unbalanced Design)<a href="TimeLord.html#rebuilding-the-model-unstructured-time-unbalanced-design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We follow the same model building approach as in the <a href="LongMod">basic longitudinal model</a> lesson. This involves progressing through the following models:</p>
 <ol style="list-style-type: decimal">
 <li>Unconditional means model</li>
@@ -915,8 +914,8 @@ If this were our real data, we would complete the process outlined in the <a hre
 <li>Controlled effects of religious affiliation</li>
 <li>Trimming nonsignificant effects</li>
 </ol>
-<div id="model-1-unconditional-means-model" class="section level4" number="5.5.5.1">
-<h4><span class="header-section-number">5.5.5.1</span> Model 1: Unconditional means model</h4>
+<div id="model-1-unconditional-means-model" class="section level4 hasAnchor" number="5.5.5.1">
+<h4><span class="header-section-number">5.5.5.1</span> Model 1: Unconditional means model<a href="TimeLord.html#model-1-unconditional-means-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We start with the unconditional means model. In this model, we are seeking the grand mean. By identifying the nesting/grouping variable (ClientID) we also understand the proportions of between- and within- subjects variance.</p>
 <div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="TimeLord.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
 <span id="cb414-2"><a href="TimeLord.html#cb414-2" aria-hidden="true" tabindex="-1"></a>M1a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span><span class="dv">1</span> <span class="sc">+</span>(<span class="dv">1</span> <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
@@ -1043,7 +1042,7 @@ Deviance
 AIC
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-226006.825
+226012.756
 </td>
 </tr>
 </table>
@@ -1069,8 +1068,8 @@ AIC
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-157-4.png" width="672" /></p>
 </div>
-<div id="model-2-unconditional-growth-model" class="section level4" number="5.5.5.2">
-<h4><span class="header-section-number">5.5.5.2</span> Model 2: Unconditional growth model</h4>
+<div id="model-2-unconditional-growth-model" class="section level4 hasAnchor" number="5.5.5.2">
+<h4><span class="header-section-number">5.5.5.2</span> Model 2: Unconditional growth model<a href="TimeLord.html#model-2-unconditional-growth-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The second model is introduces time (this time our Weeks variable) into the L1 submodel. Because a linear model made sense in our exploratory analyses, we specify a trajectory of linear change. We do not include any other substantive predictors.Because there are no other predictors, it is an <em>unconditional</em> growth model.</p>
 <p><strong>For comparison</strong>, this was our prior model; we can see how the model building occurs.
 M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)</p>
@@ -1289,10 +1288,10 @@ Deviance
 AIC
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-226006.825
+226012.756
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219677.401
+219695.425
 </td>
 </tr>
 </table>
@@ -1317,8 +1316,8 @@ With Weeks in the model, the L1 residual variance, <span class="math inline">\(\
 <p>The value of <span class="math inline">\(\tau _{00}\)</span> is 5.18; this is variance remaining around the intercept (anxiety at Week1). Because the introduction of the time variable, Weeks, changes the meaning of the L2 variance components, we do not compare the <span class="math inline">\(\tau _{00}\)</span>) values between Models 1 and 2. As we move forward (keeping Weeks in the model) we will use the Model 2 estimates as benchmarks for comparison.</p>
 <p>The value of <span class="math inline">\(\tau _{11}\)</span> is 0.00; this is variance remaining around the slope (rate of growth).</p>
 </div>
-<div id="model-3-the-uncontrolled-effects-of-sexual-identity-1" class="section level4" number="5.5.5.3">
-<h4><span class="header-section-number">5.5.5.3</span> Model 3: The uncontrolled effects of sexual identity</h4>
+<div id="model-3-the-uncontrolled-effects-of-sexual-identity-1" class="section level4 hasAnchor" number="5.5.5.3">
+<h4><span class="header-section-number">5.5.5.3</span> Model 3: The uncontrolled effects of sexual identity<a href="TimeLord.html#model-3-the-uncontrolled-effects-of-sexual-identity-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We will add sexual identity into the model. Because the only other predictor is Weeks, its addition (as a L2 variable, with a cross-level interaction with time), it is considered to be an <em>uncontrolled</em> addition.</p>
 <p><strong>For comparison</strong>:
 M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)
@@ -1651,13 +1650,13 @@ Deviance
 AIC
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-226006.825
+226012.756
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219677.401
+219695.425
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219642.529
+219675.376
 </td>
 </tr>
 </table>
@@ -1678,8 +1677,8 @@ The estimated anxiety at Week1 for heterosexual individuals is 2.49 (<em>p</em> 
 <p><span class="math inline">\(\tau _{11}\)</span> is unchanged. Both M2a and M3a are 0.00; adding sexual identity did not change between-subjects’ slopes. Similarly, if it had changed, we would have conducted the proportionate reduction in variance evaluation.</p>
 <p>These variance components are now considered <em>partial</em> or <em>conditional</em> variances because they quantify the interindividual differences in change that remain unexplained by the model’s predictors.</p>
 </div>
-<div id="model-4-the-controlled-effects-of-religious-affiliation" class="section level4" number="5.5.5.4">
-<h4><span class="header-section-number">5.5.5.4</span> Model 4: The controlled effects of religious affiliation</h4>
+<div id="model-4-the-controlled-effects-of-religious-affiliation" class="section level4 hasAnchor" number="5.5.5.4">
+<h4><span class="header-section-number">5.5.5.4</span> Model 4: The controlled effects of religious affiliation<a href="TimeLord.html#model-4-the-controlled-effects-of-religious-affiliation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Because sexual identity is already in the model, when we add religious affiliation we are controlling for the effects of sexual identity. Religious affiliation is an L2 variable. When we add it, we will also specify a cross-level interaction with Weeks (L1).</p>
 <p>M1a &lt;- lme4::lmer(Anxiety ~1 +(1 | ClientID), TIMElong, REML = FALSE)
 M2a &lt;- lme4::lmer(Anxiety ~ Weeks +(Weeks | ClientID), TIMElong, REML = FALSE)
@@ -2191,16 +2190,16 @@ Deviance
 AIC
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-226006.825
+226012.756
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219677.401
+219695.425
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219642.529
+219675.376
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219646.047
+219696.975
 </td>
 </tr>
 </table>
@@ -2212,8 +2211,8 @@ M2a &lt;- lme4::lmer(Anxiety ~ Weeks +(Weeks | ClientID), TIMElong, REML = FALSE
 M3a &lt;- lme4::lmer(Anxiety ~ Weeks<em>Het0 +(Weeks | ClientID), TIMElong, REML = FALSE)
 M4a &lt;- lme4::lmer(Anxiety ~ Weeks</em>Het0 + Weeks<em>DRel0 + Het0</em>DRel0 + (Weeks | ClientID), TIMElong, REML = FALSE, control = lmerControl(optimizer= “bobyqa”))</p>
 </div>
-<div id="model-5-trimming-non-signifcant-effects" class="section level4" number="5.5.5.5">
-<h4><span class="header-section-number">5.5.5.5</span> Model 5: Trimming non-signifcant effects</h4>
+<div id="model-5-trimming-non-signifcant-effects" class="section level4 hasAnchor" number="5.5.5.5">
+<h4><span class="header-section-number">5.5.5.5</span> Model 5: Trimming non-signifcant effects<a href="TimeLord.html#model-5-trimming-non-signifcant-effects" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If we strictly trim all no-significant effects, we retain Weeks and sexual identity. We do not specify any interactions.</p>
 <div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="TimeLord.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="co">#with lme4 package</span></span>
 <span id="cb451-2"><a href="TimeLord.html#cb451-2" aria-hidden="true" tabindex="-1"></a>M5a <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(Anxiety <span class="sc">~</span> Weeks <span class="sc">+</span> Het0 <span class="sc">+</span> (Weeks <span class="sc">|</span> ClientID), TIMElong, <span class="at">REML =</span> <span class="cn">FALSE</span>, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer=</span> <span class="st">&quot;bobyqa&quot;</span>))</span></code></pre></div>
@@ -2803,19 +2802,19 @@ Deviance
 AIC
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-226006.825
+226012.756
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219677.401
+219695.425
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219642.529
+219675.376
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219646.047
+219696.975
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-219640.551
+219662.908
 </td>
 </tr>
 </table>
@@ -2847,8 +2846,8 @@ Because of the significant trimming (of non-significant interaction effects), ou
 </div>
 </div>
 </div>
-<div id="structured-time-reworking-the-vignette-with-index" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Structured Time: Reworking the Vignette with Index</h2>
+<div id="structured-time-reworking-the-vignette-with-index" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Structured Time: Reworking the Vignette with Index<a href="TimeLord.html#structured-time-reworking-the-vignette-with-index" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So what would happen if we used the Index variable – representing the five, sequenced, observations but ignoring the dosage (i.e., when marked time with Session# ranging from 0 to 19) or calendrical time (i.e., when we marked time in Weeks [fractional, ranging from 0 to 19]).</p>
 <p>First, let’s format Index as numeric.</p>
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="TimeLord.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) </span>
@@ -5167,19 +5166,19 @@ Deviance
 AIC
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-226006.825
+226012.756
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-220690.909
+220706.410
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-220656.825
+220684.625
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-220661.293
+220704.650
 </td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-220654.826
+220674.661
 </td>
 </tr>
 </table>
@@ -5196,30 +5195,30 @@ How do the models differ when Index (time-structured) is used to mark time?</p>
 </ul>
 <p>The patterns observed in the random effects are quite comparable across all three time variants.</p>
 </div>
-<div id="apa-style-writeup-3" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> APA Style Writeup</h2>
+<div id="apa-style-writeup-3" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> APA Style Writeup<a href="TimeLord.html#apa-style-writeup-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each lesson I like to describe or provide an example of an APA style write-up. Because this lesson was a demonstration of techniques and then a reworking of the research vignette in <a href="MLMexplore">longitudinal exploration</a>, I will refer you back to that lesson for an example of an APA Style write-up.</p>
 <p>The only difference in writing it up would be to provide a description about how the Weeks variable clocked time and some detail about how it was calculated or coded.</p>
 </div>
-<div id="residual-and-related-questions-3" class="section level2" number="5.8">
-<h2><span class="header-section-number">5.8</span> Residual and Related Questions…</h2>
+<div id="residual-and-related-questions-2" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Residual and Related Questions…<a href="TimeLord.html#residual-and-related-questions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>..that you might have; or at least I had, but if had answered them earlier it would have disrupt the flow.</p>
-<div id="what-did-we-gainlose-by-using-weeks-or-sessnum-unstructured-versus-index-structured-to-mark-time" class="section level3" number="5.8.1">
-<h3><span class="header-section-number">5.8.1</span> What did we gain/lose by using Weeks or SessNum (unstructured) versus Index (structured) to mark time?</h3>
+<div id="what-did-we-gainlose-by-using-weeks-or-sessnum-unstructured-versus-index-structured-to-mark-time" class="section level3 hasAnchor" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> What did we gain/lose by using Weeks or SessNum (unstructured) versus Index (structured) to mark time?<a href="TimeLord.html#what-did-we-gainlose-by-using-weeks-or-sessnum-unstructured-versus-index-structured-to-mark-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>My strong preference is to use unstructured time. In this particular case, it “stretches out” the time scale so that we get a more precise understanding of change over time. While the effect of the time variable may not appear to be as strong (-.25 for Index; -0.08 for SessNum and Weeks), this is misleading. Why? The “clock” for Index has only 5 values. In contrast, the clock for SessNum had 20 values (0 to 19, required to be integers/whole numbers) and the clock for Weeks was rather infinite (i.e., the range for Weeks was limited from 0 to 19 but it allowed for fractions).</p>
 </div>
-<div id="how-did-the-unbalanced-time-impact-the-analysis-and-results" class="section level3" number="5.8.2">
-<h3><span class="header-section-number">5.8.2</span> How did the unbalanced time impact the analysis and results?</h3>
+<div id="how-did-the-unbalanced-time-impact-the-analysis-and-results" class="section level3 hasAnchor" number="5.8.2">
+<h3><span class="header-section-number">5.8.2</span> How did the unbalanced time impact the analysis and results?<a href="TimeLord.html#how-did-the-unbalanced-time-impact-the-analysis-and-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The quality of data is always improved when there are at least three observations per case in longitudinal models. Models <em>can</em> run when there are 1 or 2 observations per individual, but only in case where the rest of the data is really robust (this dataset is really robust!). Evidence, though, of problems caused by unequal cell sizes was observed when ggplot failed to render the individual growth plots.</p>
 <p>While our unbalanced design ran, I have had data where models would not converge. In those cases, convergence was made possible by (a) replacing control statements or optimizers and (b) deleting cases with only one observation per cases (and then if that didn’t run, deleting cases with only two observations per case).</p>
 <p>Although we haven’t yet addressed it in this OER, there are also options related to fixing and freeing the slopes and intercepts.</p>
 </div>
 </div>
-<div id="practice-problems-3" class="section level2" number="5.9">
-<h2><span class="header-section-number">5.9</span> Practice Problems</h2>
+<div id="practice-problems-3" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> Practice Problems<a href="TimeLord.html#practice-problems-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The prior lessons suggests working a longitudinal MLM from exploration through model building and interpretation. Consequently, for practice, I encourage further adaptation to that analysis by (a) changing the time metric and comparing analyses and (b) if using a simulation with no missingness, randomly delete some rows from the long file so that the numbers of cases are different. There are a number of ways to do this and all data are different. Consequently, the ideas below are merely suggestions.</p>
-<div id="problem-1-rework-this-lessons-example-by-changing-the-time-metric-to-days-or-months" class="section level3" number="5.9.1">
-<h3><span class="header-section-number">5.9.1</span> Problem #1: Rework this Lesson’s Example by Changing the Time Metric to Days or Months</h3>
+<div id="problem-1-rework-this-lessons-example-by-changing-the-time-metric-to-days-or-months" class="section level3 hasAnchor" number="5.9.1">
+<h3><span class="header-section-number">5.9.1</span> Problem #1: Rework this Lesson’s Example by Changing the Time Metric to Days or Months<a href="TimeLord.html#problem-1-rework-this-lessons-example-by-changing-the-time-metric-to-days-or-months" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you would like practice with time conversions, rework this lesson by changing calendrical time from weeks (dweeks) to another unit such as days or months. Work the example and compare the answers to those in the lesson. For more of a challenge use the simulation from the Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">2017</a>)</span> where depression is the outcome. This will require you to engage in more of the simulation. The simulation is available in the Bonus Track of the <a href="MLMexplore">longitudinal exploration</a>lesson.</p>
 <table>
 <colgroup>
@@ -5293,8 +5292,8 @@ How do the models differ when Index (time-structured) is used to mark time?</p>
 </tbody>
 </table>
 </div>
-<div id="problem-2-compare-balanced-and-unbalanced-designs" class="section level3" number="5.9.2">
-<h3><span class="header-section-number">5.9.2</span> Problem #2: Compare balanced and unbalanced designs</h3>
+<div id="problem-2-compare-balanced-and-unbalanced-designs" class="section level3 hasAnchor" number="5.9.2">
+<h3><span class="header-section-number">5.9.2</span> Problem #2: Compare balanced and unbalanced designs<a href="TimeLord.html#problem-2-compare-balanced-and-unbalanced-designs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using (a) this lesson’s data or (b) the simulation where depression is the outcome (located in the Bonus Track of the <a href="MLMexplore">longitudinal exploration</a>lesson), delete a different number of cases from the long file and rework the problem.</p>
 <table>
 <colgroup>
@@ -5353,8 +5352,8 @@ How do the models differ when Index (time-structured) is used to mark time?</p>
 </tbody>
 </table>
 </div>
-<div id="problem-3-experiment-with-time-and-balanceunbalance-in-data-that-is-available-to-you" class="section level3" number="5.9.3">
-<h3><span class="header-section-number">5.9.3</span> Problem #3: Experiment with time and balance/unbalance in data that is available to you</h3>
+<div id="problem-3-experiment-with-time-and-balanceunbalance-in-data-that-is-available-to-you" class="section level3 hasAnchor" number="5.9.3">
+<h3><span class="header-section-number">5.9.3</span> Problem #3: Experiment with time and balance/unbalance in data that is available to you<a href="TimeLord.html#problem-3-experiment-with-time-and-balanceunbalance-in-data-that-is-available-to-you" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using data for which you have permission and access play around with time and balance/unbalance.</p>
 <table>
 <colgroup>
@@ -5419,30 +5418,30 @@ How do the models differ when Index (time-structured) is used to mark time?</p>
 </table>
 </div>
 </div>
-<div id="bonus-track-2" class="section level2" number="5.10">
-<h2><span class="header-section-number">5.10</span> Bonus Track:</h2>
+<div id="bonus-track-2" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> Bonus Track:<a href="TimeLord.html#bonus-track-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure">
 <img src="images/film-strip-1.jpg" id="id" class="class" width="620" height="211" alt="" />
 <p class="caption">Image of a filmstrip</p>
 </div>
-<div id="faqs" class="section level3" number="5.10.1">
-<h3><span class="header-section-number">5.10.1</span> FAQs</h3>
-<div id="what-if-this-was-a-qualtrics-datestamp" class="section level4" number="5.10.1.1">
-<h4><span class="header-section-number">5.10.1.1</span> What if this was a Qualtrics datestamp?</h4>
+<div id="faqs" class="section level3 hasAnchor" number="5.10.1">
+<h3><span class="header-section-number">5.10.1</span> FAQs<a href="TimeLord.html#faqs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-if-this-was-a-qualtrics-datestamp" class="section level4 hasAnchor" number="5.10.1.1">
+<h4><span class="header-section-number">5.10.1.1</span> What if this was a Qualtrics datestamp?<a href="TimeLord.html#what-if-this-was-a-qualtrics-datestamp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Qualtrics date stamps look like this: 2018-01-03 10:05:46</p>
 <p>Correspondingly, it is important to let lubridate know that the format is year/month/day_hour/minute/second. The script below, denotes that with the function <em>ymd_hms()</em>. If your downloaded Qualtrics data does not have all those elements (or they are in different order), then consult the <em>lubridate</em> package options for the correct function.</p>
 <p>Below, hashtagged out, is code I have used to format the Qualtrics datestamp. Unless you have changed it for your own surveys, Qualtrics data is collected in Mountain time. Therefore, I have indicated the US/Mountain timezone.</p>
 <div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="TimeLord.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df$DateVariable &lt;- ymd_hms(df$DateVariable, tz = &quot;US/Mountain&quot;)</span></span></code></pre></div>
 </div>
-<div id="what-if-i-care-about-time-zones" class="section level4" number="5.10.1.2">
-<h4><span class="header-section-number">5.10.1.2</span> What if I care about time zones?</h4>
+<div id="what-if-i-care-about-time-zones" class="section level4 hasAnchor" number="5.10.1.2">
+<h4><span class="header-section-number">5.10.1.2</span> What if I care about time zones?<a href="TimeLord.html#what-if-i-care-about-time-zones" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As noted in the prior question, “tz” is the function used to indicate the time zone. A complete list of timezones can be found with the <em>OlsonNames()</em> function. I have hashtagged it out because it is quite a length list!</p>
 <div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="TimeLord.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="co">#OlsonNames()</span></span></code></pre></div>
 </div>
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="refs.html#refs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-lefevor_religious_2017" class="csl-entry">
 Lefevor, G. T., Janis, R. A., &amp; Park, S. Y. (2017). Religious and <span>Sexual</span> <span>Identities</span>: <span>An</span> <span>Intersectional</span>, <span>Longitudinal</span> <span>Examination</span> of <span>Change</span> in <span>Therapy</span>. <em>The Counseling Psychologist</em>, <em>45</em>(3), 387–413. <a href="https://doi.org/10.1177/0011000017702721">https://doi.org/10.1177/0011000017702721</a>

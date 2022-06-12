@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Preliminary (OLS style) Exploration of Longitudinal Growth | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling</title>
   <meta name="description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Preliminary (OLS style) Exploration of Longitudinal Growth | ReCentering Psych Stats: Multilevel/Hierarchical Linear Modeling" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/MultilevelModeling/" />
   <meta property="og:image" content="https://lhbikos.github.io/MultilevelModeling/images/ReC_mlevel_bkcvr.png" />
   <meta property="og:description" content="“Multilevel/Hierarchical Linear Modeling” is a mini-volume in the ReCentering Psych Stats series. Although intended to expand, current lessons review models that are nested within groups and nested within persons. A chapter is devoted to the preliminary exploration of longitudinal growth and another explores calendrical time." />
   <meta name="github-repo" content="lhbikos/extRas" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-03-17" />
+<meta name="date" content="2022-06-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="wGroups.html"/>
 <link rel="next" href="LongMod.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -208,7 +207,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.5.6" data-path="wGroups.html"><a href="wGroups.html#oh-right-the-formulae"><i class="fa fa-check"></i><b>2.5.6</b> Oh right, the Formulae</a></li>
 <li class="chapter" data-level="2.5.7" data-path="wGroups.html"><a href="wGroups.html#apa-style-writeup"><i class="fa fa-check"></i><b>2.5.7</b> APA Style Writeup</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="wGroups.html"><a href="wGroups.html#residual-and-related-questions"><i class="fa fa-check"></i><b>2.6</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="2.6" data-path="wGroups.html"><a href="wGroups.html#a-conversation-with-dr.-lefevor"><i class="fa fa-check"></i><b>2.6</b> A Conversation with Dr. Lefevor</a></li>
 <li class="chapter" data-level="2.7" data-path="wGroups.html"><a href="wGroups.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="2.7.1" data-path="wGroups.html"><a href="wGroups.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed"><i class="fa fa-check"></i><b>2.7.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
@@ -248,7 +247,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.8" data-path="MLMexplore.html"><a href="MLMexplore.html#apa-style-writeup-1"><i class="fa fa-check"></i><b>3.5.8</b> APA Style Writeup</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="MLMexplore.html"><a href="MLMexplore.html#observations-about-the-social-and-cultural-responsivity-of-the-project"><i class="fa fa-check"></i><b>3.6</b> Observations about the Social and Cultural Responsivity of the Project</a></li>
-<li class="chapter" data-level="3.7" data-path="MLMexplore.html"><a href="MLMexplore.html#residual-and-related-questions-1"><i class="fa fa-check"></i><b>3.7</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="3.7" data-path="MLMexplore.html"><a href="MLMexplore.html#residual-and-related-questions"><i class="fa fa-check"></i><b>3.7</b> Residual and Related Questions…</a></li>
 <li class="chapter" data-level="3.8" data-path="MLMexplore.html"><a href="MLMexplore.html#practice-problems-1"><i class="fa fa-check"></i><b>3.8</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="3.8.1" data-path="MLMexplore.html"><a href="MLMexplore.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1"><i class="fa fa-check"></i><b>3.8.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
@@ -301,7 +300,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.7.3" data-path="LongMod.html"><a href="LongMod.html#evaluating-the-models-assumptions"><i class="fa fa-check"></i><b>4.7.3</b> Evaluating the Model’s Assumptions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="LongMod.html"><a href="LongMod.html#apa-style-writeup-2"><i class="fa fa-check"></i><b>4.8</b> APA Style Writeup</a></li>
-<li class="chapter" data-level="4.9" data-path="LongMod.html"><a href="LongMod.html#residual-and-related-questions-2"><i class="fa fa-check"></i><b>4.9</b> Residual and Related Questions…</a></li>
+<li class="chapter" data-level="4.9" data-path="LongMod.html"><a href="LongMod.html#residual-and-related-questions-1"><i class="fa fa-check"></i><b>4.9</b> Residual and Related Questions…</a></li>
 <li class="chapter" data-level="4.10" data-path="LongMod.html"><a href="LongMod.html#practice-problems-2"><i class="fa fa-check"></i><b>4.10</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="4.10.1" data-path="LongMod.html"><a href="LongMod.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-2"><i class="fa fa-check"></i><b>4.10.1</b> Problem #1: Rework the research vignette as demonstrated, but change the random seed</a></li>
@@ -334,7 +333,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="TimeLord.html"><a href="TimeLord.html#structured-time-reworking-the-vignette-with-index"><i class="fa fa-check"></i><b>5.6</b> Structured Time: Reworking the Vignette with Index</a></li>
 <li class="chapter" data-level="5.7" data-path="TimeLord.html"><a href="TimeLord.html#apa-style-writeup-3"><i class="fa fa-check"></i><b>5.7</b> APA Style Writeup</a></li>
-<li class="chapter" data-level="5.8" data-path="TimeLord.html"><a href="TimeLord.html#residual-and-related-questions-3"><i class="fa fa-check"></i><b>5.8</b> Residual and Related Questions…</a>
+<li class="chapter" data-level="5.8" data-path="TimeLord.html"><a href="TimeLord.html#residual-and-related-questions-2"><i class="fa fa-check"></i><b>5.8</b> Residual and Related Questions…</a>
 <ul>
 <li class="chapter" data-level="5.8.1" data-path="TimeLord.html"><a href="TimeLord.html#what-did-we-gainlose-by-using-weeks-or-sessnum-unstructured-versus-index-structured-to-mark-time"><i class="fa fa-check"></i><b>5.8.1</b> What did we gain/lose by using Weeks or SessNum (unstructured) versus Index (structured) to mark time?</a></li>
 <li class="chapter" data-level="5.8.2" data-path="TimeLord.html"><a href="TimeLord.html#how-did-the-unbalanced-time-impact-the-analysis-and-results"><i class="fa fa-check"></i><b>5.8.2</b> How did the unbalanced time impact the analysis and results?</a></li>
@@ -371,17 +370,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="MLMexplore" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Preliminary (OLS style) Exploration of Longitudinal Growth</h1>
+<div id="MLMexplore" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Preliminary (OLS style) Exploration of Longitudinal Growth<a href="MLMexplore.html#MLMexplore" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=36075f1d-b805-40b9-92da-ad2b0053f46c">Screencasted Lecture Link</a></p>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="MLMexplore.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)<span class="co">#eliminates scientific notation</span></span></code></pre></div>
 <p>This lesson is an introduction to longitudinal modeling when time is a factor. In this lecture we explore the longitudinal data using OLS tools. Doing so provides the proper screening/vetting of the data to ensure that it is appropriate for multilevel analysis. Simultaneously, it provides an orientation to the types of questions that MLM will address.</p>
-<div id="navigating-this-lesson-1" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Navigating this Lesson<a href="MLMexplore.html#navigating-this-lesson-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about 1 hour and 20 minutes of lecture. If you work through the materials with me it would be plan for an additional two hours</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_CPA">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-1" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-1" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Learning Objectives<a href="MLMexplore.html#learning-objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Learning objectives from this lecture include the following:</p>
 <ul>
 <li>Identify the 3 criteria for longitudinal analysis (in an HLM/MLM framework)</li>
@@ -392,8 +391,8 @@ div.csl-indent {
 <li>Interpret a correlation coefficient of intercepts and slopes.</li>
 </ul>
 </div>
-<div id="planning-for-practice-1" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-1" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Planning for Practice<a href="MLMexplore.html#planning-for-practice-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The suggestions for homework are graded in complexity and I encourage you to select an option(s) that will stretch you – at least a bit. The more complete descriptions at the end of the chapter follow these suggestions.</p>
 <p>The assignment is intended to span several lessons. Using a dataset that is provided (or one of your own), walk through exploring, conducting, and writing up a complete multilevel model for change with each step below. Minimally, predictors must include time and an L2 variable.</p>
 <p>FROM THIS LESSON</p>
@@ -424,8 +423,8 @@ div.csl-indent {
 <li>Conduct a multi-level analysis with data to which you have access. This could include data you simulate on your own or from a published article. It is quite possible the conditions of your data will necessitate deviations from this approach. Investigate what they are and apply them.</li>
 </ul>
 </div>
-<div id="readings-resources-1" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-1" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Readings &amp; Resources<a href="MLMexplore.html#readings-resources-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
 <li>Singer, J. D., &amp; Willett, J. B. (2003). A framework for investigating change over time/Chapter 1 and Exporing longitudinal data on change/Chapter 2 in <em>Applied longitudinal data analysis: Modeling change and event occurrence.</em> Oxford University Press. <a href="https://doi-org.ezproxy.spu.edu/10.1093/acprof:oso/9780195152968.001.0001" class="uri">https://doi-org.ezproxy.spu.edu/10.1093/acprof:oso/9780195152968.001.0001</a>
@@ -436,8 +435,8 @@ div.csl-indent {
 </ul>
 <p>I love the Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> text for so many reasons. Singer and Willet have published a number of articles together. In the Preface of their text they indicated that they were hired at Harvard at about he same time. Their colleagues expected them to voracious competitors. In contrast, they became great collaborators and made decisions about authorship early on. Their agreement was that in any collaboration they would randomly select who was first author, and they have (including for their text).</p>
 </div>
-<div id="packages-2" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Packages</h3>
+<div id="packages-2" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Packages<a href="MLMexplore.html#packages-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="MLMexplore.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb209-2"><a href="MLMexplore.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(robumeta)){<span class="fu">install.packages</span>(<span class="st">&quot;robumeta&quot;</span>)}</span>
@@ -449,8 +448,8 @@ div.csl-indent {
 <span id="cb209-8"><a href="MLMexplore.html#cb209-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(scales)){<span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)}</span></code></pre></div>
 </div>
 </div>
-<div id="change-over-time-analytics" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Change-Over-Time Analytics</h2>
+<div id="change-over-time-analytics" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Change-Over-Time Analytics<a href="MLMexplore.html#change-over-time-analytics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are a host of ways to investigate change over time: longitudinal SEM, latent growth curve modeling, latent mixture models, and so forth. We are focused on the subset of this approach that has so many names: individual growth curve models, random coefficient models, multilevel models, linear mixed effects models, hierachical linear models.</p>
 <p>Before we start down the longitudinal/repeated measures path, a note to say that this class of statistics was born out of a need to deal with <em>dependency</em> in the data and it applies to both <em>cross-sectional</em> and <em>longitudinal/repeated measures</em> models.</p>
 <ul>
@@ -513,15 +512,15 @@ This class of analysis allows us to address questions about:</p>
 </ol>
 <p>“Structuring up” a longitudinal data set and engaging in preliminary data anlaysis is a great way to further understand this approach to statistical modeling. So, let’s transition to our research vignette.</p>
 </div>
-<div id="workflow-for-longitudinal-mlm" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Workflow for Longitudinal MLM</h2>
+<div id="workflow-for-longitudinal-mlm" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Workflow for Longitudinal MLM<a href="MLMexplore.html#workflow-for-longitudinal-mlm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure">
 <img src="images/LongExpl/WrkFlowLong.jpg" alt="" />
 <p class="caption">Workflow for a longitudinal MLM</p>
 </div>
 </div>
-<div id="research-vignette-1" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Research Vignette</h2>
+<div id="research-vignette-1" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Research Vignette<a href="MLMexplore.html#research-vignette-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Our research vignette <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">Lefevor et al., 2017</a>)</span> examines the intersection of religious and sexual identities of clients in therapy. With 12,825 participants from the Center for Collegiate Mental Health 2012-2014 data set, the project is an example of working with <em>big data.</em> Because the data is available to members only (and behind a paywall), I simulated the data. In the simulation, categorical variables (e.g., sexual identity, session number, religious identity) were rendered as continuous variables and in the simulation, I needed to transform them back into categorical ones. Inevitably, this will have introduced a great deal of error. Thus, we can expect that the results from the simulated data will be different from those obtained by the authors.</p>
 <p>The Method section of the article provides detailed information about the inclusion criteria ofr the study and the coding of the variables. This included data about the religious and sexual identities as well as a minimum of three separate scores on the Counseling Center Assessment of Psychologial Sympsoms <span class="citation">(CCAPS, <a href="#ref-locke_development_2012" role="doc-biblioref">Locke et al., 2012</a>)</span> measure. For the final dataset, clients attended an average of 10.58 sessions (<em>SD</em> = 7.65) and had an average of 5.36 CCAPS administrations (<em>SD</em> = 4.04). This means that in the original dataset, each client was represented by a varying number of observations (likely ranging from 3 [the minimum required for inclusion] and, perhaps as many as 17 [adding +3<em>SD</em>s to the mean CCAPS administrations]). In simulating the data, I specified five observations for each of the 12,825 clients.</p>
 <p>Let’s take a look at the variables in the study</p>
@@ -530,8 +529,8 @@ This class of analysis allows us to address questions about:</p>
 <li><p><strong>Sexual Identity</strong>: Sexual identity was dichotomized into heterosexual (-1, 85.5%) and LGBQQ (1, 14.5%).</p></li>
 <li><p><strong>Relious Identity</strong>: Religious identity was coded into three categories including dominant religious (DR; Christian, Catholic), nondominant religious (NDR; Muslim, Hindu, Buddhist, Jewish), and nondominant unaffiliated (NDU; agnostic, atheist, no preference). The three categories were contrast coded with an orthogonal contrast-coding scheme with two variables. The first variable compared DR(coded as 2) to NDU and NDR (coded as -1); the second variable compared the two nondominant groups (NDU = -1, DR = 0, NDR = 1).</p></li>
 </ul>
-<div id="simulating-the-data-from-the-journal-article-1" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Simulating the data from the journal article</h3>
+<div id="simulating-the-data-from-the-journal-article-1" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Simulating the data from the journal article<a href="MLMexplore.html#simulating-the-data-from-the-journal-article-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="MLMexplore.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
 <span id="cb210-2"><a href="MLMexplore.html#cb210-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
 <span id="cb210-3"><a href="MLMexplore.html#cb210-3" aria-hidden="true" tabindex="-1"></a>n_session <span class="ot">=</span> <span class="dv">5</span></span>
@@ -670,10 +669,10 @@ Attaching package: &#39;data.table&#39;</code></pre>
 <span id="cb216-2"><a href="MLMexplore.html#cb216-2" aria-hidden="true" tabindex="-1"></a>LfvrWide <span class="ot">&lt;-</span> <span class="fu">read.csv</span> (<span class="st">&quot;LefevorWide.csv&quot;</span>, <span class="at">head =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="longitudinal-exploration" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Longitudinal Exploration</h2>
-<div id="the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> The Structure of the Data File as the First Step in Understanding Longitudinal Modeling</h3>
+<div id="longitudinal-exploration" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Longitudinal Exploration<a href="MLMexplore.html#longitudinal-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> The Structure of the Data File as the First Step in Understanding Longitudinal Modeling<a href="MLMexplore.html#the-structure-of-the-data-file-as-the-first-step-in-understanding-longitudinal-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We are accustomed to viewing data in its <em>wide</em> format. The wide format is also technically termed the <strong>person-level</strong> data set or the <em>multivariate</em> format of data. It is characterized by the following:</p>
 <ul>
 <li>Each person has one record and multiple variables contain the data from each measurement occasion; a 16-person set has 16 records while a 20,000 person set has 20,000 records.</li>
@@ -794,8 +793,8 @@ that could have caused the sample correlation (Cumming, 2014).
  </code></pre>
 <p>I should note that a bivariate matrix created from the wide format is rather useless when the assessments are unevenly spaced (time-unstructured; ours are) and the dataset is unbalanced (ours is).</p>
 </div>
-<div id="job1-is-to-get-our-data-from-person-level-into-person-period" class="section level3" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Job#1 is to get our data from person-level into person-period</h3>
+<div id="job1-is-to-get-our-data-from-person-level-into-person-period" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Job#1 is to get our data from person-level into person-period<a href="MLMexplore.html#job1-is-to-get-our-data-from-person-level-into-person-period" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Person-period data set</strong> aka a <em>long</em> or <em>univariate</em> file:</p>
 <ul>
 <li>Each person has multiple records – one for each measurement occasion.</li>
@@ -886,8 +885,8 @@ DRel0        1 -0.41    -1.83  0.00
 Het0         1  0.99    -1.02  0.00</code></pre>
 <p>Evaluating longitudinal growth trajectories in MLM means that we invest in substantial preliminary exporation.</p>
 </div>
-<div id="empirical-growth-plots" class="section level3" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Empirical Growth Plots</h3>
+<div id="empirical-growth-plots" class="section level3 hasAnchor" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Empirical Growth Plots<a href="MLMexplore.html#empirical-growth-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="MLMexplore.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
 <span id="cb231-2"><a href="MLMexplore.html#cb231-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>Researchers commonly look at individual dataplots to see if there are clear trends/patterns across the individuals. Do they rise? Is there a curve? Do some rise and some fall?</p>
@@ -901,8 +900,8 @@ Het0         1  0.99    -1.02  0.00</code></pre>
 <span id="cb232-6"><a href="MLMexplore.html#cb232-6" aria-hidden="true" tabindex="-1"></a><span class="co">#resorting data so that each person is together</span></span>
 <span id="cb232-7"><a href="MLMexplore.html#cb232-7" aria-hidden="true" tabindex="-1"></a>RndmLong <span class="ot">&lt;-</span> <span class="fu">arrange</span>(RndmLong, ClientID, Index)</span></code></pre></div>
 </div>
-<div id="plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record" class="section level3" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record</h3>
+<div id="plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record" class="section level3 hasAnchor" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Plotting a Trajectory as Summary of Each Person’s Empirical Growth Record<a href="MLMexplore.html#plotting-a-trajectory-as-summary-of-each-persons-empirical-growth-record" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> suggest that we do this two ways:</p>
 <ul>
 <li><em>nonparametric</em> models let the “data speak for themselves” by smoothing across temporal idiosyncracies without imposing a specific functional form</li>
@@ -911,8 +910,8 @@ Het0         1  0.99    -1.02  0.00</code></pre>
 <p>While our multilevel modeling will use maximum likelihood, these individual plots are fitted with OLS regression models.</p>
 <p>A better “group-by” tool:<br />
 <a href="http://r4stats.com/2017/04/18/group-by-modeling-in-r-made-easy/" class="uri">http://r4stats.com/2017/04/18/group-by-modeling-in-r-made-easy/</a></p>
-<div id="nonparametrical-smoothing-of-the-empirical-growth-trajectory" class="section level4" number="3.5.4.1">
-<h4><span class="header-section-number">3.5.4.1</span> Nonparametrical Smoothing of the Empirical Growth Trajectory**</h4>
+<div id="nonparametrical-smoothing-of-the-empirical-growth-trajectory" class="section level4 hasAnchor" number="3.5.4.1">
+<h4><span class="header-section-number">3.5.4.1</span> Nonparametrical Smoothing of the Empirical Growth Trajectory**<a href="MLMexplore.html#nonparametrical-smoothing-of-the-empirical-growth-trajectory" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The “smoothed” nonparametric trajectory is superimposed on the data.</p>
 <p>To evaluate, focus on elevation, shape, and title. Where do scores hover at the low, medium, or high end? Does everyone change over time or do some remain the same? Is there an overall pattern of change: linear, curvilinear, smooth, steplike? Is the rate of change similar or different across people.</p>
 <p>Below I have shown how to plot these with variable, Index variable and then again with the variable, Session. Recall that Index is a structured form of counting across the 5 client sessions. In contrast, Session is “time-unstructured” because the intervals are unevenly spaced. Our Index variable clocks 1 through 5; Session0 starts at 0.0, providing a better “intercept” at the first session. Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> recommend also staring at the entire set together as a group. Notice anything?</p>
@@ -952,8 +951,8 @@ Het0         1  0.99    -1.02  0.00</code></pre>
 <p>Because clients (a) start at different points and (b) change differently, MLM is a reasonable approach to analyzing the data. Our choice of L1 (time-covarying) and L2 (person-level) variables may help disentangle these differences.</p>
 <p>As we continue the preliminary exploration, I will use the Session0 variable as our representation of time because it is “truer” to the data.</p>
 </div>
-<div id="parametric-smoothing-of-the-empirical-growth-trajectory-w-ols-regression" class="section level4" number="3.5.4.2">
-<h4><span class="header-section-number">3.5.4.2</span> Parametric Smoothing of the Empirical Growth Trajectory w OLS Regression**</h4>
+<div id="parametric-smoothing-of-the-empirical-growth-trajectory-w-ols-regression" class="section level4 hasAnchor" number="3.5.4.2">
+<h4><span class="header-section-number">3.5.4.2</span> Parametric Smoothing of the Empirical Growth Trajectory w OLS Regression**<a href="MLMexplore.html#parametric-smoothing-of-the-empirical-growth-trajectory-w-ols-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Here we fit a separate parametric model to each person’s data; OLS is appropriate for this preliminary exploration. Next we can summarize each person’s growth trajectory by fitting a separate parametric model to each person’s data. Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> indicate that this is “hardly the most efficient use of longitudinal data…[but] it connects empirical researchers with their data in a direct and intimate way” (p. 28).</p>
 <p>We must identify a “common functional form” (e.g., linear, quadratic, cubic) to fit to all the individuals. Clearly, this is an oversimplification. However, it allows us to easily spot folks for whom the model works and does not. Often the best choice is a straight line and that’s what we will do here.</p>
 <p>There are three steps:</p>
@@ -1601,8 +1600,8 @@ F-statistic: 0.03185 on 1 and 3 DF,  p-value: 0.8697</code></pre>
 </ul>
 <p>Singer and Willett <span class="citation">(<a href="#ref-singer_applied_2003" role="doc-biblioref">2003</a>)</span> can read your minds, “Don’t OLS regression methods assume independence and homoscedastic residuals?” Why, yes! They do. Singer and Willett indicate OLS estimates are very useful for exploratory purposes in that they provide an unbiased estimate of the intercept and slope of the individual change.</p>
 </div>
-<div id="snapshot-of-the-entire-set-of-smooth-trajectories" class="section level4" number="3.5.4.3">
-<h4><span class="header-section-number">3.5.4.3</span> Snapshot of the Entire Set of Smooth Trajectories**</h4>
+<div id="snapshot-of-the-entire-set-of-smooth-trajectories" class="section level4 hasAnchor" number="3.5.4.3">
+<h4><span class="header-section-number">3.5.4.3</span> Snapshot of the Entire Set of Smooth Trajectories**<a href="MLMexplore.html#snapshot-of-the-entire-set-of-smooth-trajectories" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can plop all our trajectories in a set of smoothed individual trajectories. This first plot is simply the raw data. This first plot is just a smoothed (there is a line for each client) plot of the raw/natural metric of the data.</p>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="MLMexplore.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot of raw data for every case</span></span>
 <span id="cb238-2"><a href="MLMexplore.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Session0 provided splotchy data; Index0 gives some indication of change</span></span>
@@ -1621,8 +1620,8 @@ F-statistic: 0.03185 on 1 and 3 DF,  p-value: 0.8697</code></pre>
 <p>What do we observe? Clients present with varying levels of anxiety. On average, change in anxiety declined (at least a little) from the first wave to the fifth.</p>
 </div>
 </div>
-<div id="examining-intercepts-slopes-and-their-relationship" class="section level3" number="3.5.5">
-<h3><span class="header-section-number">3.5.5</span> Examining intercepts, slopes, and their relationship</h3>
+<div id="examining-intercepts-slopes-and-their-relationship" class="section level3 hasAnchor" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> Examining intercepts, slopes, and their relationship<a href="MLMexplore.html#examining-intercepts-slopes-and-their-relationship" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Sample means of the estimated intercepts and slopes</em> (level-1 OLS estimated intercepts and slopes) are unbiased estimates of initial status and rate of change <em>for each person</em>. Their sample means are, therefore, unbiased estimates of the key features of the average observed change trajectory.</p>
 <p><em>Sample variances (SDs) of the estimated intercepts and slopes</em> quantify the amount of observed interindividual heterogeneity in change.</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="MLMexplore.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtaining the intercept from the linear model by ClientID</span></span>
@@ -1651,8 +1650,8 @@ F-statistic: 0.03185 on 1 and 3 DF,  p-value: 0.8697</code></pre>
 <pre><code>[1] 0.008575535</code></pre>
 <p>Not really. <em>r</em> = 0.01.</p>
 </div>
-<div id="exploring-the-relationship-between-change-and-time-invariant-predictors" class="section level3" number="3.5.6">
-<h3><span class="header-section-number">3.5.6</span> Exploring the relationship between Change and Time-Invariant Predictors</h3>
+<div id="exploring-the-relationship-between-change-and-time-invariant-predictors" class="section level3 hasAnchor" number="3.5.6">
+<h3><span class="header-section-number">3.5.6</span> Exploring the relationship between Change and Time-Invariant Predictors<a href="MLMexplore.html#exploring-the-relationship-between-change-and-time-invariant-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Looking at our level-2 predictors can help uncover <em>systematic interindividual differences in change</em>. In this vignette religious affiliation and sexual identity are our L2 predictors.</p>
 <p>Let’s start with religious affiliation Is there a difference in intercept (initial tolerance) or slope (rate of change) as a function of religious affiliation?</p>
 <p>We start by selecting DR, fitting a regression model, and plotting it.</p>
@@ -1723,8 +1722,8 @@ Trajectories for those from dominantreligions stay flat; a few decline.</p>
 <p><img src="ReC_Multilevel_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 <p>What do we observe? Clients who identify as LGBQQ start at different levels of anxiety; most decline somewhere in the middle and then maintain in a consistent/level manner.</p>
 </div>
-<div id="the-relationship-between-ols-estimated-trajectories-and-substantive-predictors" class="section level3" number="3.5.7">
-<h3><span class="header-section-number">3.5.7</span> The Relationship between OLS-Estimated Trajectories and Substantive Predictors</h3>
+<div id="the-relationship-between-ols-estimated-trajectories-and-substantive-predictors" class="section level3 hasAnchor" number="3.5.7">
+<h3><span class="header-section-number">3.5.7</span> The Relationship between OLS-Estimated Trajectories and Substantive Predictors<a href="MLMexplore.html#the-relationship-between-ols-estimated-trajectories-and-substantive-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below are two plots (and corresponding correlation coefficients) for religious affiliation and sexual identity regarding intercept (or initial status). They help us answer the question, is initial status different as a function of gender (then, exposure level).</p>
 <p><em>NOTE</em> that these are calculated from the the wide-format.</p>
 <p><strong>First, is anxiety at Session0 (our initial, or intercept) different for those from dominant and nondominant religions?</strong></p>
@@ -1757,8 +1756,8 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 <pre><code>[1] 0.1113146</code></pre>
 <p>Those with who identify as LGBQQ have sharper rates of change.</p>
 </div>
-<div id="apa-style-writeup-1" class="section level3" number="3.5.8">
-<h3><span class="header-section-number">3.5.8</span> APA Style Writeup</h3>
+<div id="apa-style-writeup-1" class="section level3 hasAnchor" number="3.5.8">
+<h3><span class="header-section-number">3.5.8</span> APA Style Writeup<a href="MLMexplore.html#apa-style-writeup-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Method/Analytic Strategy</strong></p>
 <p>COMING SOON: Will be completed in next lesson</p>
 <p><strong>Results</strong></p>
@@ -1768,20 +1767,20 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 <p>COMING SOON: Will be completed as we work the problem in the next lesson(s).</p>
 </div>
 </div>
-<div id="observations-about-the-social-and-cultural-responsivity-of-the-project" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Observations about the Social and Cultural Responsivity of the Project</h2>
+<div id="observations-about-the-social-and-cultural-responsivity-of-the-project" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Observations about the Social and Cultural Responsivity of the Project<a href="MLMexplore.html#observations-about-the-social-and-cultural-responsivity-of-the-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Accessing and analyzing <em>big data</em> is a strength; it is through these collaborative endeavors that we get greater access to sample sizes representing populations that are marginalized in numbers for which it is possible to analyze.</li>
 <li>Heterosexual and dominant religions are still the basis for comparison. Is this a strength or limitation? It depends on the goal of the project. This dataset, though, may have sufficient representation among marginalized groups for within-group analysis without comparison.</li>
 <li>In the simulation, nondominant religions disappeared. They had been only 5% of the original sample. The authors describe how they ran the models with and without this subgroup and chose to leave them in the dataset.</li>
 </ul>
 </div>
-<div id="residual-and-related-questions-1" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Residual and Related Questions…</h2>
+<div id="residual-and-related-questions" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Residual and Related Questions…<a href="MLMexplore.html#residual-and-related-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>..that you might have; or at least I had, but if had answered them earlier it would have disrupt the flow.</p>
 </div>
-<div id="practice-problems-1" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Practice Problems</h2>
+<div id="practice-problems-1" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Practice Problems<a href="MLMexplore.html#practice-problems-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The assignment is designed to span several lessons. Therefore, at this stage, please select a longitudinal dataset that will allow you to engage in the preliminary exploring, model building (including both exploration of an unconditional growth model and adding at least one L2 variables), and writing up a complete multilevel model for change (as specified below). Minimally, you should have a time-changing dependent variable and corresponding time-covarying (L1) predictor with a minimum of three waves each; our time-covarying predictor is Session. Variables will be clocked with a “sensible time metric.” You should also have a time invariant L2 predictor.</p>
 <p>FROM THIS LESSON</p>
 <ol style="list-style-type: decimal">
@@ -1805,8 +1804,8 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 <li>Write up the Results as demonstrated in the lecture</li>
 <li>Table (use the tab_model outfile) and Figure are required</li>
 </ol>
-<div id="problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> Problem #1: Rework the research vignette as demonstrated, but change the random seed</h3>
+<div id="problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Problem #1: Rework the research vignette as demonstrated, but change the random seed<a href="MLMexplore.html#problem-1-rework-the-research-vignette-as-demonstrated-but-change-the-random-seed-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If this topic feels a bit overwhelming, simply change the random seed in the data simulation, then rework the problem. This should provide minor changes to the data (maybe in the second or third decimal point), but the results will likely be very similar.</p>
 <table>
 <colgroup>
@@ -1850,8 +1849,8 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 </tbody>
 </table>
 </div>
-<div id="problem-2-rework-the-research-vignette-using-the-second-set-of-simulated-data-where-depression-is-the-outcome-variable" class="section level3" number="3.8.2">
-<h3><span class="header-section-number">3.8.2</span> Problem #2: Rework the research vignette using the second set of simulated data where depression is the outcome variable</h3>
+<div id="problem-2-rework-the-research-vignette-using-the-second-set-of-simulated-data-where-depression-is-the-outcome-variable" class="section level3 hasAnchor" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Problem #2: Rework the research vignette using the second set of simulated data where depression is the outcome variable<a href="MLMexplore.html#problem-2-rework-the-research-vignette-using-the-second-set-of-simulated-data-where-depression-is-the-outcome-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use the simulated data, but select one of the other models that was evaluated in the Lewis et al. <span class="citation">(<a href="#ref-lewis_applying_2017" role="doc-biblioref">Lewis et al., 2017</a>)</span> study. Compare your results to those reported in the mansucript.</p>
 <table>
 <colgroup>
@@ -1895,8 +1894,8 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 </tbody>
 </table>
 </div>
-<div id="problem-3-use-other-data-that-is-available-to-you-1" class="section level3" number="3.8.3">
-<h3><span class="header-section-number">3.8.3</span> Problem #3: Use other data that is available to you</h3>
+<div id="problem-3-use-other-data-that-is-available-to-you-1" class="section level3 hasAnchor" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> Problem #3: Use other data that is available to you<a href="MLMexplore.html#problem-3-use-other-data-that-is-available-to-you-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete the exploratory analyses.</p>
 <table>
 <colgroup>
@@ -1941,14 +1940,14 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 </table>
 </div>
 </div>
-<div id="bonus-track-1" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> Bonus Track:</h2>
+<div id="bonus-track-1" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Bonus Track:<a href="MLMexplore.html#bonus-track-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure">
 <img src="images/film-strip-1.jpg" id="id" class="class" width="620" height="211" alt="" />
 <p class="caption">Image of a filmstrip</p>
 </div>
-<div id="simulated-data-when-depression-is-the-outcome" class="section level3" number="3.9.1">
-<h3><span class="header-section-number">3.9.1</span> Simulated Data when Depression is the Outcome</h3>
+<div id="simulated-data-when-depression-is-the-outcome" class="section level3 hasAnchor" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> Simulated Data when Depression is the Outcome<a href="MLMexplore.html#simulated-data-when-depression-is-the-outcome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One suggestion for practice is to work the second MLM example in the Lefevor et al. <span class="citation">(<a href="#ref-lefevor_religious_2017" role="doc-biblioref">Lefevor et al., 2017</a>)</span> example. The code below will simulate the data.</p>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="MLMexplore.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200513</span>)</span>
 <span id="cb275-2"><a href="MLMexplore.html#cb275-2" aria-hidden="true" tabindex="-1"></a>n_client <span class="ot">=</span> <span class="dv">12825</span></span>
@@ -2064,7 +2063,7 @@ The plot of this random sample of data emphasizes that those who identify as LGB
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="refs.html#refs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-lefevor_religious_2017" class="csl-entry">
 Lefevor, G. T., Janis, R. A., &amp; Park, S. Y. (2017). Religious and <span>Sexual</span> <span>Identities</span>: <span>An</span> <span>Intersectional</span>, <span>Longitudinal</span> <span>Examination</span> of <span>Change</span> in <span>Therapy</span>. <em>The Counseling Psychologist</em>, <em>45</em>(3), 387–413. <a href="https://doi.org/10.1177/0011000017702721">https://doi.org/10.1177/0011000017702721</a>
